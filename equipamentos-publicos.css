@@ -33,10 +33,10 @@
 .dash-breadcrumb i { font-size: 10px; color: var(--text-light); }
 
 .dash-hero-title {
-  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   font-weight: 700;
-  /* Syne demanda line-height maior para acentos ascendentes não serem cortados */
+  /* Line-height ajustado para acentos ascendentes não serem cortados */
   line-height: 1.2;
   padding-top: 0.1em;
   letter-spacing: -0.01em;
@@ -409,7 +409,7 @@
 }
 .popup-eq-cat i { font-size: 10px; }
 .popup-eq-title {
-  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif !important;
   font-size: 22px !important;
   font-weight: 700 !important;
   line-height: 1.15 !important;
@@ -913,7 +913,7 @@
 .modal-eq-cat i { font-size: 11px; }
 
 .modal-eq-title {
-  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif !important;
   font-size: 32px;
   font-weight: 700;
   color: var(--primary-dark);

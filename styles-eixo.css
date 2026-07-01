@@ -89,7 +89,7 @@
 }
 
 .eixo-page .pt {
-  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
   font-size: 32px;
   font-weight: 700;
   color: #fff;
@@ -151,7 +151,7 @@
 }
 
 .eixo-page .kpi-val {
-  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
   font-size: 24px;
   font-weight: 700;
   color: var(--color-text-primary);
@@ -558,7 +558,7 @@
 }
 
 .eixo-page .timeline-year {
-  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
   font-size: 18px;
   font-weight: 700;
   color: var(--verde-forte);
@@ -583,7 +583,7 @@
 
 /* KPI compact variants (usadas em Cultura e história e outros) */
 .eixo-page .kpi .kv {
-  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
   font-size: 22px;
   font-weight: 700;
   color: var(--color-text-primary);
@@ -629,7 +629,7 @@
   width: 60px; flex-shrink: 0;
 }
 .eixo-page .tl-year {
-  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
   font-size: 15px; font-weight: 700;
   color: var(--verde-forte);
   white-space: nowrap;
@@ -710,7 +710,7 @@
   border: 1px solid var(--color-border-tertiary);
 }
 .eixo-page .cal-date {
-  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
   font-size: 24px; font-weight: 700;
   color: var(--verde-forte);
   margin-bottom: 4px;
@@ -799,7 +799,7 @@
 .eixo-page .hab-stat:last-child { margin-bottom: 0; }
 .eixo-page .hab-label { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 5px; font-weight: 500; }
 .eixo-page .hab-val {
-  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
   font-size: 22px; font-weight: 700;
   color: var(--color-text-primary);
 }
@@ -844,7 +844,7 @@
   text-align: center;
 }
 .eixo-page .pgv-num {
-  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
   font-size: 22px; font-weight: 700;
   color: var(--verde-forte);
   line-height: 1;
@@ -945,7 +945,7 @@
   text-align: center;
 }
 .eixo-page .cmp-val {
-  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
   font-size: 22px; font-weight: 700;
   color: var(--color-text-primary);
 }
