@@ -197,7 +197,9 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
     url('images/hero-00.png') center center / cover no-repeat;
   background-color: var(--primary);
   color: white;
-  padding: 90px 0 40px;
+  /* Padding-top precisa dar folga suficiente depois do header (~110px) para o título
+     Syne (com ascendentes altos) respirar sem grudar no topo. */
+  padding: 140px 0 60px;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -346,7 +348,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 /* ====== STATS ====== */
 .stats {
   background: transparent;
-  padding: 0 0 40px;
+  padding: 0 0 20px;
   position: relative;
   margin-top: -1px;
 }
@@ -429,7 +431,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 }
 
 /* ====== ABOUT ====== */
-.about { padding: 60px 0; background: white; }
+.about { padding: 30px 0 60px; background: white; }
 
 .about-grid {
   display: grid;
