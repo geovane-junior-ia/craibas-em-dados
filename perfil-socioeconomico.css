@@ -32,7 +32,7 @@
 .page-hero-breadcrumb i { font-size: 10px; color: var(--text-light); }
 
 .page-hero-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(2.4rem, 5.4vw, 4.2rem);
   font-weight: 700;
   line-height: 1.05;
@@ -275,7 +275,7 @@
   gap: 16px;
 }
 .chart-card-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 22px;
   font-weight: 700;
   color: var(--primary-dark);
@@ -428,7 +428,7 @@
   margin-bottom: 12px;
 }
 .activity-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 6px;
@@ -471,7 +471,7 @@
   font-size: 19px;
   font-weight: 700;
   color: var(--primary-dark);
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   transition: var(--transition);
 }
 .accordion-trigger:hover { background: var(--bg-soft); }
@@ -563,7 +563,7 @@
 }
 .highlight-banner-content { position: relative; }
 .highlight-banner-content h3 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 4px;
@@ -607,7 +607,7 @@
   padding: 32px;
 }
 .info-text-card h3 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 26px;
   font-weight: 700;
   color: var(--primary-dark);
@@ -769,7 +769,7 @@
 }
 .modal-body { padding: 36px; }
 .modal-body h2 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 32px;
   font-weight: 700;
   color: var(--primary-dark);

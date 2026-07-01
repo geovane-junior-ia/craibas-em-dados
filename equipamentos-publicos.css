@@ -33,7 +33,7 @@
 .dash-breadcrumb i { font-size: 10px; color: var(--text-light); }
 
 .dash-hero-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   font-weight: 700;
   line-height: 1.05;
@@ -407,7 +407,7 @@
 }
 .popup-eq-cat i { font-size: 10px; }
 .popup-eq-title {
-  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
   font-size: 22px !important;
   font-weight: 700 !important;
   line-height: 1.15 !important;
@@ -911,7 +911,7 @@
 .modal-eq-cat i { font-size: 11px; }
 
 .modal-eq-title {
-  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
   font-size: 32px;
   font-weight: 700;
   color: var(--primary-dark);

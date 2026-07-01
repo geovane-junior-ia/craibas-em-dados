@@ -122,7 +122,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 
 .logo-text strong {
   display: block;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 22px;
   font-weight: 700;
   color: var(--primary);
@@ -248,7 +248,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 }
 
 .hero-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(2rem, 4.6vw, 3.4rem);
   font-weight: 700;
   line-height: 1.1;
@@ -455,7 +455,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 }
 
 .section-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   color: var(--primary-dark);
@@ -586,7 +586,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   margin-bottom: 20px;
 }
 .map-header h3 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 24px;
   font-weight: 700;
   color: var(--primary-dark);
@@ -739,7 +739,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 }
 .indicator-card:hover { transform: translateY(-4px); border-color: var(--accent); }
 .indicator-card h4 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 4px;
@@ -863,7 +863,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 }
 
 .chapter-card h3 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 24px;
   font-weight: 700;
   color: var(--primary-dark);
@@ -955,7 +955,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 }
 
 .cta-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(1.8rem, 3.4vw, 2.8rem);
   font-weight: 700;
   margin-bottom: 16px;
@@ -1013,7 +1013,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   color: var(--accent);
 }
 .eixos-mini-head h2 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(1.8rem, 3.4vw, 2.6rem);
   font-weight: 700;
   color: white;
@@ -1174,7 +1174,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 
 .footer-col h4 {
   color: white;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Syne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 22px;
