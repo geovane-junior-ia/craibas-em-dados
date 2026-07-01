@@ -8,14 +8,26 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  .hero-title, .page-hero-title, .dash-hero-title,
+  .section-title, .cta-title, .chapter-card h3, .indicator-card h4,
+  .map-header h3, .footer-col h4, .logo-text strong,
+  .chart-card-title, .activity-title, .accordion-trigger,
+  .info-text-card h3, .modal-body h2, .highlight-banner-content h3,
+  .modal-equip h2 {
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif !important;
+    font-display: swap;
+  }
+</style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.5.0/dist/tabler-icons.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <link rel="stylesheet" href="../styles.css">
-<link rel="stylesheet" href="../styles-eixo.css">
+<link rel="stylesheet" href="../perfil-socioeconomico.css">
+<link rel="stylesheet" href="../restrito.css">
 </head>
 <body>
 
-<!-- ===== HEADER PADRÃO ===== -->
+<!-- ===== HEADER ===== -->
 <header class="header" id="header">
   <div class="header-top">
     <div class="container header-top-inner">
@@ -50,220 +62,417 @@
   </div>
 </header>
 
-<!-- ===== PÁGINA DO EIXO ===== -->
-<main class="eixo-page">
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="page-hero-breadcrumb">
+      <a href="../index.html"><i class="fas fa-home"></i> Início</a>
+      <i class="fas fa-chevron-right"></i>
+      <a href="../index.html#capitulos">Eixos Temáticos</a>
+      <i class="fas fa-chevron-right"></i>
+      <span>Craíbas: visão geral</span>
+    </div>
+    <h1 class="page-hero-title">Craíbas: <span>visão geral</span></h1>
+    <p class="page-hero-lead">
+      Onde fica, como é o território, a economia e o meio ambiente. Uma introdução
+      ao município para entender o contexto do diagnóstico — com dados oficiais
+      do IBGE, PNUD, ANM e IBGE Contas Regionais.
+    </p>
+  </div>
+</section>
+
+<!-- ===== TABS NAV (sticky) ===== -->
+<div class="tabs-nav-wrap">
   <div class="container">
+    <div class="tabs-nav" role="tablist">
+      <button class="tab-btn active" data-tab="localizacao" role="tab">
+        <i class="fas fa-map-pin"></i><span>Localização</span>
+      </button>
+      <button class="tab-btn" data-tab="territorio" role="tab">
+        <i class="fas fa-tree"></i><span>Território e clima</span>
+      </button>
+      <button class="tab-btn" data-tab="minerais" role="tab">
+        <i class="fas fa-gem"></i><span>Riqueza mineral</span>
+      </button>
+      <button class="tab-btn" data-tab="economia" role="tab">
+        <i class="fas fa-chart-bar"></i><span>Economia</span>
+      </button>
+    </div>
+  </div>
+</div>
 
-    <div class="w">
-      <h2 class="sr-only">Craíbas: visão geral do município — localização, território, economia e meio ambiente</h2>
+<!-- ===========================================
+     PAINEL 1 — LOCALIZAÇÃO
+     =========================================== -->
+<section class="tab-panel active" data-tab="localizacao">
+  <div class="container">
+    <div class="panel-head">
+      <span class="section-tag"><i class="fas fa-map-pin"></i> Localização</span>
+      <h2 class="section-title">No <span>coração</span> do Agreste Alagoano</h2>
+      <p class="section-lead">
+        Craíbas fica na região central de Alagoas, a 160 km de Maceió, integrando a microrregião de Arapiraca. É cortada por três rodovias importantes e faz divisa com seis municípios.
+      </p>
+    </div>
 
-      <!-- Título + breadcrumb -->
-      <div class="ph">
-        <div class="bc">
-          <a href="../index.html"><i class="ti ti-home" aria-hidden="true"></i> Início</a>
-          <i class="ti ti-chevron-right" aria-hidden="true"></i>
-          <a href="../index.html#capitulos">Eixos temáticos</a>
-          <i class="ti ti-chevron-right" aria-hidden="true"></i>
-          <span>Craíbas: visão geral</span>
-        </div>
-        <div class="pt">Craíbas: visão geral</div>
-        <div class="ps">Conheça o município — onde fica, como é o território, a economia e o meio ambiente. Uma introdução a Craíbas para entender o contexto do diagnóstico.</div>
+    <!-- KPIs -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="fas fa-users"></i></div>
+        <div class="kpi-value">25.397</div>
+        <div class="kpi-label">Habitantes (Censo 2022)</div>
+        <span class="kpi-trend neutral">5º da microrregião</span>
       </div>
-
-      <!-- Insight -->
-      <div class="insight">
-        <i class="ti ti-bulb ii" aria-hidden="true"></i>
-        <div class="it"><strong>O que o diagnóstico revelou:</strong> Craíbas tem uma economia em rápida transformação, impulsionada pela mineração. O PIB cresceu mais de 300% em uma década — mas o IDHM ainda é 0,525, um dos mais baixos da região. A riqueza do subsolo ainda não se converteu em melhoria concreta na qualidade de vida da população.</div>
+      <div class="kpi-card accent">
+        <div class="kpi-icon"><i class="fas fa-map"></i></div>
+        <div class="kpi-value">277,6<small> km²</small></div>
+        <div class="kpi-label">Área territorial</div>
+        <span class="kpi-trend neutral">IBGE, 2025</span>
       </div>
-
-      <!-- KPIs -->
-      <div class="kpi-grid">
-        <div class="kpi">
-          <div class="kpi-label">População (Censo 2022)</div>
-          <div class="kpi-val">25.397</div>
-          <div class="kpi-sub">5º mais populoso da microrregião</div>
-        </div>
-        <div class="kpi">
-          <div class="kpi-label">Área territorial</div>
-          <div class="kpi-val">277,6 km²</div>
-          <div class="kpi-sub">IBGE, 2025</div>
-        </div>
-        <div class="kpi destaque">
-          <div class="kpi-label">PIB municipal (2023)</div>
-          <div class="kpi-val">R$ 450 mi</div>
-          <div class="kpi-sub">+300% desde 2010</div>
-        </div>
-        <div class="kpi">
-          <div class="kpi-label">PIB per capita (2023)</div>
-          <div class="kpi-val">R$ 18.236</div>
-          <div class="kpi-sub">IBGE</div>
-        </div>
-        <div class="kpi alerta">
-          <div class="kpi-label">IDHM (2010)</div>
-          <div class="kpi-val">0,525</div>
-          <div class="kpi-sub">Ponto de atenção — abaixo da média regional</div>
-        </div>
-        <div class="kpi">
-          <div class="kpi-label">Densidade demográfica</div>
-          <div class="kpi-val">91,07 hab/km²</div>
-          <div class="kpi-sub">Censo IBGE 2022</div>
-        </div>
+      <div class="kpi-card blue">
+        <div class="kpi-icon"><i class="fas fa-route"></i></div>
+        <div class="kpi-value">160<small> km</small></div>
+        <div class="kpi-label">Distância de Maceió</div>
+        <span class="kpi-trend neutral">BR-316, BR-101, AL-220</span>
       </div>
-
-      <!-- Abas -->
-      <div class="tab-row" role="tablist">
-        <div class="tab active" role="tab" onclick="showTab('localizacao',this)"><i class="ti ti-map-pin" aria-hidden="true"></i> Localização</div>
-        <div class="tab" role="tab" onclick="showTab('territorio',this)"><i class="ti ti-trees" aria-hidden="true"></i> Território e clima</div>
-        <div class="tab" role="tab" onclick="showTab('minerais',this)"><i class="ti ti-diamond" aria-hidden="true"></i> Riqueza mineral</div>
-        <div class="tab" role="tab" onclick="showTab('economia',this)"><i class="ti ti-chart-bar" aria-hidden="true"></i> Economia</div>
-      </div>
-
-      <!-- Aba: Localização -->
-      <div id="tab-localizacao" class="tab-content active">
-        <div class="two-col">
-          <div class="card">
-            <div class="card-h"><i class="ti ti-map" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="card-title">Localização no estado</div></div>
-            <div class="card-body">
-              <div class="map-area">
-                <svg class="map-grid-lines" width="100%" height="100%"><line x1="0" y1="33%" x2="100%" y2="33%" stroke="currentColor" stroke-width="0.5"/><line x1="0" y1="66%" x2="100%" y2="66%" stroke="currentColor" stroke-width="0.5"/><line x1="33%" y1="0" x2="33%" y2="100%" stroke="currentColor" stroke-width="0.5"/><line x1="66%" y1="0" x2="66%" y2="100%" stroke="currentColor" stroke-width="0.5"/></svg>
-                <div style="position:absolute;top:8px;left:8px;font-size:10px;color:#5F5E5A;font-weight:500">Alagoas</div>
-                <div class="loc-ring" style="left:48%;top:48%"></div>
-                <div class="loc-dot" style="left:48%;top:48%"></div>
-                <div style="position:absolute;left:52%;top:36%;font-size:11px;color:var(--verde-texto);font-weight:600;white-space:nowrap">Craíbas</div>
-                <div class="neighbor" style="left:55%;top:52%">Arapiraca</div>
-                <div class="neighbor" style="left:28%;top:44%">Igaci</div>
-                <div class="neighbor" style="left:42%;top:62%">Jaramataia</div>
-                <div class="neighbor" style="left:58%;top:38%">Girau do Ponciano</div>
-                <div class="neighbor" style="left:60%;top:60%">Lagoa da Canoa</div>
-                <div style="position:absolute;bottom:8px;right:8px;font-size:9px;color:#888780">Posição aproximada</div>
-              </div>
-              <div class="map-legend-row">
-                <div class="map-leg"><div style="width:10px;height:10px;background:var(--verde-forte);border-radius:50%;border:2px solid white"></div> Craíbas</div>
-                <div class="map-leg"><i class="ti ti-road" aria-hidden="true"></i> BR-316 · BR-101 · AL-220</div>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-h"><i class="ti ti-info-circle" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="card-title">Dados de localização</div></div>
-            <div class="card-body">
-              <div class="data-row"><span class="data-label"><i class="ti ti-map-pin" aria-hidden="true"></i> Mesorregião</span><span class="data-val">Agreste Alagoano</span></div>
-              <div class="data-row"><span class="data-label"><i class="ti ti-map-pin" aria-hidden="true"></i> Microrregião</span><span class="data-val">Arapiraca</span></div>
-              <div class="data-row"><span class="data-label"><i class="ti ti-route" aria-hidden="true"></i> Distância de Maceió</span><span class="data-val">~160 km</span></div>
-              <div class="data-row"><span class="data-label"><i class="ti ti-gps" aria-hidden="true"></i> Coordenadas</span><span class="data-val">09°37'S · 36°46'O</span></div>
-              <div class="data-row"><span class="data-label"><i class="ti ti-building-community" aria-hidden="true"></i> Vizinhos</span><span class="data-val" style="font-size:11px;line-height:1.4">Igaci · Girau do Ponciano<br>Arapiraca · Jaramataia<br>Lagoa da Canoa · Major Isidoro</span></div>
-              <div class="data-row"><span class="data-label"><i class="ti ti-road" aria-hidden="true"></i> Acesso viário</span><span class="data-val">BR-316 · BR-101 · AL-220</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Aba: Território e clima -->
-      <div id="tab-territorio" class="tab-content">
-        <div class="two-col">
-          <div class="card">
-            <div class="card-h"><i class="ti ti-trees" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="card-title">Território e meio ambiente</div></div>
-            <div class="card-body">
-              <div class="data-row"><span class="data-label"><i class="ti ti-leaf" aria-hidden="true"></i> Bioma</span><span class="data-val">Caatinga</span></div>
-              <div class="data-row"><span class="data-label"><i class="ti ti-sun" aria-hidden="true"></i> Clima</span><span class="data-val">Tropical semiárido (BSh)</span></div>
-              <div class="data-row"><span class="data-label"><i class="ti ti-cloud-rain" aria-hidden="true"></i> Precipitação média</span><span class="data-val">431,8 mm/ano</span></div>
-              <div class="data-row"><span class="data-label"><i class="ti ti-calendar" aria-hidden="true"></i> Período chuvoso</span><span class="data-val">Novembro a Abril</span></div>
-              <div class="data-row"><span class="data-label"><i class="ti ti-wave-sine" aria-hidden="true"></i> Bacia hidrográfica</span><span class="data-val">Rio São Francisco</span></div>
-              <div class="data-row"><span class="data-label"><i class="ti ti-wave-sine" aria-hidden="true"></i> Sub-bacia</span><span class="data-val">Rio Traipu · Riacho Salgado</span></div>
-              <div class="data-row"><span class="data-label"><i class="ti ti-mountain" aria-hidden="true"></i> Altitude média</span><span class="data-val">~281 m</span></div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-h"><i class="ti ti-droplet" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="card-title">Recursos hídricos</div></div>
-            <div class="card-body">
-              <div class="data-row"><span class="data-label"><i class="ti ti-ripple" aria-hidden="true"></i> Regime dos rios</span><span class="data-val">Predominantemente intermitente</span></div>
-              <div class="data-row"><span class="data-label"><i class="ti ti-droplet-half" aria-hidden="true"></i> Poços profundos</span><span class="data-val">3 artesianos</span></div>
-              <div class="data-row"><span class="data-label"><i class="ti ti-droplet-half" aria-hidden="true"></i> Poços rasos</span><span class="data-val">37 freáticos / cacimbas</span></div>
-              <div class="nota-metodo">
-                <i class="ti ti-info-circle" aria-hidden="true"></i>
-                <div>A baixa disponibilidade hídrica é uma condição estrutural do município, característica do semiárido. Ponto de atenção destacado no diagnóstico.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Aba: Riqueza mineral -->
-      <div id="tab-minerais" class="tab-content">
-        <div class="card">
-          <div class="card-h"><i class="ti ti-diamond" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="card-title">Minerais do subsolo</div></div>
-          <div class="card-body">
-            <div class="mineral-grid">
-              <div class="mineral"><div class="mineral-name">Cobre</div><div class="mineral-type">Metálico</div></div>
-              <div class="mineral"><div class="mineral-name">Ouro</div><div class="mineral-type">Metálico</div></div>
-              <div class="mineral"><div class="mineral-name">Níquel</div><div class="mineral-type">Metálico</div></div>
-              <div class="mineral"><div class="mineral-name">Ferro</div><div class="mineral-type">Metálico</div></div>
-              <div class="mineral"><div class="mineral-name">Platina</div><div class="mineral-type">Metálico</div></div>
-              <div class="mineral"><div class="mineral-name">Paládio</div><div class="mineral-type">Metálico</div></div>
-              <div class="mineral"><div class="mineral-name">Quartzo</div><div class="mineral-type">Não metálico</div></div>
-              <div class="mineral"><div class="mineral-name">Ametista</div><div class="mineral-type">Não metálico</div></div>
-              <div class="mineral"><div class="mineral-name">Feldspato</div><div class="mineral-type">Não metálico</div></div>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-h"><i class="ti ti-building-factory" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="card-title">Projeto Serrote — Mineração Vale Verde</div></div>
-          <div class="card-body">
-            <div class="data-row"><span class="data-label">Investimentos realizados</span><span class="data-val">+ R$ 60 milhões</span></div>
-            <div class="data-row"><span class="data-label">Estimativa de produção</span><span class="data-val">200 milhões de toneladas</span></div>
-            <div class="data-row"><span class="data-label">Processamento diário</span><span class="data-val">42 mil toneladas</span></div>
-            <div class="data-row"><span class="data-label">CFEM* arrecadado/ano</span><span class="data-val">R$ 20,8 milhões</span></div>
-            <div class="data-row"><span class="data-label">Participação no CFEM estadual</span><span class="data-val" style="color:var(--verde-texto)">97% de Alagoas</span></div>
-            <div class="nota-metodo">
-              <i class="ti ti-info-circle" aria-hidden="true"></i>
-              <div><strong>*CFEM</strong> — Compensação Financeira pela Exploração Mineral: imposto que a mineradora paga ao município pelo uso do subsolo.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Aba: Economia -->
-      <div id="tab-economia" class="tab-content">
-        <div class="two-col">
-          <div class="card">
-            <div class="card-h"><i class="ti ti-chart-bar" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="card-title">De onde vem a riqueza do município</div></div>
-            <div class="card-body">
-              <div style="font-size:11px;color:var(--color-text-tertiary);margin-bottom:12px">VAB* por setor · IBGE, 2021</div>
-              <div class="eco-bar-row"><div class="eco-label">Indústria</div><div class="eco-track"><div class="eco-fill" style="width:82%;background:var(--verde-forte)"></div></div><div class="eco-pct">32,7%</div></div>
-              <div class="eco-bar-row"><div class="eco-label">Administração Pública</div><div class="eco-track"><div class="eco-fill" style="width:66%;background:#378ADD"></div></div><div class="eco-pct">26,3%</div></div>
-              <div class="eco-bar-row"><div class="eco-label">Serviços</div><div class="eco-track"><div class="eco-fill" style="width:58%;background:#5DCAA5"></div></div><div class="eco-pct">23,0%</div></div>
-              <div class="eco-bar-row"><div class="eco-label">Agropecuária</div><div class="eco-track"><div class="eco-fill" style="width:45%;background:#EF9F27"></div></div><div class="eco-pct">18,0%</div></div>
-              <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:12px"><strong>*VAB</strong> — Valor Adicionado Bruto: soma da riqueza gerada por cada setor da economia no município.</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-h"><i class="ti ti-trending-up" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="card-title">Principais setores empregadores</div></div>
-            <div class="card-body">
-              <div class="data-row"><span class="data-label">1º</span><span class="data-val">Administração pública</span></div>
-              <div class="data-row"><span class="data-label">2º</span><span class="data-val">Extração mineral</span></div>
-              <div class="data-row"><span class="data-label">3º</span><span class="data-val">Preparação do terreno</span></div>
-              <div style="height:1px;background:var(--color-border-tertiary);margin:12px 0"></div>
-              <div class="data-row"><span class="data-label">Empregos formais (2022)</span><span class="data-val">~2.100</span></div>
-              <div class="data-row"><span class="data-label">Atividade agrícola</span><span class="data-val">Fumo · Mandioca</span></div>
-              <div class="data-row"><span class="data-label">Polo regional</span><span class="data-val">Arapiraca</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Alert -->
-      <div class="alert-box">
-        <i class="ti ti-alert-triangle alert-icon" aria-hidden="true"></i>
-        <div class="alert-text"><strong>Tensão central do diagnóstico:</strong> os recursos minerais são finitos. O IDHM de Craíbas (0,525) ainda é um dos mais baixos da região, evidenciando o desafio de converter a riqueza do subsolo em melhoria concreta para a população.</div>
-      </div>
-
-      <!-- Fontes -->
-      <div class="fontes">
-        <div class="fontes-text"><strong>Fontes:</strong> IBGE · Censo Demográfico 2022 · Contas Nacionais Regionais 2023 · PNUD · Atlas IDHM 2010 · ANM/SIGMINE 2025 · Diagnóstico Inteligente PlanUrbi, 2026.</div>
+      <div class="kpi-card dark">
+        <div class="kpi-icon"><i class="fas fa-percent"></i></div>
+        <div class="kpi-value">91,07<small> hab/km²</small></div>
+        <div class="kpi-label">Densidade demográfica</div>
+        <span class="kpi-trend neutral">IBGE, 2022</span>
       </div>
     </div>
 
+    <!-- Info cols: mapa + dados -->
+    <div class="info-cols">
+      <div class="info-text-card">
+        <h3>Dados de localização</h3>
+        <p>Craíbas está inserida na mesorregião do <strong>Agreste Alagoano</strong>, microrregião de <strong>Arapiraca</strong> — polo econômico e de serviços que exerce forte influência sobre o município.</p>
+        <p>O acesso viário se dá por rodovias federais (BR-316 e BR-101) e a estadual AL-220, que corta o distrito de Folha Miúda. As coordenadas do centro urbano são <strong>09°37'04,8"S · 36°46'05"O</strong>.</p>
+        <ul class="info-bullets">
+          <li><i class="fas fa-check-circle"></i> Faz divisa com <strong>seis municípios</strong>: Igaci, Girau do Ponciano, Arapiraca, Jaramataia, Lagoa da Canoa e Major Isidoro</li>
+          <li><i class="fas fa-check-circle"></i> Altitude média de <strong>281 metros</strong> acima do nível do mar</li>
+          <li><i class="fas fa-check-circle"></i> Integra a <strong>bacia hidrográfica do Rio São Francisco</strong>, sub-bacia do Rio Traipu</li>
+        </ul>
+      </div>
+      <div class="map-card">
+        <div class="map-header">
+          <h3>Localização em Alagoas</h3>
+          <span class="map-coords">9°37'S · 36°46'W</span>
+        </div>
+        <div class="map-embed-wrap">
+          <iframe
+            class="map-embed"
+            src="https://maps.google.com/maps?q=Cra%C3%ADbas%2C%20Alagoas%2C%20Brasil&t=&z=10&ie=UTF8&iwloc=&output=embed"
+            title="Mapa de Craíbas — Google Maps"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+          <a class="map-embed-link"
+             href="https://www.google.com/maps/place/Cra%C3%ADbas,+AL/@-9.6235,-36.7681,10z"
+             target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-up-right-from-square"></i> Abrir no Google Maps
+          </a>
+        </div>
+        <div class="map-info">
+          <div class="map-info-item">
+            <span class="mi-label">Mesorregião</span>
+            <span class="mi-value">Agreste</span>
+          </div>
+          <div class="map-info-item">
+            <span class="mi-label">Microrregião</span>
+            <span class="mi-value">Arapiraca</span>
+          </div>
+          <div class="map-info-item">
+            <span class="mi-label">Bioma</span>
+            <span class="mi-value">Caatinga</span>
+          </div>
+          <div class="map-info-item">
+            <span class="mi-label">Altitude</span>
+            <span class="mi-value">281 m</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</main>
+</section>
+
+<!-- ===========================================
+     PAINEL 2 — TERRITÓRIO E CLIMA
+     =========================================== -->
+<section class="tab-panel" data-tab="territorio">
+  <div class="container">
+    <div class="panel-head">
+      <span class="section-tag"><i class="fas fa-tree"></i> Território e clima</span>
+      <h2 class="section-title">Caatinga, <span>solo raso</span> e água escassa</h2>
+      <p class="section-lead">
+        Craíbas está integralmente inserida no bioma Caatinga — único bioma exclusivamente brasileiro. O clima semiárido concentra chuvas em poucos meses do ano e os rios são predominantemente intermitentes.
+      </p>
+    </div>
+
+    <!-- KPIs território -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="fas fa-leaf"></i></div>
+        <div class="kpi-value">Caatinga</div>
+        <div class="kpi-label">Bioma predominante</div>
+        <span class="kpi-trend up">Único 100% brasileiro</span>
+      </div>
+      <div class="kpi-card accent">
+        <div class="kpi-icon"><i class="fas fa-cloud-showers-heavy"></i></div>
+        <div class="kpi-value">431,8<small> mm</small></div>
+        <div class="kpi-label">Precipitação anual</div>
+        <span class="kpi-trend down">Concentrada em 4 meses</span>
+      </div>
+      <div class="kpi-card blue">
+        <div class="kpi-icon"><i class="fas fa-water"></i></div>
+        <div class="kpi-value">Rio São Francisco</div>
+        <div class="kpi-label">Bacia hidrográfica</div>
+        <span class="kpi-trend neutral">Sub-bacia Traipu</span>
+      </div>
+      <div class="kpi-card dark">
+        <div class="kpi-icon"><i class="fas fa-mountain"></i></div>
+        <div class="kpi-value">281<small> m</small></div>
+        <div class="kpi-label">Altitude média</div>
+        <span class="kpi-trend neutral">Relevo suavemente ondulado</span>
+      </div>
+    </div>
+
+    <!-- Chart precipitação + card recursos hídricos -->
+    <div class="chart-grid cols-2">
+      <div class="chart-card">
+        <div class="chart-card-head">
+          <div>
+            <div class="chart-card-title">Precipitação média mensal</div>
+            <div class="chart-card-sub">Distribuição típica do semiárido</div>
+          </div>
+          <span class="chart-card-badge">Chuva concentrada</span>
+        </div>
+        <div class="chart-canvas-wrap"><canvas id="chart-precipitacao"></canvas></div>
+        <div class="chart-card-footer">Fonte: Climatempo · série histórica de Craíbas</div>
+      </div>
+      <div class="info-text-card">
+        <h3>Recursos hídricos</h3>
+        <p>A maioria dos rios de Craíbas é <strong>intermitente</strong> — só têm água na estação chuvosa (abril a julho). Fora desse período, o abastecimento depende de fontes subterrâneas.</p>
+        <ul class="info-bullets">
+          <li><i class="fas fa-droplet"></i> <strong>3 poços artesianos</strong> profundos cadastrados</li>
+          <li><i class="fas fa-droplet"></i> <strong>37 poços rasos</strong> e cacimbas na zona rural</li>
+          <li><i class="fas fa-triangle-exclamation"></i> Ponto de atenção identificado: baixa disponibilidade hídrica estrutural</li>
+        </ul>
+        <p style="margin-top:16px;font-size:13px;background:var(--bg-soft);padding:14px;border-radius:var(--radius-sm);border-left:3px solid var(--accent)">
+          <strong>Dado emergencial:</strong> em 2025, Craíbas recebeu reconhecimento federal de <strong>emergência por estiagem</strong> (Portaria 1.317/2025 — Defesa Civil Nacional).
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================
+     PAINEL 3 — RIQUEZA MINERAL
+     =========================================== -->
+<section class="tab-panel" data-tab="minerais">
+  <div class="container">
+    <div class="panel-head">
+      <span class="section-tag"><i class="fas fa-gem"></i> Riqueza mineral</span>
+      <h2 class="section-title">O subsolo mais <span>rentável</span> de Alagoas</h2>
+      <p class="section-lead">
+        Craíbas concentra o maior empreendimento minerário do estado — o Projeto Serrote da Mineração Vale Verde — responsável por 97% de toda a arrecadação de CFEM em Alagoas.
+      </p>
+    </div>
+
+    <!-- Highlight banner -->
+    <div class="highlight-banner">
+      <div class="highlight-banner-icon"><i class="fas fa-gem"></i></div>
+      <div class="highlight-banner-content">
+        <h3>97% da arrecadação mineral de Alagoas</h3>
+        <p>Projeto Serrote (Mineração Vale Verde) — R$ 20,8 milhões/ano em CFEM* recolhidos ao município. Investimento de +R$ 60 milhões e capacidade de processar 42 mil toneladas de minério por dia.</p>
+      </div>
+      <div class="highlight-banner-num">R$ 20,8mi<small>CFEM/ano</small></div>
+    </div>
+
+    <!-- KPIs mineração -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="fas fa-industry"></i></div>
+        <div class="kpi-value">200<small> mi ton</small></div>
+        <div class="kpi-label">Estimativa de produção</div>
+        <span class="kpi-trend neutral">Vida útil do projeto</span>
+      </div>
+      <div class="kpi-card accent">
+        <div class="kpi-icon"><i class="fas fa-truck"></i></div>
+        <div class="kpi-value">42.000<small> ton/dia</small></div>
+        <div class="kpi-label">Processamento</div>
+        <span class="kpi-trend up">Alta capacidade</span>
+      </div>
+      <div class="kpi-card blue">
+        <div class="kpi-icon"><i class="fas fa-money-bill-trend-up"></i></div>
+        <div class="kpi-value">R$ 60+<small>milhões</small></div>
+        <div class="kpi-label">Investimentos realizados</div>
+        <span class="kpi-trend up">Craíbas + Arapiraca</span>
+      </div>
+      <div class="kpi-card dark">
+        <div class="kpi-icon"><i class="fas fa-percentage"></i></div>
+        <div class="kpi-value">97<small>%</small></div>
+        <div class="kpi-label">Do CFEM de Alagoas</div>
+        <span class="kpi-trend up">Maior arrecadador do estado</span>
+      </div>
+    </div>
+
+    <!-- Minerais grid + tabela projeto -->
+    <div class="chart-grid cols-2">
+      <div class="chart-card">
+        <div class="chart-card-head">
+          <div>
+            <div class="chart-card-title">Minerais do subsolo</div>
+            <div class="chart-card-sub">Metálicos e não metálicos identificados</div>
+          </div>
+          <span class="chart-card-badge">9 minerais</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:8px 0">
+          <div>
+            <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.2px;font-weight:700;margin-bottom:10px">Metálicos</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+              <div style="background:var(--bg-soft);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;font-size:13px;font-weight:600;color:var(--primary-dark)">Cobre</div>
+              <div style="background:var(--bg-soft);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;font-size:13px;font-weight:600;color:var(--primary-dark)">Ouro</div>
+              <div style="background:var(--bg-soft);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;font-size:13px;font-weight:600;color:var(--primary-dark)">Níquel</div>
+              <div style="background:var(--bg-soft);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;font-size:13px;font-weight:600;color:var(--primary-dark)">Ferro</div>
+              <div style="background:var(--bg-soft);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;font-size:13px;font-weight:600;color:var(--primary-dark)">Platina</div>
+              <div style="background:var(--bg-soft);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;font-size:13px;font-weight:600;color:var(--primary-dark)">Paládio</div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.2px;font-weight:700;margin-bottom:10px">Não metálicos</div>
+            <div style="display:grid;gap:8px">
+              <div style="background:rgba(245,168,0,0.10);border:1px solid rgba(245,168,0,0.3);border-radius:8px;padding:10px;text-align:center;font-size:13px;font-weight:600;color:var(--primary-dark)">Quartzo</div>
+              <div style="background:rgba(245,168,0,0.10);border:1px solid rgba(245,168,0,0.3);border-radius:8px;padding:10px;text-align:center;font-size:13px;font-weight:600;color:var(--primary-dark)">Ametista</div>
+              <div style="background:rgba(245,168,0,0.10);border:1px solid rgba(245,168,0,0.3);border-radius:8px;padding:10px;text-align:center;font-size:13px;font-weight:600;color:var(--primary-dark)">Feldspato</div>
+              <div style="background:rgba(245,168,0,0.10);border:1px solid rgba(245,168,0,0.3);border-radius:8px;padding:10px;text-align:center;font-size:13px;font-weight:600;color:var(--primary-dark)">Berilo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="info-text-card">
+        <h3>Projeto Serrote — Mineração Vale Verde</h3>
+        <p>Maior investimento privado de Alagoas nas últimas décadas. Opera na porção centro-sul do território craibense, com área direta de <strong>~1.041 hectares</strong>.</p>
+        <table class="data-table">
+          <tbody>
+            <tr><td>Vida útil estimada</td><td class="num">14 anos</td></tr>
+            <tr><td>Capacidade de lavra</td><td class="num">4,1 mi ton/ano</td></tr>
+            <tr><td>Empregos diretos</td><td class="num">600</td></tr>
+            <tr><td>Empregos indiretos</td><td class="num">1.800</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:12px;font-size:12px;background:rgba(245,168,0,0.10);padding:10px 14px;border-radius:var(--radius-sm);border-left:3px solid var(--accent);color:var(--primary-dark)">
+          <strong>*CFEM</strong> — Compensação Financeira pela Exploração Mineral: imposto pago pela mineradora ao município pelo uso do subsolo.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================
+     PAINEL 4 — ECONOMIA
+     =========================================== -->
+<section class="tab-panel" data-tab="economia">
+  <div class="container">
+    <div class="panel-head">
+      <span class="section-tag"><i class="fas fa-chart-bar"></i> Economia</span>
+      <h2 class="section-title">Uma economia em <span>transformação</span></h2>
+      <p class="section-lead">
+        O PIB de Craíbas cresceu mais de 300% em uma década, impulsionado pela mineração. A indústria já é o maior setor, seguida da administração pública, serviços e agropecuária.
+      </p>
+    </div>
+
+    <!-- KPIs economia -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="fas fa-coins"></i></div>
+        <div class="kpi-value">R$ 450<small> mi</small></div>
+        <div class="kpi-label">PIB municipal (2023)</div>
+        <span class="kpi-trend up">+300% desde 2010</span>
+      </div>
+      <div class="kpi-card accent">
+        <div class="kpi-icon"><i class="fas fa-user-check"></i></div>
+        <div class="kpi-value">18.236</div>
+        <div class="kpi-label">PIB per capita (R$)</div>
+        <span class="kpi-trend up">IBGE 2023</span>
+      </div>
+      <div class="kpi-card blue">
+        <div class="kpi-icon"><i class="fas fa-briefcase"></i></div>
+        <div class="kpi-value">2.100</div>
+        <div class="kpi-label">Empregos formais</div>
+        <span class="kpi-trend neutral">RAIS 2022</span>
+      </div>
+      <div class="kpi-card dark">
+        <div class="kpi-icon"><i class="fas fa-chart-simple"></i></div>
+        <div class="kpi-value">0,525</div>
+        <div class="kpi-label">IDHM* (2010)</div>
+        <span class="kpi-trend down">Abaixo de AL (0,563)</span>
+      </div>
+    </div>
+
+    <!-- Chart VAB -->
+    <div class="chart-grid">
+      <div class="chart-card featured">
+        <div class="chart-card-head">
+          <div>
+            <div class="chart-card-title">Composição do VAB* por setor</div>
+            <div class="chart-card-sub">IBGE, 2021 · Valor Adicionado Bruto</div>
+          </div>
+          <span class="chart-card-badge">Indústria em 1º</span>
+        </div>
+        <div class="chart-canvas-wrap"><canvas id="chart-vab"></canvas></div>
+        <div class="chart-card-footer">
+          *VAB — Valor Adicionado Bruto: soma da riqueza gerada por cada setor da economia municipal.
+        </div>
+      </div>
+    </div>
+
+    <!-- Setores empregadores -->
+    <div class="info-cols">
+      <div class="info-text-card">
+        <h3>Principais setores empregadores</h3>
+        <p>A economia craibense é impulsionada pela extração mineral, mas a administração pública ainda é o maior empregador formal do município.</p>
+        <table class="data-table">
+          <thead>
+            <tr><th>Ranking</th><th>Setor</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="num">1º</td><td>Administração pública</td></tr>
+            <tr><td class="num">2º</td><td>Extração mineral</td></tr>
+            <tr><td class="num">3º</td><td>Preparação do terreno</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:14px;font-size:13px">Atividades agrícolas tradicionais como <strong>fumicultura</strong> (em declínio) e <strong>mandiocultura</strong> (em expansão) mantêm relevância na renda das famílias rurais.</p>
+      </div>
+      <div class="info-text-card">
+        <h3>Contexto regional</h3>
+        <p>Craíbas depende fortemente de <strong>Arapiraca</strong> — polo regional que concentra serviços de média/alta complexidade em saúde, comércio atacadista e serviços especializados.</p>
+        <ul class="info-bullets">
+          <li><i class="fas fa-check-circle"></i> Polo regional: <strong>Arapiraca</strong></li>
+          <li><i class="fas fa-check-circle"></i> Consórcio hídrico: <strong>CORSEAL</strong> (19 municípios)</li>
+          <li><i class="fas fa-check-circle"></i> Aterro regional: <strong>CTR do Agreste</strong> (localizado em Craíbas)</li>
+        </ul>
+        <p style="margin-top:14px;font-size:12px;color:var(--text-muted)">
+          <strong>*IDHM</strong> — Índice de Desenvolvimento Humano Municipal: mede educação, saúde e renda numa escala de 0 a 1.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HIGHLIGHT BANNER — TENSÃO CENTRAL ===== -->
+<section style="padding:0 0 60px">
+  <div class="container">
+    <div class="highlight-banner warn">
+      <div class="highlight-banner-icon"><i class="fas fa-scale-unbalanced"></i></div>
+      <div class="highlight-banner-content">
+        <h3>Tensão central identificada no diagnóstico</h3>
+        <p>Craíbas concentra 97% da arrecadação mineral de Alagoas — mas mantém IDHM de 0,525, abaixo da média estadual (0,563) e muito abaixo da nacional (0,659). A riqueza do subsolo ainda não se converteu em melhoria concreta da qualidade de vida.</p>
+      </div>
+      <div class="highlight-banner-num">0,525<small>IDHM 2010</small></div>
+    </div>
+  </div>
+</section>
 
 <!-- ===== MINI-GRID DOS 8 EIXOS ===== -->
 <section class="eixos-mini">
@@ -323,8 +532,8 @@
   </div>
 </section>
 
-<!-- ===== FOOTER PADRÃO ===== -->
-<footer class="footer" id="contato">
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
   <div class="container footer-grid">
     <div class="footer-brand">
       <a href="../index.html" class="logo logo-light">
@@ -365,7 +574,10 @@
     </div>
     <div class="footer-col">
       <h4>PLANURBI</h4>
-      <p class="footer-credit"><strong>Planejamento Urbano Inteligente</strong> — consultoria de planejamento urbano e inteligência territorial.</p>
+      <p class="footer-credit">
+        <strong>Planejamento Urbano Inteligente</strong> — consultoria de
+        planejamento urbano e inteligência territorial.
+      </p>
       <div class="footer-credit-box">
         <span class="footer-credit-label">Realização</span>
         <strong>PlanUrbi</strong>
@@ -382,6 +594,11 @@
   </div>
 </footer>
 
-<script src="../script-eixo.js"></script>
+<a href="#" class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
+  <i class="fas fa-arrow-up"></i>
+</a>
+
+<script src="../restrito.js"></script>
+<script src="../eixo-visao-geral.js"></script>
 </body>
 </html>

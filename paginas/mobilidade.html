@@ -8,10 +8,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  .hero-title, .page-hero-title, .dash-hero-title,
+  .section-title, .cta-title, .chapter-card h3, .indicator-card h4,
+  .map-header h3, .footer-col h4, .logo-text strong,
+  .chart-card-title, .activity-title, .accordion-trigger,
+  .info-text-card h3, .modal-body h2, .highlight-banner-content h3,
+  .modal-equip h2, .senha-modal h2 {
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif !important;
+    font-display: swap;
+  }
+</style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.5.0/dist/tabler-icons.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <link rel="stylesheet" href="../styles.css">
-<link rel="stylesheet" href="../styles-eixo.css">
+<link rel="stylesheet" href="../perfil-socioeconomico.css">
+<link rel="stylesheet" href="../restrito.css">
 </head>
 <body>
 
@@ -40,220 +52,283 @@
   </div>
 </header>
 
-<main class="eixo-page">
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="page-hero-breadcrumb">
+      <a href="../index.html"><i class="fas fa-home"></i> Início</a>
+      <i class="fas fa-chevron-right"></i>
+      <a href="../index.html#capitulos">Eixos Temáticos</a>
+      <i class="fas fa-chevron-right"></i>
+      <span>Como a cidade se move</span>
+    </div>
+    <h1 class="page-hero-title">Como a cidade <span>se move</span></h1>
+    <p class="page-hero-lead">
+      Sistema viário, calçadas, transporte, sinistros e a frota que cresce mais rápido
+      do que a infraestrutura. Sem transporte público municipal e sem ciclovias, a
+      moto virou o transporte de referência do município.
+    </p>
+  </div>
+</section>
+
+<div class="tabs-nav-wrap">
   <div class="container">
-    <div class="w">
-      <div class="ph">
-        <div class="bc">
-          <a href="../index.html"><i class="ti ti-home" aria-hidden="true"></i> Início</a>
-          <i class="ti ti-chevron-right" aria-hidden="true"></i>
-          <a href="../index.html#capitulos">Eixos temáticos</a>
-          <i class="ti ti-chevron-right" aria-hidden="true"></i>
-          <span>Como a cidade se move</span>
+    <div class="tabs-nav" role="tablist">
+      <button class="tab-btn active" data-tab="viario"><i class="fas fa-road"></i><span>Sistema viário</span></button>
+      <button class="tab-btn" data-tab="pedestres"><i class="fas fa-person-walking"></i><span>Calçadas</span></button>
+      <button class="tab-btn" data-tab="transporte"><i class="fas fa-bus"></i><span>Transporte</span></button>
+      <button class="tab-btn" data-tab="sinistros"><i class="fas fa-triangle-exclamation"></i><span>Sinistros</span></button>
+      <button class="tab-btn" data-tab="frota"><i class="fas fa-motorcycle"></i><span>Frota</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- PAINEL 1 — Sistema viário -->
+<section class="tab-panel active" data-tab="viario">
+  <div class="container">
+    <div class="panel-head">
+      <span class="section-tag"><i class="fas fa-road"></i> Sistema viário</span>
+      <h2 class="section-title">Malha reticulada, <span>funcionamento radial</span></h2>
+      <p class="section-lead">
+        A sede tem malha viária reticulada mas funciona radialmente — todas as arteriais convergem para o centro. Nenhum semáforo; controle por lombadas.
+      </p>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="kpi-icon"><i class="fas fa-road"></i></div><div class="kpi-value">AL-486</div><div class="kpi-label">Rodovia da sede</div><span class="kpi-trend neutral">AL-220 em Folha Miúda</span></div>
+      <div class="kpi-card accent"><div class="kpi-icon"><i class="fas fa-traffic-light"></i></div><div class="kpi-value">Zero</div><div class="kpi-label">Semáforos</div><span class="kpi-trend down">Controle por lombadas</span></div>
+      <div class="kpi-card blue"><div class="kpi-icon"><i class="fas fa-building"></i></div><div class="kpi-value">108</div><div class="kpi-label">Polos Geradores (PGVs)</div><span class="kpi-trend neutral">Mapeados na sede</span></div>
+      <div class="kpi-card dark"><div class="kpi-icon"><i class="fas fa-bus"></i></div><div class="kpi-value">Novo</div><div class="kpi-label">Terminal rodoviário</div><span class="kpi-trend up">Nova centralidade SW</span></div>
+    </div>
+    <div class="chart-grid cols-2">
+      <div class="chart-card">
+        <div class="chart-card-head">
+          <div><div class="chart-card-title">Polos Geradores de Viagens</div><div class="chart-card-sub">108 mapeados na sede</div></div>
+          <span class="chart-card-badge">Santos, 2024</span>
         </div>
-        <div class="pt">Como a cidade se move</div>
-        <div class="ps">Sistema viário, calçadas, transporte, sinistros e como a frota de veículos cresce mais rápido do que a infraestrutura.</div>
+        <div class="chart-canvas-wrap"><canvas id="chart-pgvs"></canvas></div>
+        <div class="chart-card-footer">Fonte: Santos, 2024 · Mapeamento de PGVs em Craíbas</div>
       </div>
-
-      <div class="insight">
-        <i class="ti ti-bulb ii" aria-hidden="true"></i>
-        <div class="it"><strong>O que o diagnóstico revelou:</strong> a moto é o transporte mais acessível para a maioria dos moradores — e a frota cresceu significativamente em 18 anos. Não há transporte público municipal, não há ciclovias, e as ocorrências de trânsito têm mostrado tendência de alta em 2025.</div>
-      </div>
-
-      <div class="kpi-grid">
-        <div class="kpi red"><div class="kl">Transporte público municipal</div><div class="kv">Zero linhas</div><div class="ks">Apenas intermunicipal (Estado)</div></div>
-        <div class="kpi red"><div class="kl">Ciclovias</div><div class="kv">Nenhuma</div><div class="ks">Sem infraestrutura cicloviária</div></div>
-        <div class="kpi amber"><div class="kl">Calçadas sem obstáculos</div><div class="kv">0,47%</div><div class="ks">IBGE, 2025 — ponto de atenção</div></div>
-        <div class="kpi amber"><div class="kl">Sinistros (jan–ago/2025)</div><div class="kv">16 ocorrências</div><div class="ks">DETRAN/AL 2026 · tendência de alta</div></div>
-        <div class="kpi amber"><div class="kl">Frota de motos (2006–2024)</div><div class="kv">+1.162%</div><div class="ks">IBGE 2024/2025</div></div>
-        <div class="kpi verde"><div class="kl">Novo terminal rodoviário</div><div class="kv">Inaugurado</div><div class="ks">Nova centralidade no sudoeste</div></div>
-      </div>
-
-      <div class="tab-row" role="tablist">
-        <div class="tab active" onclick="showTab('viario',this)"><i class="ti ti-road" aria-hidden="true"></i> Sistema viário</div>
-        <div class="tab" onclick="showTab('pedestres',this)"><i class="ti ti-walk" aria-hidden="true"></i> Calçadas</div>
-        <div class="tab" onclick="showTab('transporte',this)"><i class="ti ti-bus" aria-hidden="true"></i> Transporte</div>
-        <div class="tab" onclick="showTab('sinistros',this)"><i class="ti ti-alert-triangle" aria-hidden="true"></i> Sinistros</div>
-        <div class="tab" onclick="showTab('frota',this)"><i class="ti ti-motorbike" aria-hidden="true"></i> Frota</div>
-      </div>
-
-      <div id="tab-viario" class="tab-content active">
-        <div class="two">
-          <div class="card" style="margin-bottom:0">
-            <div class="ch"><i class="ti ti-road" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Rodovias e estrutura viária</div></div>
-            <div class="cb">
-              <div class="dr"><div class="dl">Rodovia principal (sede)</div><div class="dv">AL-486</div></div>
-              <div class="dr"><div class="dl">Rodovia Folha Miúda</div><div class="dv">AL-220</div></div>
-              <div class="dr"><div class="dl">Morfologia da malha</div><div class="dv">Reticulada</div></div>
-              <div class="dr"><div class="dl">Funcionamento viário</div><div class="dv">Radial — centro como nó</div></div>
-              <div class="dr"><div class="dl">Semáforos</div><div class="dv">Nenhum — controle por lombadas</div></div>
-              <div class="dr"><div class="dl">Regulamentação de veículos pesados</div><div class="dv"><span class="tag tag-amber">A elaborar</span></div></div>
-            </div>
-          </div>
-          <div class="card" style="margin-bottom:0">
-            <div class="ch"><i class="ti ti-hierarchy" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Hierarquia viária — sede</div></div>
-            <div class="cb">
-              <div class="via-row"><div class="via-tipo">Arteriais</div><div class="via-nome">Ruas Primavera, Manoel P. Filho, Boa Vista, 23 de Abril</div></div>
-              <div class="via-row"><div class="via-tipo">Coletoras</div><div class="via-nome">Pedro Gama, São Pedro, Manoel A. de Jesus, N. Sra. da Conceição</div></div>
-              <div class="via-row"><div class="via-tipo">Local</div><div class="via-nome">Demais vias internas</div></div>
-              <div class="via-row"><div class="via-tipo">Folha Miúda</div><div class="via-nome">AL-220 (trânsito rápido) + Rua do Comércio (arterial)</div></div>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="ch"><i class="ti ti-building" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Polos Geradores de Viagens — 108 mapeados na sede</div></div>
-          <div class="cb">
-            <div class="pgv-grid">
-              <div class="pgv-item"><div class="pgv-num">18</div><div class="pgv-lbl">Comércio</div></div>
-              <div class="pgv-item"><div class="pgv-num">13</div><div class="pgv-lbl">Administrativo</div></div>
-              <div class="pgv-item"><div class="pgv-num">13</div><div class="pgv-lbl">Religiosos</div></div>
-              <div class="pgv-item"><div class="pgv-num">12</div><div class="pgv-lbl">Saúde</div></div>
-              <div class="pgv-item"><div class="pgv-num">12</div><div class="pgv-lbl">Praças</div></div>
-              <div class="pgv-item"><div class="pgv-num">11</div><div class="pgv-lbl">Educação</div></div>
-            </div>
-            <div class="nota-box">A maioria dos PGVs se concentra no entorno do antigo terminal rodoviário, no centro. O novo terminal no sudoeste tem potencial de criar uma nova centralidade.</div>
-          </div>
-        </div>
-      </div>
-
-      <div id="tab-pedestres" class="tab-content">
-        <div class="two">
-          <div class="card" style="margin-bottom:0">
-            <div class="ch"><i class="ti ti-walk" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Condição das calçadas (IBGE 2025)</div></div>
-            <div class="cb">
-              <div class="brl"><div class="brl-lbl">Com alguma calçada</div><div class="brl-track"><div class="brl-fill" style="width:63.5%;background:var(--verde-forte)"></div></div><div class="brl-pct">63,5%</div></div>
-              <div class="brl"><div class="brl-lbl">Com arborização (5+ árvores)</div><div class="brl-track"><div class="brl-fill" style="width:41.4%;background:var(--verde-borda)"></div></div><div class="brl-pct">41,4%</div></div>
-              <div class="brl"><div class="brl-lbl" style="color:#A32D2D">Rampa p/ cadeira de rodas</div><div class="brl-track"><div class="brl-fill" style="width:2.1%;background:#E24B4A"></div></div><div class="brl-pct" style="color:#A32D2D">2,1%</div></div>
-              <div class="brl"><div class="brl-lbl" style="color:#A32D2D">Sem nenhum obstáculo</div><div class="brl-track"><div class="brl-fill" style="width:0.5%;background:#E24B4A"></div></div><div class="brl-pct" style="color:#A32D2D">0,47%</div></div>
-              <div class="nota-red">Ponto de atenção identificado: baixa acessibilidade em calçadas do município. Fonte: IBGE 2025.</div>
-            </div>
-          </div>
-          <div class="card" style="margin-bottom:0">
-            <div class="ch"><i class="ti ti-accessible" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Acessibilidade e ciclovias</div></div>
-            <div class="cb">
-              <div class="dr"><div class="dl">Piso tátil nas calçadas</div><div class="dv"><span class="tag tag-red">A adequar às normas</span></div></div>
-              <div class="dr"><div class="dl">Faixas elevadas (edifícios públicos)</div><div class="dv"><span class="tag tag-green">Adotadas</span></div></div>
-              <div class="dr"><div class="dl">Norma municipal de calçadas</div><div class="dv"><span class="tag tag-red">A elaborar</span></div></div>
-              <div class="dr"><div class="dl">Plano de arborização</div><div class="dv"><span class="tag tag-red">A elaborar</span></div></div>
-              <div class="dr"><div class="dl">Infraestrutura cicloviária</div><div class="dv"><span class="tag tag-red">A implementar</span></div></div>
-              <div class="nota-green">Destaque positivo identificado: a maioria dos edifícios públicos já usa faixas de pedestres elevadas — solução acessível que muitas cidades ainda não adotaram.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="tab-transporte" class="tab-content">
-        <div class="two">
-          <div class="card" style="margin-bottom:0">
-            <div class="ch"><i class="ti ti-bus-stop" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Transporte coletivo</div></div>
-            <div class="cb">
-              <div class="dr"><div class="dl">Linhas municipais</div><div class="dv"><span class="tag tag-red">Nenhuma</span></div></div>
-              <div class="dr"><div class="dl">Transporte intermunicipal</div><div class="dv"><span class="tag tag-green">Disponível (ARSAL)</span></div></div>
-              <div class="dr"><div class="dl">Destinos principais</div><div class="dv">Arapiraca e região</div></div>
-              <div class="dr"><div class="dl">Ônibus escolar municipal</div><div class="dv"><span class="tag tag-green">Ativo</span></div></div>
-              <div class="dr"><div class="dl">Lei de transporte coletivo municipal</div><div class="dv"><span class="tag tag-amber">Lei 515/2022 · a implementar</span></div></div>
-              <div class="nota-warn">A Lei 515/2022 prevê transporte coletivo municipal — ainda em fase de implementação. Ponto de atenção identificado.</div>
-            </div>
-          </div>
-          <div class="card" style="margin-bottom:0">
-            <div class="ch"><i class="ti ti-motorbike" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Novo terminal rodoviário</div></div>
-            <div class="cb">
-              <div class="dr"><div class="dl">Localização</div><div class="dv" style="font-size:11px">Sudoeste da sede</div></div>
-              <div class="dr"><div class="dl">Antigo terminal</div><div class="dv">Desativado</div></div>
-              <div class="dr"><div class="dl">Potencial</div><div class="dv"><span class="tag tag-green">Nova centralidade</span></div></div>
-              <div class="dr"><div class="dl">Ponto de atenção</div><div class="dv"><span class="tag tag-amber">Infraestrutura no entorno</span></div></div>
-              <div class="nota-box">O novo terminal pode criar um novo eixo de crescimento urbano no sudoeste. A área identificada precisará de investimento em calçadas, drenagem e iluminação.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="tab-sinistros" class="tab-content">
-        <div class="two">
-          <div class="card" style="margin-bottom:0">
-            <div class="ch"><i class="ti ti-alert-triangle" style="color:#A32D2D" aria-hidden="true"></i><div class="ct">Ranking AL — sinistros jan–ago/2025 (DETRAN/AL)</div></div>
-            <div class="cb">
-              <div class="sinistro-row"><div class="sin-mun">Arapiraca</div><div class="sin-bar"><div class="sin-fill" style="width:100%;background:#E24B4A"></div></div><div class="sin-val">425</div></div>
-              <div class="sinistro-row"><div class="sin-mun">Maceió</div><div class="sin-bar"><div class="sin-fill" style="width:42%;background:#E24B4A"></div></div><div class="sin-val">178</div></div>
-              <div class="sinistro-row"><div class="sin-mun">Marechal Deodoro</div><div class="sin-bar"><div class="sin-fill" style="width:24%;background:#EF9F27"></div></div><div class="sin-val">101</div></div>
-              <div class="sinistro-row"><div class="sin-mun">Penedo</div><div class="sin-bar"><div class="sin-fill" style="width:10%;background:#EF9F27"></div></div><div class="sin-val">43</div></div>
-              <div class="sinistro-row"><div class="sin-mun">Maragogi</div><div class="sin-bar"><div class="sin-fill" style="width:8%;background:#EF9F27"></div></div><div class="sin-val">34</div></div>
-              <div class="sinistro-row"><div class="sin-mun">Rio Largo</div><div class="sin-bar"><div class="sin-fill" style="width:5%;background:#BA7517"></div></div><div class="sin-val">23</div></div>
-              <div class="sinistro-row"><div class="sin-mun">Coruripe</div><div class="sin-bar"><div class="sin-fill" style="width:5%;background:#BA7517"></div></div><div class="sin-val">20</div></div>
-              <div class="sinistro-row"><div class="sin-mun">São Sebastião</div><div class="sin-bar"><div class="sin-fill" style="width:4%;background:#BA7517"></div></div><div class="sin-val">17</div></div>
-              <div class="sinistro-row" style="font-weight:600"><div class="sin-mun" style="color:#A32D2D">Craíbas — 10ª</div><div class="sin-bar"><div class="sin-fill" style="width:3.8%;background:#A32D2D"></div></div><div class="sin-val" style="color:#A32D2D">16</div></div>
-              <div class="nota-warn">Fonte oficial: DETRAN/AL 2026. Ponto de atenção identificado: tendência de alta em ocorrências no município.</div>
-            </div>
-          </div>
-          <div class="card" style="margin-bottom:0">
-            <div class="ch"><i class="ti ti-chart-line" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Causas e série temporal</div></div>
-            <div class="cb">
-              <div style="font-size:12px;color:var(--color-text-tertiary);margin-bottom:8px;font-weight:600">SÉRIE HISTÓRICA (DETRAN 2022–2025)</div>
-              <div class="dr"><div class="dl">2022</div><div class="dv">19 ocorrências</div></div>
-              <div class="dr"><div class="dl">2023</div><div class="dv" style="color:var(--verde-texto)">10 ocorrências</div></div>
-              <div class="dr"><div class="dl">2024</div><div class="dv" style="color:#A32D2D">21 ocorrências</div></div>
-              <div class="dr"><div class="dl">2025 (jan–ago)</div><div class="dv" style="color:#A32D2D">16 — em curso</div></div>
-              <div style="font-size:12px;color:var(--color-text-tertiary);margin:12px 0 6px;font-weight:600">PRINCIPAIS CAUSAS (2022–2025)</div>
-              <div class="brl"><div class="brl-lbl">Desobediência às normas</div><div class="brl-track"><div class="brl-fill" style="width:25%;background:#E24B4A"></div></div><div class="brl-pct">25%</div></div>
-              <div class="brl"><div class="brl-lbl">Falta de atenção</div><div class="brl-track"><div class="brl-fill" style="width:23%;background:#EF9F27"></div></div><div class="brl-pct">23%</div></div>
-              <div class="brl"><div class="brl-lbl">Distância insegura</div><div class="brl-track"><div class="brl-fill" style="width:15%;background:#EF9F27"></div></div><div class="brl-pct">15%</div></div>
-              <div class="brl"><div class="brl-lbl">Velocidade incompatível</div><div class="brl-track"><div class="brl-fill" style="width:10%;background:#BA7517"></div></div><div class="brl-pct">~10%</div></div>
-              <div class="nota-warn">45% das causas identificadas estão relacionadas à velocidade. Fonte: DETRAN/AL.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="tab-frota" class="tab-content">
-        <div class="card">
-          <div class="ch"><i class="ti ti-motorbike" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Crescimento da frota 2006–2024 (IBGE)</div></div>
-          <div class="cb">
-            <div class="two" style="margin-bottom:12px">
-              <div>
-                <div class="dr"><div class="dl">Crescimento total da frota</div><div class="dv" style="color:#A32D2D">+916%</div></div>
-                <div class="dr"><div class="dl">Taxa anual média</div><div class="dv">13,75%/ano</div></div>
-                <div class="dr"><div class="dl">Comparativo com AL</div><div class="dv">1,6× a média estadual</div></div>
-                <div class="dr"><div class="dl">Posição em AL (2024)</div><div class="dv">17ª em volume de frota</div></div>
-                <div class="dr"><div class="dl">Taxa de motorização (2024)</div><div class="dv">341,58 veículos/1.000 hab.</div></div>
-              </div>
-              <div>
-                <div class="dr"><div class="dl">Crescimento de carros</div><div class="dv" style="color:#A32D2D">+1.056%</div></div>
-                <div class="dr"><div class="dl">Comparativo carros com AL</div><div class="dv">2,1× a média estadual</div></div>
-                <div class="dr"><div class="dl">Crescimento de motos</div><div class="dv" style="color:#A32D2D">+1.162%</div></div>
-                <div class="dr"><div class="dl">Comparativo motos com AL</div><div class="dv">1,4× a média estadual</div></div>
-                <div class="dr"><div class="dl">Alagoas em 2023</div><div class="dv"><span class="tag tag-amber">1º em crescimento de motos</span></div></div>
-              </div>
-            </div>
-            <div style="margin-bottom:12px">
-              <div style="font-size:12px;color:var(--color-text-tertiary);margin-bottom:8px;font-weight:600">PROJEÇÃO PARA 2034 (frota total)</div>
-              <div class="brl"><div class="brl-lbl">Frota atual (~2024)</div><div class="brl-track"><div class="brl-fill" style="width:25%;background:var(--verde-forte)"></div></div><div class="brl-pct">~9 mil</div></div>
-              <div class="brl"><div class="brl-lbl" style="color:#A32D2D">Projeção 2034</div><div class="brl-track"><div class="brl-fill" style="width:100%;background:#E24B4A"></div></div><div class="brl-pct" style="color:#A32D2D">~40 mil</div></div>
-            </div>
-            <div class="nota-warn">Ponto de atenção identificado: mantido o ritmo atual, Craíbas terá ~40 mil veículos em 2034. O sistema viário atual precisará de intervenções.</div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="ch"><i class="ti ti-info-circle" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Por que a frota cresce tão rápido?</div></div>
-          <div class="cb">
-            <div style="font-size:13px;color:var(--color-text-primary);line-height:1.7">O crescimento acelerado da frota está associado à ausência de alternativas. Sem transporte público, sem ciclovias e com calçadas precárias, a moto é a única opção acessível de mobilidade para a maioria das famílias.</div>
-            <div class="nota-box">A próxima década foi identificada no diagnóstico como janela de oportunidade — enquanto a cidade ainda é pequena, é o momento de estruturar transporte coletivo e mobilidade ativa.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="alert-box">
-        <i class="ti ti-alert-triangle ai" aria-hidden="true"></i>
-        <div class="at"><strong>Tensão central:</strong> a moto virou o transporte de referência em Craíbas — na ausência de outras opções. A frota cresceu significativamente em 18 anos, os sinistros mostram tendência de alta em 2025, e o município ainda não tem transporte coletivo, ciclovias nem normas de calçadas.</div>
-      </div>
-
-      <div class="fontes">
-        <div class="ft"><strong>Fontes:</strong> IBGE · Censo 2022 · IBGE 2024/2025 · DETRAN/AL 2026 · ANTP 2020 · Santos, 2024 (PGVs) · Lei Municipal 515/2022 · Lei Municipal 302/2009 · Diagnóstico Inteligente PlanUrbi/FEPESA, 2026.</div>
+      <div class="info-text-card">
+        <h3>Hierarquia viária</h3>
+        <p><strong>Arteriais</strong> (sede): Ruas Primavera, Manoel P. Filho, Boa Vista, 23 de Abril.</p>
+        <p><strong>Coletoras</strong>: Pedro Gama, São Pedro, Manoel A. de Jesus, N. Sra. da Conceição.</p>
+        <p><strong>Folha Miúda</strong>: AL-220 (trânsito rápido) + Rua do Comércio (arterial).</p>
+        <ul class="info-bullets">
+          <li><i class="fas fa-triangle-exclamation"></i> Regulamentação de veículos pesados: a elaborar</li>
+          <li><i class="fas fa-check-circle"></i> Novo terminal rodoviário no sudoeste</li>
+        </ul>
       </div>
     </div>
   </div>
-</main>
+</section>
 
-<!-- ===== MINI-GRID DOS 8 EIXOS ===== -->
+<!-- PAINEL 2 — Calçadas -->
+<section class="tab-panel" data-tab="pedestres">
+  <div class="container">
+    <div class="panel-head">
+      <span class="section-tag"><i class="fas fa-person-walking"></i> Calçadas</span>
+      <h2 class="section-title">Pedestres <span>sem espaço</span> adequado</h2>
+      <p class="section-lead">
+        Apenas 0,47% dos moradores têm calçada sem obstáculos. Ciclistas disputam espaço com carros. Um ponto positivo: faixas de pedestres elevadas em edifícios públicos.
+      </p>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="kpi-icon"><i class="fas fa-shoe-prints"></i></div><div class="kpi-value">63,5<small>%</small></div><div class="kpi-label">Vias com alguma calçada</div><span class="kpi-trend neutral">IBGE 2025</span></div>
+      <div class="kpi-card accent"><div class="kpi-icon"><i class="fas fa-tree"></i></div><div class="kpi-value">41,4<small>%</small></div><div class="kpi-label">Vias com arborização</div><span class="kpi-trend up">5+ árvores</span></div>
+      <div class="kpi-card blue"><div class="kpi-icon"><i class="fas fa-wheelchair"></i></div><div class="kpi-value">2,1<small>%</small></div><div class="kpi-label">Rampas para cadeirantes</div><span class="kpi-trend down">Ponto de atenção</span></div>
+      <div class="kpi-card dark"><div class="kpi-icon"><i class="fas fa-ban"></i></div><div class="kpi-value">0,47<small>%</small></div><div class="kpi-label">Calçadas sem obstáculo</div><span class="kpi-trend down">1 em cada 200 moradores</span></div>
+    </div>
+    <div class="chart-grid">
+      <div class="chart-card featured">
+        <div class="chart-card-head">
+          <div><div class="chart-card-title">Condição das calçadas em Craíbas</div><div class="chart-card-sub">Percentual de moradores · IBGE 2025</div></div>
+          <span class="chart-card-badge">Ponto crítico</span>
+        </div>
+        <div class="chart-canvas-wrap"><canvas id="chart-calcadas"></canvas></div>
+        <div class="chart-card-footer">Fonte: IBGE 2025</div>
+      </div>
+    </div>
+    <div class="info-cols">
+      <div class="info-text-card" style="background:linear-gradient(135deg, rgba(220,80,80,0.05) 0%, white 100%);border-color:rgba(220,80,80,0.25)">
+        <h3>Ponto de atenção — ciclovias</h3>
+        <p>Não existe <strong>nenhuma ciclovia, ciclofaixa ou rota cicloviária</strong> em Craíbas. Ciclistas disputam espaço com carros e motos nas vias urbanas.</p>
+        <p>A ausência de ciclovias contribui para a <strong>substituição da bicicleta pela moto</strong> conforme a renda aumenta — alimentando o crescimento acelerado da frota.</p>
+      </div>
+      <div class="info-text-card" style="background:linear-gradient(135deg, rgba(70,179,88,0.06) 0%, white 100%);border-color:rgba(70,179,88,0.30)">
+        <h3>Destaque positivo</h3>
+        <p>A maioria dos <strong>edifícios públicos</strong> já usa faixas de pedestres elevadas — solução acessível que muitas cidades ainda não adotaram.</p>
+        <ul class="info-bullets">
+          <li><i class="fas fa-check-circle"></i> Piso tátil: a adequar às normas</li>
+          <li><i class="fas fa-check-circle"></i> Norma municipal de calçadas: a elaborar</li>
+          <li><i class="fas fa-check-circle"></i> Plano de arborização: a elaborar</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAINEL 3 — Transporte -->
+<section class="tab-panel" data-tab="transporte">
+  <div class="container">
+    <div class="panel-head">
+      <span class="section-tag"><i class="fas fa-bus"></i> Transporte</span>
+      <h2 class="section-title">Zero linhas <span>municipais</span></h2>
+      <p class="section-lead">
+        Craíbas não tem transporte público municipal. A Lei 515/2022 prevê a criação, ainda em implementação. Existe transporte intermunicipal (ARSAL) para Arapiraca e região.
+      </p>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="kpi-icon"><i class="fas fa-bus"></i></div><div class="kpi-value">Zero</div><div class="kpi-label">Linhas municipais</div><span class="kpi-trend down">Lei 515/2022 a implementar</span></div>
+      <div class="kpi-card accent"><div class="kpi-icon"><i class="fas fa-route"></i></div><div class="kpi-value">ARSAL</div><div class="kpi-label">Transporte intermunicipal</div><span class="kpi-trend up">Disponível</span></div>
+      <div class="kpi-card blue"><div class="kpi-icon"><i class="fas fa-school"></i></div><div class="kpi-value">Ativo</div><div class="kpi-label">Ônibus escolar</div><span class="kpi-trend up">Programa municipal</span></div>
+      <div class="kpi-card dark"><div class="kpi-icon"><i class="fas fa-building"></i></div><div class="kpi-value">SW</div><div class="kpi-label">Novo terminal</div><span class="kpi-trend up">Nova centralidade</span></div>
+    </div>
+    <div class="highlight-banner">
+      <div class="highlight-banner-icon"><i class="fas fa-building-columns"></i></div>
+      <div class="highlight-banner-content">
+        <h3>Novo terminal rodoviário</h3>
+        <p>Localizado no sudoeste da sede, tem potencial de criar nova centralidade urbana. Requer investimento em infraestrutura no entorno (calçadas, drenagem, iluminação) para absorver novos fluxos.</p>
+      </div>
+      <div class="highlight-banner-num">1<small>terminal ativo</small></div>
+    </div>
+
+    <!-- CONTEÚDO RESTRITO: dados de mototáxi (informalidade) -->
+    <div class="conteudo-restrito"
+         data-titulo-restrito="Mototáxis — dados operacionais"
+         data-desc-restrito="Pontos identificados, situação regulatória e observações sobre operação informal. Reservado à equipe técnica.">
+      <div class="chart-card" style="background:linear-gradient(135deg, rgba(220,80,80,0.06) 0%, white 100%);border-color:rgba(220,80,80,0.30);margin-top:24px">
+        <div class="chart-card-head">
+          <div><div class="chart-card-title" style="color:#b03b3b">Mototáxis — dados técnicos</div><div class="chart-card-sub" style="color:#b03b3b">Operação informal identificada</div></div>
+          <span class="chart-card-badge" style="background:rgba(220,80,80,0.15);color:#b03b3b">Restrito</span>
+        </div>
+        <p style="font-size:14px;color:var(--text);line-height:1.7">Sem transporte público municipal, a população depende de <strong>mototáxis</strong> — reconhecido nas oficinas participativas como principal meio de transporte interno.</p>
+        <table class="data-table" style="margin-top:12px">
+          <tbody>
+            <tr><td>Pontos identificados no diagnóstico</td><td class="num">2 (Centro e Folha Miúda)</td></tr>
+            <tr><td>Regulamentação municipal</td><td class="num" style="color:#b03b3b">Não existe</td></tr>
+            <tr><td>Impacto na renda rural</td><td class="num" style="color:#b03b3b">Tarifas onerosas</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:12px;font-size:13px;color:var(--text-muted)">
+          <strong>Nota metodológica:</strong> profissionais de mototáxi estão em limbo regulatório. Para quem
+          mora no campo, o custo do mototáxi pode comprometer fatia significativa da renda familiar.
+          Ação recomendada: regulamentar via Plano Diretor.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAINEL 4 — Sinistros -->
+<section class="tab-panel" data-tab="sinistros">
+  <div class="container">
+    <div class="panel-head">
+      <span class="section-tag"><i class="fas fa-triangle-exclamation"></i> Sinistros</span>
+      <h2 class="section-title">Ocorrências <span>em alta</span> em 2025</h2>
+      <p class="section-lead">
+        Dados oficiais do DETRAN/AL mostram tendência de alta em 2025. Em jan-ago,
+        Craíbas já teve 16 sinistros — próximo dos 21 registrados em todo o ano de 2024.
+      </p>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="kpi-icon"><i class="fas fa-calendar"></i></div><div class="kpi-value">21</div><div class="kpi-label">Sinistros em 2024</div><span class="kpi-trend down">Pior registro histórico</span></div>
+      <div class="kpi-card accent"><div class="kpi-icon"><i class="fas fa-arrow-trend-up"></i></div><div class="kpi-value">16</div><div class="kpi-label">Jan–ago/2025</div><span class="kpi-trend down">Tendência de alta</span></div>
+      <div class="kpi-card blue"><div class="kpi-icon"><i class="fas fa-percent"></i></div><div class="kpi-value">45<small>%</small></div><div class="kpi-label">Causas por velocidade</div><span class="kpi-trend neutral">DETRAN/AL</span></div>
+      <div class="kpi-card dark"><div class="kpi-icon"><i class="fas fa-road"></i></div><div class="kpi-value">AL-486</div><div class="kpi-label">Via com mais ocorrências</div><span class="kpi-trend down">Rodovia da sede</span></div>
+    </div>
+    <div class="chart-grid">
+      <div class="chart-card featured">
+        <div class="chart-card-head">
+          <div><div class="chart-card-title">Série histórica de sinistros em Craíbas</div><div class="chart-card-sub">2022–2025 · DETRAN/AL</div></div>
+          <span class="chart-card-badge">Fonte oficial</span>
+        </div>
+        <div class="chart-canvas-wrap"><canvas id="chart-sinistros"></canvas></div>
+        <div class="chart-card-footer">Fonte: DETRAN/AL 2026 · Dados oficiais</div>
+      </div>
+    </div>
+
+    <!-- CONTEÚDO RESTRITO: ranking regional e vias -->
+    <div class="conteudo-restrito"
+         data-titulo-restrito="Ranking AL e vias específicas"
+         data-desc-restrito="Ranking comparativo de sinistros em AL e detalhamento das vias com mais ocorrências. Reservado à equipe técnica.">
+      <div class="chart-card" style="background:linear-gradient(135deg, rgba(220,80,80,0.06) 0%, white 100%);border-color:rgba(220,80,80,0.30);margin-top:24px">
+        <div class="chart-card-head">
+          <div><div class="chart-card-title" style="color:#b03b3b">Ranking AL — sinistros jan-ago/2025</div><div class="chart-card-sub" style="color:#b03b3b">Comparativo entre municípios · DETRAN/AL</div></div>
+          <span class="chart-card-badge" style="background:rgba(220,80,80,0.15);color:#b03b3b">Restrito</span>
+        </div>
+        <table class="data-table">
+          <thead><tr><th>Município</th><th style="text-align:right">Ocorrências</th></tr></thead>
+          <tbody>
+            <tr><td>Arapiraca</td><td class="num">425</td></tr>
+            <tr><td>Maceió</td><td class="num">178</td></tr>
+            <tr><td>Marechal Deodoro</td><td class="num">101</td></tr>
+            <tr><td>Penedo</td><td class="num">43</td></tr>
+            <tr><td>Maragogi</td><td class="num">34</td></tr>
+            <tr><td>Rio Largo</td><td class="num">23</td></tr>
+            <tr><td>Coruripe</td><td class="num">20</td></tr>
+            <tr><td>São Sebastião</td><td class="num">17</td></tr>
+            <tr style="background:rgba(245,168,0,0.10)"><td><strong>Craíbas — 10ª posição</strong></td><td class="num" style="color:#b03b3b"><strong>16</strong></td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:14px;font-size:13px;color:var(--text-muted)">
+          <strong>Principais causas</strong> (2022–2025): desobediência (25%), falta de atenção (23%), distância insegura (15%), velocidade (~10%). Vias com mais ocorrências: <strong>locais (9)</strong> e AL-486 (5).
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAINEL 5 — Frota -->
+<section class="tab-panel" data-tab="frota">
+  <div class="container">
+    <div class="panel-head">
+      <span class="section-tag"><i class="fas fa-motorcycle"></i> Frota</span>
+      <h2 class="section-title">A frota <span>cresce mais</span> que a infraestrutura</h2>
+      <p class="section-lead">
+        Em 18 anos, a frota de motos cresceu 1.162% e a de carros 1.056%. Mantido o ritmo, Craíbas terá ~40 mil veículos em 2034 — 4× a frota atual.
+      </p>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="kpi-icon"><i class="fas fa-motorcycle"></i></div><div class="kpi-value">+1.162<small>%</small></div><div class="kpi-label">Crescimento motos (18 anos)</div><span class="kpi-trend down">2006–2024 · IBGE</span></div>
+      <div class="kpi-card accent"><div class="kpi-icon"><i class="fas fa-car"></i></div><div class="kpi-value">+1.056<small>%</small></div><div class="kpi-label">Crescimento carros</div><span class="kpi-trend down">2,1× média AL</span></div>
+      <div class="kpi-card blue"><div class="kpi-icon"><i class="fas fa-percent"></i></div><div class="kpi-value">341</div><div class="kpi-label">Motorização (2024)</div><span class="kpi-trend down">Veículos/1.000 hab</span></div>
+      <div class="kpi-card dark"><div class="kpi-icon"><i class="fas fa-forward"></i></div><div class="kpi-value">~40 mil</div><div class="kpi-label">Projeção 2034</div><span class="kpi-trend down">4× frota atual</span></div>
+    </div>
+    <div class="chart-grid">
+      <div class="chart-card featured">
+        <div class="chart-card-head">
+          <div><div class="chart-card-title">Projeção de frota — 2024 vs 2034</div><div class="chart-card-sub">Mantido o ritmo atual de crescimento</div></div>
+          <span class="chart-card-badge">Ponto de atenção</span>
+        </div>
+        <div class="chart-canvas-wrap"><canvas id="chart-frota"></canvas></div>
+        <div class="chart-card-footer">Fonte: IBGE 2024/2025 · Projeção linear</div>
+      </div>
+    </div>
+    <div class="highlight-banner warn">
+      <div class="highlight-banner-icon"><i class="fas fa-clock"></i></div>
+      <div class="highlight-banner-content">
+        <h3>Janela de oportunidade identificada</h3>
+        <p>A próxima década é oportunidade real: enquanto a cidade ainda é pequena, é o momento de estruturar transporte coletivo e mobilidade ativa. Cada ano sem ação torna a reversão mais custosa.</p>
+      </div>
+      <div class="highlight-banner-num">10<small>anos de janela</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- Tensão central -->
+<section style="padding:0 0 60px">
+  <div class="container">
+    <div class="highlight-banner warn">
+      <div class="highlight-banner-icon"><i class="fas fa-balance-scale"></i></div>
+      <div class="highlight-banner-content">
+        <h3>Tensão central identificada no diagnóstico</h3>
+        <p>A moto virou o transporte de referência em Craíbas — na ausência de outras opções. A frota cresceu significativamente em 18 anos, os sinistros mostram tendência de alta em 2025, e o município ainda não tem transporte coletivo, ciclovias nem normas de calçadas.</p>
+      </div>
+      <div class="highlight-banner-num">Zero<small>linhas municipais</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- MINI GRID EIXOS -->
 <section class="eixos-mini">
   <div class="container">
     <div class="eixos-mini-head">
@@ -262,51 +337,17 @@
       <p>Você está em <strong>Como a cidade se move</strong>. Clique em qualquer outro eixo para navegar.</p>
     </div>
     <div class="eixos-mini-grid">
-      <a href="visao-geral.html" class="eixo-mini-card">
-        <span class="eixo-mini-num">01</span>
-        <i class="fas fa-globe-americas eixo-mini-icon"></i>
-        <span class="eixo-mini-title">Craíbas: visão geral</span>
-      </a>
-      <a href="perfil-socioeconomico.html" class="eixo-mini-card">
-        <span class="eixo-mini-num">02</span>
-        <i class="fas fa-chart-pie eixo-mini-icon"></i>
-        <span class="eixo-mini-title">Pessoas e economia</span>
-      </a>
-      <a href="natureza-meio-ambiente.html" class="eixo-mini-card">
-        <span class="eixo-mini-num">03</span>
-        <i class="fas fa-leaf eixo-mini-icon"></i>
-        <span class="eixo-mini-title">Natureza e meio ambiente</span>
-      </a>
-      <a href="cultura-historia.html" class="eixo-mini-card">
-        <span class="eixo-mini-num">04</span>
-        <i class="fas fa-monument eixo-mini-icon"></i>
-        <span class="eixo-mini-title">Cultura e história</span>
-      </a>
-      <a href="uso-territorio.html" class="eixo-mini-card">
-        <span class="eixo-mini-num">05</span>
-        <i class="fas fa-map-marked-alt eixo-mini-icon"></i>
-        <span class="eixo-mini-title">Como o território é usado</span>
-      </a>
-      <a href="infraestrutura.html" class="eixo-mini-card">
-        <span class="eixo-mini-num">06</span>
-        <i class="fas fa-network-wired eixo-mini-icon"></i>
-        <span class="eixo-mini-title">Serviços e infraestrutura</span>
-      </a>
-      <a href="equipamentos-publicos.html" class="eixo-mini-card">
-        <span class="eixo-mini-num">07</span>
-        <i class="fas fa-school eixo-mini-icon"></i>
-        <span class="eixo-mini-title">Onde ficam os serviços públicos</span>
-      </a>
-      <a href="mobilidade.html" class="eixo-mini-card active">
-        <span class="eixo-mini-num">08</span>
-        <i class="fas fa-route eixo-mini-icon"></i>
-        <span class="eixo-mini-title">Como a cidade se move</span>
-      </a>
+      <a href="visao-geral.html" class="eixo-mini-card"><span class="eixo-mini-num">01</span><i class="fas fa-globe-americas eixo-mini-icon"></i><span class="eixo-mini-title">Craíbas: visão geral</span></a>
+      <a href="perfil-socioeconomico.html" class="eixo-mini-card"><span class="eixo-mini-num">02</span><i class="fas fa-chart-pie eixo-mini-icon"></i><span class="eixo-mini-title">Pessoas e economia</span></a>
+      <a href="natureza-meio-ambiente.html" class="eixo-mini-card"><span class="eixo-mini-num">03</span><i class="fas fa-leaf eixo-mini-icon"></i><span class="eixo-mini-title">Natureza e meio ambiente</span></a>
+      <a href="cultura-historia.html" class="eixo-mini-card"><span class="eixo-mini-num">04</span><i class="fas fa-monument eixo-mini-icon"></i><span class="eixo-mini-title">Cultura e história</span></a>
+      <a href="uso-territorio.html" class="eixo-mini-card"><span class="eixo-mini-num">05</span><i class="fas fa-map-marked-alt eixo-mini-icon"></i><span class="eixo-mini-title">Como o território é usado</span></a>
+      <a href="infraestrutura.html" class="eixo-mini-card"><span class="eixo-mini-num">06</span><i class="fas fa-network-wired eixo-mini-icon"></i><span class="eixo-mini-title">Serviços e infraestrutura</span></a>
+      <a href="equipamentos-publicos.html" class="eixo-mini-card"><span class="eixo-mini-num">07</span><i class="fas fa-school eixo-mini-icon"></i><span class="eixo-mini-title">Onde ficam os serviços públicos</span></a>
+      <a href="mobilidade.html" class="eixo-mini-card active"><span class="eixo-mini-num">08</span><i class="fas fa-route eixo-mini-icon"></i><span class="eixo-mini-title">Como a cidade se move</span></a>
     </div>
     <div class="eixos-mini-cta">
-      <a href="../index.html#capitulos" class="btn btn-accent">
-        <i class="fas fa-th"></i> Ver todos os eixos no início
-      </a>
+      <a href="../index.html#capitulos" class="btn btn-accent"><i class="fas fa-th"></i> Ver todos os eixos no início</a>
     </div>
   </div>
 </section>
@@ -344,10 +385,7 @@
     <div class="footer-col">
       <h4>PLANURBI</h4>
       <p class="footer-credit"><strong>Planejamento Urbano Inteligente</strong> — consultoria de planejamento urbano e inteligência territorial.</p>
-      <div class="footer-credit-box">
-        <span class="footer-credit-label">Realização</span><strong>PlanUrbi</strong>
-        <span class="footer-credit-label">Equipe</span><strong>Equipe técnica PlanUrbi</strong>
-      </div>
+      <div class="footer-credit-box"><span class="footer-credit-label">Realização</span><strong>PlanUrbi</strong><span class="footer-credit-label">Equipe</span><strong>Equipe técnica PlanUrbi</strong></div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -358,6 +396,55 @@
   </div>
 </footer>
 
-<script src="../script-eixo.js"></script>
+<a href="#" class="back-to-top" id="back-to-top" aria-label="Voltar ao topo"><i class="fas fa-arrow-up"></i></a>
+
+<script src="../restrito.js"></script>
+<script src="../eixo-tabs.js"></script>
+<script>
+if (typeof Chart !== 'undefined') {
+  Chart.defaults.font.family = "'Inter', sans-serif";
+  Chart.defaults.color = '#5a6b78';
+
+  const pgvs = document.getElementById('chart-pgvs');
+  if (pgvs) new Chart(pgvs, {
+    type: 'doughnut',
+    data: {
+      labels: ['Comércio (18)', 'Administrativo (13)', 'Religiosos (13)', 'Saúde (12)', 'Praças (12)', 'Educação (11)', 'Outros (29)'],
+      datasets: [{ data: [18,13,13,12,12,11,29], backgroundColor: ['#1a4a2e','#3498db','#f5a800','#b94e3a','#639922','#7ec8e3','#c0d4c0'], borderWidth:0 }]
+    },
+    options: { responsive:true, maintainAspectRatio:false, cutout:'55%', plugins: { legend: { position:'right', labels: { font: { size: 11 }, boxWidth: 12 } } } }
+  });
+
+  const calc = document.getElementById('chart-calcadas');
+  if (calc) new Chart(calc, {
+    type: 'bar',
+    data: {
+      labels: ['Com alguma calçada','Com arborização (5+)','Rampas cadeirantes','Sem obstáculos'],
+      datasets: [{ data: [63.5,41.4,2.1,0.47], backgroundColor:['#1a4a2e','#639922','#b94e3a','#b94e3a'], borderRadius:8 }]
+    },
+    options: { responsive:true, maintainAspectRatio:false, indexAxis:'y', plugins: { legend:{display:false}, tooltip:{ callbacks: { label: c => ` ${c.parsed.x}% dos moradores` } } }, scales: { x: { beginAtZero:true, max:100, grid: { color:'rgba(0,0,0,0.05)' }, ticks: { callback: v => v+'%' } }, y: { grid: { display: false } } } }
+  });
+
+  const sin = document.getElementById('chart-sinistros');
+  if (sin) new Chart(sin, {
+    type: 'line',
+    data: {
+      labels: ['2022','2023','2024','2025 (jan–ago)'],
+      datasets: [{ label: 'Ocorrências', data: [19,10,21,16], borderColor:'#b94e3a', backgroundColor:'rgba(185,78,58,0.15)', tension:0.35, fill:true, borderWidth:3, pointBackgroundColor:'#fff', pointBorderColor:'#b94e3a', pointBorderWidth:3, pointRadius:6 }]
+    },
+    options: { responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false} }, scales: { y: { beginAtZero:true, grid:{color:'rgba(0,0,0,0.05)'} }, x: { grid:{display:false}, ticks:{font:{weight:'700'}} } } }
+  });
+
+  const fr = document.getElementById('chart-frota');
+  if (fr) new Chart(fr, {
+    type: 'bar',
+    data: {
+      labels: ['2024 (atual)','2034 (projeção)'],
+      datasets: [{ data: [9000,40000], backgroundColor: ['#1a4a2e','#b94e3a'], borderRadius:8, barThickness: 100 }]
+    },
+    options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}, tooltip:{callbacks:{label: c => ` ${c.parsed.y.toLocaleString('pt-BR')} veículos`}}}, scales: { y: { beginAtZero:true, grid:{color:'rgba(0,0,0,0.05)'}, ticks:{callback: v => (v/1000)+'k'} }, x: { grid:{display:false}, ticks:{font:{weight:'700', size:14}} } } }
+  });
+}
+</script>
 </body>
 </html>

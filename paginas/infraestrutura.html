@@ -8,10 +8,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  .hero-title, .page-hero-title, .dash-hero-title,
+  .section-title, .cta-title, .chapter-card h3, .indicator-card h4,
+  .map-header h3, .footer-col h4, .logo-text strong,
+  .chart-card-title, .activity-title, .accordion-trigger,
+  .info-text-card h3, .modal-body h2, .highlight-banner-content h3,
+  .modal-equip h2, .senha-modal h2 {
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif !important;
+    font-display: swap;
+  }
+</style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.5.0/dist/tabler-icons.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <link rel="stylesheet" href="../styles.css">
-<link rel="stylesheet" href="../styles-eixo.css">
+<link rel="stylesheet" href="../perfil-socioeconomico.css">
+<link rel="stylesheet" href="../restrito.css">
 </head>
 <body>
 
@@ -40,209 +52,249 @@
   </div>
 </header>
 
-<main class="eixo-page">
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="page-hero-breadcrumb">
+      <a href="../index.html"><i class="fas fa-home"></i> Início</a>
+      <i class="fas fa-chevron-right"></i>
+      <a href="../index.html#capitulos">Eixos Temáticos</a>
+      <i class="fas fa-chevron-right"></i>
+      <span>Serviços e infraestrutura</span>
+    </div>
+    <h1 class="page-hero-title">Serviços e <span>infraestrutura</span></h1>
+    <p class="page-hero-lead">
+      Água, esgoto, drenagem, resíduos, energia e comunicações — os serviços urbanos
+      essenciais que abastecem, coletam, iluminam e conectam o município. O maior
+      ponto de atenção identificado: apenas 6,6% da população tem coleta de esgoto
+      adequada.
+    </p>
+  </div>
+</section>
+
+<div class="tabs-nav-wrap">
   <div class="container">
-    <div class="w">
-      <div class="ph">
-        <div class="bc">
-          <a href="../index.html"><i class="ti ti-home" aria-hidden="true"></i> Início</a>
-          <i class="ti ti-chevron-right" aria-hidden="true"></i>
-          <a href="../index.html#capitulos">Eixos temáticos</a>
-          <i class="ti ti-chevron-right" aria-hidden="true"></i>
-          <span>Serviços e infraestrutura</span>
+    <div class="tabs-nav" role="tablist">
+      <button class="tab-btn active" data-tab="agua"><i class="fas fa-droplet"></i><span>Água e esgoto</span></button>
+      <button class="tab-btn" data-tab="drenagem"><i class="fas fa-cloud-showers-heavy"></i><span>Drenagem</span></button>
+      <button class="tab-btn" data-tab="residuos"><i class="fas fa-recycle"></i><span>Resíduos</span></button>
+      <button class="tab-btn" data-tab="energia"><i class="fas fa-bolt"></i><span>Energia</span></button>
+      <button class="tab-btn" data-tab="comunicacao"><i class="fas fa-wifi"></i><span>Comunicações</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- PAINEL 1 — Água e esgoto -->
+<section class="tab-panel active" data-tab="agua">
+  <div class="container">
+    <div class="panel-head">
+      <span class="section-tag"><i class="fas fa-droplet"></i> Água e esgoto</span>
+      <h2 class="section-title">O maior <span>gargalo</span> de infraestrutura</h2>
+      <p class="section-lead">
+        Enquanto a rede de água cobre 57,8% da população, o esgoto adequado alcança apenas 6,6% — o principal ponto de atenção identificado no diagnóstico.
+      </p>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="kpi-icon"><i class="fas fa-faucet"></i></div><div class="kpi-value">57,8<small>%</small></div><div class="kpi-label">Cobertura de água</div><span class="kpi-trend down">SINISA 2023</span></div>
+      <div class="kpi-card accent"><div class="kpi-icon"><i class="fas fa-water"></i></div><div class="kpi-value">6,6<small>%</small></div><div class="kpi-label">Coleta de esgoto</div><span class="kpi-trend down">IBGE Censo 2022</span></div>
+      <div class="kpi-card blue"><div class="kpi-icon"><i class="fas fa-tint-slash"></i></div><div class="kpi-value">1.412</div><div class="kpi-label">Domicílios com carro-pipa</div><span class="kpi-trend down">SINISA 2023</span></div>
+      <div class="kpi-card dark"><div class="kpi-icon"><i class="fas fa-industry"></i></div><div class="kpi-value">2026</div><div class="kpi-label">ETE experimental</div><span class="kpi-trend up">Início da operação</span></div>
+    </div>
+
+    <div class="chart-grid cols-2">
+      <div class="chart-card">
+        <div class="chart-card-head">
+          <div><div class="chart-card-title">Cobertura de saneamento</div><div class="chart-card-sub">Percentual da população</div></div>
+          <span class="chart-card-badge">SINISA / IBGE</span>
         </div>
-        <div class="pt">Serviços e infraestrutura</div>
-        <div class="ps">Água, esgoto, drenagem, resíduos, energia e comunicações — os serviços urbanos essenciais que abastecem, coletam, iluminam e conectam o município.</div>
+        <div class="chart-canvas-wrap"><canvas id="chart-saneamento"></canvas></div>
+        <div class="chart-card-footer">Fontes: SINISA 2023 · IBGE Censo 2022</div>
       </div>
-
-      <div class="insight">
-        <i class="ti ti-bulb ii" aria-hidden="true"></i>
-        <div class="it"><strong>O que o diagnóstico revelou:</strong> o maior gargalo de infraestrutura identificado é o esgoto — apenas 6,6% da população tem coleta adequada. O município abriga também o maior aterro sanitário do Agreste (CTR do Agreste), que atende vários municípios da região.</div>
+      <div class="info-text-card">
+        <h3>Abastecimento de água</h3>
+        <p>Operador: <strong>CASAL</strong>. Sistema de captação vem do <strong>Rio São Francisco</strong>, no município de Traipu, com tratamento em ETAs de São Brás.</p>
+        <ul class="info-bullets">
+          <li><i class="fas fa-check-circle"></i> Consórcio regional <strong>CORSEAL</strong> (19 municípios)</li>
+          <li><i class="fas fa-check-circle"></i> Vazão de captação ~36,10 L/s (24h)</li>
+          <li><i class="fas fa-triangle-exclamation"></i> Emergência por estiagem 2025 (Port. 1.317/2025)</li>
+        </ul>
       </div>
+    </div>
 
-      <div class="kpi-grid">
-        <div class="kpi amber"><div class="kl">Acesso à água (SINISA 2023)</div><div class="kv">57,8%</div><div class="ks">Cobertura da rede pública</div></div>
-        <div class="kpi red"><div class="kl">Coleta de esgoto adequada</div><div class="kv">6,6%</div><div class="ks">IBGE Censo 2022 · ponto de atenção</div></div>
-        <div class="kpi amber"><div class="kl">Coleta de lixo</div><div class="kv">65,3%</div><div class="ks">Serviço público</div></div>
-        <div class="kpi verde"><div class="kl">CTR do Agreste</div><div class="kv">Em Craíbas</div><div class="ks">Atende todo o Agreste AL</div></div>
-        <div class="kpi verde"><div class="kl">Nova subestação elétrica</div><div class="kv">2023</div><div class="ks">R$ 24 mi · 12,5 MVA</div></div>
-        <div class="kpi amber"><div class="kl">Densidade banda larga fixa</div><div class="kv">2,7/100 hab</div><div class="ks">ANATEL, nov/2025</div></div>
-      </div>
-
-      <div class="tab-row" role="tablist">
-        <div class="tab active" onclick="showTab('agua',this)"><i class="ti ti-droplet" aria-hidden="true"></i> Água e esgoto</div>
-        <div class="tab" onclick="showTab('drenagem',this)"><i class="ti ti-cloud-rain" aria-hidden="true"></i> Drenagem</div>
-        <div class="tab" onclick="showTab('residuos',this)"><i class="ti ti-recycle" aria-hidden="true"></i> Resíduos sólidos</div>
-        <div class="tab" onclick="showTab('energia',this)"><i class="ti ti-bolt" aria-hidden="true"></i> Energia</div>
-        <div class="tab" onclick="showTab('comunicacao',this)"><i class="ti ti-wifi" aria-hidden="true"></i> Comunicações</div>
-      </div>
-
-      <div id="tab-agua" class="tab-content active">
-        <div class="two">
-          <div class="card" style="margin-bottom:0">
-            <div class="ch"><i class="ti ti-droplet" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Abastecimento de água</div></div>
-            <div class="cb">
-              <div class="progress-row">
-                <div class="prog-label"><span>Cobertura pública (SINISA 2023)</span><span style="color:var(--amber-label)">57,8%</span></div>
-                <div class="prog-track"><div class="prog-fill" style="width:58%;background:var(--amber-borda)"></div></div>
-              </div>
-              <div class="dr"><div class="dl">Operador</div><div class="dv">CASAL</div></div>
-              <div class="dr"><div class="dl">Sistema de captação</div><div class="dv">Rio São Francisco (Traipu)</div></div>
-              <div class="dr"><div class="dl">Tratamento</div><div class="dv">ETAs em São Brás</div></div>
-              <div class="dr"><div class="dl">Vazão de captação</div><div class="dv">~36,10 L/s (24h)</div></div>
-              <div class="dr"><div class="dl">Consórcio regional</div><div class="dv">CORSEAL (19 municípios)</div></div>
-              <div class="nota-warn">Ponto de atenção identificado: em 2025, Craíbas obteve reconhecimento federal de emergência por estiagem (Portaria 1.317/2025 — Defesa Civil Nacional).</div>
-            </div>
-          </div>
-          <div class="card" style="margin-bottom:0">
-            <div class="ch"><i class="ti ti-alert-triangle" style="color:#A32D2D" aria-hidden="true"></i><div class="ct">Esgotamento sanitário</div></div>
-            <div class="cb">
-              <div class="progress-row">
-                <div class="prog-label"><span style="color:#A32D2D">Coleta adequada</span><span style="color:#A32D2D">6,6%</span></div>
-                <div class="prog-track"><div class="prog-fill" style="width:7%;background:#E24B4A"></div></div>
-              </div>
-              <div class="dr"><div class="dl">Rede geral/fossa ligada à rede</div><div class="dv" style="color:#A32D2D">6,6% da pop.</div></div>
-              <div class="dr"><div class="dl">Fossa séptica/filtro</div><div class="dv">2.186 habitantes</div></div>
-              <div class="dr"><div class="dl">Sem banheiro nem sanitário</div><div class="dv" style="color:#A32D2D">316 habitantes</div></div>
-              <div class="dr"><div class="dl">ETE (início operação)</div><div class="dv"><span class="tag tag-green">Experimental, 2026</span></div></div>
-              <div class="nota-red">Ponto de atenção identificado no diagnóstico: cobertura de esgoto muito baixa. Fonte: IBGE Censo 2022.</div>
-            </div>
-          </div>
+    <!-- CONTEÚDO RESTRITO: relatos comunitários específicos -->
+    <div class="conteudo-restrito"
+         data-titulo-restrito="Relatos comunitários — água e esgoto"
+         data-desc-restrito="Queixas específicas de comunidades, ligações irregulares e observações em campo. Reservado à equipe técnica.">
+      <div class="chart-card" style="background:linear-gradient(135deg, rgba(220,80,80,0.06) 0%, white 100%);border-color:rgba(220,80,80,0.30);margin-top:24px">
+        <div class="chart-card-head">
+          <div><div class="chart-card-title" style="color:#b03b3b">Relatos comunitários — dados técnicos</div><div class="chart-card-sub" style="color:#b03b3b">Observações específicas de campo</div></div>
+          <span class="chart-card-badge" style="background:rgba(220,80,80,0.15);color:#b03b3b">Restrito</span>
         </div>
-      </div>
-
-      <div id="tab-drenagem" class="tab-content">
-        <div class="card">
-          <div class="ch"><i class="ti ti-cloud-storm" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Drenagem urbana — situação e projeto em andamento</div></div>
-          <div class="cb">
-            <div class="two" style="margin-bottom:12px">
-              <div>
-                <div style="font-size:12px;color:var(--color-text-tertiary);margin-bottom:8px;font-weight:600">SITUAÇÃO ATUAL</div>
-                <div class="dr"><div class="dl">Plano Diretor de Drenagem</div><div class="dv"><span class="tag tag-red">A elaborar</span></div></div>
-                <div class="dr"><div class="dl">Cobrança por serviço</div><div class="dv"><span class="tag tag-red">Não existe</span></div></div>
-                <div class="dr"><div class="dl">Responsável</div><div class="dv">Secretaria de Viação e Obras</div></div>
-                <div class="dr"><div class="dl">Acúmulo de água</div><div class="dv"><span class="tag tag-amber">Após chuvas curtas</span></div></div>
-              </div>
-              <div>
-                <div style="font-size:12px;color:var(--color-text-tertiary);margin-bottom:8px;font-weight:600">PROJETO EM ANDAMENTO (2024)</div>
-                <div class="dr"><div class="dl">Investimento</div><div class="dv">R$ 9.472.688</div></div>
-                <div class="dr"><div class="dl">Previsão de conclusão</div><div class="dv">2026</div></div>
-                <div class="dr"><div class="dl">Componentes</div><div class="dv" style="font-size:11px">Galerias pluviais,<br>bocas de lobo, sarjetas</div></div>
-              </div>
-            </div>
-            <div class="nota-box">O projeto de 2024 é o primeiro investimento significativo em drenagem urbana do município. Está integrado à pavimentação de vias.</div>
-          </div>
-        </div>
-      </div>
-
-      <div id="tab-residuos" class="tab-content">
-        <div class="two">
-          <div class="card" style="margin-bottom:0">
-            <div class="ch"><i class="ti ti-trash" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Coleta de lixo</div></div>
-            <div class="cb">
-              <div class="progress-row">
-                <div class="prog-label"><span>Coleta pelo serviço público</span><span>65,3%</span></div>
-                <div class="prog-track"><div class="prog-fill" style="width:65%;background:var(--verde-forte)"></div></div>
-              </div>
-              <div class="progress-row">
-                <div class="prog-label"><span style="color:#A32D2D">Queima do lixo na propriedade</span><span style="color:#A32D2D">~34%</span></div>
-                <div class="prog-track"><div class="prog-fill" style="width:34%;background:#E24B4A"></div></div>
-              </div>
-              <div class="dr"><div class="dl">Habitantes com coleta (2022)</div><div class="dv">~16.500</div></div>
-              <div class="dr"><div class="dl">Habitantes que queimam o lixo</div><div class="dv" style="color:#A32D2D">8.418</div></div>
-              <div class="dr"><div class="dl">Resíduos coletados (2021)</div><div class="dv">3.750 ton.</div></div>
-              <div class="nota-warn">Ponto de atenção identificado: a queima do lixo é prática de 1 em cada 3 habitantes — principalmente em áreas rurais sem coleta regular.</div>
-            </div>
-          </div>
-          <div class="card" style="margin-bottom:0">
-            <div class="ch"><i class="ti ti-building-factory" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">CTR do Agreste — em Craíbas</div></div>
-            <div class="cb">
-              <div class="dr"><div class="dl">Operador</div><div class="dv">Alagoas Ambiental</div></div>
-              <div class="dr"><div class="dl">Consórcio</div><div class="dv">CONAGRESTE</div></div>
-              <div class="dr"><div class="dl">Usina de biogás</div><div class="dv"><span class="tag tag-green">Instalada</span></div></div>
-              <div class="dr"><div class="dl">Capacidade biogás</div><div class="dv">10.000 residências</div></div>
-              <div class="dr"><div class="dl">ETE de chorume</div><div class="dv"><span class="tag tag-green">Instalada</span></div></div>
-              <div class="nota-box">O CTR do Agreste atende municípios de toda a região e é considerado um dos empreendimentos de infraestrutura mais relevantes do Agreste alagoano.</div>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="ch"><i class="ti ti-recycle" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Coleta seletiva e catadores</div></div>
-          <div class="cb">
-            <div class="dr"><div class="dl">Associação de Catadores</div><div class="dv"><span class="tag tag-green">Ativa</span></div></div>
-            <div class="dr"><div class="dl">Atividade</div><div class="dv">Coleta e comercialização de recicláveis</div></div>
-            <div class="dr"><div class="dl">Coleta seletiva formalizada</div><div class="dv"><span class="tag tag-amber">Parcial — via consórcio</span></div></div>
-            <div class="nota-box">A Associação de Catadores atua no sustento de famílias locais e promove educação ambiental — a cobertura da coleta seletiva ainda tem espaço para ampliar.</div>
-          </div>
-        </div>
-      </div>
-
-      <div id="tab-energia" class="tab-content">
-        <div class="two">
-          <div class="card" style="margin-bottom:0">
-            <div class="ch"><i class="ti ti-bolt" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Fornecimento de energia</div></div>
-            <div class="cb">
-              <div class="dr"><div class="dl">Distribuidora</div><div class="dv">Equatorial Energia</div></div>
-              <div class="dr"><div class="dl">Subestação (nova)</div><div class="dv">Construída em 2023</div></div>
-              <div class="dr"><div class="dl">Investimento na subestação</div><div class="dv">~R$ 24 milhões</div></div>
-              <div class="dr"><div class="dl">Capacidade</div><div class="dv">12,5 MVA</div></div>
-              <div class="dr"><div class="dl">Consumidores atendidos</div><div class="dv">~54 mil (região)</div></div>
-              <div class="nota-box">A nova subestação é um avanço identificado no diagnóstico — reduz oscilações e melhora a confiabilidade do fornecimento tanto para moradores quanto para a zona rural.</div>
-            </div>
-          </div>
-          <div class="card" style="margin-bottom:0">
-            <div class="ch"><i class="ti ti-bulb" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Iluminação pública</div></div>
-            <div class="cb">
-              <div class="dr"><div class="dl">Gestão</div><div class="dv">Prefeitura Municipal</div></div>
-              <div class="dr"><div class="dl">Financiamento</div><div class="dv">CIP (na conta de energia)</div></div>
-              <div class="dr"><div class="dl">Modernização em andamento</div><div class="dv"><span class="tag tag-green">Sim</span></div></div>
-              <div class="dr"><div class="dl">Investimento aprovado</div><div class="dv">R$ 4.000.000</div></div>
-              <div class="dr"><div class="dl">Av. Marginal (2025)</div><div class="dv">500+ luminárias LED</div></div>
-              <div class="nota-box">A substituição por LEDs reduz o consumo de energia e o custo de manutenção — e melhora a segurança nas vias públicas.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="tab-comunicacao" class="tab-content">
-        <div class="two">
-          <div class="card" style="margin-bottom:0">
-            <div class="ch"><i class="ti ti-phone" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Telefonia móvel</div></div>
-            <div class="cb">
-              <div class="dr"><div class="dl">Operadoras presentes</div><div class="dv">VIVO · TIM · CLARO</div></div>
-              <div class="dr"><div class="dl">Pessoas com acesso (nov/2025)</div><div class="dv">18.656</div></div>
-              <div class="dr"><div class="dl">Densidade de serviço</div><div class="dv">69,1/100 hab.</div></div>
-              <div class="dr"><div class="dl">Folha Miúda</div><div class="dv"><span class="tag tag-amber">Sem cobertura (nov/2025)</span></div></div>
-              <div class="nota-warn">Ponto de atenção identificado: o segundo maior núcleo urbano do município — Folha Miúda — não tem cobertura de operadoras de telefonia celular.</div>
-            </div>
-          </div>
-          <div class="card" style="margin-bottom:0">
-            <div class="ch"><i class="ti ti-wifi" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Internet e TV</div></div>
-            <div class="cb">
-              <div class="dr"><div class="dl">Banda larga fixa (nov/2025)</div><div class="dv">712 acessos</div></div>
-              <div class="dr"><div class="dl">Densidade banda larga</div><div class="dv">2,7 por 100 hab.</div></div>
-              <div class="dr"><div class="dl">Provedores de internet fixa</div><div class="dv" style="font-size:11px">Topfibra, VAYPERNET, Hot Net, TELEBRAS, STARLINK, OI</div></div>
-              <div class="dr"><div class="dl">TV digital</div><div class="dv"><span class="tag tag-green">Disponível (UHF)</span></div></div>
-              <div class="dr"><div class="dl">Rádios locais</div><div class="dv">2 — FM 105,9</div></div>
-              <div class="nota-warn">Ponto de atenção identificado: densidade de banda larga fixa abaixo da média nacional — limita acesso a serviços digitais.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="alert-box">
-        <i class="ti ti-alert-triangle ai" aria-hidden="true"></i>
-        <div class="at"><strong>Tensão central:</strong> Craíbas avança na energia (nova subestação, LEDs) e nos resíduos (CTR do Agreste), mas o esgoto segue como o maior ponto de atenção de infraestrutura — com cobertura de 6,6% (IBGE Censo 2022). A ETE experimental de 2026 é um passo, mas ainda em fase inicial.</div>
-      </div>
-
-      <div class="fontes">
-        <div class="ft"><strong>Fontes:</strong> IBGE · Censo Demográfico 2022 · SINISA 2023 · ANATEL nov/2025 · Equatorial Energia · CASAL · CONAGRESTE · Portaria 1.317/2025 (Defesa Civil Nacional) · Portal de Transparência de Craíbas · Diagnóstico Inteligente PlanUrbi/FEPESA, 2026.</div>
+        <p style="font-size:14px;color:var(--text);line-height:1.7">Nas oficinas participativas, moradores relataram falta de água frequente e pressão insuficiente. Esgoto a céu aberto em ruas periféricas foi observado em campo — com risco direto de contaminação dos poços rasos usados pela zona rural.</p>
+        <table class="data-table" style="margin-top:16px">
+          <tbody>
+            <tr><td>Fossa séptica/filtro (não ligada à rede)</td><td class="num">2.186 habitantes</td></tr>
+            <tr><td>Sem banheiro nem sanitário</td><td class="num" style="color:#b03b3b">316 habitantes</td></tr>
+            <tr><td>Dados de cobertura CASAL</td><td class="num" style="color:#b03b3b">Não fornecidos oficialmente</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
-</main>
+</section>
 
-<!-- ===== MINI-GRID DOS 8 EIXOS ===== -->
+<!-- PAINEL 2 — Drenagem -->
+<section class="tab-panel" data-tab="drenagem">
+  <div class="container">
+    <div class="panel-head">
+      <span class="section-tag"><i class="fas fa-cloud-showers-heavy"></i> Drenagem</span>
+      <h2 class="section-title">Primeiro investimento <span>significativo</span> em andamento</h2>
+      <p class="section-lead">
+        Até 2024, Craíbas não tinha Plano Diretor de Drenagem. Um projeto de R$ 9,4 milhões está em execução — primeiro grande investimento no setor.
+      </p>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="kpi-icon"><i class="fas fa-file"></i></div><div class="kpi-value">Ausente</div><div class="kpi-label">Plano Diretor de Drenagem</div><span class="kpi-trend down">A elaborar</span></div>
+      <div class="kpi-card accent"><div class="kpi-icon"><i class="fas fa-hard-hat"></i></div><div class="kpi-value">R$ 9,4<small> mi</small></div><div class="kpi-label">Projeto em execução</div><span class="kpi-trend up">Iniciado em 2024</span></div>
+      <div class="kpi-card blue"><div class="kpi-icon"><i class="fas fa-calendar"></i></div><div class="kpi-value">2026</div><div class="kpi-label">Previsão de conclusão</div><span class="kpi-trend neutral">Em andamento</span></div>
+      <div class="kpi-card dark"><div class="kpi-icon"><i class="fas fa-water"></i></div><div class="kpi-value">Sazonal</div><div class="kpi-label">Alagamentos após chuvas</div><span class="kpi-trend down">Ponto de atenção</span></div>
+    </div>
+    <div class="info-cols">
+      <div class="info-text-card">
+        <h3>Componentes do projeto</h3>
+        <ul class="info-bullets">
+          <li><i class="fas fa-check-circle"></i> Galerias pluviais</li>
+          <li><i class="fas fa-check-circle"></i> Bocas de lobo</li>
+          <li><i class="fas fa-check-circle"></i> Sarjetas</li>
+          <li><i class="fas fa-check-circle"></i> Poços de visita</li>
+          <li><i class="fas fa-check-circle"></i> Integrado a pavimentação de vias</li>
+        </ul>
+      </div>
+      <div class="info-text-card" style="background:linear-gradient(135deg, rgba(245,168,0,0.06) 0%, white 100%);border-color:rgba(245,168,0,0.3)">
+        <h3>Por que é importante</h3>
+        <p>O projeto de 2024 é o primeiro investimento significativo em drenagem urbana do município. Está integrado à pavimentação de vias, o que amplia o impacto.</p>
+        <p>Ponto de atenção identificado: <strong>ligações irregulares de esgoto</strong> na rede de drenagem podem extravasar durante chuvas intensas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAINEL 3 — Resíduos -->
+<section class="tab-panel" data-tab="residuos">
+  <div class="container">
+    <div class="panel-head">
+      <span class="section-tag"><i class="fas fa-recycle"></i> Resíduos sólidos</span>
+      <h2 class="section-title">O <span>maior aterro</span> do Agreste é aqui</h2>
+      <p class="section-lead">
+        A CTR do Agreste, localizada em Craíbas, atende toda a região com aterro sanitário, usina de biogás e ETE de chorume — infraestrutura de referência para municípios da região.
+      </p>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="kpi-icon"><i class="fas fa-trash"></i></div><div class="kpi-value">65,3<small>%</small></div><div class="kpi-label">Coleta pública de lixo</div><span class="kpi-trend neutral">IBGE Censo 2022</span></div>
+      <div class="kpi-card accent"><div class="kpi-icon"><i class="fas fa-fire"></i></div><div class="kpi-value">8.418</div><div class="kpi-label">Habitantes queimam lixo</div><span class="kpi-trend down">Ponto de atenção</span></div>
+      <div class="kpi-card blue"><div class="kpi-icon"><i class="fas fa-industry"></i></div><div class="kpi-value">CTR</div><div class="kpi-label">Aterro do Agreste</div><span class="kpi-trend up">Localizado em Craíbas</span></div>
+      <div class="kpi-card dark"><div class="kpi-icon"><i class="fas fa-bolt"></i></div><div class="kpi-value">10 mil</div><div class="kpi-label">Residências (biogás)</div><span class="kpi-trend up">Capacidade da usina</span></div>
+    </div>
+    <div class="chart-grid cols-2">
+      <div class="info-text-card">
+        <h3>CTR do Agreste — em Craíbas</h3>
+        <p>Operado pela <strong>Alagoas Ambiental</strong>, integra o consórcio <strong>CONAGRESTE</strong>. Um dos empreendimentos de infraestrutura mais relevantes do Agreste alagoano.</p>
+        <ul class="info-bullets">
+          <li><i class="fas fa-check-circle"></i> Usina de biogás instalada — 10.000 residências</li>
+          <li><i class="fas fa-check-circle"></i> ETE de chorume instalada</li>
+          <li><i class="fas fa-check-circle"></i> Atende toda a região do Agreste</li>
+        </ul>
+      </div>
+      <div class="info-text-card">
+        <h3>Coleta seletiva e catadores</h3>
+        <p>A <strong>Associação de Catadores</strong> atua no sustento de famílias locais e promove educação ambiental.</p>
+        <ul class="info-bullets">
+          <li><i class="fas fa-check-circle"></i> Associação ativa</li>
+          <li><i class="fas fa-arrow-right"></i> Coleta seletiva parcial (via consórcio)</li>
+          <li><i class="fas fa-arrow-right"></i> Ampliar cobertura é oportunidade identificada</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAINEL 4 — Energia -->
+<section class="tab-panel" data-tab="energia">
+  <div class="container">
+    <div class="panel-head">
+      <span class="section-tag"><i class="fas fa-bolt"></i> Energia</span>
+      <h2 class="section-title">Nova subestação e <span>iluminação LED</span></h2>
+      <p class="section-lead">
+        Em 2023, Craíbas inaugurou nova subestação de R$ 24 milhões — reduz oscilações. Iluminação pública em modernização com LEDs.
+      </p>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="kpi-icon"><i class="fas fa-plug"></i></div><div class="kpi-value">2023</div><div class="kpi-label">Nova subestação</div><span class="kpi-trend up">R$ 24 mi</span></div>
+      <div class="kpi-card accent"><div class="kpi-icon"><i class="fas fa-battery-full"></i></div><div class="kpi-value">12,5<small> MVA</small></div><div class="kpi-label">Capacidade</div><span class="kpi-trend up">Atende ~54 mil consumidores</span></div>
+      <div class="kpi-card blue"><div class="kpi-icon"><i class="fas fa-lightbulb"></i></div><div class="kpi-value">R$ 4<small> mi</small></div><div class="kpi-label">Iluminação LED</div><span class="kpi-trend up">Modernização em andamento</span></div>
+      <div class="kpi-card dark"><div class="kpi-icon"><i class="fas fa-user-check"></i></div><div class="kpi-value">8.368</div><div class="kpi-label">Consumidores totais (2021)</div><span class="kpi-trend up">+515% rural vs 2019</span></div>
+    </div>
+    <div class="highlight-banner">
+      <div class="highlight-banner-icon"><i class="fas fa-bolt"></i></div>
+      <div class="highlight-banner-content">
+        <h3>Investimento identificado como positivo no diagnóstico</h3>
+        <p>A nova subestação reduz oscilações e melhora a confiabilidade do fornecimento — tanto para moradores da sede quanto para a zona rural. Beneficia também Arapiraca, Igaci, Lagoa da Canoa e Palmeira dos Índios.</p>
+      </div>
+      <div class="highlight-banner-num">54k<small>consumidores atendidos</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAINEL 5 — Comunicações -->
+<section class="tab-panel" data-tab="comunicacao">
+  <div class="container">
+    <div class="panel-head">
+      <span class="section-tag"><i class="fas fa-wifi"></i> Comunicações</span>
+      <h2 class="section-title">Cobertura móvel <span>desigual</span></h2>
+      <p class="section-lead">
+        Três operadoras atendem a sede — mas Folha Miúda, o segundo núcleo urbano, não tem cobertura de celular. A densidade de banda larga também está abaixo da média nacional.
+      </p>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="kpi-icon"><i class="fas fa-mobile-alt"></i></div><div class="kpi-value">3</div><div class="kpi-label">Operadoras móveis</div><span class="kpi-trend neutral">VIVO · TIM · CLARO</span></div>
+      <div class="kpi-card accent"><div class="kpi-icon"><i class="fas fa-signal"></i></div><div class="kpi-value">69,1</div><div class="kpi-label">Móvel/100 hab (nov/2025)</div><span class="kpi-trend neutral">ANATEL</span></div>
+      <div class="kpi-card blue"><div class="kpi-icon"><i class="fas fa-wifi"></i></div><div class="kpi-value">2,7</div><div class="kpi-label">Banda larga/100 hab</div><span class="kpi-trend down">Abaixo da média nacional</span></div>
+      <div class="kpi-card dark"><div class="kpi-icon"><i class="fas fa-radio"></i></div><div class="kpi-value">FM 105,9</div><div class="kpi-label">2 rádios locais</div><span class="kpi-trend up">TV digital disponível</span></div>
+    </div>
+    <div class="info-cols">
+      <div class="info-text-card" style="background:linear-gradient(135deg, rgba(220,80,80,0.05) 0%, white 100%);border-color:rgba(220,80,80,0.25)">
+        <h3>Ponto de atenção — Folha Miúda</h3>
+        <p>O segundo maior núcleo urbano do município <strong>não tem cobertura</strong> de nenhuma operadora de telefonia móvel (nov/2025).</p>
+        <p>Isso limita o acesso a serviços digitais, educação a distância e atividades econômicas online.</p>
+      </div>
+      <div class="info-text-card">
+        <h3>Provedores de internet fixa</h3>
+        <p>6 provedores atuam no município — resultado da abertura do mercado nos últimos anos.</p>
+        <ul class="info-bullets">
+          <li><i class="fas fa-check-circle"></i> Topfibra · VAYPERNET · Hot Net</li>
+          <li><i class="fas fa-check-circle"></i> TELEBRAS · STARLINK · OI</li>
+          <li><i class="fas fa-arrow-right"></i> 712 acessos de banda larga (nov/2025)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tensão central -->
+<section style="padding:0 0 60px">
+  <div class="container">
+    <div class="highlight-banner warn">
+      <div class="highlight-banner-icon"><i class="fas fa-balance-scale"></i></div>
+      <div class="highlight-banner-content">
+        <h3>Tensão central identificada no diagnóstico</h3>
+        <p>Craíbas avança na energia (nova subestação, LEDs) e nos resíduos (CTR do Agreste), mas o esgoto segue como o maior ponto de atenção de infraestrutura — com cobertura de 6,6% (IBGE Censo 2022). A ETE experimental de 2026 é um passo, mas ainda em fase inicial.</p>
+      </div>
+      <div class="highlight-banner-num">6,6<small>% esgoto</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- MINI GRID EIXOS -->
 <section class="eixos-mini">
   <div class="container">
     <div class="eixos-mini-head">
@@ -251,55 +303,22 @@
       <p>Você está em <strong>Serviços e infraestrutura</strong>. Clique em qualquer outro eixo para navegar.</p>
     </div>
     <div class="eixos-mini-grid">
-      <a href="visao-geral.html" class="eixo-mini-card">
-        <span class="eixo-mini-num">01</span>
-        <i class="fas fa-globe-americas eixo-mini-icon"></i>
-        <span class="eixo-mini-title">Craíbas: visão geral</span>
-      </a>
-      <a href="perfil-socioeconomico.html" class="eixo-mini-card">
-        <span class="eixo-mini-num">02</span>
-        <i class="fas fa-chart-pie eixo-mini-icon"></i>
-        <span class="eixo-mini-title">Pessoas e economia</span>
-      </a>
-      <a href="natureza-meio-ambiente.html" class="eixo-mini-card">
-        <span class="eixo-mini-num">03</span>
-        <i class="fas fa-leaf eixo-mini-icon"></i>
-        <span class="eixo-mini-title">Natureza e meio ambiente</span>
-      </a>
-      <a href="cultura-historia.html" class="eixo-mini-card">
-        <span class="eixo-mini-num">04</span>
-        <i class="fas fa-monument eixo-mini-icon"></i>
-        <span class="eixo-mini-title">Cultura e história</span>
-      </a>
-      <a href="uso-territorio.html" class="eixo-mini-card">
-        <span class="eixo-mini-num">05</span>
-        <i class="fas fa-map-marked-alt eixo-mini-icon"></i>
-        <span class="eixo-mini-title">Como o território é usado</span>
-      </a>
-      <a href="infraestrutura.html" class="eixo-mini-card active">
-        <span class="eixo-mini-num">06</span>
-        <i class="fas fa-network-wired eixo-mini-icon"></i>
-        <span class="eixo-mini-title">Serviços e infraestrutura</span>
-      </a>
-      <a href="equipamentos-publicos.html" class="eixo-mini-card">
-        <span class="eixo-mini-num">07</span>
-        <i class="fas fa-school eixo-mini-icon"></i>
-        <span class="eixo-mini-title">Onde ficam os serviços públicos</span>
-      </a>
-      <a href="mobilidade.html" class="eixo-mini-card">
-        <span class="eixo-mini-num">08</span>
-        <i class="fas fa-route eixo-mini-icon"></i>
-        <span class="eixo-mini-title">Como a cidade se move</span>
-      </a>
+      <a href="visao-geral.html" class="eixo-mini-card"><span class="eixo-mini-num">01</span><i class="fas fa-globe-americas eixo-mini-icon"></i><span class="eixo-mini-title">Craíbas: visão geral</span></a>
+      <a href="perfil-socioeconomico.html" class="eixo-mini-card"><span class="eixo-mini-num">02</span><i class="fas fa-chart-pie eixo-mini-icon"></i><span class="eixo-mini-title">Pessoas e economia</span></a>
+      <a href="natureza-meio-ambiente.html" class="eixo-mini-card"><span class="eixo-mini-num">03</span><i class="fas fa-leaf eixo-mini-icon"></i><span class="eixo-mini-title">Natureza e meio ambiente</span></a>
+      <a href="cultura-historia.html" class="eixo-mini-card"><span class="eixo-mini-num">04</span><i class="fas fa-monument eixo-mini-icon"></i><span class="eixo-mini-title">Cultura e história</span></a>
+      <a href="uso-territorio.html" class="eixo-mini-card"><span class="eixo-mini-num">05</span><i class="fas fa-map-marked-alt eixo-mini-icon"></i><span class="eixo-mini-title">Como o território é usado</span></a>
+      <a href="infraestrutura.html" class="eixo-mini-card active"><span class="eixo-mini-num">06</span><i class="fas fa-network-wired eixo-mini-icon"></i><span class="eixo-mini-title">Serviços e infraestrutura</span></a>
+      <a href="equipamentos-publicos.html" class="eixo-mini-card"><span class="eixo-mini-num">07</span><i class="fas fa-school eixo-mini-icon"></i><span class="eixo-mini-title">Onde ficam os serviços públicos</span></a>
+      <a href="mobilidade.html" class="eixo-mini-card"><span class="eixo-mini-num">08</span><i class="fas fa-route eixo-mini-icon"></i><span class="eixo-mini-title">Como a cidade se move</span></a>
     </div>
     <div class="eixos-mini-cta">
-      <a href="../index.html#capitulos" class="btn btn-accent">
-        <i class="fas fa-th"></i> Ver todos os eixos no início
-      </a>
+      <a href="../index.html#capitulos" class="btn btn-accent"><i class="fas fa-th"></i> Ver todos os eixos no início</a>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container footer-grid">
     <div class="footer-brand">
@@ -333,10 +352,7 @@
     <div class="footer-col">
       <h4>PLANURBI</h4>
       <p class="footer-credit"><strong>Planejamento Urbano Inteligente</strong> — consultoria de planejamento urbano e inteligência territorial.</p>
-      <div class="footer-credit-box">
-        <span class="footer-credit-label">Realização</span><strong>PlanUrbi</strong>
-        <span class="footer-credit-label">Equipe</span><strong>Equipe técnica PlanUrbi</strong>
-      </div>
+      <div class="footer-credit-box"><span class="footer-credit-label">Realização</span><strong>PlanUrbi</strong><span class="footer-credit-label">Equipe</span><strong>Equipe técnica PlanUrbi</strong></div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -347,6 +363,34 @@
   </div>
 </footer>
 
-<script src="../script-eixo.js"></script>
+<a href="#" class="back-to-top" id="back-to-top" aria-label="Voltar ao topo"><i class="fas fa-arrow-up"></i></a>
+
+<script src="../restrito.js"></script>
+<script src="../eixo-tabs.js"></script>
+<script>
+if (typeof Chart !== 'undefined') {
+  Chart.defaults.font.family = "'Inter', sans-serif";
+  Chart.defaults.color = '#5a6b78';
+  const ctx = document.getElementById('chart-saneamento');
+  if (ctx) {
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Rede de água', 'Coleta de lixo', 'Coleta esgoto'],
+        datasets: [{
+          data: [57.8, 65.3, 6.6],
+          backgroundColor: ['#f5a800', '#1a4a2e', '#b94e3a'],
+          borderRadius: 8, barThickness: 60
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: {display:false}, tooltip: { backgroundColor:'#1a4a2e', callbacks: { label: c => ` ${c.parsed.y}% da população` } } },
+        scales: { y: { beginAtZero: true, max: 100, grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { callback: v => v + '%' } }, x: { grid: { display: false }, ticks: { font: { weight: '700' } } } }
+      }
+    });
+  }
+}
+</script>
 </body>
 </html>

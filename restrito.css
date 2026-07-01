@@ -1,0 +1,299 @@
+/* ============================================
+   CRAÍBAS EM DADOS — Conteúdo restrito
+   Sistema de cadeado simbólico (Fase 1 — sem cripto).
+   Evolui para AES-GCM na Fase 2 (site técnico separado).
+   ============================================ */
+
+/* Toggle no header */
+.restrito-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(245, 168, 0, 0.15);
+  border: 1px solid rgba(245, 168, 0, 0.35);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: 0.3px;
+  margin-left: 12px;
+}
+.restrito-toggle:hover {
+  background: var(--accent);
+  color: var(--primary-dark);
+  border-color: var(--accent);
+}
+.restrito-toggle i { font-size: 11px; }
+
+body.modo-restrito .restrito-toggle {
+  background: var(--verde-forte, #1a4a2e);
+  color: white;
+  border-color: var(--verde-forte, #1a4a2e);
+}
+body.modo-restrito .restrito-toggle i.fa-lock {
+  color: var(--accent);
+}
+
+/* Placeholder visível quando conteúdo está bloqueado */
+.restrito-locked {
+  background: linear-gradient(135deg, #f6faf7 0%, #eef5f0 100%);
+  border: 2px dashed rgba(26, 74, 46, 0.28);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  transition: var(--transition);
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+.restrito-locked:hover {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, #ffffff 0%, #f9f4e6 100%);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.restrito-locked-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 6px 16px rgba(26, 74, 46, 0.25);
+}
+
+.restrito-locked-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  line-height: 1.2;
+}
+
+.restrito-locked-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  max-width: 480px;
+  line-height: 1.5;
+}
+
+.restrito-locked-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: var(--accent);
+  color: var(--primary-dark);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+  transition: var(--transition);
+}
+.restrito-locked:hover .restrito-locked-cta {
+  background: var(--primary-dark);
+  color: var(--accent);
+}
+
+/* Quando modo restrito ativo: mostra o conteúdo real, esconde placeholder */
+.conteudo-restrito { display: none; }
+.conteudo-restrito.revelado { display: block; }
+
+body.modo-restrito .restrito-locked { display: none; }
+body.modo-restrito .conteudo-restrito { display: block; }
+
+/* Badge "restrito" nos blocos que estão sendo revelados */
+body.modo-restrito .conteudo-restrito {
+  position: relative;
+  padding: 2px 0;
+}
+body.modo-restrito .conteudo-restrito::before {
+  content: '\f13e  Conteúdo técnico revelado';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(245, 168, 0, 0.12);
+  border: 1px solid rgba(245, 168, 0, 0.3);
+  padding: 4px 10px;
+  border-radius: 100px;
+  display: inline-block;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+/* Modal de senha */
+.senha-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 58, 23, 0.72);
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 300;
+  animation: senhaFade 0.25s ease;
+}
+.senha-modal-overlay.open { display: flex; }
+
+@keyframes senhaFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.senha-modal {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 40px 40px 32px;
+  max-width: 460px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: senhaUp 0.35s ease-out;
+}
+
+@keyframes senhaUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.senha-modal-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin: 0 auto 20px;
+  box-shadow: 0 8px 20px rgba(26, 74, 46, 0.3);
+}
+
+.senha-modal h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.senha-modal p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.senha-input {
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 15px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-soft);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  transition: var(--transition);
+  margin-bottom: 8px;
+}
+.senha-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(26, 74, 46, 0.10);
+}
+
+.senha-input.erro {
+  border-color: #b03b3b;
+  background: rgba(220, 80, 80, 0.06);
+  animation: shake 0.35s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+.senha-error-msg {
+  font-size: 12px;
+  color: #b03b3b;
+  font-weight: 600;
+  min-height: 18px;
+  margin-bottom: 12px;
+}
+
+.senha-modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.senha-btn {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 2px solid transparent;
+  letter-spacing: 0.4px;
+}
+.senha-btn-primary {
+  background: var(--primary);
+  color: white;
+}
+.senha-btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.senha-btn-cancel {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+.senha-btn-cancel:hover {
+  background: var(--bg-soft);
+  color: var(--text);
+}
+
+.senha-modal-nota {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .senha-modal { padding: 28px 24px 24px; }
+  .senha-modal h2 { font-size: 22px; }
+  .restrito-locked { padding: 24px 20px; min-height: 140px; }
+  .restrito-locked-title { font-size: 17px; }
+  .restrito-toggle span { display: none; }
+  .restrito-toggle { padding: 6px 8px; }
+}

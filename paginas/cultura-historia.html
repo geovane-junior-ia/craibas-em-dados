@@ -8,25 +8,272 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  .hero-title, .page-hero-title, .dash-hero-title,
+  .section-title, .cta-title, .chapter-card h3, .indicator-card h4,
+  .map-header h3, .footer-col h4, .logo-text strong,
+  .chart-card-title, .activity-title, .accordion-trigger,
+  .info-text-card h3, .modal-body h2, .highlight-banner-content h3,
+  .modal-equip h2, .timeline-year, .patrimonio-title, .senha-modal h2 {
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif !important;
+    font-display: swap;
+  }
+</style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.5.0/dist/tabler-icons.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <link rel="stylesheet" href="../styles.css">
-<link rel="stylesheet" href="../styles-eixo.css">
+<link rel="stylesheet" href="../perfil-socioeconomico.css">
+<link rel="stylesheet" href="../restrito.css">
+<style>
+  /* ===== Timeline vertical (Cultura) ===== */
+  .cultura-timeline {
+    position: relative;
+    padding: 20px 0;
+  }
+  .cultura-timeline::before {
+    content: '';
+    position: absolute;
+    left: 32px;
+    top: 30px;
+    bottom: 30px;
+    width: 3px;
+    background: linear-gradient(180deg, var(--accent) 0%, var(--primary) 100%);
+    border-radius: 2px;
+  }
+  .timeline-event {
+    display: grid;
+    grid-template-columns: 84px 1fr;
+    gap: 24px;
+    padding: 16px 0;
+    align-items: flex-start;
+    position: relative;
+  }
+  .timeline-marker {
+    position: relative;
+    z-index: 2;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+  }
+  .timeline-marker.destaque {
+    background: linear-gradient(135deg, var(--accent) 0%, #ffc548 100%);
+    border-color: var(--primary-dark);
+  }
+  .timeline-marker.destaque .timeline-year { color: var(--primary-dark); }
+  .timeline-year {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--primary-dark);
+    line-height: 1;
+  }
+  .timeline-content {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  .timeline-content:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .timeline-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .timeline-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .timeline-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    background: rgba(245, 168, 0, 0.15);
+    color: var(--accent-dark);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 100px;
+    margin-top: 10px;
+  }
+
+  /* ===== Patrimônio cards (Cultura) ===== */
+  .patrimonio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+  .patrimonio-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .patrimonio-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent);
+  }
+  .patrimonio-head {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .patrimonio-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .patrimonio-icon.material {
+    background: linear-gradient(135deg, rgba(126,200,227,0.25) 0%, rgba(126,200,227,0.10) 100%);
+    color: #185FA5;
+  }
+  .patrimonio-icon.imaterial {
+    background: linear-gradient(135deg, rgba(151,196,89,0.25) 0%, rgba(151,196,89,0.10) 100%);
+    color: var(--primary);
+  }
+  .patrimonio-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+  .patrimonio-cat {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+  .patrimonio-body {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .patrimonio-status {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 11px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  .status-badge.warn { background: rgba(245,168,0,0.15); color: var(--accent-dark); }
+  .status-badge.info { background: rgba(126,200,227,0.20); color: #185FA5; }
+
+  /* Festas grid */
+  .festas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+  .festa-card {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+    color: white;
+    border-radius: var(--radius);
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .festa-card::before {
+    content: '';
+    position: absolute;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(245,168,0,0.20), transparent 60%);
+    top: -80px; right: -80px;
+  }
+  .festa-date {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .festa-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .festa-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+  @media (max-width: 780px) {
+    .patrimonio-grid, .festas-grid { grid-template-columns: 1fr; }
+    .cultura-timeline::before { left: 24px; }
+    .timeline-event { grid-template-columns: 64px 1fr; gap: 16px; }
+    .timeline-marker { width: 48px; height: 48px; }
+    .timeline-year { font-size: 14px; }
+  }
+</style>
 </head>
 <body>
 
+<!-- ===== HEADER ===== -->
 <header class="header" id="header">
   <div class="header-top">
     <div class="container header-top-inner">
       <span><i class="fas fa-map-marker-alt"></i> Craíbas, Alagoas — Brasil</span>
-      <span class="header-top-right"><i class="far fa-calendar-alt"></i> Diagnóstico Inteligente · PLANURBI 2026</span>
+      <span class="header-top-right">
+        <i class="far fa-calendar-alt"></i> Diagnóstico Inteligente · PLANURBI 2026
+      </span>
     </div>
   </div>
   <div class="header-main">
     <div class="container header-inner">
       <a href="../index.html" class="logo">
-        <div class="logo-mark"><img src="../images/logo-planurbi-horizontal.png" alt="PlanUrbi" class="logo-img"/></div>
-        <div class="logo-text"><strong>Craíbas em Dados</strong><span>Painel público · PlanUrbi</span></div>
+        <div class="logo-mark">
+          <img src="../images/logo-planurbi-horizontal.png" alt="PlanUrbi" class="logo-img"/>
+        </div>
+        <div class="logo-text">
+          <strong>Craíbas em Dados</strong>
+          <span>Painel público · PlanUrbi</span>
+        </div>
       </a>
       <nav class="nav-main" id="nav-main">
         <a href="../index.html#inicio">Início</a>
@@ -35,193 +282,449 @@
         <a href="../index.html#capitulos" class="active">Eixos Temáticos</a>
         <a href="../index.html#contato">Contato</a>
       </nav>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </header>
 
-<main class="eixo-page">
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="page-hero-breadcrumb">
+      <a href="../index.html"><i class="fas fa-home"></i> Início</a>
+      <i class="fas fa-chevron-right"></i>
+      <a href="../index.html#capitulos">Eixos Temáticos</a>
+      <i class="fas fa-chevron-right"></i>
+      <span>Cultura e história</span>
+    </div>
+    <h1 class="page-hero-title">Cultura <span>e história</span></h1>
+    <p class="page-hero-lead">
+      A formação do município, seus marcos históricos e o patrimônio cultural que
+      define a identidade de Craíbas. Do primeiro núcleo em 1865 à dupla
+      emancipação — uma história de resistência e reconstrução.
+    </p>
+  </div>
+</section>
+
+<!-- ===== TABS NAV (sticky) ===== -->
+<div class="tabs-nav-wrap">
   <div class="container">
-    <div class="w">
-      <h2 class="sr-only">Cultura e história — formação histórica e patrimônio cultural de Craíbas</h2>
+    <div class="tabs-nav" role="tablist">
+      <button class="tab-btn active" data-tab="historia" role="tab">
+        <i class="fas fa-hourglass-half"></i><span>Linha do tempo</span>
+      </button>
+      <button class="tab-btn" data-tab="material" role="tab">
+        <i class="fas fa-monument"></i><span>Patrimônio material</span>
+      </button>
+      <button class="tab-btn" data-tab="imaterial" role="tab">
+        <i class="fas fa-music"></i><span>Patrimônio imaterial</span>
+      </button>
+      <button class="tab-btn" data-tab="protecao" role="tab">
+        <i class="fas fa-shield-halved"></i><span>Proteção e lacunas</span>
+      </button>
+    </div>
+  </div>
+</div>
 
-      <div class="ph">
-        <div class="bc">
-          <a href="../index.html"><i class="ti ti-home" aria-hidden="true"></i> Início</a>
-          <i class="ti ti-chevron-right" aria-hidden="true"></i>
-          <a href="../index.html#capitulos">Eixos temáticos</a>
-          <i class="ti ti-chevron-right" aria-hidden="true"></i>
-          <span>Cultura e história</span>
-        </div>
-        <div class="pt">Cultura e história</div>
-        <div class="ps">A formação do município, seus marcos históricos e o patrimônio cultural que define a identidade de Craíbas.</div>
+<!-- ===========================================
+     PAINEL 1 — LINHA DO TEMPO
+     =========================================== -->
+<section class="tab-panel active" data-tab="historia">
+  <div class="container">
+    <div class="panel-head">
+      <span class="section-tag"><i class="fas fa-hourglass-half"></i> Formação histórica</span>
+      <h2 class="section-title">De <span>craibeiras</span> a município duas vezes emancipado</h2>
+      <p class="section-lead">
+        A palavra <em>Craíbas</em> vem do tupi <strong>carahyba</strong> — a craibeira,
+        árvore símbolo de Alagoas. O município é um dos poucos do país que precisou se
+        emancipar duas vezes.
+      </p>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="fas fa-seedling"></i></div>
+        <div class="kpi-value">Craibeira</div>
+        <div class="kpi-label">Origem do nome</div>
+        <span class="kpi-trend neutral">Tupi "carahyba"</span>
       </div>
-
-      <div class="insight">
-        <i class="ti ti-bulb ii" aria-hidden="true"></i>
-        <div class="it"><strong>O que o diagnóstico revelou:</strong> nenhum bem cultural de Craíbas tem proteção formal — nem a Igreja Matriz, nem as festas tradicionais, nem o fumo em corda artesanal. O município tem história e identidade cultural ricas, mas ainda não criou os instrumentos para preservá-las.</div>
+      <div class="kpi-card accent">
+        <div class="kpi-icon"><i class="fas fa-hand-holding-heart"></i></div>
+        <div class="kpi-value">1865</div>
+        <div class="kpi-label">Fundação territorial</div>
+        <span class="kpi-trend neutral">Manoel Nunes da Silva Santos</span>
       </div>
-
-      <div class="kpi-grid">
-        <div class="kpi verde"><div class="kl">Origem do nome</div><div class="kv">Craibeira</div><div class="ks">Árvore símbolo de Alagoas · Tupi "carahyba"</div></div>
-        <div class="kpi"><div class="kl">Fundação territorial</div><div class="kv">1865</div><div class="ks">Manoel Nunes da Silva Santos</div></div>
-        <div class="kpi amber"><div class="kl">Bens com tombamento</div><div class="kv">Nenhum</div><div class="ks">Ponto de atenção — sem proteção formal</div></div>
-        <div class="kpi"><div class="kl">1ª emancipação</div><div class="kv">1962</div><div class="ks">Lei Estadual 2.471</div></div>
-        <div class="kpi amber"><div class="kl">Extinção</div><div class="kv">1965</div><div class="ks">Resolução do Senado nº 113</div></div>
-        <div class="kpi verde"><div class="kl">Reemancipação</div><div class="kv">1982</div><div class="ks">Lei Estadual 4.335 · instalação em 1983</div></div>
+      <div class="kpi-card blue">
+        <div class="kpi-icon"><i class="fas fa-flag"></i></div>
+        <div class="kpi-value">1962</div>
+        <div class="kpi-label">1ª emancipação</div>
+        <span class="kpi-trend up">Lei Estadual 2.471</span>
       </div>
-
-      <div class="tab-row" role="tablist">
-        <div class="tab active" onclick="showTab('historia',this)"><i class="ti ti-timeline" aria-hidden="true"></i> Linha do tempo</div>
-        <div class="tab" onclick="showTab('patrimonio',this)"><i class="ti ti-building-arch" aria-hidden="true"></i> Patrimônio material</div>
-        <div class="tab" onclick="showTab('imaterial',this)"><i class="ti ti-music" aria-hidden="true"></i> Patrimônio imaterial</div>
-        <div class="tab" onclick="showTab('protecao',this)"><i class="ti ti-shield" aria-hidden="true"></i> Proteção e lacunas</div>
+      <div class="kpi-card dark">
+        <div class="kpi-icon"><i class="fas fa-arrows-rotate"></i></div>
+        <div class="kpi-value">1982</div>
+        <div class="kpi-label">Reemancipação</div>
+        <span class="kpi-trend up">Lei Estadual 4.335</span>
       </div>
+    </div>
 
-      <div id="tab-historia" class="tab-content active">
-        <div class="card">
-          <div class="ch"><i class="ti ti-timeline" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Formação histórica de Craíbas</div></div>
-          <div class="cb">
-            <div class="tl">
-              <div class="tl-item"><div class="tl-left"><div class="tl-year">1865</div><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Chegada de Manoel Nunes da Silva Santos</div><div class="tl-desc">Adquiriu por 50 mil réis o lote de matas e craibeiras que seria o embrião do município.</div></div></div>
-              <div class="tl-item"><div class="tl-left"><div class="tl-year">1892</div><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Partilha das terras dos Nunes</div><div class="tl-desc">Com o falecimento de Josefa Teixeira da Silva, as terras foram divididas — formando os primeiros núcleos comunitários.</div></div></div>
-              <div class="tl-item"><div class="tl-left"><div class="tl-year">1923</div><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Primeira feira pública — 23 de março</div><div class="tl-desc">Marca a inserção de Craíbas nos circuitos comerciais regionais. À época pertencia a Limoeiro de Anadia.</div></div></div>
-              <div class="tl-item"><div class="tl-left"><div class="tl-year">1939</div><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Primeiro cartório de registro civil</div><div class="tl-desc">Décadas após o surgimento da comunidade, o Estado chega formalmente ao território.</div></div></div>
-              <div class="tl-item destaque"><div class="tl-left"><div class="tl-year">1962</div><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">1ª emancipação — Lei Estadual 2.471</div><div class="tl-desc">Instalação oficial em 23 de setembro de 1962. Antônio Barbosa é nomeado primeiro prefeito interino.</div></div></div>
-              <div class="tl-item destaque"><div class="tl-left"><div class="tl-year">1965</div><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Extinção do município</div><div class="tl-desc">Resolução do Senado nº 113: o território é reabsorvido por Arapiraca. Por quase duas décadas, a população depende de Arapiraca para serviços básicos.</div></div></div>
-              <div class="tl-item destaque"><div class="tl-left"><div class="tl-year">1982</div><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Reemancipação — Lei Estadual 4.335</div><div class="tl-desc">Sancionada em 23 de abril de 1982. Instalação oficial em 1° de fevereiro de 1983. O município agora tem o nome no plural.</div></div></div>
-              <div class="tl-item"><div class="tl-left"><div class="tl-year">2000s</div><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Projeto Serrote — Mineração Vale Verde</div><div class="tl-desc">Maior investimento privado em Alagoas nas últimas décadas: transformação econômica e territorial de escala inédita para o município.</div></div></div>
-              <div class="tl-item"><div class="tl-left"><div class="tl-year">2023</div><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Lei 538/2023 — Sistema Municipal de Cultura</div><div class="tl-desc">Criação do CMPC, do Fundo Municipal de Cultura (FMC) e da Conferência Municipal de Cultura — ainda em fase de operacionalização.</div></div></div>
-            </div>
-          </div>
+    <!-- Timeline -->
+    <div class="chart-card" style="padding:32px 36px">
+      <div class="chart-card-head">
+        <div>
+          <div class="chart-card-title">Marcos históricos de Craíbas</div>
+          <div class="chart-card-sub">De 1865 a 2023</div>
         </div>
-        <div class="card">
-          <div class="ch"><i class="ti ti-info-circle" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">A origem do nome</div></div>
-          <div class="cb">
-            <div style="font-size:14px;color:var(--color-text-primary);line-height:1.7">O nome <strong>Craíbas</strong> vem do tupi <em>carahyba</em> — a <strong>craibeira</strong> (<em>Tabebuia aurea</em>), árvore de flores amarelas que dominava as matas da região. A craibeira é o símbolo do estado de Alagoas. Antes da emancipação, o lugar era chamado de <em>Craíba dos Nunes</em> — em referência à família fundadora. O nome carrega, ao mesmo tempo, a paisagem natural e a memória dos primeiros habitantes.</div>
-          </div>
-        </div>
+        <span class="chart-card-badge">9 marcos</span>
       </div>
+      <div class="cultura-timeline">
 
-      <div id="tab-patrimonio" class="tab-content">
-        <div class="patrimonio-card">
-          <div class="pat-header">
-            <div class="pat-icon mat"><i class="ti ti-building-church" aria-hidden="true"></i></div>
-            <div><div class="pat-title">Igreja Matriz de Nossa Senhora da Conceição</div><div class="pat-cat">Patrimônio material · Edificação religiosa</div></div>
+        <div class="timeline-event">
+          <div class="timeline-marker"><div class="timeline-year">1865</div></div>
+          <div class="timeline-content">
+            <div class="timeline-title">Chegada de Manoel Nunes da Silva Santos</div>
+            <div class="timeline-desc">Adquiriu por 50 mil réis o lote de matas e craibeiras que seria o embrião do município. Por quase três décadas foi o único proprietário do território.</div>
           </div>
-          <div class="pat-body">Principal bem cultural material do município e referência central da identidade coletiva da população. Abriga altar com imagens de devoção secular e, junto com a praça que a circunda, forma o núcleo simbólico e físico da vida pública da sede.</div>
-          <div class="pat-status">
-            <span class="badge badge-amber">Ponto de atenção — sem tombamento formal</span>
-          </div>
-          <div class="acao"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ação recomendada no diagnóstico: iniciar tombamento municipal + parâmetros de gabarito no entorno via Plano Diretor</div>
         </div>
-        <div class="patrimonio-card">
-          <div class="pat-header">
-            <div class="pat-icon mat"><i class="ti ti-building-monument" aria-hidden="true"></i></div>
-            <div><div class="pat-title">Praça da Igreja Matriz</div><div class="pat-cat">Patrimônio material · Espaço público de referência cultural</div></div>
+
+        <div class="timeline-event">
+          <div class="timeline-marker"><div class="timeline-year">1892</div></div>
+          <div class="timeline-content">
+            <div class="timeline-title">Partilha das terras dos Nunes</div>
+            <div class="timeline-desc">Com o falecimento de Josefa Teixeira da Silva, as terras foram divididas entre filhos e genros — atraindo novos moradores e formando os primeiros núcleos comunitários.</div>
           </div>
-          <div class="pat-body">Espaço que organiza o entorno da Igreja Matriz e estrutura a vida pública do centro histórico. Ponto de encontro e referência simbólica da cidade desde sua formação.</div>
-          <div class="pat-status">
-            <span class="badge badge-amber">Ponto de atenção — sem proteção formal</span>
-          </div>
-          <div class="acao"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ação recomendada: reconhecer como Zona de Interesse Cultural no macrozoneamento</div>
         </div>
+
+        <div class="timeline-event">
+          <div class="timeline-marker"><div class="timeline-year">1923</div></div>
+          <div class="timeline-content">
+            <div class="timeline-title">Primeira feira pública</div>
+            <div class="timeline-desc">Marca a inserção de Craíbas nos circuitos comerciais regionais. À época pertencia ao município de Limoeiro de Anadia como lugarejo.</div>
+          </div>
+        </div>
+
+        <div class="timeline-event">
+          <div class="timeline-marker"><div class="timeline-year">1939</div></div>
+          <div class="timeline-content">
+            <div class="timeline-title">Primeiro cartório de registro civil</div>
+            <div class="timeline-desc">Décadas após o surgimento da comunidade, o Estado chega formalmente ao território.</div>
+          </div>
+        </div>
+
+        <div class="timeline-event">
+          <div class="timeline-marker destaque"><div class="timeline-year">1962</div></div>
+          <div class="timeline-content">
+            <div class="timeline-title">1ª emancipação — Lei Estadual 2.471</div>
+            <div class="timeline-desc">Instalação oficial em 23 de setembro de 1962. Antônio Barbosa é nomeado primeiro prefeito interino. Em 1963, Manoel Pedro da Silva é eleito prefeito.</div>
+            <span class="timeline-tag"><i class="fas fa-star"></i> Marco político</span>
+          </div>
+        </div>
+
+        <div class="timeline-event">
+          <div class="timeline-marker destaque"><div class="timeline-year">1965</div></div>
+          <div class="timeline-content">
+            <div class="timeline-title">Extinção do município</div>
+            <div class="timeline-desc">Resolução do Senado nº 113: o território é reabsorvido por Arapiraca. Por quase duas décadas, a população depende de Arapiraca para serviços básicos.</div>
+            <span class="timeline-tag" style="background:rgba(220,80,80,0.15);color:#b03b3b"><i class="fas fa-exclamation-triangle"></i> Perda de autonomia</span>
+          </div>
+        </div>
+
+        <div class="timeline-event">
+          <div class="timeline-marker destaque"><div class="timeline-year">1982</div></div>
+          <div class="timeline-content">
+            <div class="timeline-title">Reemancipação — Lei Estadual 4.335</div>
+            <div class="timeline-desc">Sancionada em 23 de abril de 1982. Instalação oficial em 1° de fevereiro de 1983. O município retorna com o nome no plural.</div>
+            <span class="timeline-tag"><i class="fas fa-star"></i> Restauração</span>
+          </div>
+        </div>
+
+        <div class="timeline-event">
+          <div class="timeline-marker"><div class="timeline-year">2000s</div></div>
+          <div class="timeline-content">
+            <div class="timeline-title">Projeto Serrote — Mineração Vale Verde</div>
+            <div class="timeline-desc">Maior investimento privado em Alagoas nas últimas décadas: transformação econômica e territorial de escala inédita para o município.</div>
+          </div>
+        </div>
+
+        <div class="timeline-event">
+          <div class="timeline-marker"><div class="timeline-year">2023</div></div>
+          <div class="timeline-content">
+            <div class="timeline-title">Lei 538/2023 — Sistema Municipal de Cultura</div>
+            <div class="timeline-desc">Criação do CMPC, do Fundo Municipal de Cultura (FMC) e da Conferência Municipal de Cultura — em fase de operacionalização.</div>
+            <span class="timeline-tag"><i class="fas fa-flag-checkered"></i> Marco cultural</span>
+          </div>
+        </div>
+
       </div>
+    </div>
 
-      <div id="tab-imaterial" class="tab-content">
-        <div class="cal-grid" style="margin-bottom:16px">
-          <div class="cal-card">
-            <div class="cal-date">8/12</div>
-            <div class="cal-name">Festa da Padroeira</div>
-            <div class="cal-desc">Nossa Senhora da Conceição — principal evento religioso do ano. Congrega população urbana e rural em torno da Igreja Matriz.</div>
-            <div style="margin-top:8px"><span class="badge badge-amber">Sem registro formal</span></div>
-          </div>
-          <div class="cal-card">
-            <div class="cal-date">23/4</div>
-            <div class="cal-name">Festa de Emancipação Política</div>
-            <div class="cal-desc">Celebração cívica que mobiliza a gestão pública e os grupos organizados. Data da reemancipação de 1982.</div>
-            <div style="margin-top:8px"><span class="badge badge-amber">Sem registro formal</span></div>
-          </div>
-        </div>
-        <div class="patrimonio-card">
-          <div class="pat-header">
-            <div class="pat-icon imat"><i class="ti ti-music" aria-hidden="true"></i></div>
-            <div><div class="pat-title">Banda Fanfarra de Craíbas</div><div class="pat-cat">Patrimônio imaterial · Forma de expressão musical</div></div>
-          </div>
-          <div class="pat-body">Uma das expressões culturais mais estruturadas e continuadas do município. Participa de celebrações cívicas, festas religiosas e eventos públicos — veículo de transmissão do saber musical entre gerações.</div>
-          <div class="pat-status"><span class="badge badge-amber">Sem registro formal</span></div>
-          <div class="acao"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ação recomendada: apoiar via Fundo Municipal de Cultura; incluir no Plano Municipal de Cultura</div>
-        </div>
-        <div class="patrimonio-card">
-          <div class="pat-header">
-            <div class="pat-icon imat"><i class="ti ti-leaf" aria-hidden="true"></i></div>
-            <div><div class="pat-title">Fumo em corda artesanal</div><div class="pat-cat">Patrimônio imaterial · Saber e modo de fazer</div></div>
-          </div>
-          <div class="pat-body">Técnica tradicional de giração e cura do fumo em corda, praticada por produtores rurais do município. Saber acumulado sobre manejo da planta, tempos de cura, ferramentas e modos de organização do trabalho.</div>
-          <div class="pat-status">
-            <span class="badge badge-amber">Sem registro formal</span>
-            <span class="badge badge-amber">Ponto de atenção com declínio da fumicultura</span>
-          </div>
-          <div class="acao"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ação recomendada: pesquisa de identificação; articulação com políticas de economia criativa</div>
-        </div>
-        <div class="patrimonio-card">
-          <div class="pat-header">
-            <div class="pat-icon imat"><i class="ti ti-bread" aria-hidden="true"></i></div>
-            <div><div class="pat-title">Casas de farinha e cultura da mandiocultura</div><div class="pat-cat">Patrimônio imaterial · Saber e modo de fazer</div></div>
-          </div>
-          <div class="pat-body">As casas de farinha representam a base da cultura alimentar rural do município. Com a expansão da mandiocultura em substituição ao fumo, esse saber-fazer ganha nova relevância para a identidade territorial.</div>
-          <div class="pat-status"><span class="badge badge-blue">Expansão recente da mandiocultura</span></div>
-          <div class="acao"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ação recomendada: incluir no Plano Municipal de Cultura; conectar a programas de agricultura familiar</div>
-        </div>
+    <!-- Info sobre origem do nome -->
+    <div class="info-cols" style="margin-top:32px">
+      <div class="info-text-card">
+        <h3>A origem do nome</h3>
+        <p>O nome <strong>Craíbas</strong> vem do tupi <em>carahyba</em> — a <strong>craibeira</strong> (<em>Tabebuia aurea</em>), árvore de flores amarelas que dominava as matas da região. A craibeira é o símbolo do estado de Alagoas.</p>
+        <p>Antes da emancipação, o lugar era chamado de <em>Craíba dos Nunes</em> — em referência à família fundadora. O nome carrega, ao mesmo tempo, a paisagem natural e a memória dos primeiros habitantes.</p>
       </div>
-
-      <div id="tab-protecao" class="tab-content">
-        <div class="card">
-          <div class="ch"><i class="ti ti-alert-triangle" style="color:#A32D2D" aria-hidden="true"></i><div class="ct" style="color:#A32D2D">Lacuna identificada no diagnóstico</div></div>
-          <div class="cb">
-            <div style="font-size:13px;color:var(--color-text-primary);line-height:1.7;margin-bottom:14px">O diagnóstico confirmou junto ao IPHAN, à SECULT/AL e à Prefeitura: <strong>não existe nenhum processo de tombamento concluído ou em curso em Craíbas</strong> — nem federal, nem estadual, nem municipal. Isso não significa ausência de patrimônio — significa ausência de proteção formal.</div>
-            <div class="dr"><div class="dl">Igreja Matriz de N. Sra. da Conceição</div><div class="dv"><span style="color:#A32D2D">Sem proteção formal</span></div></div>
-            <div class="dr"><div class="dl">Praça da Igreja Matriz</div><div class="dv"><span style="color:#A32D2D">Sem proteção formal</span></div></div>
-            <div class="dr"><div class="dl">Festa da Padroeira (8/12)</div><div class="dv"><span style="color:#A32D2D">Sem registro formal</span></div></div>
-            <div class="dr"><div class="dl">Festa de Emancipação (23/4)</div><div class="dv"><span style="color:#A32D2D">Sem registro formal</span></div></div>
-            <div class="dr"><div class="dl">Banda Fanfarra</div><div class="dv"><span style="color:#A32D2D">Sem registro formal</span></div></div>
-            <div class="dr"><div class="dl">Fumo em corda artesanal</div><div class="dv"><span style="color:#A32D2D">Sem registro formal</span></div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="ch"><i class="ti ti-file-description" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Lei 538/2023 — Sistema Municipal de Cultura</div></div>
-          <div class="cb">
-            <div class="dr"><div class="dl">CMPC — Conselho Municipal de Política Cultural</div><div class="dv"><span style="color:#BA7517">Criado, em operacionalização</span></div></div>
-            <div class="dr"><div class="dl">FMC — Fundo Municipal de Cultura</div><div class="dv"><span style="color:#BA7517">Criado, em operacionalização</span></div></div>
-            <div class="dr"><div class="dl">Plano Municipal de Cultura</div><div class="dv"><span style="color:#BA7517">Previsto</span></div></div>
-            <div class="dr"><div class="dl">Conferência Municipal de Cultura</div><div class="dv"><span style="color:#BA7517">Prevista</span></div></div>
-            <div class="nota-metodo"><i class="ti ti-info-circle" aria-hidden="true"></i><div>A lei existe e é um avanço importante. O desafio identificado no diagnóstico é operacionalizar os instrumentos previstos — especialmente o Fundo Municipal de Cultura, que pode financiar a salvaguarda do patrimônio imaterial.</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="ch"><i class="ti ti-checklist" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Ações prioritárias recomendadas no diagnóstico</div></div>
-          <div class="cb">
-            <div class="dr"><div class="dl">1. Tombamento municipal da Igreja Matriz</div><div class="dv"><span class="badge badge-red">Alta prioridade</span></div></div>
-            <div class="dr"><div class="dl">2. Parâmetros de entorno da Igreja Matriz no Plano Diretor</div><div class="dv"><span class="badge badge-red">Alta prioridade</span></div></div>
-            <div class="dr"><div class="dl">3. Praça da Matriz como Zona de Interesse Cultural</div><div class="dv"><span class="badge badge-amber">Média prioridade</span></div></div>
-            <div class="dr"><div class="dl">4. Operacionalizar o Fundo Municipal de Cultura</div><div class="dv"><span class="badge badge-amber">Média prioridade</span></div></div>
-            <div class="dr"><div class="dl">5. Registrar fumo em corda como patrimônio imaterial</div><div class="dv"><span class="badge badge-amber">Média prioridade</span></div></div>
-            <div class="dr"><div class="dl">6. Elaborar o Plano Municipal de Cultura</div><div class="dv"><span class="badge badge-amber">Média prioridade</span></div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="alert-box">
-        <i class="ti ti-alert-triangle ai" aria-hidden="true"></i>
-        <div class="at"><strong>Tensão central:</strong> Craíbas tem identidade cultural forte — nome tupi, dupla emancipação, fumicultura, festas tradicionais — mas ainda não protege formalmente esses bens. A Lei 538/2023 criou os instrumentos certos; o próximo passo é colocá-los em prática.</div>
-      </div>
-
-      <div class="fontes">
-        <div class="ft"><strong>Fontes:</strong> Prefeitura Municipal de Craíbas · IBGE Cidades · Assembleia Legislativa de Alagoas · SECULT/AL · AMA — Associação dos Municípios Alagoanos · IPHAN · Arquivo Público de Alagoas · Diagnóstico Inteligente PlanUrbi/FEPESA, 2026.</div>
+      <div class="info-text-card">
+        <h3>A dupla emancipação</h3>
+        <p>Craíbas é um dos poucos municípios brasileiros que precisou se emancipar duas vezes. A primeira emancipação em 1962 durou apenas 3 anos — foi extinta em 1965 pelo governo militar sob argumento de inviabilidade fiscal.</p>
+        <p>Por quase duas décadas, a população dependeu de Arapiraca para serviços básicos, documentos e educação. A restauração veio em 1982 e a instalação oficial em 1° de fevereiro de 1983.</p>
       </div>
     </div>
   </div>
-</main>
+</section>
+
+<!-- ===========================================
+     PAINEL 2 — PATRIMÔNIO MATERIAL
+     =========================================== -->
+<section class="tab-panel" data-tab="material">
+  <div class="container">
+    <div class="panel-head">
+      <span class="section-tag"><i class="fas fa-monument"></i> Patrimônio material</span>
+      <h2 class="section-title">Bens que <span>contam a história</span> do município</h2>
+      <p class="section-lead">
+        A Igreja Matriz de Nossa Senhora da Conceição e a praça que a circunda formam
+        o núcleo simbólico e físico da vida pública de Craíbas — reconhecidos pela
+        equipe técnica como principais bens materiais.
+      </p>
+    </div>
+
+    <div class="patrimonio-grid">
+      <div class="patrimonio-card">
+        <div class="patrimonio-head">
+          <div class="patrimonio-icon material"><i class="fas fa-church"></i></div>
+          <div>
+            <div class="patrimonio-title">Igreja Matriz de N. Sra. da Conceição</div>
+            <div class="patrimonio-cat">Edificação religiosa</div>
+          </div>
+        </div>
+        <div class="patrimonio-body">
+          Principal bem cultural material do município e referência central da identidade
+          coletiva. Abriga altar com imagens de devoção secular. O crescimento da cidade
+          ocorreu ao redor dela — padrão histórico de urbanização brasileiro.
+        </div>
+        <div class="patrimonio-status">
+          <span class="status-badge warn"><i class="fas fa-exclamation-circle"></i> Sem tombamento formal</span>
+        </div>
+      </div>
+
+      <div class="patrimonio-card">
+        <div class="patrimonio-head">
+          <div class="patrimonio-icon material"><i class="fas fa-tree"></i></div>
+          <div>
+            <div class="patrimonio-title">Praça da Igreja Matriz</div>
+            <div class="patrimonio-cat">Espaço público cultural</div>
+          </div>
+        </div>
+        <div class="patrimonio-body">
+          Espaço que organiza o entorno da Igreja Matriz e estrutura a vida pública do
+          centro histórico. Ponto de encontro e referência simbólica da cidade desde sua
+          formação.
+        </div>
+        <div class="patrimonio-status">
+          <span class="status-badge warn"><i class="fas fa-exclamation-circle"></i> Sem proteção formal</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-cols">
+      <div class="info-text-card">
+        <h3>Ações recomendadas no diagnóstico</h3>
+        <ul class="info-bullets">
+          <li><i class="fas fa-check-circle"></i> <strong>Tombamento municipal da Igreja Matriz</strong> — alta prioridade</li>
+          <li><i class="fas fa-check-circle"></i> <strong>Parâmetros de entorno</strong> no Plano Diretor (gabarito, uso)</li>
+          <li><i class="fas fa-check-circle"></i> Reconhecimento da <strong>Praça da Matriz</strong> como Zona de Interesse Cultural no macrozoneamento</li>
+          <li><i class="fas fa-check-circle"></i> Definir parâmetros de intervenção em bens de referência histórica</li>
+        </ul>
+      </div>
+      <div class="info-text-card" style="background:linear-gradient(135deg, rgba(245,168,0,0.06) 0%, white 100%);border-color:rgba(245,168,0,0.3)">
+        <h3>Por que tombar?</h3>
+        <p>O tombamento é o instrumento jurídico que <strong>impede a demolição ou descaracterização</strong> de um bem cultural. Sem tombamento, a Igreja Matriz pode ser modificada ou demolida sem que a lei impeça.</p>
+        <p>Além disso, o tombamento permite acesso a <strong>linhas de financiamento</strong> para restauração, preservação e valorização do patrimônio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================
+     PAINEL 3 — PATRIMÔNIO IMATERIAL
+     =========================================== -->
+<section class="tab-panel" data-tab="imaterial">
+  <div class="container">
+    <div class="panel-head">
+      <span class="section-tag"><i class="fas fa-music"></i> Patrimônio imaterial</span>
+      <h2 class="section-title">Festas, <span>saberes e sons</span> de Craíbas</h2>
+      <p class="section-lead">
+        As festas religiosas, as bandas musicais, o fumo em corda artesanal e as casas
+        de farinha compõem o patrimônio imaterial identificado pelo diagnóstico.
+      </p>
+    </div>
+
+    <!-- Festas -->
+    <div class="festas-grid">
+      <div class="festa-card">
+        <div class="festa-date">8/12</div>
+        <div class="festa-name">Festa da Padroeira</div>
+        <div class="festa-desc">Nossa Senhora da Conceição — principal evento religioso do ano. Congrega população urbana e rural em torno da Igreja Matriz.</div>
+        <span class="status-badge warn"><i class="fas fa-exclamation-circle"></i> Sem registro formal</span>
+      </div>
+      <div class="festa-card">
+        <div class="festa-date">23/4</div>
+        <div class="festa-name">Festa de Emancipação Política</div>
+        <div class="festa-desc">Celebração cívica que mobiliza gestão pública e grupos organizados. Data da reemancipação de 1982.</div>
+        <span class="status-badge warn"><i class="fas fa-exclamation-circle"></i> Sem registro formal</span>
+      </div>
+    </div>
+
+    <!-- Cards patrimônio imaterial -->
+    <div class="patrimonio-grid">
+      <div class="patrimonio-card">
+        <div class="patrimonio-head">
+          <div class="patrimonio-icon imaterial"><i class="fas fa-music"></i></div>
+          <div>
+            <div class="patrimonio-title">Banda Fanfarra de Craíbas</div>
+            <div class="patrimonio-cat">Forma de expressão musical</div>
+          </div>
+        </div>
+        <div class="patrimonio-body">
+          Uma das expressões culturais mais estruturadas e continuadas do município.
+          Participa de celebrações cívicas, festas religiosas e eventos públicos —
+          veículo de transmissão do saber musical entre gerações.
+        </div>
+        <div class="patrimonio-status">
+          <span class="status-badge warn">Sem registro formal</span>
+        </div>
+      </div>
+
+      <div class="patrimonio-card">
+        <div class="patrimonio-head">
+          <div class="patrimonio-icon imaterial"><i class="fas fa-leaf"></i></div>
+          <div>
+            <div class="patrimonio-title">Fumo em corda artesanal</div>
+            <div class="patrimonio-cat">Saber e modo de fazer</div>
+          </div>
+        </div>
+        <div class="patrimonio-body">
+          Técnica tradicional de giração e cura do fumo em corda, praticada por
+          produtores rurais. Saber acumulado sobre manejo da planta, tempos de cura,
+          ferramentas e modos de organização do trabalho.
+        </div>
+        <div class="patrimonio-status">
+          <span class="status-badge warn">Ponto de atenção</span>
+        </div>
+      </div>
+
+      <div class="patrimonio-card">
+        <div class="patrimonio-head">
+          <div class="patrimonio-icon imaterial"><i class="fas fa-bowl-food"></i></div>
+          <div>
+            <div class="patrimonio-title">Casas de farinha</div>
+            <div class="patrimonio-cat">Saber e modo de fazer</div>
+          </div>
+        </div>
+        <div class="patrimonio-body">
+          Representam a base da cultura alimentar rural. Com a expansão da
+          mandiocultura em substituição ao fumo, esse saber-fazer ganha nova
+          relevância para a identidade territorial.
+        </div>
+        <div class="patrimonio-status">
+          <span class="status-badge info">Expansão da mandiocultura</span>
+        </div>
+      </div>
+
+      <div class="patrimonio-card">
+        <div class="patrimonio-head">
+          <div class="patrimonio-icon imaterial"><i class="fas fa-book-open"></i></div>
+          <div>
+            <div class="patrimonio-title">Memória oral e tradição familiar</div>
+            <div class="patrimonio-cat">Saber e memória</div>
+          </div>
+        </div>
+        <div class="patrimonio-body">
+          Histórias da fundação dos Nunes, da dupla emancipação e da fumicultura são
+          transmitidas oralmente entre gerações. Fundamental para a identidade do
+          município.
+        </div>
+        <div class="patrimonio-status">
+          <span class="status-badge info">Registrar via Fundo Municipal de Cultura</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================
+     PAINEL 4 — PROTEÇÃO E LACUNAS
+     =========================================== -->
+<section class="tab-panel" data-tab="protecao">
+  <div class="container">
+    <div class="panel-head">
+      <span class="section-tag"><i class="fas fa-shield-halved"></i> Proteção e lacunas</span>
+      <h2 class="section-title">Uma lei nova, <span>ainda em implementação</span></h2>
+      <p class="section-lead">
+        Em 2023, Craíbas criou o Sistema Municipal de Cultura pela Lei 538. Os
+        instrumentos existem — Conselho, Fundo, Plano — e estão em fase de
+        operacionalização.
+      </p>
+    </div>
+
+    <!-- Highlight banner -->
+    <div class="highlight-banner">
+      <div class="highlight-banner-icon"><i class="fas fa-file-shield"></i></div>
+      <div class="highlight-banner-content">
+        <h3>Lei 538/2023 — Sistema Municipal de Cultura</h3>
+        <p>Criou 4 instrumentos importantes: CMPC (Conselho Municipal de Política Cultural), FMC (Fundo Municipal de Cultura), Plano Municipal de Cultura e Conferência Municipal — todos em processo de operacionalização.</p>
+      </div>
+      <div class="highlight-banner-num">4<small>instrumentos criados</small></div>
+    </div>
+
+    <!-- Data table -->
+    <div class="info-cols">
+      <div class="info-text-card">
+        <h3>Estrutura de proteção — atual</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Instrumento</th><th style="text-align:right">Situação</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>CMPC — Conselho Municipal</td><td class="num" style="color:var(--accent-dark)">Em operacionalização</td></tr>
+            <tr><td>FMC — Fundo Municipal de Cultura</td><td class="num" style="color:var(--accent-dark)">Em operacionalização</td></tr>
+            <tr><td>Plano Municipal de Cultura</td><td class="num" style="color:var(--accent-dark)">Previsto</td></tr>
+            <tr><td>Conferência Municipal</td><td class="num" style="color:var(--accent-dark)">Prevista</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="info-text-card">
+        <h3>Ações prioritárias — diagnóstico</h3>
+        <ol style="list-style-position:inside;padding-left:0;font-size:14px;color:var(--text);line-height:1.9">
+          <li>Tombamento municipal da Igreja Matriz</li>
+          <li>Parâmetros de entorno no Plano Diretor</li>
+          <li>Praça da Matriz como Zona de Interesse Cultural</li>
+          <li>Operacionalizar o Fundo Municipal de Cultura</li>
+          <li>Registrar fumo em corda como patrimônio imaterial</li>
+          <li>Elaborar o Plano Municipal de Cultura</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HIGHLIGHT BANNER — TENSÃO CENTRAL ===== -->
+<section style="padding:0 0 60px">
+  <div class="container">
+    <div class="highlight-banner warn">
+      <div class="highlight-banner-icon"><i class="fas fa-balance-scale"></i></div>
+      <div class="highlight-banner-content">
+        <h3>Tensão central identificada no diagnóstico</h3>
+        <p>Craíbas tem identidade cultural forte — nome tupi, dupla emancipação, fumicultura, festas tradicionais — mas ainda não protege formalmente esses bens. A Lei 538/2023 criou os instrumentos certos; o próximo passo é colocá-los em prática.</p>
+      </div>
+      <div class="highlight-banner-num">0<small>bens tombados</small></div>
+    </div>
+  </div>
+</section>
 
 <!-- ===== MINI-GRID DOS 8 EIXOS ===== -->
 <section class="eixos-mini">
@@ -281,14 +784,24 @@
   </div>
 </section>
 
+<!-- ===== FOOTER ===== -->
 <footer class="footer">
   <div class="container footer-grid">
     <div class="footer-brand">
       <a href="../index.html" class="logo logo-light">
-        <div class="logo-mark"><img src="../images/logo-planurbi-horizontal.png" alt="PlanUrbi" class="logo-img logo-img-footer"/></div>
-        <div class="logo-text"><strong>Craíbas em Dados</strong><span>Painel público · PlanUrbi</span></div>
+        <div class="logo-mark">
+          <img src="../images/logo-planurbi-horizontal.png" alt="PlanUrbi" class="logo-img logo-img-footer"/>
+        </div>
+        <div class="logo-text">
+          <strong>Craíbas em Dados</strong>
+          <span>Painel público · PlanUrbi</span>
+        </div>
       </a>
-      <p class="footer-desc">Diagnóstico Inteligente do município de Craíbas, elaborado com base em dados oficiais, escuta participativa e análise multidisciplinar pela equipe técnica do <strong>Planejamento Urbano Inteligente (PlanUrbi)</strong>.</p>
+      <p class="footer-desc">
+        Diagnóstico Inteligente do município de Craíbas, elaborado com base em
+        dados oficiais, escuta participativa e análise multidisciplinar pela
+        equipe técnica do <strong>Planejamento Urbano Inteligente (PlanUrbi)</strong>.
+      </p>
       <div class="footer-social">
         <a href="https://www.instagram.com/planurbi_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram PlanUrbi"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/5582993261747" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp PlanUrbi"><i class="fab fa-whatsapp"></i></a>
@@ -313,10 +826,15 @@
     </div>
     <div class="footer-col">
       <h4>PLANURBI</h4>
-      <p class="footer-credit"><strong>Planejamento Urbano Inteligente</strong> — consultoria de planejamento urbano e inteligência territorial.</p>
+      <p class="footer-credit">
+        <strong>Planejamento Urbano Inteligente</strong> — consultoria de
+        planejamento urbano e inteligência territorial.
+      </p>
       <div class="footer-credit-box">
-        <span class="footer-credit-label">Realização</span><strong>PlanUrbi</strong>
-        <span class="footer-credit-label">Equipe</span><strong>Equipe técnica PlanUrbi</strong>
+        <span class="footer-credit-label">Realização</span>
+        <strong>PlanUrbi</strong>
+        <span class="footer-credit-label">Equipe</span>
+        <strong>Equipe técnica PlanUrbi</strong>
       </div>
     </div>
   </div>
@@ -328,6 +846,11 @@
   </div>
 </footer>
 
-<script src="../script-eixo.js"></script>
+<a href="#" class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
+  <i class="fas fa-arrow-up"></i>
+</a>
+
+<script src="../restrito.js"></script>
+<script src="../eixo-tabs.js"></script>
 </body>
 </html>
