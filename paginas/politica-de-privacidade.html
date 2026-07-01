@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidade — Diagnóstico do Plano Diretor de Craíbas</title>
+<meta name="description" content="Política de Privacidade do site do Diagnóstico do Plano Diretor Municipal de Craíbas, em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018)."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  .hero-title, .page-hero-title, .dash-hero-title,
+  .section-title, .cta-title, .chapter-card h3, .indicator-card h4,
+  .map-header h3, .footer-col h4, .logo-text strong,
+  .chart-card-title, .activity-title, .accordion-trigger,
+  .info-text-card h3, .modal-body h2, .highlight-banner-content h3,
+  .modal-equip h2, .legal-page-title, .legal-content h2 {
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif !important;
+    font-display: swap;
+  }
+
+  /* ===== Hero da página legal ===== */
+  .legal-hero {
+    position: relative;
+    background: white;
+    color: var(--text);
+    padding: 130px 0 50px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+  .legal-hero::after {
+    content: '';
+    position: absolute;
+    width: 480px; height: 480px;
+    background: radial-gradient(circle, rgba(245,168,0,0.10), transparent 70%);
+    top: -180px; right: -140px;
+    pointer-events: none;
+  }
+  .legal-hero-inner { position: relative; z-index: 2; }
+  .legal-breadcrumb {
+    display: flex; gap: 8px; align-items: center;
+    font-size: 13px; color: var(--text-muted);
+    margin-bottom: 18px; font-weight: 500;
+    flex-wrap: wrap;
+  }
+  .legal-breadcrumb a { color: var(--primary); transition: var(--transition); font-weight: 600; }
+  .legal-breadcrumb a:hover { color: var(--accent); }
+  .legal-breadcrumb i { font-size: 10px; color: var(--text-light); }
+
+  .legal-page-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.4rem, 5.4vw, 4rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--primary-dark);
+    margin-bottom: 14px;
+  }
+  .legal-page-title span { color: var(--accent); }
+
+  .legal-page-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-muted);
+    background: var(--bg-soft);
+    padding: 8px 16px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+  }
+  .legal-page-meta i { color: var(--accent); }
+
+  /* ===== Layout 2 colunas: TOC + conteúdo ===== */
+  .legal-section {
+    padding: 60px 0 80px;
+    background: var(--bg-soft);
+  }
+  .legal-grid {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .legal-toc {
+    position: sticky;
+    top: 110px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    box-shadow: var(--shadow-sm);
+    max-height: calc(100vh - 130px);
+    overflow-y: auto;
+  }
+  .legal-toc h4 {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--primary);
+    margin: 0 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .legal-toc ol {
+    list-style: none;
+    counter-reset: toc;
+    padding: 0;
+    margin: 0;
+  }
+  .legal-toc li {
+    counter-increment: toc;
+    margin-bottom: 8px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .legal-toc a {
+    display: flex;
+    gap: 10px;
+    padding: 7px 10px;
+    color: var(--text-muted);
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    border-left: 2px solid transparent;
+  }
+  .legal-toc a::before {
+    content: counter(toc, decimal-leading-zero);
+    color: var(--accent);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+  }
+  .legal-toc a:hover {
+    color: var(--primary-dark);
+    background: var(--bg-soft);
+    border-left-color: var(--accent);
+  }
+
+  .legal-content {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 48px 56px;
+    box-shadow: var(--shadow-sm);
+    line-height: 1.75;
+  }
+  .legal-content > p:first-of-type {
+    font-size: 1.05rem;
+    color: var(--text);
+    line-height: 1.8;
+    padding-bottom: 24px;
+    border-bottom: 1px dashed var(--border);
+    margin-bottom: 32px;
+  }
+  .legal-content section {
+    margin-bottom: 48px;
+    counter-increment: section;
+  }
+  .legal-content section:last-child { margin-bottom: 0; }
+  .legal-content h2 {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--primary-dark);
+    line-height: 1.2;
+    margin: 0 0 16px;
+    padding-top: 12px;
+    scroll-margin-top: 110px;
+  }
+  .legal-content h2::before {
+    content: counter(section, decimal-leading-zero);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: 1px;
+    background: var(--bg-muted);
+    padding: 4px 10px;
+    border-radius: 100px;
+    line-height: 1;
+  }
+  .legal-content { counter-reset: section; }
+
+  .legal-content h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 24px 0 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+  }
+  .legal-content p {
+    color: var(--text);
+    font-size: 15px;
+    margin-bottom: 14px;
+  }
+  .legal-content ul, .legal-content ol {
+    padding-left: 22px;
+    margin: 12px 0 18px;
+    color: var(--text);
+    font-size: 15px;
+  }
+  .legal-content li { margin-bottom: 8px; line-height: 1.7; }
+  .legal-content strong { color: var(--primary-dark); font-weight: 700; }
+  .legal-content a { color: var(--primary); font-weight: 600; }
+  .legal-content a:hover { color: var(--accent); text-decoration: underline; }
+
+  .legal-callout {
+    background: var(--bg-muted);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius-sm);
+    padding: 20px 24px;
+    margin: 20px 0;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .legal-callout strong { color: var(--primary-dark); }
+  .legal-callout i { color: var(--accent); margin-right: 6px; }
+
+  .legal-contact-card {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+    color: white;
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    margin-top: 16px;
+  }
+  .legal-contact-card h4 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 14px;
+  }
+  .legal-contact-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .legal-contact-card li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    margin: 0;
+    color: rgba(255,255,255,0.92);
+  }
+  .legal-contact-card li i { color: var(--accent); margin-top: 4px; flex-shrink: 0; }
+  .legal-contact-card a { color: var(--accent); font-weight: 700; }
+  .legal-contact-card a:hover { color: white; }
+
+  /* ===== Responsivo ===== */
+  @media (max-width: 1100px) {
+    .legal-grid { grid-template-columns: 1fr; gap: 28px; }
+    .legal-toc { position: relative; top: 0; max-height: none; }
+    .legal-content { padding: 36px 32px; }
+  }
+  @media (max-width: 700px) {
+    .legal-content { padding: 24px 22px; }
+    .legal-content h2 { font-size: 22px; flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <div class="header-top">
+    <div class="container header-top-inner">
+      <span><i class="fas fa-map-marker-alt"></i> Craíbas, Alagoas — Brasil</span>
+      <span class="header-top-right">
+        <i class="far fa-calendar-alt"></i> Plano Diretor Municipal · PLANURBI
+      </span>
+    </div>
+  </div>
+  <div class="header-main">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-mark">
+          <img src="../images/LOGO_PREF_CRAIBAS.png" alt="Prefeitura Municipal de Craíbas" class="logo-img"/>
+        </div>
+        <div class="logo-text">
+          <strong>Craíbas</strong>
+          <span>Plano Diretor Municipal</span>
+        </div>
+      </a>
+      <nav class="nav-main" id="nav-main">
+        <a href="../index.html">Início</a>
+        <a href="../index.html#sobre">Sobre</a>
+        <a href="../index.html#capitulos">Eixos Temáticos</a>
+        <a href="../index.html#dados">Dados</a>
+        <a href="../index.html#contato">Contato</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="legal-hero">
+  <div class="container legal-hero-inner">
+    <div class="legal-breadcrumb">
+      <a href="../index.html"><i class="fas fa-home"></i> Início</a>
+      <i class="fas fa-chevron-right"></i>
+      <span>Política de Privacidade</span>
+    </div>
+    <h1 class="legal-page-title">Política de <span>Privacidade</span></h1>
+    <p class="legal-page-meta">
+      <i class="fas fa-shield-halved"></i>
+      Em conformidade com a LGPD · Lei nº 13.709/2018 · Atualizada em maio/2026
+    </p>
+  </div>
+</section>
+
+<!-- ===== CONTEÚDO LEGAL ===== -->
+<section class="legal-section">
+  <div class="container">
+    <div class="legal-grid">
+
+      <!-- Sumário lateral (TOC) -->
+      <aside class="legal-toc">
+        <h4>Sumário</h4>
+        <ol>
+          <li><a href="#introducao">Introdução</a></li>
+          <li><a href="#responsaveis">Responsáveis pelo tratamento</a></li>
+          <li><a href="#dados-coletados">Dados coletados e finalidades</a></li>
+          <li><a href="#bases-legais">Bases legais (LGPD)</a></li>
+          <li><a href="#compartilhamento">Compartilhamento de dados</a></li>
+          <li><a href="#seguranca">Segurança e retenção</a></li>
+          <li><a href="#direitos">Direitos do titular</a></li>
+          <li><a href="#cookies">Cookies e rastreamento</a></li>
+          <li><a href="#alteracoes">Alterações desta política</a></li>
+          <li><a href="#contato-legal">Contato e esclarecimentos</a></li>
+          <li><a href="#disposicoes">Disposições finais</a></li>
+        </ol>
+      </aside>
+
+      <!-- Conteúdo principal -->
+      <article class="legal-content">
+
+        <p>
+          Esta Política de Privacidade descreve como o site do
+          <strong>Diagnóstico do Plano Diretor Municipal de Craíbas</strong>
+          (em conjunto com o <strong>PLANURBI — Programa de Apoio ao Planejamento Urbano e
+          Territorial dos Municípios Alagoanos</strong>) coleta, utiliza, armazena e protege
+          informações de seus usuários, em estrita observância à
+          <strong>Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 — LGPD)</strong>,
+          ao Estatuto da Cidade (Lei nº 10.257/2001) e à legislação correlata aplicável.
+        </p>
+
+        <section id="introducao">
+          <h2>Introdução</h2>
+          <p>
+            O presente site tem por objetivo divulgar de forma pública, transparente e
+            acessível o conteúdo técnico do <strong>Diagnóstico do Plano Diretor Municipal
+            de Craíbas</strong>, contemplando os doze eixos temáticos analisados, dados
+            georreferenciados, indicadores socioeconômicos, equipamentos públicos e demais
+            informações territoriais consolidadas a partir de fontes oficiais (IBGE, DATASUS,
+            MDS, RAIS, PNUD, Tesouro Nacional, CNES, INEP, entre outros).
+          </p>
+          <p>
+            A presente Política de Privacidade aplica-se a todas as visitas ao site e a
+            todas as interações realizadas em suas páginas, dashboards interativos e
+            formulários disponibilizados. Ao acessar e utilizar o site, o usuário declara
+            ter lido, compreendido e aceito as condições aqui dispostas.
+          </p>
+        </section>
+
+        <section id="responsaveis">
+          <h2>Responsáveis pelo tratamento de dados e governança</h2>
+          <p>
+            O tratamento de dados pessoais decorrente do uso deste site tem como
+            <strong>controlador</strong> a Prefeitura Municipal de Craíbas, com apoio técnico
+            do PLANURBI / Governo do Estado de Alagoas. A governança de dados observa as
+            atribuições e responsabilidades estabelecidas na LGPD e na legislação municipal.
+          </p>
+          <h3>Encarregado pelo Tratamento de Dados (DPO)</h3>
+          <p>
+            Em conformidade com o art. 41 da LGPD, o canal oficial para comunicação com o
+            titular dos dados é o e-mail institucional indicado na seção
+            <a href="#contato-legal">Contato e esclarecimentos</a>.
+          </p>
+        </section>
+
+        <section id="dados-coletados">
+          <h2>Que tipo de dados coletamos e para que fins</h2>
+
+          <h3>Dados pessoais (apenas se você fornecer)</h3>
+          <p>
+            Caso o usuário voluntariamente preencha algum formulário de contato, manifestação
+            ou inscrição, poderemos coletar:
+          </p>
+          <ul>
+            <li><strong>Nome completo</strong></li>
+            <li><strong>E-mail</strong></li>
+            <li><strong>Telefone</strong> (opcional)</li>
+            <li><strong>Organização/órgão e função</strong> (opcional)</li>
+            <li><strong>Mensagem ou observação enviada</strong></li>
+          </ul>
+          <p>
+            <strong>Finalidade:</strong> responder às solicitações, encaminhar comunicações
+            sobre o Plano Diretor, conduzir análises estatísticas agregadas e cumprir
+            obrigações legais aplicáveis.
+          </p>
+
+          <h3>Dados de uso e logs técnicos</h3>
+          <p>
+            De forma automática, registramos informações técnicas necessárias ao funcionamento
+            seguro do site:
+          </p>
+          <ul>
+            <li>Endereço IP, tipo de dispositivo e navegador</li>
+            <li>Data, hora e duração da visita</li>
+            <li>Páginas acessadas e termos pesquisados internamente</li>
+            <li>Referência de origem (site externo que encaminhou ao nosso)</li>
+          </ul>
+          <p>
+            <strong>Finalidade:</strong> manutenção, segurança da informação, diagnóstico de
+            falhas, métricas agregadas de audiência e melhoria contínua da experiência do usuário.
+          </p>
+
+          <h3>Dados abertos (não pessoais)</h3>
+          <p>
+            O site disponibiliza majoritariamente <strong>dados abertos</strong> — informações
+            urbanas, demográficas, econômicas, ambientais, de mobilidade, equipamentos e
+            serviços públicos do município de Craíbas — provenientes de fontes oficiais e
+            sem qualquer associação a indivíduos identificáveis.
+          </p>
+
+          <div class="legal-callout">
+            <i class="fas fa-info-circle"></i>
+            <strong>Importante:</strong> não comercializamos, alugamos ou cedemos dados
+            pessoais a terceiros. Os dados abertos seguem licença de uso pública e podem
+            ser livremente utilizados, desde que mantida a referência à fonte.
+          </div>
+        </section>
+
+        <section id="bases-legais">
+          <h2>Bases legais para o tratamento de dados pessoais</h2>
+          <p>
+            O tratamento de dados pessoais realizado neste site fundamenta-se nas seguintes
+            hipóteses previstas no art. 7º da Lei nº 13.709/2018 (LGPD):
+          </p>
+          <ul>
+            <li><strong>Consentimento do titular</strong> (art. 7º, I) — quando o usuário
+              voluntariamente envia dados por meio de formulários de contato.</li>
+            <li><strong>Cumprimento de obrigação legal ou regulatória</strong> (art. 7º, II)
+              — em obediência a normas de transparência ativa e ao Estatuto da Cidade.</li>
+            <li><strong>Execução de políticas públicas</strong> (art. 7º, III) — uma vez que o
+              site é instrumento técnico de planejamento urbano municipal.</li>
+            <li><strong>Estudos por órgão de pesquisa</strong> (art. 7º, IV) — no contexto
+              das análises técnicas que compõem o diagnóstico.</li>
+            <li><strong>Legítimo interesse</strong> (art. 7º, IX) — para garantir a segurança
+              da informação e a integridade dos sistemas.</li>
+          </ul>
+        </section>
+
+        <section id="compartilhamento">
+          <h2>Compartilhamento, divulgação e licenciamento de dados</h2>
+          <p>
+            Os <strong>dados pessoais</strong> coletados não são compartilhados com terceiros
+            para fins comerciais. Eventualmente, poderão ser compartilhados:
+          </p>
+          <ul>
+            <li>Entre órgãos da administração pública municipal e estadual, no contexto
+              da elaboração e revisão do Plano Diretor.</li>
+            <li>Com prestadores de serviço técnico contratados (sob obrigação contratual de
+              sigilo e proteção de dados).</li>
+            <li>Mediante requisição judicial ou de autoridade competente, nos termos da lei.</li>
+          </ul>
+          <p>
+            Os <strong>dados abertos</strong> são publicizados de forma agregada e
+            anonimizada, conforme princípios da Lei de Acesso à Informação
+            (Lei nº 12.527/2011) e da Política Nacional de Dados Abertos.
+          </p>
+        </section>
+
+        <section id="seguranca">
+          <h2>Segurança, integridade e retenção de dados</h2>
+          <p>
+            Adotamos medidas técnicas e administrativas adequadas para proteger os dados
+            contra acessos não autorizados, alterações, divulgações ou destruições indevidas,
+            incluindo:
+          </p>
+          <ul>
+            <li>Criptografia de transporte (HTTPS) em toda a comunicação com o servidor.</li>
+            <li>Controle de acesso baseado em perfis e princípio do menor privilégio.</li>
+            <li>Monitoramento contínuo, registro de eventos e backups periódicos.</li>
+            <li>Capacitação periódica das equipes técnicas envolvidas.</li>
+          </ul>
+          <p>
+            Os dados pessoais são retidos pelo período estritamente necessário ao cumprimento
+            das finalidades para as quais foram coletados ou pelo prazo legal aplicável,
+            sendo posteriormente eliminados ou anonimizados.
+          </p>
+        </section>
+
+        <section id="direitos">
+          <h2>Direitos do titular dos dados</h2>
+          <p>
+            Nos termos do art. 18 da LGPD, o titular dos dados pessoais tem direito a:
+          </p>
+          <ul>
+            <li><strong>Confirmação</strong> da existência de tratamento.</li>
+            <li><strong>Acesso</strong> aos dados pessoais.</li>
+            <li><strong>Correção</strong> de dados incompletos, inexatos ou desatualizados.</li>
+            <li><strong>Anonimização, bloqueio ou eliminação</strong> de dados desnecessários
+              ou tratados em desconformidade com a lei.</li>
+            <li><strong>Portabilidade</strong> dos dados a outro fornecedor de serviço.</li>
+            <li><strong>Eliminação</strong> dos dados pessoais tratados com base no consentimento.</li>
+            <li><strong>Informação</strong> sobre entidades públicas e privadas com as quais
+              os dados foram compartilhados.</li>
+            <li><strong>Informação</strong> sobre a possibilidade de não fornecer consentimento
+              e sobre as consequências da negativa.</li>
+            <li><strong>Revogação do consentimento</strong>, a qualquer momento.</li>
+          </ul>
+          <p>
+            Para exercer qualquer um destes direitos, o titular pode entrar em contato pelos
+            canais indicados na seção <a href="#contato-legal">Contato e esclarecimentos</a>.
+          </p>
+        </section>
+
+        <section id="cookies">
+          <h2>Cookies e tecnologias de rastreamento</h2>
+          <p>
+            O site utiliza cookies — pequenos arquivos armazenados no dispositivo do usuário
+            — para melhorar a experiência de navegação. Os cookies utilizados são:
+          </p>
+
+          <h3>Cookies essenciais</h3>
+          <p>
+            Necessários para o funcionamento básico do site (carregamento de páginas, lembrança
+            de preferências de filtros nos dashboards interativos, etc.). Sem eles, partes do
+            site podem não funcionar corretamente.
+          </p>
+
+          <h3>Cookies de desempenho e analíticos</h3>
+          <p>
+            Utilizados para coletar informações agregadas e anônimas sobre como os visitantes
+            usam o site (páginas mais acessadas, tempo de permanência, dispositivo de acesso),
+            permitindo melhorias contínuas. Esses dados não identificam pessoas individualmente.
+          </p>
+
+          <h3>Serviços de terceiros</h3>
+          <p>
+            Para exibir mapas e visualizações, o site carrega recursos de provedores externos
+            sob suas próprias políticas de privacidade:
+          </p>
+          <ul>
+            <li><strong>Google Maps</strong> (mapa da localização geográfica do município) —
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">políticas do Google</a></li>
+            <li><strong>OpenStreetMap / CartoDB / Esri</strong> (tiles cartográficos dos
+              dashboards) — bases de dados abertas e colaborativas.</li>
+            <li><strong>Google Fonts</strong> (carregamento das fontes Inter e Cormorant
+              Garamond) — sem coleta de dados pessoais identificáveis.</li>
+          </ul>
+
+          <p>
+            O usuário pode, a qualquer momento, desabilitar cookies por meio das configurações
+            do navegador. Esta ação pode comprometer parcialmente a experiência de uso.
+          </p>
+        </section>
+
+        <section id="alteracoes">
+          <h2>Alterações desta Política de Privacidade</h2>
+          <p>
+            Esta Política poderá ser revisada e atualizada a qualquer momento, de modo a
+            refletir mudanças legais, regulatórias ou em nossas práticas de tratamento de
+            dados. A versão vigente será sempre a publicada nesta página, acompanhada da
+            data da última atualização.
+          </p>
+          <p>
+            Recomendamos a consulta periódica deste documento. Alterações significativas
+            poderão ser comunicadas com destaque na home do site.
+          </p>
+        </section>
+
+        <section id="contato-legal">
+          <h2>Contato e esclarecimentos</h2>
+          <p>
+            Para dúvidas, solicitações relativas a dados pessoais ou exercício de quaisquer
+            dos direitos previstos na LGPD, entre em contato pelos canais oficiais:
+          </p>
+
+          <div class="legal-contact-card">
+            <h4>Prefeitura Municipal de Craíbas</h4>
+            <ul>
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Rua Pedro Gama, nº 122 — Centro<br>Craíbas — AL · CEP 57.320-000</span>
+              </li>
+              <li>
+                <i class="fas fa-phone"></i>
+                <span>+55 (82) 3527-1555</span>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <span>
+                  <a href="mailto:prefeitura@craibas.al.gov.br">prefeitura@craibas.al.gov.br</a>
+                </span>
+              </li>
+              <li>
+                <i class="far fa-clock"></i>
+                <span>Atendimento: Seg a Sex · 08h às 13h</span>
+              </li>
+            </ul>
+          </div>
+
+          <p style="margin-top: 20px;">
+            <strong>Apoio técnico:</strong> PLANURBI — Programa de Apoio ao Planejamento
+            Urbano e Territorial dos Municípios Alagoanos · Governo do Estado de Alagoas.
+          </p>
+        </section>
+
+        <section id="disposicoes">
+          <h2>Disposições finais</h2>
+          <p>
+            Esta Política de Privacidade rege-se pela legislação brasileira, em especial:
+          </p>
+          <ul>
+            <li>Lei nº 13.709/2018 — Lei Geral de Proteção de Dados Pessoais (LGPD)</li>
+            <li>Lei nº 12.527/2011 — Lei de Acesso à Informação (LAI)</li>
+            <li>Lei nº 12.965/2014 — Marco Civil da Internet</li>
+            <li>Lei nº 10.257/2001 — Estatuto da Cidade</li>
+            <li>Constituição Federal de 1988, art. 5º, X (inviolabilidade da intimidade)</li>
+          </ul>
+          <p>
+            Eventuais conflitos decorrentes da interpretação ou aplicação desta Política
+            serão dirimidos pelo Foro da Comarca de Craíbas, Estado de Alagoas.
+          </p>
+
+          <div class="legal-callout">
+            <i class="fas fa-circle-check"></i>
+            <strong>Última atualização:</strong> 10 de maio de 2026.
+            Em caso de dúvidas sobre versões anteriores, solicite pelo e-mail oficial.
+          </div>
+        </section>
+
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="../index.html" class="logo logo-light">
+        <div class="logo-mark">
+          <img src="../images/LOGO_PREF_CRAIBAS.png" alt="Prefeitura Municipal de Craíbas" class="logo-img"/>
+        </div>
+        <div class="logo-text">
+          <strong>Craíbas</strong>
+          <span>Plano Diretor Municipal</span>
+        </div>
+      </a>
+      <p class="footer-desc">
+        Diagnóstico técnico e participativo do Plano Diretor Municipal,
+        elaborado com base em dados oficiais, escuta cidadã e diretrizes
+        técnicas para o desenvolvimento sustentável de Craíbas.
+      </p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <ul class="footer-list">
+        <li><i class="fas fa-map-marker-alt"></i> Rua Pedro Gama, nº 122 — Centro<br>Craíbas — AL · CEP 57.320-000</li>
+        <li><i class="fas fa-phone"></i> +55 (82) 3527-1555</li>
+        <li><i class="fas fa-envelope"></i> prefeitura@craibas.al.gov.br</li>
+        <li><i class="far fa-clock"></i> Seg a Sex · 08h às 13h</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navegação</h4>
+      <ul class="footer-list links">
+        <li><a href="../index.html#sobre">Sobre o Diagnóstico</a></li>
+        <li><a href="../index.html#capitulos">Eixos Temáticos</a></li>
+        <li><a href="../index.html#dados">Dados Abertos</a></li>
+        <li><a href="perfil-socioeconomico.html">Perfil Socioeconômico</a></li>
+        <li><a href="equipamentos-publicos.html">Equipamentos Públicos</a></li>
+        <li><a href="politica-de-privacidade.html">Política de Privacidade</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>PLANURBI</h4>
+      <p class="footer-credit">
+        Programa de Apoio ao Planejamento Urbano e Territorial dos Municípios Alagoanos.
+      </p>
+      <div class="footer-credit-box">
+        <span class="footer-credit-label">Realização</span>
+        <strong>Prefeitura Municipal de Craíbas</strong>
+        <span class="footer-credit-label">Apoio Técnico</span>
+        <strong>PLANURBI · Governo de Alagoas</strong>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <span>© 2026 Prefeitura Municipal de Craíbas — Todos os direitos reservados.</span>
+      <span>Desenvolvido em parceria com <strong>PLANURBI</strong> · Conforme Estatuto da Cidade (Lei 10.257/2001)</span>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
+  <i class="fas fa-arrow-up"></i>
+</a>
+
+<script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# Deploy artifacts
+painel-craibas-deploy.zip
+
+# Docs (referências pesadas — não vão pro repo)
+Docs/
+
+# Claude
+.claude/serve.cmd
+
+# System
+Thumbs.db
+.DS_Store

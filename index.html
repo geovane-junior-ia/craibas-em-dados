@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Craíbas em Dados — Painel público do diagnóstico municipal · PlanUrbi</title>
+<meta name="description" content="Painel público do diagnóstico municipal de Craíbas — Alagoas. Um produto do PlanUrbi (Planejamento Urbano Inteligente).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* Fonte serif nos títulos imediatamente, antes do CSS principal carregar,
+     para evitar flicker (FOUT) entre Inter (fallback) e Cormorant Garamond. */
+  .hero-title, .page-hero-title, .dash-hero-title,
+  .section-title, .cta-title, .chapter-card h3, .indicator-card h4,
+  .map-header h3, .footer-col h4, .logo-text strong,
+  .chart-card-title, .activity-title, .accordion-trigger,
+  .info-text-card h3, .modal-body h2, .highlight-banner-content h3,
+  .modal-equip h2 {
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif !important;
+    font-display: swap;
+  }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <div class="header-top">
+    <div class="container header-top-inner">
+      <span><i class="fas fa-map-marker-alt"></i> Craíbas, Alagoas — Brasil</span>
+      <span class="header-top-right">
+        <i class="far fa-calendar-alt"></i> Diagnóstico Inteligente · PLANURBI 2026
+      </span>
+    </div>
+  </div>
+  <div class="header-main">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <div class="logo-mark">
+          <img src="images/logo-planurbi-horizontal.png" alt="PlanUrbi — Planejamento Urbano Inteligente" class="logo-img"/>
+        </div>
+        <div class="logo-text">
+          <strong>Craíbas em Dados</strong>
+          <span>Painel público · PlanUrbi</span>
+        </div>
+      </a>
+      <nav class="nav-main" id="nav-main">
+        <a href="#inicio" class="active">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#dados">Dados</a>
+        <a href="#capitulos">Eixos Temáticos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="inicio">
+  <div class="hero-pattern"></div>
+  <div class="hero-shapes">
+    <span class="shape shape-1"></span>
+    <span class="shape shape-2"></span>
+    <span class="shape shape-3"></span>
+  </div>
+  <div class="container hero-content">
+    <h1 class="hero-title">Craíbas em Dados</h1>
+    <p class="hero-subtitle">Painel público do diagnóstico municipal</p>
+    <p class="hero-description">
+      Um estudo abrangente e participativo sobre os territórios, populações,
+      infraestrutura e potencialidades do município, fundamentando as diretrizes
+      para o desenvolvimento urbano sustentável.
+    </p>
+    <div class="hero-cta">
+      <a href="#capitulos" class="btn btn-primary">
+        <i class="fas fa-th"></i> Explorar os eixos
+      </a>
+      <a href="#sobre" class="btn btn-secondary">
+        <i class="fas fa-info-circle"></i> Sobre o painel
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS COUNTERS ===== -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card" data-target="26144" data-suffix="">
+        <div class="stat-icon"><i class="fas fa-users"></i></div>
+        <div class="stat-number" data-count="26144">26.144</div>
+        <div class="stat-label">habitantes</div>
+        <div class="stat-source">IBGE · Censo 2022</div>
+      </div>
+      <div class="stat-card" data-target="275" data-suffix=" km²">
+        <div class="stat-icon"><i class="fas fa-map"></i></div>
+        <div class="stat-number" data-count="275" data-suffix=" km²">275 km²</div>
+        <div class="stat-label">de área territorial</div>
+        <div class="stat-source">IBGE · Geografia</div>
+      </div>
+      <div class="stat-card" data-target="8" data-suffix="">
+        <div class="stat-icon"><i class="fas fa-book"></i></div>
+        <div class="stat-number" data-count="8">8</div>
+        <div class="stat-label">eixos temáticos</div>
+        <div class="stat-source">Estrutura Técnica</div>
+      </div>
+      <div class="stat-card" data-target="141" data-suffix="">
+        <div class="stat-icon"><i class="fas fa-table"></i></div>
+        <div class="stat-number" data-count="141">141</div>
+        <div class="stat-label">tabelas e indicadores</div>
+        <div class="stat-source">Base de Dados</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT SECTION ===== -->
+<section class="about" id="sobre">
+  <div class="container about-grid">
+    <div class="about-text">
+      <span class="section-tag"><i class="fas fa-info-circle"></i> Sobre o Painel Inteligente</span>
+      <h2 class="section-title">O que é o <span>Diagnóstico Inteligente</span></h2>
+      <p class="section-lead">
+        O Diagnóstico Inteligente é um produto do <strong>Planejamento Urbano
+        Inteligente — PlanUrbi</strong>. Ele reúne, em um painel digital, os
+        principais dados sobre o município: como é o território, como vivem as
+        pessoas, como funciona a economia, quais são os serviços públicos
+        disponíveis e quais são os desafios da cidade.
+      </p>
+      <p>
+        Cada informação apresentada foi levantada pela equipe técnica PlanUrbi a
+        partir de dados oficiais, visitas ao município e escuta direta da
+        população.
+      </p>
+
+      <div class="about-expand" id="about-expand">
+        <button class="about-expand-trigger" id="about-expand-btn" aria-expanded="false" aria-controls="about-expand-content">
+          <i class="fas fa-plus-circle"></i>
+          <span>Saiba como foi construído</span>
+        </button>
+        <div class="about-expand-content" id="about-expand-content" hidden>
+          <p class="about-expand-lead">
+            O Diagnóstico Inteligente foi elaborado pela equipe técnica do PlanUrbi
+            a partir de quatro etapas:
+          </p>
+          <ul class="about-pillars">
+            <li>
+              <strong>Dados oficiais</strong> — informações do IBGE, DATASUS, INEP,
+              Tesouro Nacional, RAIS, PNUD e outras bases públicas foram levantadas,
+              selecionadas e organizadas de forma crítica.
+            </li>
+            <li>
+              <strong>Análise do território</strong> — mapas e imagens do município
+              foram produzidos com ferramentas de geoprocessamento, permitindo
+              entender como o espaço urbano e rural está organizado.
+            </li>
+            <li>
+              <strong>Visitas de campo</strong> — a equipe percorreu a sede urbana,
+              os povoados e as comunidades rurais de Craíbas para observar in loco
+              as condições do município.
+            </li>
+            <li>
+              <strong>Escuta da população</strong> — moradores, lideranças
+              comunitárias e representantes locais participaram de oficinas e
+              reuniões para contribuir com a leitura do território.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <ul class="about-features">
+        <li><i class="fas fa-check-circle"></i> Análise multidisciplinar</li>
+        <li><i class="fas fa-check-circle"></i> Dados oficiais atualizados</li>
+      </ul>
+      <div class="about-cta">
+        <a href="paginas/sobre-plano-diretor-craibas.html" class="btn btn-primary-outline">
+          Sobre o Plano Diretor de Craíbas <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+    <div class="about-map">
+      <div class="map-card">
+        <div class="map-header">
+          <h3>Localização Geográfica</h3>
+          <span class="map-coords">9°37'S · 36°46'W</span>
+        </div>
+        <div class="map-embed-wrap">
+          <iframe
+            class="map-embed"
+            src="https://maps.google.com/maps?q=Cra%C3%ADbas%2C%20Alagoas%2C%20Brasil&t=&z=11&ie=UTF8&iwloc=&output=embed"
+            title="Mapa de Craíbas — Google Maps"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+          <a class="map-embed-link"
+             href="https://www.google.com/maps/place/Cra%C3%ADbas,+AL/@-9.6235,-36.7681,11z"
+             target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-up-right-from-square"></i> Abrir no Google Maps
+          </a>
+        </div>
+        <div class="map-info">
+          <div class="map-info-item">
+            <span class="mi-label">Mesorregião</span>
+            <span class="mi-value">Agreste Alagoano</span>
+          </div>
+          <div class="map-info-item">
+            <span class="mi-label">Microrregião</span>
+            <span class="mi-value">Arapiraca</span>
+          </div>
+          <div class="map-info-item">
+            <span class="mi-label">Bioma</span>
+            <span class="mi-value">Caatinga</span>
+          </div>
+          <div class="map-info-item">
+            <span class="mi-label">Altitude</span>
+            <span class="mi-value">281 m</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INDICATORS / CHARTS STRIP ===== -->
+<section class="indicators" id="dados">
+  <div class="container">
+    <div class="indicators-head">
+      <span class="section-tag light"><i class="fas fa-chart-line"></i> Craíbas em números</span>
+      <h2 class="section-title white">Um retrato do município em <span>dados</span></h2>
+    </div>
+    <div class="indicators-grid">
+      <div class="indicator-card">
+        <h4>Distribuição da População</h4>
+        <p class="indicator-sub">Urbana × Rural — Censo IBGE 2022</p>
+        <canvas id="chartPop"></canvas>
+      </div>
+      <div class="indicator-card">
+        <h4>Evolução Populacional</h4>
+        <p class="indicator-sub">Histórico 1991 — 2025 · Fonte: IBGE</p>
+        <canvas id="chartEvolucao"></canvas>
+      </div>
+      <div class="indicator-card">
+        <h4>Setores da Economia</h4>
+        <p class="indicator-sub">Composição do VAB* · IBGE, 2021</p>
+        <canvas id="chartPIB"></canvas>
+      </div>
+    </div>
+    <p class="indicators-footnote">
+      <strong>*VAB — Valor Adicionado Bruto:</strong> soma da riqueza gerada por cada setor da economia municipal.
+    </p>
+  </div>
+</section>
+
+<!-- ===== CHAPTER NAVIGATION CARDS ===== -->
+<section class="chapters" id="capitulos">
+  <div class="container">
+    <div class="chapters-head">
+      <span class="section-tag"><i class="fas fa-th"></i> Eixos Temáticos</span>
+      <h2 class="section-title">Explore os <span>8 Eixos Temáticos</span> do diagnóstico municipal</h2>
+      <p class="section-lead">
+        Cada eixo temático apresenta análises técnicas, dados georreferenciados e
+        diretrizes específicas para o desenvolvimento integrado de Craíbas.
+      </p>
+    </div>
+    <div class="chapters-grid chapters-grid-8">
+      <a href="paginas/visao-geral.html" class="chapter-card" data-num="01">
+        <div class="chapter-icon"><i class="fas fa-globe-americas"></i></div>
+        <h3>Craíbas: visão geral</h3>
+        <p>Onde fica, como é o território, a economia e o meio ambiente.</p>
+        <span class="chapter-link">Explorar eixo <i class="fas fa-arrow-right"></i></span>
+      </a>
+      <a href="paginas/perfil-socioeconomico.html" class="chapter-card" data-num="02">
+        <div class="chapter-icon"><i class="fas fa-chart-pie"></i></div>
+        <h3>Pessoas e economia</h3>
+        <p>Demografia, renda, educação, saúde e indicadores sociais.</p>
+        <span class="chapter-link">Explorar eixo <i class="fas fa-arrow-right"></i></span>
+      </a>
+      <a href="paginas/natureza-meio-ambiente.html" class="chapter-card" data-num="03">
+        <div class="chapter-icon"><i class="fas fa-leaf"></i></div>
+        <h3>Natureza e meio ambiente</h3>
+        <p>Bioma Caatinga, recursos hídricos, clima e áreas de proteção.</p>
+        <span class="chapter-link">Explorar eixo <i class="fas fa-arrow-right"></i></span>
+      </a>
+      <a href="paginas/cultura-historia.html" class="chapter-card" data-num="04">
+        <div class="chapter-icon"><i class="fas fa-monument"></i></div>
+        <h3>Cultura e história</h3>
+        <p>Origem do município, patrimônio material e imaterial.</p>
+        <span class="chapter-link">Explorar eixo <i class="fas fa-arrow-right"></i></span>
+      </a>
+      <a href="paginas/uso-territorio.html" class="chapter-card" data-num="05">
+        <div class="chapter-icon"><i class="fas fa-map-marked-alt"></i></div>
+        <h3>Como o território é usado</h3>
+        <p>Uso e ocupação do solo, expansão urbana e zonas rurais.</p>
+        <span class="chapter-link">Explorar eixo <i class="fas fa-arrow-right"></i></span>
+      </a>
+      <a href="paginas/infraestrutura.html" class="chapter-card" data-num="06">
+        <div class="chapter-icon"><i class="fas fa-network-wired"></i></div>
+        <h3>Serviços e infraestrutura</h3>
+        <p>Saneamento, energia, comunicações e abastecimento de água.</p>
+        <span class="chapter-link">Explorar eixo <i class="fas fa-arrow-right"></i></span>
+      </a>
+      <a href="paginas/equipamentos-publicos.html" class="chapter-card" data-num="07">
+        <div class="chapter-icon"><i class="fas fa-school"></i></div>
+        <h3>Onde ficam os serviços públicos</h3>
+        <p>Escolas, unidades de saúde, espaços culturais e de lazer.</p>
+        <span class="chapter-link">Explorar eixo <i class="fas fa-arrow-right"></i></span>
+      </a>
+      <a href="paginas/mobilidade.html" class="chapter-card" data-num="08">
+        <div class="chapter-icon"><i class="fas fa-route"></i></div>
+        <h3>Como a cidade se move</h3>
+        <p>Sistema viário, transporte público, acessibilidade e fluxos.</p>
+        <span class="chapter-link">Explorar eixo <i class="fas fa-arrow-right"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" id="contato">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo logo-light">
+        <div class="logo-mark">
+          <img src="images/logo-planurbi-horizontal.png" alt="PlanUrbi — Planejamento Urbano Inteligente" class="logo-img logo-img-footer"/>
+        </div>
+        <div class="logo-text">
+          <strong>Craíbas em Dados</strong>
+          <span>Painel público · PlanUrbi</span>
+        </div>
+      </a>
+      <p class="footer-desc">
+        Diagnóstico Inteligente do município de Craíbas, elaborado com base em
+        dados oficiais, escuta participativa e análise multidisciplinar pela
+        equipe técnica do <strong>Planejamento Urbano Inteligente (PlanUrbi)</strong>.
+      </p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/planurbi_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram PlanUrbi"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/5582993261747" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp PlanUrbi"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contato PlanUrbi</h4>
+      <ul class="footer-list">
+        <li><i class="fas fa-envelope"></i> <a href="mailto:contato@planurbi.com.br">contato@planurbi.com.br</a></li>
+        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5582993261747" target="_blank" rel="noopener noreferrer">(82) 99326-1747</a></li>
+        <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/planurbi_/" target="_blank" rel="noopener noreferrer">@planurbi_</a></li>
+        <li><i class="fas fa-globe"></i> <a href="https://planurbi.com.br" target="_blank" rel="noopener noreferrer">planurbi.com.br</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Parceria FEPESA</h4>
+      <ul class="footer-list">
+        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/558232235847" target="_blank" rel="noopener noreferrer">(82) 3223-5847</a></li>
+        <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/fepesa.al/" target="_blank" rel="noopener noreferrer">@fepesa.al</a></li>
+        <li><i class="fas fa-globe"></i> <a href="https://fepesa.org.br" target="_blank" rel="noopener noreferrer">fepesa.org.br</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>PLANURBI</h4>
+      <p class="footer-credit">
+        <strong>Planejamento Urbano Inteligente</strong> — consultoria de
+        planejamento urbano e inteligência territorial.
+      </p>
+      <div class="footer-credit-box">
+        <span class="footer-credit-label">Realização</span>
+        <strong>PlanUrbi</strong>
+        <span class="footer-credit-label">Equipe</span>
+        <strong>Equipe técnica PlanUrbi</strong>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <span>© 2026 PlanUrbi. Todos os direitos reservados. · <a href="paginas/politica-de-privacidade.html" style="color:inherit;">Política de Privacidade</a></span>
+      <span>Diagnóstico Inteligente · <strong>PlanUrbi 2026</strong></span>
+    </div>
+  </div>
+</footer>
+
+<a href="#inicio" class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
+  <i class="fas fa-arrow-up"></i>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>

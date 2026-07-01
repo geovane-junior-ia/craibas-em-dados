@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Onde ficam os serviços públicos — Painel Craíbas em Dados · PlanUrbi</title>
+<meta name="description" content="Painel interativo dos equipamentos e serviços públicos de Craíbas — saúde, educação, assistência social, segurança e esporte/lazer com mapa, filtros e dados oficiais."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  .hero-title, .page-hero-title, .dash-hero-title,
+  .section-title, .cta-title, .chapter-card h3, .indicator-card h4,
+  .map-header h3, .footer-col h4, .logo-text strong,
+  .chart-card-title, .activity-title, .accordion-trigger,
+  .info-text-card h3, .modal-body h2, .highlight-banner-content h3,
+  .modal-equip h2 {
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif !important;
+    font-display: swap;
+  }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""></script>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../equipamentos-publicos.css">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <div class="header-top">
+    <div class="container header-top-inner">
+      <span><i class="fas fa-map-marker-alt"></i> Craíbas, Alagoas — Brasil</span>
+      <span class="header-top-right">
+        <i class="far fa-calendar-alt"></i> Diagnóstico Inteligente · PLANURBI 2026
+      </span>
+    </div>
+  </div>
+  <div class="header-main">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-mark">
+          <img src="../images/logo-planurbi-horizontal.png" alt="PlanUrbi — Planejamento Urbano Inteligente" class="logo-img"/>
+        </div>
+        <div class="logo-text">
+          <strong>Craíbas em Dados</strong>
+          <span>Painel público · PlanUrbi</span>
+        </div>
+      </a>
+      <nav class="nav-main" id="nav-main">
+        <a href="../index.html#inicio">Início</a>
+        <a href="../index.html#sobre">Sobre</a>
+        <a href="../index.html#dados">Dados</a>
+        <a href="../index.html#capitulos" class="active">Eixos Temáticos</a>
+        <a href="../index.html#contato">Contato</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="dash-hero">
+  <div class="container dash-hero-inner">
+    <div class="dash-breadcrumb">
+      <a href="../index.html"><i class="fas fa-home"></i> Início</a>
+      <i class="fas fa-chevron-right"></i>
+      <a href="../index.html#capitulos">Eixos Temáticos</a>
+      <i class="fas fa-chevron-right"></i>
+      <span>Onde ficam os serviços públicos</span>
+    </div>
+    <h1 class="dash-hero-title">Onde ficam os <span>serviços públicos</span></h1>
+    <p class="dash-hero-lead">
+      Explore as escolas, unidades de saúde, equipamentos de assistência social,
+      segurança e lazer do município. Clique em qualquer marcador, gráfico ou item
+      da lista para filtrar.
+    </p>
+  </div>
+</section>
+
+<!-- ===== FILTER BAR (sticky) ===== -->
+<div class="filter-bar-wrap">
+  <div class="container">
+    <div class="filter-bar">
+      <div class="filter-group">
+        <label class="filter-label">Categoria</label>
+        <select id="filter-categoria" class="filter-select"></select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label">Tipo de equipamento</label>
+        <select id="filter-tipo" class="filter-select"></select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label">Zona</label>
+        <select id="filter-zona" class="filter-select">
+          <option value="todas">Todas as zonas</option>
+          <option value="Urbana">Urbana</option>
+          <option value="Rural">Rural</option>
+        </select>
+      </div>
+      <div class="filter-group" style="grid-column: span 2;">
+        <label class="filter-label">Busca livre (nome ou endereço)</label>
+        <div class="list-search" style="margin:0;">
+          <i class="fas fa-search"></i>
+          <input type="text" id="list-search" placeholder="ex.: UBS, Centro, Sítio Lagoa..."/>
+        </div>
+      </div>
+      <button class="filter-clear" id="filter-clear">
+        <i class="fas fa-rotate-left"></i> Limpar
+      </button>
+
+      <div class="filter-result-count">
+        <div class="active-filters" id="active-filters-chips"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DASHBOARD ===== -->
+<section class="dash-section">
+  <div class="container">
+
+    <!-- Top summary stats -->
+    <div class="summary-stats" id="summary-stats"></div>
+
+    <!-- Main grid: Mapa + (KPIs + Charts) -->
+    <div class="dash-grid">
+      <!-- Mapa -->
+      <div class="dash-card map-card-dash">
+        <div class="dash-card-head">
+          <div>
+            <div class="dash-card-title"><i class="fas fa-map-location-dot"></i> Distribuição territorial</div>
+            <div class="dash-card-sub">Clique nos marcadores para detalhes · Posições aproximadas</div>
+          </div>
+          <span class="dash-card-badge">Interativo</span>
+        </div>
+
+        <div class="map-leaflet-wrap">
+          <div id="leaflet-map" aria-label="Mapa interativo de Craíbas com equipamentos públicos"></div>
+          <div class="map-hint" id="map-hint">
+            <i class="fas fa-mouse"></i> Clique no mapa para ativar o zoom com scroll
+          </div>
+        </div>
+
+        <!-- Map legend (clica para filtrar por categoria) -->
+        <div class="map-legend">
+          <div class="map-legend-item" data-cat="saude">
+            <span class="map-legend-dot" style="background:#e74c3c;"></span> Saúde
+          </div>
+          <div class="map-legend-item" data-cat="educacao">
+            <span class="map-legend-dot" style="background:#3498db;"></span> Educação
+          </div>
+          <div class="map-legend-item" data-cat="assistencia">
+            <span class="map-legend-dot" style="background:#9b59b6;"></span> Assistência Social
+          </div>
+          <div class="map-legend-item" data-cat="seguranca">
+            <span class="map-legend-dot" style="background:#34495e;"></span> Segurança
+          </div>
+          <div class="map-legend-item" data-cat="esporte">
+            <span class="map-legend-dot" style="background:#2ecc71;"></span> Esporte/Lazer
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column: KPIs + Charts -->
+      <div class="dash-right">
+        <!-- KPI mini cards -->
+        <div class="dash-card">
+          <div class="dash-card-head">
+            <div>
+              <div class="dash-card-title"><i class="fas fa-gauge-high"></i> Distribuição de equipamentos por zona</div>
+              <div class="dash-card-sub">Atualiza conforme os filtros</div>
+            </div>
+          </div>
+          <div class="kpi-mini-grid" id="kpi-mini-grid"></div>
+        </div>
+
+        <!-- Chart por categoria -->
+        <div class="dash-card chart-mini">
+          <div class="dash-card-head">
+            <div>
+              <div class="dash-card-title"><i class="fas fa-chart-bar"></i> Equipamentos por categoria</div>
+              <div class="dash-card-sub">Clique numa barra para filtrar</div>
+            </div>
+          </div>
+          <div style="position:relative; flex-grow:1; min-height:180px;">
+            <canvas id="chart-categoria"></canvas>
+          </div>
+        </div>
+
+        <!-- Chart urbana × rural -->
+        <div class="dash-card chart-mini">
+          <div class="dash-card-head">
+            <div>
+              <div class="dash-card-title"><i class="fas fa-pie-chart"></i> Distribuição por zona</div>
+              <div class="dash-card-sub">Clique para filtrar urbana ou rural</div>
+            </div>
+          </div>
+          <div style="position:relative; flex-grow:1; min-height:180px;">
+            <canvas id="chart-zona"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lista filtrável -->
+    <div class="list-card">
+      <div class="dash-card-head" style="border-bottom:none; margin-bottom:0; padding-bottom:0;">
+        <div>
+          <div class="dash-card-title"><i class="fas fa-list-ul"></i> Lista de equipamentos</div>
+          <div class="dash-card-sub">Clique em qualquer item para ver os detalhes</div>
+        </div>
+      </div>
+      <div class="list-toolbar">
+        <div class="list-sort">
+          Ordenar por:
+          <select id="list-sort">
+            <option value="nome">Nome (A-Z)</option>
+            <option value="categoria">Categoria</option>
+            <option value="zona">Zona</option>
+          </select>
+        </div>
+      </div>
+      <div class="equip-list" id="equip-list"></div>
+    </div>
+
+    <!-- Fontes -->
+    <div style="margin-top: 24px; padding: 18px 22px; background: white; border:1px solid var(--border); border-radius: var(--radius); display: flex; gap: 16px; align-items: center; flex-wrap: wrap; box-shadow: var(--shadow-sm);">
+      <i class="fas fa-info-circle" style="color: var(--accent); font-size: 18px;"></i>
+      <div style="flex:1; min-width: 280px;">
+        <strong style="color: var(--primary-dark); font-size: 13px;">Fontes</strong>
+        <p style="font-size: 12px; color: var(--text-muted); margin: 4px 0 0; line-height: 1.5;">
+          CNES (Cadastro Nacional de Estabelecimentos de Saúde) · Secretaria Municipal de Educação de Craíbas ·
+          Secretaria de Assistência Social · Diagnóstico técnico FEPESA 2026 · Tabelas t103, t109 e t111 do PLANURBI.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MINI-GRID DOS 8 EIXOS ===== -->
+<section class="eixos-mini">
+  <div class="container">
+    <div class="eixos-mini-head">
+      <span class="section-tag light"><i class="fas fa-th"></i> Eixos Temáticos</span>
+      <h2>Continue explorando os <span>8 eixos</span> do diagnóstico</h2>
+      <p>Você está em <strong>Onde ficam os serviços públicos</strong>. Clique em qualquer outro eixo para navegar.</p>
+    </div>
+    <div class="eixos-mini-grid">
+      <a href="visao-geral.html" class="eixo-mini-card">
+        <span class="eixo-mini-num">01</span>
+        <i class="fas fa-globe-americas eixo-mini-icon"></i>
+        <span class="eixo-mini-title">Craíbas: visão geral</span>
+      </a>
+      <a href="perfil-socioeconomico.html" class="eixo-mini-card">
+        <span class="eixo-mini-num">02</span>
+        <i class="fas fa-chart-pie eixo-mini-icon"></i>
+        <span class="eixo-mini-title">Pessoas e economia</span>
+      </a>
+      <a href="natureza-meio-ambiente.html" class="eixo-mini-card">
+        <span class="eixo-mini-num">03</span>
+        <i class="fas fa-leaf eixo-mini-icon"></i>
+        <span class="eixo-mini-title">Natureza e meio ambiente</span>
+      </a>
+      <a href="cultura-historia.html" class="eixo-mini-card">
+        <span class="eixo-mini-num">04</span>
+        <i class="fas fa-monument eixo-mini-icon"></i>
+        <span class="eixo-mini-title">Cultura e história</span>
+      </a>
+      <a href="uso-territorio.html" class="eixo-mini-card">
+        <span class="eixo-mini-num">05</span>
+        <i class="fas fa-map-marked-alt eixo-mini-icon"></i>
+        <span class="eixo-mini-title">Como o território é usado</span>
+      </a>
+      <a href="infraestrutura.html" class="eixo-mini-card">
+        <span class="eixo-mini-num">06</span>
+        <i class="fas fa-network-wired eixo-mini-icon"></i>
+        <span class="eixo-mini-title">Serviços e infraestrutura</span>
+      </a>
+      <a href="equipamentos-publicos.html" class="eixo-mini-card active">
+        <span class="eixo-mini-num">07</span>
+        <i class="fas fa-school eixo-mini-icon"></i>
+        <span class="eixo-mini-title">Onde ficam os serviços públicos</span>
+      </a>
+      <a href="mobilidade.html" class="eixo-mini-card">
+        <span class="eixo-mini-num">08</span>
+        <i class="fas fa-route eixo-mini-icon"></i>
+        <span class="eixo-mini-title">Como a cidade se move</span>
+      </a>
+    </div>
+    <div class="eixos-mini-cta">
+      <a href="../index.html#capitulos" class="btn btn-accent">
+        <i class="fas fa-th"></i> Ver todos os eixos no início
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="../index.html" class="logo logo-light">
+        <div class="logo-mark">
+          <img src="../images/logo-planurbi-horizontal.png" alt="PlanUrbi" class="logo-img logo-img-footer"/>
+        </div>
+        <div class="logo-text">
+          <strong>Craíbas em Dados</strong>
+          <span>Painel público · PlanUrbi</span>
+        </div>
+      </a>
+      <p class="footer-desc">
+        Diagnóstico Inteligente do município de Craíbas, elaborado com base em
+        dados oficiais, escuta participativa e análise multidisciplinar pela
+        equipe técnica do <strong>Planejamento Urbano Inteligente (PlanUrbi)</strong>.
+      </p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/planurbi_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram PlanUrbi"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/5582993261747" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp PlanUrbi"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contato PlanUrbi</h4>
+      <ul class="footer-list">
+        <li><i class="fas fa-envelope"></i> <a href="mailto:contato@planurbi.com.br">contato@planurbi.com.br</a></li>
+        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5582993261747" target="_blank" rel="noopener noreferrer">(82) 99326-1747</a></li>
+        <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/planurbi_/" target="_blank" rel="noopener noreferrer">@planurbi_</a></li>
+        <li><i class="fas fa-globe"></i> <a href="https://planurbi.com.br" target="_blank" rel="noopener noreferrer">planurbi.com.br</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Parceria FEPESA</h4>
+      <ul class="footer-list">
+        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/558232235847" target="_blank" rel="noopener noreferrer">(82) 3223-5847</a></li>
+        <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/fepesa.al/" target="_blank" rel="noopener noreferrer">@fepesa.al</a></li>
+        <li><i class="fas fa-globe"></i> <a href="https://fepesa.org.br" target="_blank" rel="noopener noreferrer">fepesa.org.br</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>PLANURBI</h4>
+      <p class="footer-credit">
+        <strong>Planejamento Urbano Inteligente</strong> — consultoria de
+        planejamento urbano e inteligência territorial.
+      </p>
+      <div class="footer-credit-box">
+        <span class="footer-credit-label">Realização</span>
+        <strong>PlanUrbi</strong>
+        <span class="footer-credit-label">Equipe</span>
+        <strong>Equipe técnica PlanUrbi</strong>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <span>© 2026 PlanUrbi. Todos os direitos reservados. · <a href="politica-de-privacidade.html" style="color:inherit;">Política de Privacidade</a></span>
+      <span>Diagnóstico Inteligente · <strong>PlanUrbi 2026</strong></span>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
+  <i class="fas fa-arrow-up"></i>
+</a>
+
+<!-- ===== MODAL EQUIPAMENTO (conteúdo gerado pelo JS) ===== -->
+<div class="modal-overlay-equip" id="modal-overlay-equip">
+  <div class="modal-equip" id="modal-equip-content">
+    <!-- conteúdo injetado por openModal(eq) -->
+  </div>
+</div>
+
+<!-- Banco central de coordenadas geográficas (compartilhado entre páginas) -->
+<script src="../data/craibas-locations.js"></script>
+<script src="../equipamentos-publicos.js"></script>
+</body>
+</html>

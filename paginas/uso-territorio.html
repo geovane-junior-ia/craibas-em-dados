@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Como o território é usado — Painel Craíbas em Dados · PlanUrbi</title>
+<meta name="description" content="Usos do solo rural e urbano, expansão da cidade, condições habitacionais e as principais lacunas do planejamento territorial de Craíbas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.5.0/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles-eixo.css">
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header-top">
+    <div class="container header-top-inner">
+      <span><i class="fas fa-map-marker-alt"></i> Craíbas, Alagoas — Brasil</span>
+      <span class="header-top-right"><i class="far fa-calendar-alt"></i> Diagnóstico Inteligente · PLANURBI 2026</span>
+    </div>
+  </div>
+  <div class="header-main">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-mark"><img src="../images/logo-planurbi-horizontal.png" alt="PlanUrbi" class="logo-img"/></div>
+        <div class="logo-text"><strong>Craíbas em Dados</strong><span>Painel público · PlanUrbi</span></div>
+      </a>
+      <nav class="nav-main" id="nav-main">
+        <a href="../index.html#inicio">Início</a>
+        <a href="../index.html#sobre">Sobre</a>
+        <a href="../index.html#dados">Dados</a>
+        <a href="../index.html#capitulos" class="active">Eixos Temáticos</a>
+        <a href="../index.html#contato">Contato</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main class="eixo-page">
+  <div class="container">
+    <div class="w">
+      <div class="ph">
+        <div class="bc">
+          <a href="../index.html"><i class="ti ti-home" aria-hidden="true"></i> Início</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <a href="../index.html#capitulos">Eixos temáticos</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <span>Como o território é usado</span>
+        </div>
+        <div class="pt">Como o território é usado</div>
+        <div class="ps">Usos do solo rural e urbano, expansão da cidade, condições habitacionais e as principais lacunas do planejamento territorial de Craíbas.</div>
+      </div>
+
+      <div class="insight">
+        <i class="ti ti-bulb ii" aria-hidden="true"></i>
+        <div class="it"><strong>O que o diagnóstico revelou:</strong> Craíbas cresceu de forma dispersa entre 2014 e 2024, especialmente nas bordas da cidade. Grande parte dos domicílios utiliza fossas rudimentares e apenas 7,1% têm acesso à rede de esgoto. O município ainda não conta com Código de Obras ou Lei de Uso do Solo.</div>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kl">Domicílios (Censo 2022)</div><div class="kv">10.095</div><div class="ks">8.074 ocupados</div></div>
+        <div class="kpi verde"><div class="kl">Domicílios próprios</div><div class="kv">83,1%</div><div class="ks">Maioria quitados</div></div>
+        <div class="kpi red"><div class="kl">Acesso à rede de esgoto</div><div class="kv">7,1%</div><div class="ks">IBGE, Censo 2022</div></div>
+        <div class="kpi amber"><div class="kl">Coleta de lixo</div><div class="kv">66,1%</div><div class="ks">IBGE, Censo 2022</div></div>
+        <div class="kpi red"><div class="kl">Código de obras</div><div class="kv">Nenhum</div><div class="ks">Legislação urbanística ausente</div></div>
+        <div class="kpi amber"><div class="kl">Expansão urbana</div><div class="kv">2014–2024</div><div class="ks">Padrão disperso</div></div>
+      </div>
+
+      <div class="tab-row" role="tablist">
+        <div class="tab active" onclick="showTab('rural',this)"><i class="ti ti-trees" aria-hidden="true"></i> Uso rural</div>
+        <div class="tab" onclick="showTab('urbano',this)"><i class="ti ti-building" aria-hidden="true"></i> Espaço urbano</div>
+        <div class="tab" onclick="showTab('habitacao',this)"><i class="ti ti-home" aria-hidden="true"></i> Habitação</div>
+        <div class="tab" onclick="showTab('legislacao',this)"><i class="ti ti-file-description" aria-hidden="true"></i> Legislação e lacunas</div>
+      </div>
+
+      <div id="tab-rural" class="tab-content active">
+        <div class="card">
+          <div class="ch"><i class="ti ti-map-2" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Usos do solo rural — 4 classes principais</div></div>
+          <div class="cb">
+            <div class="uso-row">
+              <div class="uso-dot" style="background:#EF9F27"></div>
+              <div class="uso-info"><div class="uso-nome">Uso pecuário</div><div class="uso-desc">Maior extensão territorial — bovinocultura de leite e carne, caprinos e ovinos. Pecuária extensiva histórica do Agreste alagoano.</div></div>
+              <div class="uso-track"><div class="uso-fill" style="width:100%;background:#EF9F27"></div></div>
+              <div class="uso-pct">1º</div>
+            </div>
+            <div class="uso-row">
+              <div class="uso-dot" style="background:#639922"></div>
+              <div class="uso-info"><div class="uso-nome">Agricultura</div><div class="uso-desc">2º maior uso. Mandioca em expansão; fumo em declínio. Porção central e leste do município.</div></div>
+              <div class="uso-track"><div class="uso-fill" style="width:75%;background:#639922"></div></div>
+              <div class="uso-pct">2º</div>
+            </div>
+            <div class="uso-row">
+              <div class="uso-dot" style="background:#185FA5"></div>
+              <div class="uso-info"><div class="uso-nome">Área urbanizada</div><div class="uso-desc">Sede municipal + Distrito de Folha Miúda + centralidades secundárias (Pau Ferro, Serra Muda).</div></div>
+              <div class="uso-track"><div class="uso-fill" style="width:20%;background:#185FA5"></div></div>
+              <div class="uso-pct">3º</div>
+            </div>
+            <div class="uso-row">
+              <div class="uso-dot" style="background:#A32D2D"></div>
+              <div class="uso-info"><div class="uso-nome">Extração mineral</div><div class="uso-desc">Projeto Serrote — Mineração Vale Verde. Inserção mais recente e de maior impacto territorial.</div></div>
+              <div class="uso-track"><div class="uso-fill" style="width:10%;background:#A32D2D"></div></div>
+              <div class="uso-pct">4º</div>
+            </div>
+            <div class="nota-box">Fonte: IBGE, 2022; IMA/AL, 2019. Elaborado por PlanUrbi/FEPESA, 2026.</div>
+          </div>
+        </div>
+
+        <div class="two">
+          <div class="card" style="margin-bottom:0">
+            <div class="ch"><i class="ti ti-cow" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Pecuária</div></div>
+            <div class="cb">
+              <div class="dr"><div class="dl">Principal atividade</div><div class="dv">Bovinocultura de leite</div></div>
+              <div class="dr"><div class="dl">Outras criações</div><div class="dv">Caprinos e ovinos</div></div>
+              <div class="dr"><div class="dl">Posição do leite em AL</div><div class="dv">87% do valor animal</div></div>
+              <div class="dr"><div class="dl">Ponto de atenção</div><div class="dv"><span class="tag tag-amber">Supressão de Caatinga</span></div></div>
+              <div class="nota-warn">Pecuária extensiva sem controle de carga animal exerce pressão sobre o solo e recursos hídricos.</div>
+            </div>
+          </div>
+          <div class="card" style="margin-bottom:0">
+            <div class="ch"><i class="ti ti-plant" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Agricultura familiar</div></div>
+            <div class="cb">
+              <div class="dr"><div class="dl">Mandioca</div><div class="dv"><span class="tag tag-green">Expansão</span></div></div>
+              <div class="dr"><div class="dl">Fumo em rolo</div><div class="dv"><span class="tag tag-red">Declínio</span></div></div>
+              <div class="dr"><div class="dl">Renda fumicultor</div><div class="dv">~R$ 10 mil/ha/ano</div></div>
+              <div class="dr"><div class="dl">Transição em curso</div><div class="dv">Fumo → mandioca/pecuária</div></div>
+              <div class="nota-box">A queda do fumo está reorganizando o uso do solo rural. A mandioca ganha espaço como nova base da agricultura familiar.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-urbano" class="tab-content">
+        <div class="two">
+          <div class="card" style="margin-bottom:0">
+            <div class="ch"><i class="ti ti-building" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Núcleos urbanos</div></div>
+            <div class="cb">
+              <div class="dr"><div class="dl">Sede municipal</div><div class="dv">Principal núcleo urbano</div></div>
+              <div class="dr"><div class="dl">Distrito de Folha Miúda</div><div class="dv">2º núcleo — dinâmica própria</div></div>
+              <div class="dr"><div class="dl">Pau Ferro</div><div class="dv">Centralidade secundária</div></div>
+              <div class="dr"><div class="dl">Serra Muda</div><div class="dv">Centralidade secundária</div></div>
+              <div class="nota-box">A sede concentra serviços, equipamentos e comércio. As centralidades secundárias reduzem a dependência das comunidades rurais da sede.</div>
+            </div>
+          </div>
+          <div class="card" style="margin-bottom:0">
+            <div class="ch"><i class="ti ti-trending-up" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Expansão urbana 2014–2024</div></div>
+            <div class="cb">
+              <div class="dr"><div class="dl">Padrão de crescimento</div><div class="dv"><span class="tag tag-amber">Disperso e horizontal</span></div></div>
+              <div class="dr"><div class="dl">Direção na sede</div><div class="dv">Sudeste e nordeste</div></div>
+              <div class="dr"><div class="dl">Ponto de atenção</div><div class="dv">Expansão próxima ao reservatório sul</div></div>
+              <div class="dr"><div class="dl">Folha Miúda</div><div class="dv">Crescimento linear</div></div>
+              <div class="nota-warn">O crescimento disperso eleva o custo de levar infraestrutura (água, esgoto, pavimentação) às novas áreas e dificulta o transporte público.</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ch"><i class="ti ti-map-pin" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Centro consolidado × periferia em expansão</div></div>
+          <div class="cb">
+            <div class="two" style="margin-bottom:0">
+              <div>
+                <div style="font-size:12px;color:var(--color-text-tertiary);margin-bottom:8px;font-weight:600">CENTRO CONSOLIDADO</div>
+                <div class="dr"><div class="dl">Pavimentação</div><div class="dv"><span class="tag tag-green">Consolidada</span></div></div>
+                <div class="dr"><div class="dl">Calçadas</div><div class="dv"><span class="tag tag-green">Presentes</span></div></div>
+                <div class="dr"><div class="dl">Arborização</div><div class="dv"><span class="tag tag-green">Presente</span></div></div>
+              </div>
+              <div>
+                <div style="font-size:12px;color:var(--color-text-tertiary);margin-bottom:8px;font-weight:600">PERIFERIA EM EXPANSÃO</div>
+                <div class="dr"><div class="dl">Pavimentação</div><div class="dv"><span class="tag tag-red">Incompleta</span></div></div>
+                <div class="dr"><div class="dl">Calçadas</div><div class="dv"><span class="tag tag-red">Ausentes</span></div></div>
+                <div class="dr"><div class="dl">Drenagem</div><div class="dv"><span class="tag tag-red">Precária</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-habitacao" class="tab-content">
+        <div class="two">
+          <div class="card" style="margin-bottom:0">
+            <div class="ch"><i class="ti ti-home" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Indicadores habitacionais (Censo 2022)</div></div>
+            <div class="cb">
+              <div class="progress-row">
+                <div class="prog-label"><span>Rede de água</span><span>71,4%</span></div>
+                <div class="prog-track"><div class="prog-fill" style="width:71%;background:var(--verde-forte)"></div></div>
+              </div>
+              <div class="progress-row">
+                <div class="prog-label"><span>Coleta de lixo (serviço público)</span><span>66,1%</span></div>
+                <div class="prog-track"><div class="prog-fill" style="width:66%;background:#639922"></div></div>
+              </div>
+              <div class="progress-row">
+                <div class="prog-label"><span>Domicílios próprios quitados</span><span>83,1%</span></div>
+                <div class="prog-track"><div class="prog-fill" style="width:83%;background:#5DCAA5"></div></div>
+              </div>
+              <div class="progress-row">
+                <div class="prog-label"><span style="color:#A32D2D">Rede de esgoto</span><span style="color:#A32D2D">7,1%</span></div>
+                <div class="prog-track"><div class="prog-fill" style="width:7%;background:#E24B4A"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="card" style="margin-bottom:0">
+            <div class="ch"><i class="ti ti-alert-triangle" style="color:#A32D2D" aria-hidden="true"></i><div class="ct">Pontos de atenção habitacional</div></div>
+            <div class="cb">
+              <div class="dr"><div class="dl">Fossas rudimentares</div><div class="dv" style="color:#A32D2D">6.545 domicílios</div></div>
+              <div class="dr"><div class="dl">Queima do lixo</div><div class="dv" style="color:#A32D2D">2.622 domicílios</div></div>
+              <div class="dr"><div class="dl">Dependem de carro-pipa</div><div class="dv" style="color:#A32D2D">1.412 domicílios</div></div>
+              <div class="dr"><div class="dl">Sem banheiro nem sanitário</div><div class="dv" style="color:#A32D2D">106 domicílios</div></div>
+              <div class="dr"><div class="dl">Paredes sem revestimento</div><div class="dv">1.010 domicílios</div></div>
+              <div class="nota-warn">Indicadores agregados no nível municipal. Recortes por bairro, comunidade ou setor censitário não são publicados neste painel.</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ch"><i class="ti ti-tools" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Programa Novo Lar — Lei Municipal 488/2021</div></div>
+          <div class="cb">
+            <div class="two" style="margin-bottom:12px">
+              <div>
+                <div class="dr"><div class="dl">Público-alvo</div><div class="dv">Renda até 1,5 SM</div></div>
+                <div class="dr"><div class="dl">Ações previstas</div><div class="dv" style="font-size:11px">Reforma, ampliação, reconstrução</div></div>
+                <div class="dr"><div class="dl">Crédito inicial</div><div class="dv">R$ 500.000</div></div>
+              </div>
+              <div>
+                <div class="dr"><div class="dl">Status</div><div class="dv"><span class="tag tag-amber">Em andamento</span></div></div>
+                <div class="dr"><div class="dl">Dados de execução</div><div class="dv"><span class="tag tag-amber">Em consolidação</span></div></div>
+                <div class="dr"><div class="dl">Alcance estimado</div><div class="dv">A ampliar</div></div>
+              </div>
+            </div>
+            <div class="nota-box">O Novo Lar é um avanço importante — foca na melhoria do estoque existente, não só em novas unidades. O desafio identificado é ampliar, monitorar e integrar com saneamento e regularização fundiária.</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-legislacao" class="tab-content">
+        <div class="card">
+          <div class="ch"><i class="ti ti-file-x" style="color:#A32D2D" aria-hidden="true"></i><div class="ct" style="color:#A32D2D">Legislação urbanística — lacunas identificadas</div></div>
+          <div class="cb">
+            <div class="dr"><div class="dl">Plano Diretor</div><div class="dv"><span class="tag tag-amber">Em elaboração — PlanUrbi</span></div></div>
+            <div class="dr"><div class="dl">Código de Obras e Edificações</div><div class="dv"><span class="tag tag-red">A elaborar</span></div></div>
+            <div class="dr"><div class="dl">Lei de Uso e Ocupação do Solo</div><div class="dv"><span class="tag tag-red">A elaborar</span></div></div>
+            <div class="dr"><div class="dl">Código de Posturas atualizado</div><div class="dv"><span class="tag tag-red">A elaborar</span></div></div>
+            <div class="dr"><div class="dl">Plano Local de Habitação (PLHIS)</div><div class="dv"><span class="tag tag-red">A elaborar</span></div></div>
+            <div class="dr"><div class="dl">Delimitação do perímetro urbano</div><div class="dv"><span class="tag tag-amber">Lei de 1983 — desatualizada</span></div></div>
+            <div class="nota-warn">A Lei nº 03/1983 delimita o perímetro urbano com base em referências físicas locais — antes da Constituição de 1988 e do Estatuto da Cidade. Ponto de atenção identificado no diagnóstico.</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ch"><i class="ti ti-file-check" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">O que Craíbas já tem</div></div>
+          <div class="cb">
+            <div class="dr"><div class="dl">Código Tributário Municipal</div><div class="dv"><span class="tag tag-green">Lei 429/2017</span></div></div>
+            <div class="dr"><div class="dl">Programas de Desenvolvimento do Campo</div><div class="dv"><span class="tag tag-green">Lei 496/2021</span></div></div>
+            <div class="dr"><div class="dl">Programa Novo Lar</div><div class="dv"><span class="tag tag-green">Lei 488/2021</span></div></div>
+            <div class="dr"><div class="dl">Política de Meio Ambiente</div><div class="dv"><span class="tag tag-green">Lei 413/2016</span></div></div>
+            <div class="dr"><div class="dl">Sistema Municipal de Cultura</div><div class="dv"><span class="tag tag-green">Lei 538/2023</span></div></div>
+            <div class="nota-box">O município tem legislação em áreas setoriais. O Plano Diretor em elaboração é o instrumento que organiza o território como um todo.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert-box">
+        <i class="ti ti-alert-triangle ai" aria-hidden="true"></i>
+        <div class="at"><strong>Tensão central:</strong> Craíbas cresceu por décadas sem instrumentos de planejamento — sem Código de Obras, sem Lei de Uso do Solo, sem Plano Diretor. O resultado é uma cidade dispersa, cara de servir, com grande déficit de rede de esgoto. O Plano Diretor em elaboração é a primeira oportunidade real de orientar esse crescimento.</div>
+      </div>
+
+      <div class="fontes">
+        <div class="ft"><strong>Fontes:</strong> IBGE · Censo Demográfico 2022 · IMA/AL 2019 · Google Earth 2025 · Lei Municipal 488/2021 · Cepdec/AL 2024 · ANA 2020 · Diagnóstico Inteligente PlanUrbi/FEPESA, 2026.</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="../index.html" class="logo logo-light">
+        <div class="logo-mark"><img src="../images/logo-planurbi-horizontal.png" alt="PlanUrbi" class="logo-img logo-img-footer"/></div>
+        <div class="logo-text"><strong>Craíbas em Dados</strong><span>Painel público · PlanUrbi</span></div>
+      </a>
+      <p class="footer-desc">Diagnóstico Inteligente do município de Craíbas, elaborado com base em dados oficiais, escuta participativa e análise multidisciplinar pela equipe técnica do <strong>Planejamento Urbano Inteligente (PlanUrbi)</strong>.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/planurbi_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram PlanUrbi"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/5582993261747" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp PlanUrbi"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Contato PlanUrbi</h4>
+      <ul class="footer-list">
+        <li><i class="fas fa-envelope"></i> <a href="mailto:contato@planurbi.com.br">contato@planurbi.com.br</a></li>
+        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5582993261747" target="_blank" rel="noopener noreferrer">(82) 99326-1747</a></li>
+        <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/planurbi_/" target="_blank" rel="noopener noreferrer">@planurbi_</a></li>
+        <li><i class="fas fa-globe"></i> <a href="https://planurbi.com.br" target="_blank" rel="noopener noreferrer">planurbi.com.br</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Parceria FEPESA</h4>
+      <ul class="footer-list">
+        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/558232235847" target="_blank" rel="noopener noreferrer">(82) 3223-5847</a></li>
+        <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/fepesa.al/" target="_blank" rel="noopener noreferrer">@fepesa.al</a></li>
+        <li><i class="fas fa-globe"></i> <a href="https://fepesa.org.br" target="_blank" rel="noopener noreferrer">fepesa.org.br</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>PLANURBI</h4>
+      <p class="footer-credit"><strong>Planejamento Urbano Inteligente</strong> — consultoria de planejamento urbano e inteligência territorial.</p>
+      <div class="footer-credit-box">
+        <span class="footer-credit-label">Realização</span><strong>PlanUrbi</strong>
+        <span class="footer-credit-label">Equipe</span><strong>Equipe técnica PlanUrbi</strong>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <span>© 2026 PlanUrbi. Todos os direitos reservados. · <a href="politica-de-privacidade.html" style="color:inherit;">Política de Privacidade</a></span>
+      <span>Diagnóstico Inteligente · <strong>PlanUrbi 2026</strong></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../script-eixo.js"></script>
+</body>
+</html>

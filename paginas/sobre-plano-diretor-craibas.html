@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre o Diagnóstico Inteligente — Plano Diretor de Craíbas · PlanUrbi 2026</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.5.0/dist/tabler-icons.min.css">
+<style>
+:root {
+  --verde: #1a4a2e;
+  --verde-med: #3B6D11;
+  --verde-claro: #EAF3DE;
+  --verde-borda: #97C459;
+  --amber-bg: #FAEEDA;
+  --amber-borda: #EF9F27;
+  --amber-text: #633806;
+  --blue-bg: #E6F1FB;
+  --blue-borda: #85B7EB;
+  --blue-text: #0C447C;
+  --bg: #F5F3EE;
+  --surface: #ffffff;
+  --surface2: #F0EEE8;
+  --border: rgba(0,0,0,0.10);
+  --border2: rgba(0,0,0,0.16);
+  --text: #1a1a18;
+  --text2: #5a5a56;
+  --text3: #9a9a94;
+  --radius: 12px;
+  --radius-md: 8px;
+  --radius-sm: 4px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 24px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* BANNER PRINCIPAL */
+.pd-banner {
+  background: linear-gradient(135deg, #1a3a20 0%, #0e2a15 50%, #1a4a2e 100%);
+  border-radius: var(--radius);
+  padding: 28px 28px 24px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.pd-banner::before {
+  content: '';
+  position: absolute;
+  right: -30px; top: -30px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(151,196,89,0.08);
+  pointer-events: none;
+}
+.pd-banner::after {
+  content: '';
+  position: absolute;
+  right: 50px; bottom: -40px;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: rgba(151,196,89,0.05);
+  pointer-events: none;
+}
+.pd-eyebrow {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #97C459;
+  font-weight: 500;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pd-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 1.5px;
+  background: #97C459;
+  border-radius: 2px;
+}
+.pd-title {
+  font-size: 26px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+.pd-sub {
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.62);
+  line-height: 1.65;
+  max-width: 520px;
+  margin-bottom: 20px;
+}
+.pd-stats {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.pd-stat {
+  background: rgba(255,255,255,0.08);
+  border: 0.5px solid rgba(255,255,255,0.14);
+  border-radius: var(--radius-md);
+  padding: 9px 15px;
+}
+.pd-stat-val {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.1;
+}
+.pd-stat-label {
+  font-size: 10px;
+  color: rgba(255,255,255,0.45);
+  margin-top: 2px;
+}
+
+/* ABAS */
+.tab-row {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.tab {
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 0.5px solid var(--border2);
+  cursor: pointer;
+  background: var(--surface);
+  color: var(--text2);
+  transition: all .15s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  user-select: none;
+}
+.tab.active {
+  background: var(--verde);
+  border-color: var(--verde);
+  color: #fff;
+  font-weight: 500;
+}
+.tc { display: none; }
+.tc.active { display: block; }
+
+/* CARDS */
+.card {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.card:last-child { margin-bottom: 0; }
+.ch {
+  padding: 11px 16px;
+  border-bottom: 0.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text);
+}
+.cb { padding: 16px; }
+
+/* TEXTOS */
+.sobre-text {
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+.sobre-text:last-child { margin-bottom: 0; }
+.sobre-text strong { font-weight: 500; color: var(--text); }
+
+/* PILARES */
+.pilares {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.pilar {
+  background: var(--surface2);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+}
+.pilar-icon {
+  width: 34px; height: 34px;
+  border-radius: var(--radius-sm);
+  background: var(--verde-claro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--verde-med);
+  flex-shrink: 0;
+}
+.pilar-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+.pilar-desc {
+  font-size: 11px;
+  color: var(--text2);
+  line-height: 1.45;
+}
+
+/* IMPORTÂNCIA */
+.importancia {
+  background: linear-gradient(135deg, var(--verde-claro) 0%, #F5F9EE 100%);
+  border: 0.5px solid var(--verde-borda);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 12px;
+}
+.imp-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--verde);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.imp-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.imp-item {
+  font-size: 13px;
+  color: #27500A;
+  line-height: 1.55;
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+}
+.imp-item::before {
+  content: '→';
+  flex-shrink: 0;
+  color: var(--verde-borda);
+  font-weight: 500;
+  margin-top: 1px;
+}
+
+/* DATA ROWS */
+.dr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 0.5px solid var(--border);
+  gap: 12px;
+}
+.dr:last-child { border-bottom: none; }
+.dl { font-size: 12.5px; color: var(--text2); }
+.dv { font-size: 12px; font-weight: 500; color: var(--text); text-align: right; flex-shrink: 0; }
+
+/* SECTION TITLE */
+.section-title {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text3);
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  margin: 16px 0 8px;
+}
+
+/* DOC CARDS */
+.doc-card {
+  background: var(--surface2);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  border: 0.5px solid var(--border);
+  transition: border-color .15s;
+  cursor: default;
+}
+.doc-card:last-child { margin-bottom: 0; }
+.doc-card:hover { border-color: var(--border2); }
+.doc-icon {
+  width: 36px; height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--blue-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #185FA5;
+  flex-shrink: 0;
+}
+.doc-icon.verde { background: var(--verde-claro); color: var(--verde-med); }
+.doc-icon.amber { background: var(--amber-bg); color: #854F0B; }
+.doc-title {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+.doc-meta { font-size: 11px; color: var(--text3); line-height: 1.4; }
+.tag {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-top: 5px;
+  display: inline-block;
+}
+.tag-verde { background: var(--verde-claro); color: var(--verde-med); border: 0.5px solid var(--verde-borda); }
+.tag-amber { background: var(--amber-bg); color: var(--amber-text); border: 0.5px solid var(--amber-borda); }
+.tag-blue  { background: var(--blue-bg); color: var(--blue-text); border: 0.5px solid var(--blue-borda); }
+
+/* NOTA BOX */
+.nota-verde {
+  background: var(--verde-claro);
+  border-radius: var(--radius-md);
+  padding: 10px 13px;
+  font-size: 11.5px;
+  color: #27500A;
+  line-height: 1.55;
+  margin-top: 12px;
+}
+.nota-blue {
+  background: var(--blue-bg);
+  border-radius: var(--radius-md);
+  padding: 10px 13px;
+  font-size: 11.5px;
+  color: var(--blue-text);
+  line-height: 1.55;
+  margin-top: 12px;
+}
+
+/* FONTES */
+.fontes {
+  background: var(--surface2);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 9px 13px;
+  margin-top: 16px;
+  font-size: 11px;
+  color: var(--text3);
+  line-height: 1.5;
+}
+</style>
+</head>
+<body>
+
+<!-- BANNER PRINCIPAL -->
+<div class="pd-banner">
+  <div class="pd-eyebrow">Iniciativa da Prefeitura Municipal de Craíbas</div>
+  <div class="pd-title">O primeiro Plano Diretor<br>de Craíbas</div>
+  <div class="pd-sub">Pela primeira vez na história do município, Craíbas está elaborando o instrumento que vai orientar o crescimento da cidade e as políticas públicas pelos próximos 10 anos.</div>
+  <div class="pd-stats">
+    <div class="pd-stat">
+      <div class="pd-stat-val">2024–2026</div>
+      <div class="pd-stat-label">Período de elaboração</div>
+    </div>
+    <div class="pd-stat">
+      <div class="pd-stat-val">321 pág.</div>
+      <div class="pd-stat-label">Documento técnico</div>
+    </div>
+    <div class="pd-stat">
+      <div class="pd-stat-val">15 eixos</div>
+      <div class="pd-stat-label">Temáticos analisados</div>
+    </div>
+    <div class="pd-stat">
+      <div class="pd-stat-val">PlanUrbi</div>
+      <div class="pd-stat-label">Equipe técnica</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABAS -->
+<div class="tab-row" role="tablist">
+  <div class="tab active" onclick="showTab('sobre',this)">
+    <i class="ti ti-info-circle" style="font-size:13px" aria-hidden="true"></i> Sobre o painel
+  </div>
+  <div class="tab" onclick="showTab('plano',this)">
+    <i class="ti ti-building-community" style="font-size:13px" aria-hidden="true"></i> O Plano Diretor
+  </div>
+  <div class="tab" onclick="showTab('documentos',this)">
+    <i class="ti ti-files" style="font-size:13px" aria-hidden="true"></i> Documentos
+  </div>
+  <div class="tab" onclick="showTab('metodologia',this)">
+    <i class="ti ti-clipboard-data" style="font-size:13px" aria-hidden="true"></i> Metodologia
+  </div>
+</div>
+
+<!-- ABA: SOBRE O PAINEL -->
+<div id="tab-sobre" class="tc active">
+  <div class="card">
+    <div class="ch">
+      <i class="ti ti-device-laptop" style="font-size:15px;color:var(--verde)" aria-hidden="true"></i>
+      O que é o Diagnóstico Inteligente
+    </div>
+    <div class="cb">
+      <p class="sobre-text">O <strong>Diagnóstico Inteligente</strong> é um produto do <strong>PlanUrbi — Planejamento Urbano Inteligente</strong>. Ele reúne, em um painel digital interativo, os principais dados sobre o município de Craíbas levantados durante a elaboração do Plano Diretor Municipal.</p>
+      <p class="sobre-text">Cada informação foi coletada pela equipe técnica do PlanUrbi a partir de dados oficiais de órgãos como IBGE, DATASUS, MDS, RAIS e Tesouro Nacional — complementados por visitas de campo ao município, análises geoespaciais e escuta direta da população nas Oficinas Participativas.</p>
+      <p class="sobre-text">O objetivo é simples: tornar as informações do diagnóstico acessíveis a qualquer cidadão — não apenas a técnicos e gestores.</p>
+    </div>
+  </div>
+
+  <div class="pilares">
+    <div class="pilar">
+      <div class="pilar-icon"><i class="ti ti-database" aria-hidden="true"></i></div>
+      <div>
+        <div class="pilar-title">Dados oficiais</div>
+        <div class="pilar-desc">IBGE, DATASUS, INEP, Tesouro Nacional, RAIS, PNUD e fontes estaduais</div>
+      </div>
+    </div>
+    <div class="pilar">
+      <div class="pilar-icon"><i class="ti ti-map" aria-hidden="true"></i></div>
+      <div>
+        <div class="pilar-title">Análise do território</div>
+        <div class="pilar-desc">Geoprocessamento, imagens de satélite e mapeamento das 15 temáticas</div>
+      </div>
+    </div>
+    <div class="pilar">
+      <div class="pilar-icon"><i class="ti ti-users" aria-hidden="true"></i></div>
+      <div>
+        <div class="pilar-title">Escuta da população</div>
+        <div class="pilar-desc">Oficinas participativas com moradores da sede, Folha Miúda e zona rural</div>
+      </div>
+    </div>
+    <div class="pilar">
+      <div class="pilar-icon"><i class="ti ti-walk" aria-hidden="true"></i></div>
+      <div>
+        <div class="pilar-title">Visitas de campo</div>
+        <div class="pilar-desc">Equipe técnica percorreu ruas, equipamentos, comunidades e áreas rurais</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABA: O PLANO DIRETOR -->
+<div id="tab-plano" class="tc">
+  <div class="importancia">
+    <div class="imp-title">
+      <i class="ti ti-star" style="font-size:17px" aria-hidden="true"></i>
+      Por que o Plano Diretor é importante para Craíbas?
+    </div>
+    <ul class="imp-list">
+      <li class="imp-item">É o <strong>primeiro Plano Diretor da história do município</strong> — Craíbas nunca teve um instrumento de planejamento urbano desta abrangência</li>
+      <li class="imp-item">Define <strong>como e onde a cidade pode crescer</strong>, evitando que novas moradias surjam em áreas de risco ou sem infraestrutura</li>
+      <li class="imp-item">Estabelece <strong>regras para o uso do solo</strong> — o que pode ser construído, onde, com qual altura e para qual finalidade</li>
+      <li class="imp-item">Orienta os investimentos públicos <strong>pelos próximos 10 anos</strong> — em infraestrutura, mobilidade, habitação e serviços</li>
+      <li class="imp-item">Cria os <strong>instrumentos legais para proteger o patrimônio cultural</strong> — como a Igreja Matriz, as festas tradicionais e o fumo em corda artesanal</li>
+      <li class="imp-item">Exigido pelo <strong>Estatuto da Cidade</strong> para municípios com mais de 20 mil habitantes — Craíbas tem obrigação legal de ter um Plano Diretor</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="ch">
+      <i class="ti ti-building-community" style="font-size:15px;color:var(--verde)" aria-hidden="true"></i>
+      Uma iniciativa da Prefeitura Municipal de Craíbas
+    </div>
+    <div class="cb">
+      <p class="sobre-text">A elaboração do Plano Diretor foi uma decisão da <strong>gestão municipal de Craíbas</strong>, que contratou a equipe técnica do PlanUrbi para conduzir o processo. A Prefeitura reconheceu a urgência de dotar o município de um instrumento de planejamento — especialmente diante do crescimento acelerado gerado pela mineração e da chegada de novas famílias e demandas urbanas.</p>
+      <p class="sobre-text">Para um município que <strong>nunca teve Código de Obras, nem Lei de Uso do Solo, nem delimitação urbana atualizada</strong>, o Plano Diretor representa muito mais do que uma exigência legal — é a primeira oportunidade real de organizar o crescimento da cidade com base em dados e participação cidadã.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch">
+      <i class="ti ti-timeline" style="font-size:15px;color:var(--verde)" aria-hidden="true"></i>
+      Etapas do processo
+    </div>
+    <div class="cb">
+      <div class="dr">
+        <div class="dl"><strong style="font-weight:500">1. Diagnóstico</strong> — Levantamento de dados, visitas de campo, oficinas participativas e análise temática</div>
+        <div class="dv" style="color:#27500A">Concluído · 2024/2025</div>
+      </div>
+      <div class="dr">
+        <div class="dl"><strong style="font-weight:500">2. Leitura comunitária</strong> — Escuta da população sobre os principais problemas e prioridades do município</div>
+        <div class="dv" style="color:#27500A">Concluída · 2025</div>
+      </div>
+      <div class="dr">
+        <div class="dl"><strong style="font-weight:500">3. Elaboração do Plano</strong> — Construção das diretrizes, macrozoneamento e instrumentos urbanísticos</div>
+        <div class="dv" style="color:#BA7517">Em andamento · 2026</div>
+      </div>
+      <div class="dr">
+        <div class="dl"><strong style="font-weight:500">4. Audiências públicas</strong> — Apresentação e debate do Plano com a população antes da aprovação</div>
+        <div class="dv" style="color:var(--text3)">Previsto · 2026</div>
+      </div>
+      <div class="dr">
+        <div class="dl"><strong style="font-weight:500">5. Aprovação pela Câmara Municipal</strong></div>
+        <div class="dv" style="color:var(--text3)">Previsto · 2026</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABA: DOCUMENTOS -->
+<div id="tab-documentos" class="tc">
+  <p class="sobre-text" style="margin-bottom:14px">Todos os documentos produzidos no âmbito do Diagnóstico Inteligente de Craíbas.</p>
+
+  <div class="section-title">Documento técnico principal</div>
+  <div class="doc-card">
+    <div class="doc-icon verde"><i class="ti ti-file-description" aria-hidden="true"></i></div>
+    <div style="flex:1">
+      <div class="doc-title">Produto 05 — Diagnóstico Urbano de Craíbas</div>
+      <div class="doc-meta">PlanUrbi / FEPESA · 321 páginas · Alagoas, 2026</div>
+      <div class="doc-meta" style="margin-top:3px">Documento técnico completo com os 15 eixos temáticos, tabelas, mapas e análises da realidade municipal</div>
+      <span class="tag tag-verde">Documento base</span>
+    </div>
+    <i class="ti ti-download" style="font-size:16px;color:var(--text3);flex-shrink:0;margin-top:4px" aria-hidden="true"></i>
+  </div>
+
+  <div class="section-title">Mapas e cartografia</div>
+  <div class="doc-card">
+    <div class="doc-icon amber"><i class="ti ti-map" aria-hidden="true"></i></div>
+    <div style="flex:1">
+      <div class="doc-title">Atlas Cartográfico — Uso e Ocupação do Solo</div>
+      <div class="doc-meta">PlanUrbi · 2025 · Shapefiles + PDF</div>
+      <span class="tag tag-amber">Cartografia</span>
+    </div>
+    <i class="ti ti-download" style="font-size:16px;color:var(--text3);flex-shrink:0;margin-top:4px" aria-hidden="true"></i>
+  </div>
+  <div class="doc-card">
+    <div class="doc-icon amber"><i class="ti ti-map-2" aria-hidden="true"></i></div>
+    <div style="flex:1">
+      <div class="doc-title">Mapa de APPs — Áreas de Preservação Permanente</div>
+      <div class="doc-meta">PlanUrbi · 2025 · Shapefiles + PDF</div>
+      <span class="tag tag-amber">Cartografia ambiental</span>
+    </div>
+    <i class="ti ti-download" style="font-size:16px;color:var(--text3);flex-shrink:0;margin-top:4px" aria-hidden="true"></i>
+  </div>
+  <div class="doc-card">
+    <div class="doc-icon amber"><i class="ti ti-road" aria-hidden="true"></i></div>
+    <div style="flex:1">
+      <div class="doc-title">Mapa de Hierarquia Viária — Sede e Folha Miúda</div>
+      <div class="doc-meta">PlanUrbi · 2025 · Shapefiles + PDF</div>
+      <span class="tag tag-amber">Cartografia de mobilidade</span>
+    </div>
+    <i class="ti ti-download" style="font-size:16px;color:var(--text3);flex-shrink:0;margin-top:4px" aria-hidden="true"></i>
+  </div>
+
+  <div class="section-title">Participação social</div>
+  <div class="doc-card">
+    <div class="doc-icon"><i class="ti ti-users" aria-hidden="true"></i></div>
+    <div style="flex:1">
+      <div class="doc-title">Relatório de Leitura Comunitária</div>
+      <div class="doc-meta">PlanUrbi · 2025 · Síntese das Oficinas Participativas</div>
+      <div class="doc-meta" style="margin-top:3px">Percepções e prioridades levantadas com moradores da sede, Folha Miúda e zona rural</div>
+      <span class="tag tag-blue">Participação cidadã</span>
+    </div>
+    <i class="ti ti-download" style="font-size:16px;color:var(--text3);flex-shrink:0;margin-top:4px" aria-hidden="true"></i>
+  </div>
+
+  <div class="nota-blue" style="margin-top:14px">
+    Os documentos estão em processo de disponibilização. Para acesso antecipado, entre em contato com a equipe PlanUrbi.
+  </div>
+</div>
+
+<!-- ABA: METODOLOGIA -->
+<div id="tab-metodologia" class="tc">
+  <div class="card">
+    <div class="ch">
+      <i class="ti ti-clipboard-data" style="font-size:15px;color:var(--verde)" aria-hidden="true"></i>
+      Como o diagnóstico foi construído
+    </div>
+    <div class="cb">
+      <p class="sobre-text">O diagnóstico seguiu uma metodologia multidisciplinar, combinando quatro tipos de fontes de informação:</p>
+      <div class="dr">
+        <div class="dl">Levantamento de dados secundários</div>
+        <div class="dv" style="font-size:11px;text-align:right">IBGE · DATASUS · INEP<br>Tesouro Nacional · RAIS · PNUD</div>
+      </div>
+      <div class="dr">
+        <div class="dl">Produção cartográfica</div>
+        <div class="dv" style="font-size:11px;text-align:right">Geoprocessamento · SIG<br>Imagens de satélite</div>
+      </div>
+      <div class="dr">
+        <div class="dl">Visitas técnicas ao território</div>
+        <div class="dv" style="font-size:11px;text-align:right">Observação direta · Fotografias<br>Inventário de equipamentos</div>
+      </div>
+      <div class="dr">
+        <div class="dl">Participação social</div>
+        <div class="dv" style="font-size:11px;text-align:right">Oficinas · Entrevistas<br>Escuta comunitária</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch">
+      <i class="ti ti-users" style="font-size:15px;color:var(--verde)" aria-hidden="true"></i>
+      Equipe técnica PlanUrbi
+    </div>
+    <div class="cb">
+      <p class="sobre-text">O Diagnóstico Inteligente de Craíbas foi elaborado por equipe multidisciplinar do <strong>PlanUrbi — Planejamento Urbano Inteligente</strong>, com profissionais de urbanismo, arquitetura, geografia, engenharia, ciências sociais e tecnologia da informação.</p>
+      <p class="sobre-text">O processo foi conduzido em parceria com a <strong>Prefeitura Municipal de Craíbas</strong>, que viabilizou o acesso ao território, às secretarias municipais e à comunidade — tornando possível uma leitura integrada da realidade local.</p>
+      <div class="nota-verde">
+        <strong style="font-weight:500">Realização:</strong> PlanUrbi — Planejamento Urbano Inteligente<br>
+        <strong style="font-weight:500">Apoio:</strong> Prefeitura Municipal de Craíbas<br>
+        <strong style="font-weight:500">Referência legal:</strong> Estatuto da Cidade — Lei Federal 10.257/2001
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="fontes">
+  <strong style="font-weight:500">Fontes dos dados:</strong> IBGE · Censos Demográficos · DATASUS · INEP · MDS · RAIS · PNUD · Tesouro Nacional · ANM/SIGMINE · ANATEL · Prefeitura Municipal de Craíbas · PlanUrbi/FEPESA, 2026.
+</div>
+
+<script>
+function showTab(id, el) {
+  document.querySelectorAll('.tc').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  if (el) el.classList.add('active');
+}
+</script>
+</body>
+</html>

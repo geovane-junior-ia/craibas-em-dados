@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natureza e meio ambiente — Painel Craíbas em Dados · PlanUrbi</title>
+<meta name="description" content="Bioma Caatinga, recursos hídricos, clima, solo e áreas de proteção do município de Craíbas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.5.0/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles-eixo.css">
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header-top">
+    <div class="container header-top-inner">
+      <span><i class="fas fa-map-marker-alt"></i> Craíbas, Alagoas — Brasil</span>
+      <span class="header-top-right"><i class="far fa-calendar-alt"></i> Diagnóstico Inteligente · PLANURBI 2026</span>
+    </div>
+  </div>
+  <div class="header-main">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-mark"><img src="../images/logo-planurbi-horizontal.png" alt="PlanUrbi" class="logo-img"/></div>
+        <div class="logo-text"><strong>Craíbas em Dados</strong><span>Painel público · PlanUrbi</span></div>
+      </a>
+      <nav class="nav-main" id="nav-main">
+        <a href="../index.html#inicio">Início</a>
+        <a href="../index.html#sobre">Sobre</a>
+        <a href="../index.html#dados">Dados</a>
+        <a href="../index.html#capitulos" class="active">Eixos Temáticos</a>
+        <a href="../index.html#contato">Contato</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main class="eixo-page">
+  <div class="container">
+    <div class="w">
+      <div class="ph">
+        <div class="bc">
+          <a href="../index.html"><i class="ti ti-home" aria-hidden="true"></i> Início</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <a href="../index.html#capitulos">Eixos temáticos</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <span>Natureza e meio ambiente</span>
+        </div>
+        <div class="pt">Natureza e meio ambiente</div>
+        <div class="ps">Bioma, solo, água, áreas protegidas e os principais pontos de atenção ambiental do município.</div>
+      </div>
+
+      <div class="nota-metodo">
+        <i class="ti ti-info-circle" aria-hidden="true"></i>
+        <div><strong>Nota metodológica:</strong> as informações desta página integram etapa técnica de diagnóstico territorial e podem ser atualizadas. Os pontos de atenção identificados requerem monitoramento por órgãos ambientais competentes. Não substituem estudos técnicos específicos ou laudos oficiais.</div>
+      </div>
+
+      <div class="insight">
+        <i class="ti ti-bulb ii" aria-hidden="true"></i>
+        <div class="it"><strong>O que o diagnóstico revelou:</strong> Craíbas tem água escassa, solo frágil e vegetação de Caatinga sob pressão. O diagnóstico identificou pontos de atenção sobre supressão vegetal, saneamento precário e alterações associadas à atividade minerária no território. Existe uma lei ambiental municipal ativa desde 2016.</div>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi verde"><div class="kl">Bioma</div><div class="kv">Caatinga</div><div class="ks">Único bioma exclusivamente brasileiro</div></div>
+        <div class="kpi"><div class="kl">Solo predominante</div><div class="kv">Planossolo</div><div class="ks">86,4% do território (EMBRAPA)</div></div>
+        <div class="kpi amber"><div class="kl">Precipitação anual</div><div class="kv">431,8 mm</div><div class="ks">Concentrada abr–jul</div></div>
+        <div class="kpi"><div class="kl">Regime dos rios</div><div class="kv">Intermitente</div><div class="ks">Seco na maior parte do ano</div></div>
+        <div class="kpi amber"><div class="kl">Focos de fogo (2024)</div><div class="kv">1 foco</div><div class="ks">INPE — baixa incidência</div></div>
+        <div class="kpi verde"><div class="kl">Lei ambiental municipal</div><div class="kv">Ativa</div><div class="ks">Lei 413/2016</div></div>
+      </div>
+
+      <div class="tab-row" role="tablist">
+        <div class="tab active" onclick="showTab('vegetacao',this)"><i class="ti ti-trees" aria-hidden="true"></i> Vegetação e solo</div>
+        <div class="tab" onclick="showTab('agua',this)"><i class="ti ti-droplet" aria-hidden="true"></i> Recursos hídricos</div>
+        <div class="tab" onclick="showTab('apps',this)"><i class="ti ti-shield-check" aria-hidden="true"></i> Áreas protegidas</div>
+        <div class="tab" onclick="showTab('riscos',this)"><i class="ti ti-alert-triangle" aria-hidden="true"></i> Pontos de atenção</div>
+        <div class="tab" onclick="showTab('politica',this)"><i class="ti ti-file-description" aria-hidden="true"></i> Política ambiental</div>
+      </div>
+
+      <div id="tab-vegetacao" class="tab-content active">
+        <div class="two">
+          <div class="card" style="margin-bottom:0">
+            <div class="ch"><i class="ti ti-trees" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Cobertura vegetal — Caatinga</div></div>
+            <div class="cb">
+              <div class="dr"><div class="dl">Bioma</div><div class="dv">Caatinga</div></div>
+              <div class="dr"><div class="dl">Fisionomias presentes</div><div class="dv" style="font-size:11px">Hipoxerófila / Subcaducifólia</div></div>
+              <div class="dr"><div class="dl">Condição geral</div><div class="dv"><span class="tag tag-amber">Fragmentada</span></div></div>
+              <div class="dr"><div class="dl">Solo exposto</div><div class="dv"><span class="tag tag-amber">Ponto de atenção</span></div></div>
+              <div class="dr"><div class="dl">Regeneração natural</div><div class="dv"><span class="tag tag-green">Possível em áreas abandonadas</span></div></div>
+              <div class="nota-green">A Caatinga perde folhas na seca para economizar água. É o único bioma 100% brasileiro — presente em todo o território de Craíbas.</div>
+            </div>
+          </div>
+          <div class="card" style="margin-bottom:0">
+            <div class="ch"><i class="ti ti-layers-difference" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Tipos de solo — distribuição (EMBRAPA)</div></div>
+            <div class="cb">
+              <div class="soil-row">
+                <div class="soil-bar-wrap">
+                  <div class="soil-label">Planossolo (SXe)</div>
+                  <div class="soil-sub">Raso, permeabilidade lenta, teores de sódio</div>
+                  <div class="soil-track"><div class="soil-fill" style="width:86%;background:#BA7517"></div></div>
+                </div>
+                <div class="soil-pct">86,4%</div>
+              </div>
+              <div class="soil-row">
+                <div class="soil-bar-wrap">
+                  <div class="soil-label">Luvissolo (TCo)</div>
+                  <div class="soil-sub">Boa permeabilidade, suscetível à erosão</div>
+                  <div class="soil-track"><div class="soil-fill" style="width:12%;background:#639922"></div></div>
+                </div>
+                <div class="soil-pct">11,9%</div>
+              </div>
+              <div class="soil-row">
+                <div class="soil-bar-wrap">
+                  <div class="soil-label">Latossolo (LAd)</div>
+                  <div class="soil-sub">Profundo, baixa fertilidade natural</div>
+                  <div class="soil-track"><div class="soil-fill" style="width:2%;background:var(--verde-borda)"></div></div>
+                </div>
+                <div class="soil-pct">1,8%</div>
+              </div>
+              <div class="nota-warn">O solo dominante (Planossolo) é raso e tem dificuldade de absorver água. Ponto de atenção identificado: contribui para a escassez hídrica local.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-agua" class="tab-content">
+        <div class="two">
+          <div class="card" style="margin-bottom:0">
+            <div class="ch"><i class="ti ti-ripple" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Hidrografia</div></div>
+            <div class="cb">
+              <div class="dr"><div class="dl">Bacia hidrográfica</div><div class="dv">Rio São Francisco</div></div>
+              <div class="dr"><div class="dl">Sub-bacia</div><div class="dv">Rio Traipu</div></div>
+              <div class="dr"><div class="dl">Afluente principal</div><div class="dv">Riacho Salgado</div></div>
+              <div class="dr"><div class="dl">Regime dos rios</div><div class="dv"><span class="tag tag-amber">Predominantemente intermitente</span></div></div>
+              <div class="dr"><div class="dl">Período de escoamento</div><div class="dv">Abril a Julho</div></div>
+              <div class="nota-warn">A maioria dos rios só tem água durante a época de chuva. No resto do ano, o abastecimento depende de poços e cisternas.</div>
+            </div>
+          </div>
+          <div class="card" style="margin-bottom:0">
+            <div class="ch"><i class="ti ti-droplet-half" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Águas subterrâneas</div></div>
+            <div class="cb">
+              <div class="dr"><div class="dl">Poços profundos/artesianos</div><div class="dv">3</div></div>
+              <div class="dr"><div class="dl">Poços rasos/freáticos</div><div class="dv">37</div></div>
+              <div class="dr"><div class="dl">Total de fontes subterrâneas</div><div class="dv">40</div></div>
+              <div class="dr"><div class="dl">Importância estratégica</div><div class="dv"><span class="tag tag-amber">Alta — recurso essencial</span></div></div>
+              <div class="nota-box">As fontes subterrâneas são recurso essencial para a zona rural. O diagnóstico identificou a necessidade de monitoramento contínuo da qualidade.</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ch"><i class="ti ti-map-2" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Pontos de atenção identificados sobre recursos hídricos</div></div>
+          <div class="cb">
+            <div style="font-size:13px;color:var(--color-text-primary);line-height:1.6">O diagnóstico identificou pontos de atenção sobre alterações na rede de drenagem no território do município, associadas à atividade minerária. Requerem monitoramento por órgãos ambientais competentes:</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px">
+              <div class="nota-warn" style="margin-top:0">Supressão de vegetação ciliar identificada em áreas próximas a cursos d'água</div>
+              <div class="nota-warn" style="margin-top:0">Alterações identificadas na morfologia do relevo e do escoamento</div>
+              <div class="nota-warn" style="margin-top:0">Ponto de atenção sobre recarga dos aquíferos subterrâneos</div>
+              <div class="nota-warn" style="margin-top:0">Necessidade de monitoramento dos rejeitos e qualidade hídrica</div>
+            </div>
+            <div class="nota-metodo" style="margin-top:12px">
+              <i class="ti ti-info-circle" aria-hidden="true"></i>
+              <div>Os itens acima são pontos de atenção identificados no diagnóstico e não substituem laudos técnicos ambientais ou avaliações formais pelos órgãos competentes.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-apps" class="tab-content">
+        <div class="card">
+          <div class="ch"><i class="ti ti-shield-check" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Áreas de Preservação Permanente (APPs) — Lei 12.651/2012</div></div>
+          <div class="cb">
+            <div style="font-size:13px;color:var(--color-text-secondary);margin-bottom:12px">APPs são áreas protegidas por lei, cobertas ou não por vegetação, que protegem a água, o solo e a biodiversidade.</div>
+            <div class="two" style="margin-bottom:12px">
+              <div>
+                <div style="font-size:12px;color:var(--color-text-tertiary);margin-bottom:8px;font-weight:600">TIPOS DE APP EM CRAÍBAS</div>
+                <div class="dr"><div class="dl">Margens de cursos d'água</div><div class="dv">30–500 m</div></div>
+                <div class="dr"><div class="dl">Entorno de lagos</div><div class="dv">50–100 m</div></div>
+                <div class="dr"><div class="dl">Áreas com declividade >45%</div><div class="dv">Ocorrência pontual</div></div>
+                <div class="dr"><div class="dl">Nascentes</div><div class="dv">Raio de 50 m</div></div>
+              </div>
+              <div>
+                <div style="font-size:12px;color:var(--color-text-tertiary);margin-bottom:8px;font-weight:600">SITUAÇÃO DAS APPs</div>
+                <div class="dr"><div class="dl">Canais intermitentes</div><div class="dv"><span class="tag tag-green">Protegidos por lei</span></div></div>
+                <div class="dr"><div class="dl">Vegetação ciliar</div><div class="dv"><span class="tag tag-amber">Ponto de atenção</span></div></div>
+                <div class="dr"><div class="dl">Faixa adotada no diagnóstico</div><div class="dv">50 m</div></div>
+                <div class="dr"><div class="dl">Pressão de uso</div><div class="dv"><span class="tag tag-amber">Agropecuária e mineração</span></div></div>
+              </div>
+            </div>
+            <div class="nota-box">Mesmo rios que ficam secos na maior parte do ano são protegidos por lei. As margens precisam ter vegetação para proteger o solo, filtrar a água e recarregar os poços subterrâneos.</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-riscos" class="tab-content">
+        <div class="card" style="margin-bottom:12px">
+          <div class="ch"><i class="ti ti-alert-triangle" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Pontos de atenção ambiental identificados no diagnóstico</div></div>
+          <div class="cb">
+            <div class="risk-card risk-mod">
+              <i class="ti ti-wave-sine risk-icon" aria-hidden="true"></i>
+              <div><div class="risk-title">Processos erosivos</div><div class="risk-desc">Identificados em áreas com maior declividade ou uso intensivo — sulcos, ravinas e perda da camada fértil. Agravado pela predominância de Planossolos.</div></div>
+            </div>
+            <div class="risk-card risk-mod">
+              <i class="ti ti-cloud-storm risk-icon" aria-hidden="true"></i>
+              <div><div class="risk-title">Alagamentos sazonais</div><div class="risk-desc">Áreas próximas à rede de drenagem concentram escoamento durante chuvas intensas — especialmente onde a vegetação foi suprimida ou as APPs foram ocupadas.</div></div>
+            </div>
+            <div class="risk-card risk-mod">
+              <i class="ti ti-leaf-off risk-icon" aria-hidden="true"></i>
+              <div><div class="risk-title">Perda de fertilidade do solo</div><div class="risk-desc">Desmatamento, queimadas e manejo inadequado do solo aceleram a perda de fertilidade — processo que requer monitoramento em clima semiárido.</div></div>
+            </div>
+            <div class="risk-card risk-mod">
+              <i class="ti ti-building-factory risk-icon" aria-hidden="true"></i>
+              <div><div class="risk-title">Atividade minerária — pontos de atenção</div><div class="risk-desc">O diagnóstico identificou pontos de atenção sobre supressão de vegetação, movimentação de solo e alterações na morfologia do relevo associadas à atividade minerária. Requer avaliação e monitoramento pelos órgãos ambientais competentes.</div></div>
+            </div>
+            <div class="risk-card risk-mod">
+              <i class="ti ti-toilet-paper risk-icon" aria-hidden="true"></i>
+              <div><div class="risk-title">Saneamento e qualidade hídrica</div><div class="risk-desc">Ponto de atenção identificado sobre lançamento de efluentes domésticos sem tratamento em canais e cursos d'água. Requer atenção da gestão municipal e da concessionária de saneamento.</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ch"><i class="ti ti-flame" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Focos de queimada — contexto estadual (INPE)</div></div>
+          <div class="cb">
+            <div class="two" style="margin-bottom:0">
+              <div>
+                <div class="dr"><div class="dl">Focos em Craíbas (2014)</div><div class="dv">0</div></div>
+                <div class="dr"><div class="dl">Focos em Craíbas (2024)</div><div class="dv">1 registrado</div></div>
+                <div class="dr"><div class="dl">Situação municipal</div><div class="dv"><span class="tag tag-green">Baixa incidência</span></div></div>
+              </div>
+              <div>
+                <div class="dr"><div class="dl">Focos AL Caatinga (2014)</div><div class="dv">44</div></div>
+                <div class="dr"><div class="dl">Focos AL Caatinga (2024)</div><div class="dv">58 (+32%)</div></div>
+                <div class="dr"><div class="dl">Total AL (2014 → 2024)</div><div class="dv">165 → 285</div></div>
+              </div>
+            </div>
+            <div class="nota-warn">Craíbas apresenta baixa incidência, mas o aumento das queimadas no estado justifica monitoramento contínuo — especialmente em áreas com atividade agrícola e vegetação fragmentada.</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-politica" class="tab-content">
+        <div class="card">
+          <div class="ch"><i class="ti ti-file-description" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Política Municipal de Meio Ambiente</div></div>
+          <div class="cb">
+            <div class="lei-card">
+              <div class="lei-title">Lei Municipal nº 413/2016 — Política de Proteção ao Meio Ambiente</div>
+              <div class="lei-items">
+                · Art. 13 — A Secretaria de Meio Ambiente deve se manifestar sobre projetos que interfiram em áreas verdes ou APPs<br>
+                · Art. 38 — A Prefeitura deve colaborar para evitar a devastação de florestas e matas ciliares<br>
+                · Art. 39 — Qualquer corte de árvore no perímetro urbano exige licença do órgão municipal<br>
+                · Art. 40 — Proibido podar ou remover vegetação de praças sem autorização da Prefeitura<br>
+                · Art. 76 — Recursos do Fundo Municipal de Meio Ambiente devem financiar reflorestamento de APPs
+              </div>
+            </div>
+            <div class="lei-card">
+              <div class="lei-title">Lei nº 440/2018 — Alteração da Política Ambiental</div>
+              <div class="lei-items">Reforça as diretrizes de gestão ambiental e conservação dos recursos naturais.</div>
+            </div>
+            <div class="lei-card">
+              <div class="lei-title">Decreto nº 62/2021</div>
+              <div class="lei-items">Complementa o arcabouço normativo ambiental municipal.</div>
+            </div>
+            <div class="dr" style="margin-top:12px"><div class="dl">Sistema Municipal de Meio Ambiente</div><div class="dv"><span class="tag tag-green">Ativo — COMDEMA + Secretaria</span></div></div>
+            <div class="dr"><div class="dl">Fundo Municipal de Meio Ambiente</div><div class="dv"><span class="tag tag-green">Previsto em lei</span></div></div>
+            <div class="dr"><div class="dl">Licenciamento ambiental municipal</div><div class="dv"><span class="tag tag-green">Previsto em lei</span></div></div>
+            <div class="nota-green">Craíbas tem uma estrutura normativa ambiental mais avançada que muitos municípios de mesmo porte. O desafio identificado é a implementação efetiva dessas leis no território.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert-box">
+        <i class="ti ti-alert-triangle ai" aria-hidden="true"></i>
+        <div class="at"><strong>Tensão central:</strong> o município tem lei ambiental, conselho e fundo — e enfrenta pontos de atenção sobre supressão vegetal, saneamento e atividade minerária. A distância entre o que a lei prevê e o que se observa no território é o principal desafio ambiental identificado no diagnóstico.</div>
+      </div>
+
+      <div class="fontes">
+        <div class="ft"><strong>Fontes:</strong> IBGE · EMBRAPA · INPE · ANM/SIGMINE · Instituto de Água e Saneamento 2022 · Climatempo · CPRM · Lei Municipal 413/2016 · Diagnóstico Inteligente PlanUrbi/FEPESA, 2026. Os pontos de atenção identificados não substituem laudos técnicos ambientais ou avaliações formais pelos órgãos competentes.</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="../index.html" class="logo logo-light">
+        <div class="logo-mark"><img src="../images/logo-planurbi-horizontal.png" alt="PlanUrbi" class="logo-img logo-img-footer"/></div>
+        <div class="logo-text"><strong>Craíbas em Dados</strong><span>Painel público · PlanUrbi</span></div>
+      </a>
+      <p class="footer-desc">Diagnóstico Inteligente do município de Craíbas, elaborado com base em dados oficiais, escuta participativa e análise multidisciplinar pela equipe técnica do <strong>Planejamento Urbano Inteligente (PlanUrbi)</strong>.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/planurbi_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram PlanUrbi"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/5582993261747" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp PlanUrbi"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Contato PlanUrbi</h4>
+      <ul class="footer-list">
+        <li><i class="fas fa-envelope"></i> <a href="mailto:contato@planurbi.com.br">contato@planurbi.com.br</a></li>
+        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5582993261747" target="_blank" rel="noopener noreferrer">(82) 99326-1747</a></li>
+        <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/planurbi_/" target="_blank" rel="noopener noreferrer">@planurbi_</a></li>
+        <li><i class="fas fa-globe"></i> <a href="https://planurbi.com.br" target="_blank" rel="noopener noreferrer">planurbi.com.br</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Parceria FEPESA</h4>
+      <ul class="footer-list">
+        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/558232235847" target="_blank" rel="noopener noreferrer">(82) 3223-5847</a></li>
+        <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/fepesa.al/" target="_blank" rel="noopener noreferrer">@fepesa.al</a></li>
+        <li><i class="fas fa-globe"></i> <a href="https://fepesa.org.br" target="_blank" rel="noopener noreferrer">fepesa.org.br</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>PLANURBI</h4>
+      <p class="footer-credit"><strong>Planejamento Urbano Inteligente</strong> — consultoria de planejamento urbano e inteligência territorial.</p>
+      <div class="footer-credit-box">
+        <span class="footer-credit-label">Realização</span><strong>PlanUrbi</strong>
+        <span class="footer-credit-label">Equipe</span><strong>Equipe técnica PlanUrbi</strong>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <span>© 2026 PlanUrbi. Todos os direitos reservados. · <a href="politica-de-privacidade.html" style="color:inherit;">Política de Privacidade</a></span>
+      <span>Diagnóstico Inteligente · <strong>PlanUrbi 2026</strong></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../script-eixo.js"></script>
+</body>
+</html>

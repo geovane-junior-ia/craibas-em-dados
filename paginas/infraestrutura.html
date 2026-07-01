@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serviços e infraestrutura — Painel Craíbas em Dados · PlanUrbi</title>
+<meta name="description" content="Água, esgoto, drenagem, resíduos, energia e comunicações no município de Craíbas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.5.0/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles-eixo.css">
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header-top">
+    <div class="container header-top-inner">
+      <span><i class="fas fa-map-marker-alt"></i> Craíbas, Alagoas — Brasil</span>
+      <span class="header-top-right"><i class="far fa-calendar-alt"></i> Diagnóstico Inteligente · PLANURBI 2026</span>
+    </div>
+  </div>
+  <div class="header-main">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-mark"><img src="../images/logo-planurbi-horizontal.png" alt="PlanUrbi" class="logo-img"/></div>
+        <div class="logo-text"><strong>Craíbas em Dados</strong><span>Painel público · PlanUrbi</span></div>
+      </a>
+      <nav class="nav-main" id="nav-main">
+        <a href="../index.html#inicio">Início</a>
+        <a href="../index.html#sobre">Sobre</a>
+        <a href="../index.html#dados">Dados</a>
+        <a href="../index.html#capitulos" class="active">Eixos Temáticos</a>
+        <a href="../index.html#contato">Contato</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main class="eixo-page">
+  <div class="container">
+    <div class="w">
+      <div class="ph">
+        <div class="bc">
+          <a href="../index.html"><i class="ti ti-home" aria-hidden="true"></i> Início</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <a href="../index.html#capitulos">Eixos temáticos</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <span>Serviços e infraestrutura</span>
+        </div>
+        <div class="pt">Serviços e infraestrutura</div>
+        <div class="ps">Água, esgoto, drenagem, resíduos, energia e comunicações — os serviços urbanos essenciais que abastecem, coletam, iluminam e conectam o município.</div>
+      </div>
+
+      <div class="insight">
+        <i class="ti ti-bulb ii" aria-hidden="true"></i>
+        <div class="it"><strong>O que o diagnóstico revelou:</strong> o maior gargalo de infraestrutura identificado é o esgoto — apenas 6,6% da população tem coleta adequada. O município abriga também o maior aterro sanitário do Agreste (CTR do Agreste), que atende vários municípios da região.</div>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi amber"><div class="kl">Acesso à água (SINISA 2023)</div><div class="kv">57,8%</div><div class="ks">Cobertura da rede pública</div></div>
+        <div class="kpi red"><div class="kl">Coleta de esgoto adequada</div><div class="kv">6,6%</div><div class="ks">IBGE Censo 2022 · ponto de atenção</div></div>
+        <div class="kpi amber"><div class="kl">Coleta de lixo</div><div class="kv">65,3%</div><div class="ks">Serviço público</div></div>
+        <div class="kpi verde"><div class="kl">CTR do Agreste</div><div class="kv">Em Craíbas</div><div class="ks">Atende todo o Agreste AL</div></div>
+        <div class="kpi verde"><div class="kl">Nova subestação elétrica</div><div class="kv">2023</div><div class="ks">R$ 24 mi · 12,5 MVA</div></div>
+        <div class="kpi amber"><div class="kl">Densidade banda larga fixa</div><div class="kv">2,7/100 hab</div><div class="ks">ANATEL, nov/2025</div></div>
+      </div>
+
+      <div class="tab-row" role="tablist">
+        <div class="tab active" onclick="showTab('agua',this)"><i class="ti ti-droplet" aria-hidden="true"></i> Água e esgoto</div>
+        <div class="tab" onclick="showTab('drenagem',this)"><i class="ti ti-cloud-rain" aria-hidden="true"></i> Drenagem</div>
+        <div class="tab" onclick="showTab('residuos',this)"><i class="ti ti-recycle" aria-hidden="true"></i> Resíduos sólidos</div>
+        <div class="tab" onclick="showTab('energia',this)"><i class="ti ti-bolt" aria-hidden="true"></i> Energia</div>
+        <div class="tab" onclick="showTab('comunicacao',this)"><i class="ti ti-wifi" aria-hidden="true"></i> Comunicações</div>
+      </div>
+
+      <div id="tab-agua" class="tab-content active">
+        <div class="two">
+          <div class="card" style="margin-bottom:0">
+            <div class="ch"><i class="ti ti-droplet" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Abastecimento de água</div></div>
+            <div class="cb">
+              <div class="progress-row">
+                <div class="prog-label"><span>Cobertura pública (SINISA 2023)</span><span style="color:var(--amber-label)">57,8%</span></div>
+                <div class="prog-track"><div class="prog-fill" style="width:58%;background:var(--amber-borda)"></div></div>
+              </div>
+              <div class="dr"><div class="dl">Operador</div><div class="dv">CASAL</div></div>
+              <div class="dr"><div class="dl">Sistema de captação</div><div class="dv">Rio São Francisco (Traipu)</div></div>
+              <div class="dr"><div class="dl">Tratamento</div><div class="dv">ETAs em São Brás</div></div>
+              <div class="dr"><div class="dl">Vazão de captação</div><div class="dv">~36,10 L/s (24h)</div></div>
+              <div class="dr"><div class="dl">Consórcio regional</div><div class="dv">CORSEAL (19 municípios)</div></div>
+              <div class="nota-warn">Ponto de atenção identificado: em 2025, Craíbas obteve reconhecimento federal de emergência por estiagem (Portaria 1.317/2025 — Defesa Civil Nacional).</div>
+            </div>
+          </div>
+          <div class="card" style="margin-bottom:0">
+            <div class="ch"><i class="ti ti-alert-triangle" style="color:#A32D2D" aria-hidden="true"></i><div class="ct">Esgotamento sanitário</div></div>
+            <div class="cb">
+              <div class="progress-row">
+                <div class="prog-label"><span style="color:#A32D2D">Coleta adequada</span><span style="color:#A32D2D">6,6%</span></div>
+                <div class="prog-track"><div class="prog-fill" style="width:7%;background:#E24B4A"></div></div>
+              </div>
+              <div class="dr"><div class="dl">Rede geral/fossa ligada à rede</div><div class="dv" style="color:#A32D2D">6,6% da pop.</div></div>
+              <div class="dr"><div class="dl">Fossa séptica/filtro</div><div class="dv">2.186 habitantes</div></div>
+              <div class="dr"><div class="dl">Sem banheiro nem sanitário</div><div class="dv" style="color:#A32D2D">316 habitantes</div></div>
+              <div class="dr"><div class="dl">ETE (início operação)</div><div class="dv"><span class="tag tag-green">Experimental, 2026</span></div></div>
+              <div class="nota-red">Ponto de atenção identificado no diagnóstico: cobertura de esgoto muito baixa. Fonte: IBGE Censo 2022.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-drenagem" class="tab-content">
+        <div class="card">
+          <div class="ch"><i class="ti ti-cloud-storm" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Drenagem urbana — situação e projeto em andamento</div></div>
+          <div class="cb">
+            <div class="two" style="margin-bottom:12px">
+              <div>
+                <div style="font-size:12px;color:var(--color-text-tertiary);margin-bottom:8px;font-weight:600">SITUAÇÃO ATUAL</div>
+                <div class="dr"><div class="dl">Plano Diretor de Drenagem</div><div class="dv"><span class="tag tag-red">A elaborar</span></div></div>
+                <div class="dr"><div class="dl">Cobrança por serviço</div><div class="dv"><span class="tag tag-red">Não existe</span></div></div>
+                <div class="dr"><div class="dl">Responsável</div><div class="dv">Secretaria de Viação e Obras</div></div>
+                <div class="dr"><div class="dl">Acúmulo de água</div><div class="dv"><span class="tag tag-amber">Após chuvas curtas</span></div></div>
+              </div>
+              <div>
+                <div style="font-size:12px;color:var(--color-text-tertiary);margin-bottom:8px;font-weight:600">PROJETO EM ANDAMENTO (2024)</div>
+                <div class="dr"><div class="dl">Investimento</div><div class="dv">R$ 9.472.688</div></div>
+                <div class="dr"><div class="dl">Previsão de conclusão</div><div class="dv">2026</div></div>
+                <div class="dr"><div class="dl">Componentes</div><div class="dv" style="font-size:11px">Galerias pluviais,<br>bocas de lobo, sarjetas</div></div>
+              </div>
+            </div>
+            <div class="nota-box">O projeto de 2024 é o primeiro investimento significativo em drenagem urbana do município. Está integrado à pavimentação de vias.</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-residuos" class="tab-content">
+        <div class="two">
+          <div class="card" style="margin-bottom:0">
+            <div class="ch"><i class="ti ti-trash" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Coleta de lixo</div></div>
+            <div class="cb">
+              <div class="progress-row">
+                <div class="prog-label"><span>Coleta pelo serviço público</span><span>65,3%</span></div>
+                <div class="prog-track"><div class="prog-fill" style="width:65%;background:var(--verde-forte)"></div></div>
+              </div>
+              <div class="progress-row">
+                <div class="prog-label"><span style="color:#A32D2D">Queima do lixo na propriedade</span><span style="color:#A32D2D">~34%</span></div>
+                <div class="prog-track"><div class="prog-fill" style="width:34%;background:#E24B4A"></div></div>
+              </div>
+              <div class="dr"><div class="dl">Habitantes com coleta (2022)</div><div class="dv">~16.500</div></div>
+              <div class="dr"><div class="dl">Habitantes que queimam o lixo</div><div class="dv" style="color:#A32D2D">8.418</div></div>
+              <div class="dr"><div class="dl">Resíduos coletados (2021)</div><div class="dv">3.750 ton.</div></div>
+              <div class="nota-warn">Ponto de atenção identificado: a queima do lixo é prática de 1 em cada 3 habitantes — principalmente em áreas rurais sem coleta regular.</div>
+            </div>
+          </div>
+          <div class="card" style="margin-bottom:0">
+            <div class="ch"><i class="ti ti-building-factory" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">CTR do Agreste — em Craíbas</div></div>
+            <div class="cb">
+              <div class="dr"><div class="dl">Operador</div><div class="dv">Alagoas Ambiental</div></div>
+              <div class="dr"><div class="dl">Consórcio</div><div class="dv">CONAGRESTE</div></div>
+              <div class="dr"><div class="dl">Usina de biogás</div><div class="dv"><span class="tag tag-green">Instalada</span></div></div>
+              <div class="dr"><div class="dl">Capacidade biogás</div><div class="dv">10.000 residências</div></div>
+              <div class="dr"><div class="dl">ETE de chorume</div><div class="dv"><span class="tag tag-green">Instalada</span></div></div>
+              <div class="nota-box">O CTR do Agreste atende municípios de toda a região e é considerado um dos empreendimentos de infraestrutura mais relevantes do Agreste alagoano.</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ch"><i class="ti ti-recycle" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Coleta seletiva e catadores</div></div>
+          <div class="cb">
+            <div class="dr"><div class="dl">Associação de Catadores</div><div class="dv"><span class="tag tag-green">Ativa</span></div></div>
+            <div class="dr"><div class="dl">Atividade</div><div class="dv">Coleta e comercialização de recicláveis</div></div>
+            <div class="dr"><div class="dl">Coleta seletiva formalizada</div><div class="dv"><span class="tag tag-amber">Parcial — via consórcio</span></div></div>
+            <div class="nota-box">A Associação de Catadores atua no sustento de famílias locais e promove educação ambiental — a cobertura da coleta seletiva ainda tem espaço para ampliar.</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-energia" class="tab-content">
+        <div class="two">
+          <div class="card" style="margin-bottom:0">
+            <div class="ch"><i class="ti ti-bolt" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Fornecimento de energia</div></div>
+            <div class="cb">
+              <div class="dr"><div class="dl">Distribuidora</div><div class="dv">Equatorial Energia</div></div>
+              <div class="dr"><div class="dl">Subestação (nova)</div><div class="dv">Construída em 2023</div></div>
+              <div class="dr"><div class="dl">Investimento na subestação</div><div class="dv">~R$ 24 milhões</div></div>
+              <div class="dr"><div class="dl">Capacidade</div><div class="dv">12,5 MVA</div></div>
+              <div class="dr"><div class="dl">Consumidores atendidos</div><div class="dv">~54 mil (região)</div></div>
+              <div class="nota-box">A nova subestação é um avanço identificado no diagnóstico — reduz oscilações e melhora a confiabilidade do fornecimento tanto para moradores quanto para a zona rural.</div>
+            </div>
+          </div>
+          <div class="card" style="margin-bottom:0">
+            <div class="ch"><i class="ti ti-bulb" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Iluminação pública</div></div>
+            <div class="cb">
+              <div class="dr"><div class="dl">Gestão</div><div class="dv">Prefeitura Municipal</div></div>
+              <div class="dr"><div class="dl">Financiamento</div><div class="dv">CIP (na conta de energia)</div></div>
+              <div class="dr"><div class="dl">Modernização em andamento</div><div class="dv"><span class="tag tag-green">Sim</span></div></div>
+              <div class="dr"><div class="dl">Investimento aprovado</div><div class="dv">R$ 4.000.000</div></div>
+              <div class="dr"><div class="dl">Av. Marginal (2025)</div><div class="dv">500+ luminárias LED</div></div>
+              <div class="nota-box">A substituição por LEDs reduz o consumo de energia e o custo de manutenção — e melhora a segurança nas vias públicas.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-comunicacao" class="tab-content">
+        <div class="two">
+          <div class="card" style="margin-bottom:0">
+            <div class="ch"><i class="ti ti-phone" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Telefonia móvel</div></div>
+            <div class="cb">
+              <div class="dr"><div class="dl">Operadoras presentes</div><div class="dv">VIVO · TIM · CLARO</div></div>
+              <div class="dr"><div class="dl">Pessoas com acesso (nov/2025)</div><div class="dv">18.656</div></div>
+              <div class="dr"><div class="dl">Densidade de serviço</div><div class="dv">69,1/100 hab.</div></div>
+              <div class="dr"><div class="dl">Folha Miúda</div><div class="dv"><span class="tag tag-amber">Sem cobertura (nov/2025)</span></div></div>
+              <div class="nota-warn">Ponto de atenção identificado: o segundo maior núcleo urbano do município — Folha Miúda — não tem cobertura de operadoras de telefonia celular.</div>
+            </div>
+          </div>
+          <div class="card" style="margin-bottom:0">
+            <div class="ch"><i class="ti ti-wifi" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Internet e TV</div></div>
+            <div class="cb">
+              <div class="dr"><div class="dl">Banda larga fixa (nov/2025)</div><div class="dv">712 acessos</div></div>
+              <div class="dr"><div class="dl">Densidade banda larga</div><div class="dv">2,7 por 100 hab.</div></div>
+              <div class="dr"><div class="dl">Provedores de internet fixa</div><div class="dv" style="font-size:11px">Topfibra, VAYPERNET, Hot Net, TELEBRAS, STARLINK, OI</div></div>
+              <div class="dr"><div class="dl">TV digital</div><div class="dv"><span class="tag tag-green">Disponível (UHF)</span></div></div>
+              <div class="dr"><div class="dl">Rádios locais</div><div class="dv">2 — FM 105,9</div></div>
+              <div class="nota-warn">Ponto de atenção identificado: densidade de banda larga fixa abaixo da média nacional — limita acesso a serviços digitais.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert-box">
+        <i class="ti ti-alert-triangle ai" aria-hidden="true"></i>
+        <div class="at"><strong>Tensão central:</strong> Craíbas avança na energia (nova subestação, LEDs) e nos resíduos (CTR do Agreste), mas o esgoto segue como o maior ponto de atenção de infraestrutura — com cobertura de 6,6% (IBGE Censo 2022). A ETE experimental de 2026 é um passo, mas ainda em fase inicial.</div>
+      </div>
+
+      <div class="fontes">
+        <div class="ft"><strong>Fontes:</strong> IBGE · Censo Demográfico 2022 · SINISA 2023 · ANATEL nov/2025 · Equatorial Energia · CASAL · CONAGRESTE · Portaria 1.317/2025 (Defesa Civil Nacional) · Portal de Transparência de Craíbas · Diagnóstico Inteligente PlanUrbi/FEPESA, 2026.</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="../index.html" class="logo logo-light">
+        <div class="logo-mark"><img src="../images/logo-planurbi-horizontal.png" alt="PlanUrbi" class="logo-img logo-img-footer"/></div>
+        <div class="logo-text"><strong>Craíbas em Dados</strong><span>Painel público · PlanUrbi</span></div>
+      </a>
+      <p class="footer-desc">Diagnóstico Inteligente do município de Craíbas, elaborado com base em dados oficiais, escuta participativa e análise multidisciplinar pela equipe técnica do <strong>Planejamento Urbano Inteligente (PlanUrbi)</strong>.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/planurbi_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram PlanUrbi"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/5582993261747" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp PlanUrbi"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Contato PlanUrbi</h4>
+      <ul class="footer-list">
+        <li><i class="fas fa-envelope"></i> <a href="mailto:contato@planurbi.com.br">contato@planurbi.com.br</a></li>
+        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5582993261747" target="_blank" rel="noopener noreferrer">(82) 99326-1747</a></li>
+        <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/planurbi_/" target="_blank" rel="noopener noreferrer">@planurbi_</a></li>
+        <li><i class="fas fa-globe"></i> <a href="https://planurbi.com.br" target="_blank" rel="noopener noreferrer">planurbi.com.br</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Parceria FEPESA</h4>
+      <ul class="footer-list">
+        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/558232235847" target="_blank" rel="noopener noreferrer">(82) 3223-5847</a></li>
+        <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/fepesa.al/" target="_blank" rel="noopener noreferrer">@fepesa.al</a></li>
+        <li><i class="fas fa-globe"></i> <a href="https://fepesa.org.br" target="_blank" rel="noopener noreferrer">fepesa.org.br</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>PLANURBI</h4>
+      <p class="footer-credit"><strong>Planejamento Urbano Inteligente</strong> — consultoria de planejamento urbano e inteligência territorial.</p>
+      <div class="footer-credit-box">
+        <span class="footer-credit-label">Realização</span><strong>PlanUrbi</strong>
+        <span class="footer-credit-label">Equipe</span><strong>Equipe técnica PlanUrbi</strong>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <span>© 2026 PlanUrbi. Todos os direitos reservados. · <a href="politica-de-privacidade.html" style="color:inherit;">Política de Privacidade</a></span>
+      <span>Diagnóstico Inteligente · <strong>PlanUrbi 2026</strong></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../script-eixo.js"></script>
+</body>
+</html>

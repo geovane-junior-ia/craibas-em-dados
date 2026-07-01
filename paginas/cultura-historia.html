@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cultura e história — Painel Craíbas em Dados · PlanUrbi</title>
+<meta name="description" content="A formação do município, seus marcos históricos e o patrimônio cultural que define a identidade de Craíbas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.5.0/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles-eixo.css">
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header-top">
+    <div class="container header-top-inner">
+      <span><i class="fas fa-map-marker-alt"></i> Craíbas, Alagoas — Brasil</span>
+      <span class="header-top-right"><i class="far fa-calendar-alt"></i> Diagnóstico Inteligente · PLANURBI 2026</span>
+    </div>
+  </div>
+  <div class="header-main">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-mark"><img src="../images/logo-planurbi-horizontal.png" alt="PlanUrbi" class="logo-img"/></div>
+        <div class="logo-text"><strong>Craíbas em Dados</strong><span>Painel público · PlanUrbi</span></div>
+      </a>
+      <nav class="nav-main" id="nav-main">
+        <a href="../index.html#inicio">Início</a>
+        <a href="../index.html#sobre">Sobre</a>
+        <a href="../index.html#dados">Dados</a>
+        <a href="../index.html#capitulos" class="active">Eixos Temáticos</a>
+        <a href="../index.html#contato">Contato</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main class="eixo-page">
+  <div class="container">
+    <div class="w">
+      <h2 class="sr-only">Cultura e história — formação histórica e patrimônio cultural de Craíbas</h2>
+
+      <div class="ph">
+        <div class="bc">
+          <a href="../index.html"><i class="ti ti-home" aria-hidden="true"></i> Início</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <a href="../index.html#capitulos">Eixos temáticos</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <span>Cultura e história</span>
+        </div>
+        <div class="pt">Cultura e história</div>
+        <div class="ps">A formação do município, seus marcos históricos e o patrimônio cultural que define a identidade de Craíbas.</div>
+      </div>
+
+      <div class="insight">
+        <i class="ti ti-bulb ii" aria-hidden="true"></i>
+        <div class="it"><strong>O que o diagnóstico revelou:</strong> nenhum bem cultural de Craíbas tem proteção formal — nem a Igreja Matriz, nem as festas tradicionais, nem o fumo em corda artesanal. O município tem história e identidade cultural ricas, mas ainda não criou os instrumentos para preservá-las.</div>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi verde"><div class="kl">Origem do nome</div><div class="kv">Craibeira</div><div class="ks">Árvore símbolo de Alagoas · Tupi "carahyba"</div></div>
+        <div class="kpi"><div class="kl">Fundação territorial</div><div class="kv">1865</div><div class="ks">Manoel Nunes da Silva Santos</div></div>
+        <div class="kpi amber"><div class="kl">Bens com tombamento</div><div class="kv">Nenhum</div><div class="ks">Ponto de atenção — sem proteção formal</div></div>
+        <div class="kpi"><div class="kl">1ª emancipação</div><div class="kv">1962</div><div class="ks">Lei Estadual 2.471</div></div>
+        <div class="kpi amber"><div class="kl">Extinção</div><div class="kv">1965</div><div class="ks">Resolução do Senado nº 113</div></div>
+        <div class="kpi verde"><div class="kl">Reemancipação</div><div class="kv">1982</div><div class="ks">Lei Estadual 4.335 · instalação em 1983</div></div>
+      </div>
+
+      <div class="tab-row" role="tablist">
+        <div class="tab active" onclick="showTab('historia',this)"><i class="ti ti-timeline" aria-hidden="true"></i> Linha do tempo</div>
+        <div class="tab" onclick="showTab('patrimonio',this)"><i class="ti ti-building-arch" aria-hidden="true"></i> Patrimônio material</div>
+        <div class="tab" onclick="showTab('imaterial',this)"><i class="ti ti-music" aria-hidden="true"></i> Patrimônio imaterial</div>
+        <div class="tab" onclick="showTab('protecao',this)"><i class="ti ti-shield" aria-hidden="true"></i> Proteção e lacunas</div>
+      </div>
+
+      <div id="tab-historia" class="tab-content active">
+        <div class="card">
+          <div class="ch"><i class="ti ti-timeline" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Formação histórica de Craíbas</div></div>
+          <div class="cb">
+            <div class="tl">
+              <div class="tl-item"><div class="tl-left"><div class="tl-year">1865</div><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Chegada de Manoel Nunes da Silva Santos</div><div class="tl-desc">Adquiriu por 50 mil réis o lote de matas e craibeiras que seria o embrião do município.</div></div></div>
+              <div class="tl-item"><div class="tl-left"><div class="tl-year">1892</div><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Partilha das terras dos Nunes</div><div class="tl-desc">Com o falecimento de Josefa Teixeira da Silva, as terras foram divididas — formando os primeiros núcleos comunitários.</div></div></div>
+              <div class="tl-item"><div class="tl-left"><div class="tl-year">1923</div><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Primeira feira pública — 23 de março</div><div class="tl-desc">Marca a inserção de Craíbas nos circuitos comerciais regionais. À época pertencia a Limoeiro de Anadia.</div></div></div>
+              <div class="tl-item"><div class="tl-left"><div class="tl-year">1939</div><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Primeiro cartório de registro civil</div><div class="tl-desc">Décadas após o surgimento da comunidade, o Estado chega formalmente ao território.</div></div></div>
+              <div class="tl-item destaque"><div class="tl-left"><div class="tl-year">1962</div><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">1ª emancipação — Lei Estadual 2.471</div><div class="tl-desc">Instalação oficial em 23 de setembro de 1962. Antônio Barbosa é nomeado primeiro prefeito interino.</div></div></div>
+              <div class="tl-item destaque"><div class="tl-left"><div class="tl-year">1965</div><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Extinção do município</div><div class="tl-desc">Resolução do Senado nº 113: o território é reabsorvido por Arapiraca. Por quase duas décadas, a população depende de Arapiraca para serviços básicos.</div></div></div>
+              <div class="tl-item destaque"><div class="tl-left"><div class="tl-year">1982</div><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Reemancipação — Lei Estadual 4.335</div><div class="tl-desc">Sancionada em 23 de abril de 1982. Instalação oficial em 1° de fevereiro de 1983. O município agora tem o nome no plural.</div></div></div>
+              <div class="tl-item"><div class="tl-left"><div class="tl-year">2000s</div><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Projeto Serrote — Mineração Vale Verde</div><div class="tl-desc">Maior investimento privado em Alagoas nas últimas décadas: transformação econômica e territorial de escala inédita para o município.</div></div></div>
+              <div class="tl-item"><div class="tl-left"><div class="tl-year">2023</div><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><div class="tl-title">Lei 538/2023 — Sistema Municipal de Cultura</div><div class="tl-desc">Criação do CMPC, do Fundo Municipal de Cultura (FMC) e da Conferência Municipal de Cultura — ainda em fase de operacionalização.</div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ch"><i class="ti ti-info-circle" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">A origem do nome</div></div>
+          <div class="cb">
+            <div style="font-size:14px;color:var(--color-text-primary);line-height:1.7">O nome <strong>Craíbas</strong> vem do tupi <em>carahyba</em> — a <strong>craibeira</strong> (<em>Tabebuia aurea</em>), árvore de flores amarelas que dominava as matas da região. A craibeira é o símbolo do estado de Alagoas. Antes da emancipação, o lugar era chamado de <em>Craíba dos Nunes</em> — em referência à família fundadora. O nome carrega, ao mesmo tempo, a paisagem natural e a memória dos primeiros habitantes.</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-patrimonio" class="tab-content">
+        <div class="patrimonio-card">
+          <div class="pat-header">
+            <div class="pat-icon mat"><i class="ti ti-building-church" aria-hidden="true"></i></div>
+            <div><div class="pat-title">Igreja Matriz de Nossa Senhora da Conceição</div><div class="pat-cat">Patrimônio material · Edificação religiosa</div></div>
+          </div>
+          <div class="pat-body">Principal bem cultural material do município e referência central da identidade coletiva da população. Abriga altar com imagens de devoção secular e, junto com a praça que a circunda, forma o núcleo simbólico e físico da vida pública da sede.</div>
+          <div class="pat-status">
+            <span class="badge badge-amber">Ponto de atenção — sem tombamento formal</span>
+          </div>
+          <div class="acao"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ação recomendada no diagnóstico: iniciar tombamento municipal + parâmetros de gabarito no entorno via Plano Diretor</div>
+        </div>
+        <div class="patrimonio-card">
+          <div class="pat-header">
+            <div class="pat-icon mat"><i class="ti ti-building-monument" aria-hidden="true"></i></div>
+            <div><div class="pat-title">Praça da Igreja Matriz</div><div class="pat-cat">Patrimônio material · Espaço público de referência cultural</div></div>
+          </div>
+          <div class="pat-body">Espaço que organiza o entorno da Igreja Matriz e estrutura a vida pública do centro histórico. Ponto de encontro e referência simbólica da cidade desde sua formação.</div>
+          <div class="pat-status">
+            <span class="badge badge-amber">Ponto de atenção — sem proteção formal</span>
+          </div>
+          <div class="acao"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ação recomendada: reconhecer como Zona de Interesse Cultural no macrozoneamento</div>
+        </div>
+      </div>
+
+      <div id="tab-imaterial" class="tab-content">
+        <div class="cal-grid" style="margin-bottom:16px">
+          <div class="cal-card">
+            <div class="cal-date">8/12</div>
+            <div class="cal-name">Festa da Padroeira</div>
+            <div class="cal-desc">Nossa Senhora da Conceição — principal evento religioso do ano. Congrega população urbana e rural em torno da Igreja Matriz.</div>
+            <div style="margin-top:8px"><span class="badge badge-amber">Sem registro formal</span></div>
+          </div>
+          <div class="cal-card">
+            <div class="cal-date">23/4</div>
+            <div class="cal-name">Festa de Emancipação Política</div>
+            <div class="cal-desc">Celebração cívica que mobiliza a gestão pública e os grupos organizados. Data da reemancipação de 1982.</div>
+            <div style="margin-top:8px"><span class="badge badge-amber">Sem registro formal</span></div>
+          </div>
+        </div>
+        <div class="patrimonio-card">
+          <div class="pat-header">
+            <div class="pat-icon imat"><i class="ti ti-music" aria-hidden="true"></i></div>
+            <div><div class="pat-title">Banda Fanfarra de Craíbas</div><div class="pat-cat">Patrimônio imaterial · Forma de expressão musical</div></div>
+          </div>
+          <div class="pat-body">Uma das expressões culturais mais estruturadas e continuadas do município. Participa de celebrações cívicas, festas religiosas e eventos públicos — veículo de transmissão do saber musical entre gerações.</div>
+          <div class="pat-status"><span class="badge badge-amber">Sem registro formal</span></div>
+          <div class="acao"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ação recomendada: apoiar via Fundo Municipal de Cultura; incluir no Plano Municipal de Cultura</div>
+        </div>
+        <div class="patrimonio-card">
+          <div class="pat-header">
+            <div class="pat-icon imat"><i class="ti ti-leaf" aria-hidden="true"></i></div>
+            <div><div class="pat-title">Fumo em corda artesanal</div><div class="pat-cat">Patrimônio imaterial · Saber e modo de fazer</div></div>
+          </div>
+          <div class="pat-body">Técnica tradicional de giração e cura do fumo em corda, praticada por produtores rurais do município. Saber acumulado sobre manejo da planta, tempos de cura, ferramentas e modos de organização do trabalho.</div>
+          <div class="pat-status">
+            <span class="badge badge-amber">Sem registro formal</span>
+            <span class="badge badge-amber">Ponto de atenção com declínio da fumicultura</span>
+          </div>
+          <div class="acao"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ação recomendada: pesquisa de identificação; articulação com políticas de economia criativa</div>
+        </div>
+        <div class="patrimonio-card">
+          <div class="pat-header">
+            <div class="pat-icon imat"><i class="ti ti-bread" aria-hidden="true"></i></div>
+            <div><div class="pat-title">Casas de farinha e cultura da mandiocultura</div><div class="pat-cat">Patrimônio imaterial · Saber e modo de fazer</div></div>
+          </div>
+          <div class="pat-body">As casas de farinha representam a base da cultura alimentar rural do município. Com a expansão da mandiocultura em substituição ao fumo, esse saber-fazer ganha nova relevância para a identidade territorial.</div>
+          <div class="pat-status"><span class="badge badge-blue">Expansão recente da mandiocultura</span></div>
+          <div class="acao"><i class="ti ti-arrow-right" aria-hidden="true"></i> Ação recomendada: incluir no Plano Municipal de Cultura; conectar a programas de agricultura familiar</div>
+        </div>
+      </div>
+
+      <div id="tab-protecao" class="tab-content">
+        <div class="card">
+          <div class="ch"><i class="ti ti-alert-triangle" style="color:#A32D2D" aria-hidden="true"></i><div class="ct" style="color:#A32D2D">Lacuna identificada no diagnóstico</div></div>
+          <div class="cb">
+            <div style="font-size:13px;color:var(--color-text-primary);line-height:1.7;margin-bottom:14px">O diagnóstico confirmou junto ao IPHAN, à SECULT/AL e à Prefeitura: <strong>não existe nenhum processo de tombamento concluído ou em curso em Craíbas</strong> — nem federal, nem estadual, nem municipal. Isso não significa ausência de patrimônio — significa ausência de proteção formal.</div>
+            <div class="dr"><div class="dl">Igreja Matriz de N. Sra. da Conceição</div><div class="dv"><span style="color:#A32D2D">Sem proteção formal</span></div></div>
+            <div class="dr"><div class="dl">Praça da Igreja Matriz</div><div class="dv"><span style="color:#A32D2D">Sem proteção formal</span></div></div>
+            <div class="dr"><div class="dl">Festa da Padroeira (8/12)</div><div class="dv"><span style="color:#A32D2D">Sem registro formal</span></div></div>
+            <div class="dr"><div class="dl">Festa de Emancipação (23/4)</div><div class="dv"><span style="color:#A32D2D">Sem registro formal</span></div></div>
+            <div class="dr"><div class="dl">Banda Fanfarra</div><div class="dv"><span style="color:#A32D2D">Sem registro formal</span></div></div>
+            <div class="dr"><div class="dl">Fumo em corda artesanal</div><div class="dv"><span style="color:#A32D2D">Sem registro formal</span></div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ch"><i class="ti ti-file-description" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Lei 538/2023 — Sistema Municipal de Cultura</div></div>
+          <div class="cb">
+            <div class="dr"><div class="dl">CMPC — Conselho Municipal de Política Cultural</div><div class="dv"><span style="color:#BA7517">Criado, em operacionalização</span></div></div>
+            <div class="dr"><div class="dl">FMC — Fundo Municipal de Cultura</div><div class="dv"><span style="color:#BA7517">Criado, em operacionalização</span></div></div>
+            <div class="dr"><div class="dl">Plano Municipal de Cultura</div><div class="dv"><span style="color:#BA7517">Previsto</span></div></div>
+            <div class="dr"><div class="dl">Conferência Municipal de Cultura</div><div class="dv"><span style="color:#BA7517">Prevista</span></div></div>
+            <div class="nota-metodo"><i class="ti ti-info-circle" aria-hidden="true"></i><div>A lei existe e é um avanço importante. O desafio identificado no diagnóstico é operacionalizar os instrumentos previstos — especialmente o Fundo Municipal de Cultura, que pode financiar a salvaguarda do patrimônio imaterial.</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ch"><i class="ti ti-checklist" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="ct">Ações prioritárias recomendadas no diagnóstico</div></div>
+          <div class="cb">
+            <div class="dr"><div class="dl">1. Tombamento municipal da Igreja Matriz</div><div class="dv"><span class="badge badge-red">Alta prioridade</span></div></div>
+            <div class="dr"><div class="dl">2. Parâmetros de entorno da Igreja Matriz no Plano Diretor</div><div class="dv"><span class="badge badge-red">Alta prioridade</span></div></div>
+            <div class="dr"><div class="dl">3. Praça da Matriz como Zona de Interesse Cultural</div><div class="dv"><span class="badge badge-amber">Média prioridade</span></div></div>
+            <div class="dr"><div class="dl">4. Operacionalizar o Fundo Municipal de Cultura</div><div class="dv"><span class="badge badge-amber">Média prioridade</span></div></div>
+            <div class="dr"><div class="dl">5. Registrar fumo em corda como patrimônio imaterial</div><div class="dv"><span class="badge badge-amber">Média prioridade</span></div></div>
+            <div class="dr"><div class="dl">6. Elaborar o Plano Municipal de Cultura</div><div class="dv"><span class="badge badge-amber">Média prioridade</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert-box">
+        <i class="ti ti-alert-triangle ai" aria-hidden="true"></i>
+        <div class="at"><strong>Tensão central:</strong> Craíbas tem identidade cultural forte — nome tupi, dupla emancipação, fumicultura, festas tradicionais — mas ainda não protege formalmente esses bens. A Lei 538/2023 criou os instrumentos certos; o próximo passo é colocá-los em prática.</div>
+      </div>
+
+      <div class="fontes">
+        <div class="ft"><strong>Fontes:</strong> Prefeitura Municipal de Craíbas · IBGE Cidades · Assembleia Legislativa de Alagoas · SECULT/AL · AMA — Associação dos Municípios Alagoanos · IPHAN · Arquivo Público de Alagoas · Diagnóstico Inteligente PlanUrbi/FEPESA, 2026.</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="../index.html" class="logo logo-light">
+        <div class="logo-mark"><img src="../images/logo-planurbi-horizontal.png" alt="PlanUrbi" class="logo-img logo-img-footer"/></div>
+        <div class="logo-text"><strong>Craíbas em Dados</strong><span>Painel público · PlanUrbi</span></div>
+      </a>
+      <p class="footer-desc">Diagnóstico Inteligente do município de Craíbas, elaborado com base em dados oficiais, escuta participativa e análise multidisciplinar pela equipe técnica do <strong>Planejamento Urbano Inteligente (PlanUrbi)</strong>.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/planurbi_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram PlanUrbi"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/5582993261747" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp PlanUrbi"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Contato PlanUrbi</h4>
+      <ul class="footer-list">
+        <li><i class="fas fa-envelope"></i> <a href="mailto:contato@planurbi.com.br">contato@planurbi.com.br</a></li>
+        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5582993261747" target="_blank" rel="noopener noreferrer">(82) 99326-1747</a></li>
+        <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/planurbi_/" target="_blank" rel="noopener noreferrer">@planurbi_</a></li>
+        <li><i class="fas fa-globe"></i> <a href="https://planurbi.com.br" target="_blank" rel="noopener noreferrer">planurbi.com.br</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Parceria FEPESA</h4>
+      <ul class="footer-list">
+        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/558232235847" target="_blank" rel="noopener noreferrer">(82) 3223-5847</a></li>
+        <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/fepesa.al/" target="_blank" rel="noopener noreferrer">@fepesa.al</a></li>
+        <li><i class="fas fa-globe"></i> <a href="https://fepesa.org.br" target="_blank" rel="noopener noreferrer">fepesa.org.br</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>PLANURBI</h4>
+      <p class="footer-credit"><strong>Planejamento Urbano Inteligente</strong> — consultoria de planejamento urbano e inteligência territorial.</p>
+      <div class="footer-credit-box">
+        <span class="footer-credit-label">Realização</span><strong>PlanUrbi</strong>
+        <span class="footer-credit-label">Equipe</span><strong>Equipe técnica PlanUrbi</strong>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <span>© 2026 PlanUrbi. Todos os direitos reservados. · <a href="politica-de-privacidade.html" style="color:inherit;">Política de Privacidade</a></span>
+      <span>Diagnóstico Inteligente · <strong>PlanUrbi 2026</strong></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../script-eixo.js"></script>
+</body>
+</html>

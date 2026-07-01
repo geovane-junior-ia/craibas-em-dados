@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pessoas e economia — Painel Craíbas em Dados · PlanUrbi</title>
+<meta name="description" content="Indicadores sociais e econômicos consolidados a partir de dados oficiais do IBGE, DATASUS, MDS, RAIS, PNUD e Tesouro Nacional."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  .hero-title, .page-hero-title, .dash-hero-title,
+  .section-title, .cta-title, .chapter-card h3, .indicator-card h4,
+  .map-header h3, .footer-col h4, .logo-text strong,
+  .chart-card-title, .activity-title, .accordion-trigger,
+  .info-text-card h3, .modal-body h2, .highlight-banner-content h3,
+  .modal-equip h2 {
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif !important;
+    font-display: swap;
+  }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../perfil-socioeconomico.css">
+</head>
+<body>
+
+<!-- ===== HEADER (idêntico ao index, com link para a página atual) ===== -->
+<header class="header" id="header">
+  <div class="header-top">
+    <div class="container header-top-inner">
+      <span><i class="fas fa-map-marker-alt"></i> Craíbas, Alagoas — Brasil</span>
+      <span class="header-top-right">
+        <i class="far fa-calendar-alt"></i> Diagnóstico Inteligente · PLANURBI 2026
+      </span>
+    </div>
+  </div>
+  <div class="header-main">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-mark">
+          <img src="../images/logo-planurbi-horizontal.png" alt="PlanUrbi — Planejamento Urbano Inteligente" class="logo-img"/>
+        </div>
+        <div class="logo-text">
+          <strong>Craíbas em Dados</strong>
+          <span>Painel público · PlanUrbi</span>
+        </div>
+      </a>
+      <nav class="nav-main" id="nav-main">
+        <a href="../index.html#inicio">Início</a>
+        <a href="../index.html#sobre">Sobre</a>
+        <a href="../index.html#dados">Dados</a>
+        <a href="../index.html#capitulos" class="active">Eixos Temáticos</a>
+        <a href="../index.html#contato">Contato</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="page-hero-breadcrumb">
+      <a href="../index.html"><i class="fas fa-home"></i> Início</a>
+      <i class="fas fa-chevron-right"></i>
+      <a href="../index.html#capitulos">Eixos Temáticos</a>
+      <i class="fas fa-chevron-right"></i>
+      <span>Pessoas e economia</span>
+    </div>
+    <h1 class="page-hero-title">Pessoas <span>e economia</span></h1>
+    <p class="page-hero-lead">
+      Indicadores sociais e econômicos, consolidados a partir de dados oficiais do
+      IBGE, DATASUS, MDS, RAIS, PNUD e Tesouro Nacional.
+    </p>
+  </div>
+</section>
+
+<!-- ===== TABS NAV (sticky) ===== -->
+<div class="tabs-nav-wrap">
+  <div class="container">
+    <div class="tabs-nav" role="tablist">
+      <button class="tab-btn active" data-tab="demografia" role="tab">
+        <i class="fas fa-users"></i><span>Demografia</span>
+      </button>
+      <button class="tab-btn" data-tab="economia" role="tab">
+        <i class="fas fa-chart-line"></i><span>Economia</span>
+      </button>
+      <button class="tab-btn" data-tab="social" role="tab">
+        <i class="fas fa-hand-holding-heart"></i><span>Social</span>
+      </button>
+      <button class="tab-btn" data-tab="saude" role="tab">
+        <i class="fas fa-heart-pulse"></i><span>Saúde</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ===========================================
+     PAINEL 1 — DEMOGRAFIA
+     =========================================== -->
+<section class="tab-panel active" data-tab="demografia">
+  <div class="container">
+    <div class="panel-head">
+      <span class="section-tag"><i class="fas fa-users"></i> Demografia</span>
+      <p class="section-lead">
+        Em 2022, pela 1ª vez, mais gente mora na cidade do que no campo em Craíbas.
+        Aqui você encontra a evolução da população, sua distribuição por sexo, idade
+        e território.
+      </p>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpi-grid"><!-- fonte: t003, t005, t007, t009 -->
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="fas fa-users"></i></div>
+        <div class="kpi-value"><span data-count="26144">0</span></div>
+        <div class="kpi-label">Habitantes em 2025*</div>
+        <span class="kpi-trend up"><i class="fas fa-arrow-up"></i> +47,4% desde 1991</span>
+      </div>
+      <div class="kpi-card accent">
+        <div class="kpi-icon"><i class="fas fa-city"></i></div>
+        <div class="kpi-value"><span data-count="50.6" data-decimals="1">0</span><small>%</small></div>
+        <div class="kpi-label">População urbana (2022)</div>
+        <span class="kpi-trend up"><i class="fas fa-arrow-up"></i> Maioria urbana pela 1ª vez</span>
+      </div>
+      <div class="kpi-card blue">
+        <div class="kpi-icon"><i class="fas fa-map"></i></div>
+        <div class="kpi-value"><span data-count="91.07" data-decimals="2">0</span><small> hab/km²</small></div>
+        <div class="kpi-label">Densidade demográfica</div>
+        <span class="kpi-trend neutral">54ª de 102 em AL</span>
+      </div>
+      <div class="kpi-card dark">
+        <div class="kpi-icon"><i class="fas fa-percent"></i></div>
+        <div class="kpi-value"><span data-count="68.3" data-decimals="1">0</span><small>%</small></div>
+        <div class="kpi-label">População em idade de trabalhar</div>
+        <span class="kpi-trend up"><i class="fas fa-arrow-up"></i> Maioria em idade produtiva</span>
+      </div>
+    </div>
+
+    <!-- Charts row 1 -->
+    <div class="chart-grid cols-2"><!-- fonte: t003 / t005 -->
+      <div class="chart-card">
+        <div class="chart-card-head">
+          <div>
+            <div class="chart-card-title">Evolução da população</div>
+            <div class="chart-card-sub">1991 — 2025*</div>
+          </div>
+          <span class="chart-card-badge">+8.328 hab</span>
+        </div>
+        <div class="chart-canvas-wrap"><canvas id="chart-pop-evolucao"></canvas></div>
+        <div class="chart-card-footer">Fonte: IBGE · Censos Demográficos · Estimativas FGV/IBGE</div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-head">
+          <div>
+            <div class="chart-card-title">Distribuição urbano × rural</div>
+            <div class="chart-card-sub">Transição censitária 1991–2022</div>
+          </div>
+          <span class="chart-card-badge">Virada em 2022</span>
+        </div>
+        <div class="chart-canvas-wrap"><canvas id="chart-urb-rural"></canvas></div>
+        <div class="chart-card-footer">Fonte: IBGE · Censos Demográficos 1991, 2000, 2010 e 2022</div>
+      </div>
+    </div>
+
+    <!-- Pirâmide etária (destaque) -->
+    <div class="chart-grid"><!-- fonte: t009 -->
+      <div class="chart-card tall featured">
+        <div class="chart-card-head">
+          <div>
+            <div class="chart-card-title">Pirâmide etária — Craíbas (Censo 2022)</div>
+            <div class="chart-card-sub">Distribuição por faixa etária e sexo · estimativa</div>
+          </div>
+          <span class="chart-card-badge">25.397 hab.</span>
+        </div>
+        <div class="chart-canvas-wrap"><canvas id="chart-piramide"></canvas></div>
+        <div class="chart-card-footer">
+          Fonte: IBGE · Censo Demográfico 2022. Estimativas com base na estrutura etária estadual.
+          Quase metade da população depende de quem trabalha (~46,3%).
+        </div>
+      </div>
+    </div>
+
+    <!-- Densidade comparativa -->
+    <div class="chart-grid"><!-- fonte: t007 -->
+      <div class="chart-card">
+        <div class="chart-card-head">
+          <div>
+            <div class="chart-card-title">Densidade demográfica — contexto regional</div>
+            <div class="chart-card-sub">Hab/km² · municípios alagoanos comparados</div>
+          </div>
+          <span class="chart-card-badge">Craíbas em destaque</span>
+        </div>
+        <div class="chart-canvas-wrap"><canvas id="chart-densidade"></canvas></div>
+        <div class="chart-card-footer">Fonte: IBGE · Censo Demográfico 2022</div>
+      </div>
+    </div>
+
+    <!-- Accordion Saiba mais -->
+    <div class="accordion-section">
+      <button class="accordion-trigger">
+        <span class="left"><i class="fas fa-table"></i> Tabela completa — Evolução populacional 1991–2025</span>
+        <i class="fas fa-chevron-down accordion-chevron"></i>
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <table class="data-table">
+            <thead>
+              <tr><th>Ano</th><th class="num">População</th><th class="num">Variação absoluta</th><th class="num">Variação (%)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1991</td><td class="num">17.816</td><td class="num">—</td><td class="num">—</td></tr>
+              <tr><td>2000</td><td class="num">20.789</td><td class="num">+2.973</td><td class="num">+16,7%</td></tr>
+              <tr><td>2010</td><td class="num">22.641</td><td class="num">+1.852</td><td class="num">+8,9%</td></tr>
+              <tr><td>2022</td><td class="num">25.397</td><td class="num">+2.756</td><td class="num">+12,2%</td></tr>
+              <tr><td>2024</td><td class="num">26.115</td><td class="num">+718</td><td class="num">+2,8%</td></tr>
+              <tr><td>2025*</td><td class="num">26.144</td><td class="num">+29</td><td class="num">+0,1%</td></tr>
+            </tbody>
+          </table>
+          <p style="margin-top:12px;"><i class="fas fa-info-circle" style="color:var(--accent);margin-right:6px;"></i>
+            * Estimativa. Fonte: IBGE — Censos Demográficos e estimativas IBGE/FGV Municípios.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-section">
+      <button class="accordion-trigger">
+        <span class="left"><i class="fas fa-home"></i> Características habitacionais (1991 vs 2022)</span>
+        <i class="fas fa-chevron-down accordion-chevron"></i>
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <p>O estoque domiciliar cresceu acima da população: a média de moradores por
+            domicílio caiu de 4,1 para 2,6 pessoas — sinal claro de fragmentação dos
+            arranjos familiares e maior pressão sobre a política habitacional.</p>
+          <table class="data-table">
+            <thead><tr><th>Indicador</th><th class="num">1991</th><th class="num">2022 (est.)</th></tr></thead>
+            <tbody>
+              <tr><td>Total de domicílios</td><td class="num">4.407</td><td class="num">~9.768</td></tr>
+              <tr><td>Domicílios urbanos</td><td class="num">1.226</td><td class="num">~4.941</td></tr>
+              <tr><td>Domicílios rurais</td><td class="num">3.181</td><td class="num">~4.827</td></tr>
+              <tr><td>Média de moradores/domicílio</td><td class="num">~4,1</td><td class="num">~2,6</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================
+     PAINEL 2 — ECONOMIA
+     =========================================== -->
+<section class="tab-panel" data-tab="economia">
+  <div class="container">
+    <div class="panel-head">
+      <span class="section-tag"><i class="fas fa-chart-line"></i> Economia</span>
+      <h2 class="section-title">A economia craibense em <span>transformação</span></h2>
+      <p class="section-lead">
+        O PIB municipal saltou de R$ 105,6 milhões em 2010 para R$ 480,8 milhões em 2021,
+        impulsionado pela mineração e pela administração pública. A indústria já responde
+        por 32,7% do Valor Adicionado Bruto.
+      </p>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpi-grid"><!-- fonte: t025, t026, t027, t029 -->
+      <div class="kpi-card accent">
+        <div class="kpi-icon"><i class="fas fa-coins"></i></div>
+        <div class="kpi-value">R$ <span data-count="450.2" data-decimals="1">0</span><small>M</small></div>
+        <div class="kpi-label">PIB total (2023)</div>
+        <span class="kpi-trend up"><i class="fas fa-arrow-up"></i> +326% desde 2010</span>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="fas fa-user-tag"></i></div>
+        <div class="kpi-value">R$ <span data-count="18236" data-decimals="0">0</span></div>
+        <div class="kpi-label">PIB per capita (2023)</div>
+        <span class="kpi-trend down"><i class="fas fa-arrow-down"></i> -6,7% vs 2022</span>
+      </div>
+      <div class="kpi-card blue">
+        <div class="kpi-icon"><i class="fas fa-industry"></i></div>
+        <div class="kpi-value"><span data-count="32.7" data-decimals="1">0</span><small>%</small></div>
+        <div class="kpi-label">Participação da indústria no VAB</div>
+        <span class="kpi-trend neutral">Setor de maior peso</span>
+      </div>
+      <div class="kpi-card dark">
+        <div class="kpi-icon"><i class="fas fa-briefcase"></i></div>
+        <div class="kpi-value"><span data-count="2148">0</span></div>
+        <div class="kpi-label">Empregos formais (RAIS 2024)</div>
+        <span class="kpi-trend neutral">Salário médio: 1,8 SM</span>
+      </div>
+    </div>
+
+    <!-- Highlight banner -->
+    <div class="highlight-banner">
+      <div class="highlight-banner-icon"><i class="fas fa-chart-line"></i></div>
+      <div class="highlight-banner-content">
+        <h3>Crescimento histórico do PIB</h3>
+        <p>De R$ 105,6 milhões em 2010 a R$ 496,5 milhões em 2022 — pico histórico antes da retração de 2023.
+          A mineração (Projeto Serrote) é o principal vetor desse salto.</p>
+      </div>
+      <div class="highlight-banner-num">+326%<small>2010 → 2023</small></div>
+    </div>
+
+    <!-- Charts -->
+    <div class="chart-grid cols-2">
+      <div class="chart-card"><!-- fonte: t025 -->
+        <div class="chart-card-head">
+          <div>
+            <div class="chart-card-title">Evolução do PIB total</div>
+            <div class="chart-card-sub">Em R$ milhões · 2010–2023</div>
+          </div>
+          <span class="chart-card-badge">Pico em 2022</span>
+        </div>
+        <div class="chart-canvas-wrap"><canvas id="chart-pib"></canvas></div>
+        <div class="chart-card-footer">Fonte: IBGE · Contas Nacionais Regionais</div>
+      </div>
+      <div class="chart-card"><!-- fonte: t026 -->
+        <div class="chart-card-head">
+          <div>
+            <div class="chart-card-title">Composição do VAB por setor</div>
+            <div class="chart-card-sub">2021 · R$ 459,2 milhões totais</div>
+          </div>
+          <span class="chart-card-badge">Indústria lidera</span>
+        </div>
+        <div class="chart-canvas-wrap"><canvas id="chart-vab"></canvas></div>
+        <div class="chart-card-footer">Fonte: IBGE · Valor Adicionado Bruto a preços correntes</div>
+      </div>
+    </div>
+
+    <div class="chart-grid cols-2">
+      <div class="chart-card"><!-- fonte: t027 -->
+        <div class="chart-card-head">
+          <div>
+            <div class="chart-card-title">Emprego formal por setor</div>
+            <div class="chart-card-sub">Vínculos · RAIS 2024</div>
+          </div>
+          <span class="chart-card-badge">1.361 vínculos</span>
+        </div>
+        <div class="chart-canvas-wrap"><canvas id="chart-emprego"></canvas></div>
+        <div class="chart-card-footer">Fonte: RAIS · Ministério do Trabalho</div>
+      </div>
+      <div class="chart-card"><!-- fonte: t022 -->
+        <div class="chart-card-head">
+          <div>
+            <div class="chart-card-title">Bolsa Família — famílias beneficiadas</div>
+            <div class="chart-card-sub">Série mensal 2023–2025</div>
+          </div>
+          <span class="chart-card-badge">Pico: 5.824 (jun/25)</span>
+        </div>
+        <div class="chart-canvas-wrap"><canvas id="chart-bolsa-familia"></canvas></div>
+        <div class="chart-card-footer">Fonte: Observatório SEBRAE · MDS · acesso 19 abr 2026</div>
+      </div>
+    </div>
+
+    <!-- Atividades predominantes (gallery) -->
+    <h3 class="section-title" style="font-size: 1.6rem; margin-top: 40px; text-align:center;">
+      Atividades <span>predominantes</span>
+    </h3>
+    <p class="section-lead" style="text-align:center; max-width: 680px; margin: 0 auto 28px;">
+      Clique em cada atividade para conhecer os detalhes da estrutura produtiva craibense.
+    </p>
+    <div class="activity-grid">
+      <div class="activity-card" data-modal="mineracao">
+        <img src="images/mineracao-mapa.jpeg" alt="Mineração — Projeto Serrote" class="activity-img"/>
+        <div class="activity-overlay">
+          <span class="activity-tag">Mineração</span>
+          <div class="activity-title">Projeto Serrote</div>
+          <p class="activity-desc">Cobre, calcário e areia. Setor de maior peso no VAB municipal.</p>
+          <span class="activity-key">32,7% do VAB <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="activity-card" data-modal="fumicultura">
+        <img src="images/fumicultura.png" alt="Fumicultura" class="activity-img"/>
+        <div class="activity-overlay">
+          <span class="activity-tag">Agropecuária</span>
+          <div class="activity-title">Fumicultura</div>
+          <p class="activity-desc">Cultivo tradicional, base familiar, presença forte no rural.</p>
+          <span class="activity-key">18,0% do VAB <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="activity-card" data-modal="mandioca">
+        <img src="images/mandioca.jpeg" alt="Mandiocultura" class="activity-img"/>
+        <div class="activity-overlay">
+          <span class="activity-tag">Agropecuária</span>
+          <div class="activity-title">Mandiocultura</div>
+          <p class="activity-desc">Cultura estratégica, soberania alimentar local, casas de farinha.</p>
+          <span class="activity-key">Agricultura familiar <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Accordion finanças -->
+    <div class="accordion-section">
+      <button class="accordion-trigger">
+        <span class="left"><i class="fas fa-landmark"></i> Receita e despesa pública (2018–2024)</span>
+        <i class="fas fa-chevron-down accordion-chevron"></i>
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <p>A receita corrente per capita saltou de R$ 3.102 em 2018 para R$ 8.264 em 2024 (+166%).
+            As despesas empenhadas alcançaram R$ 212,2 milhões em 2024 — sinal claro de ampliação da
+            capacidade fiscal municipal acompanhando o crescimento da arrecadação ligada à mineração.</p>
+          <table class="data-table">
+            <thead><tr><th>Ano</th><th class="num">Receita corrente (R$)</th><th class="num">Receita per capita (R$)</th><th class="num">Despesas empenhadas (R$)</th></tr></thead>
+            <tbody>
+              <tr><td>2018</td><td class="num">70.225.820</td><td class="num">3.102</td><td class="num">62.441.807</td></tr>
+              <tr><td>2020</td><td class="num">95.563.930</td><td class="num">4.119</td><td class="num">84.913.751</td></tr>
+              <tr><td>2022</td><td class="num">—</td><td class="num">—</td><td class="num">119.206.068</td></tr>
+              <tr><td>2024</td><td class="num">212.676.400</td><td class="num">8.264</td><td class="num">212.228.581</td></tr>
+            </tbody>
+          </table>
+          <p style="margin-top:12px;"><i class="fas fa-info-circle" style="color:var(--accent);margin-right:6px;"></i>
+            Fonte: Tesouro Nacional · SICONFI 2026.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================
+     PAINEL 3 — SOCIAL
+     =========================================== -->
+<section class="tab-panel" data-tab="social">
+  <div class="container">
+    <div class="panel-head">
+      <span class="section-tag"><i class="fas fa-hand-holding-heart"></i> Indicadores Sociais</span>
+      <h2 class="section-title">IDHM, vulnerabilidade e <span>educação</span></h2>
+      <p class="section-lead">
+        Craíbas avançou do IDHM 0,204 em 1991 para 0,525 em 2010 — mas permanece abaixo das médias
+        de Alagoas (0,563) e do Brasil (0,659). Quase 6 em cada 10 famílias dependem do Bolsa Família.
+      </p>
+    </div>
+
+    <!-- IDHM gauge + comparativo -->
+    <div class="info-cols">
+      <div class="idhm-card"><!-- fonte: t014, t016 -->
+        <div class="chart-card-sub" style="margin-bottom: 12px;">Índice de Desenvolvimento Humano Municipal</div>
+        <div class="idhm-gauge">
+          <canvas id="chart-idhm-gauge"></canvas>
+          <div class="idhm-center">
+            <strong>0,525</strong>
+            <span>IDHM 2010</span>
+          </div>
+        </div>
+        <div class="idhm-classification">Faixa: Baixo</div>
+        <div class="idhm-compare">
+          <div class="idhm-compare-item highlight">
+            <span>Craíbas</span>
+            <strong>0,525</strong>
+          </div>
+          <div class="idhm-compare-item">
+            <span>Alagoas</span>
+            <strong>0,563</strong>
+          </div>
+          <div class="idhm-compare-item">
+            <span>Brasil</span>
+            <strong>0,659</strong>
+          </div>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-head">
+          <div>
+            <div class="chart-card-title">Evolução do IDHM</div>
+            <div class="chart-card-sub">Comparativo Craíbas × AL × BR · 1991–2010</div>
+          </div>
+          <span class="chart-card-badge">+157% no período</span>
+        </div>
+        <div class="chart-canvas-wrap"><canvas id="chart-idhm-evol"></canvas></div>
+        <div class="chart-card-footer">Fonte: PNUD · Atlas IDHM · Observatório SEBRAE</div>
+      </div>
+    </div>
+
+    <!-- Highlight Bolsa Família -->
+    <div class="highlight-banner">
+      <div class="highlight-banner-icon"><i class="fas fa-hand-holding-heart"></i></div>
+      <div class="highlight-banner-content">
+        <h3>Bolsa Família é central na proteção social local</h3>
+        <p>Em 2025, em média <strong>5.691 famílias por mês</strong> são beneficiadas — mais da metade dos ~9.768 domicílios estimados.
+          Pico histórico de 5.824 famílias em junho/2025. Valor médio do benefício: R$ 692,60.</p>
+      </div>
+      <div class="highlight-banner-num">5.691<small>famílias / mês (2025)</small></div>
+    </div>
+
+    <!-- KPIs sociais -->
+    <div class="kpi-grid"><!-- fonte: t020, t021 -->
+      <div class="kpi-card accent">
+        <div class="kpi-icon"><i class="fas fa-id-card"></i></div>
+        <div class="kpi-value"><span data-count="8200">0</span></div>
+        <div class="kpi-label">Famílias no CadÚnico (2023)</div>
+        <span class="kpi-trend neutral">Cobertura &gt; 83%</span>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="fas fa-users-line"></i></div>
+        <div class="kpi-value"><span data-count="6500">0</span></div>
+        <div class="kpi-label">Beneficiários de programas federais</div>
+        <span class="kpi-trend neutral">2023</span>
+      </div>
+      <div class="kpi-card blue">
+        <div class="kpi-icon"><i class="fas fa-money-bill-wave"></i></div>
+        <div class="kpi-value">R$ <span data-count="692.60" data-decimals="2">0</span></div>
+        <div class="kpi-label">Valor médio do benefício (2025)</div>
+        <span class="kpi-trend neutral">Estável</span>
+      </div>
+      <div class="kpi-card dark">
+        <div class="kpi-icon"><i class="fas fa-balance-scale"></i></div>
+        <div class="kpi-value"><span data-count="0.53" data-decimals="2">0</span></div>
+        <div class="kpi-label">Índice de Gini (2010)</div>
+        <span class="kpi-trend down"><i class="fas fa-arrow-up"></i> +8,16% vs 2000</span>
+      </div>
+    </div>
+
+    <!-- Educação chart -->
+    <div class="chart-grid cols-2">
+      <div class="chart-card"><!-- fonte: t017, t018, t019 -->
+        <div class="chart-card-head">
+          <div>
+            <div class="chart-card-title">Matrículas escolares por nível</div>
+            <div class="chart-card-sub">2012–2024</div>
+          </div>
+          <span class="chart-card-badge">Inversão de tendências</span>
+        </div>
+        <div class="chart-canvas-wrap"><canvas id="chart-educacao"></canvas></div>
+        <div class="chart-card-footer">Fonte: IBGE · INEP · Observatório SEBRAE</div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-head">
+          <div>
+            <div class="chart-card-title">Vulnerabilidade social — comparativo</div>
+            <div class="chart-card-sub">Famílias × programas × domicílios</div>
+          </div>
+          <span class="chart-card-badge">Cobertura ampla</span>
+        </div>
+        <div class="chart-canvas-wrap"><canvas id="chart-vulnerab"></canvas></div>
+        <div class="chart-card-footer">Fonte: MDS 2023 · IBGE Censo 2022 · RAIS 2022</div>
+      </div>
+    </div>
+
+    <!-- Accordion equipamentos -->
+    <div class="accordion-section">
+      <button class="accordion-trigger">
+        <span class="left"><i class="fas fa-school"></i> Educação — evolução das matrículas (detalhes)</span>
+        <i class="fas fa-chevron-down accordion-chevron"></i>
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <p><strong>Educação Infantil:</strong> +95,3% de matrículas em 12 anos (808 → 1.578).</p>
+          <p><strong>Ensino Fundamental:</strong> -19,1% no período (4.824 → 3.903), reflexo da queda da fecundidade
+            e da reorganização da rede.</p>
+          <p><strong>Ensino Médio:</strong> oscilante, sem tendência clara de crescimento (961 → 1.006).</p>
+          <p><strong>IDEB:</strong> ~4,5 anos iniciais e ~4,0 anos finais — ainda abaixo das referências nacionais.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-section">
+      <button class="accordion-trigger">
+        <span class="left"><i class="fas fa-house-user"></i> Equipamentos sociais (CRAS / CREAS)</span>
+        <i class="fas fa-chevron-down accordion-chevron"></i>
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <p><strong>CRAS — Rua Pedro Ramos, s/n, Centro:</strong> principal porta de entrada da Proteção Social Básica.
+            Operacionaliza o PAIF e a gestão do CadÚnico, pré-requisito para o acesso a programas como o Bolsa Família.</p>
+          <p><strong>CREAS — Centro:</strong> atende famílias em situação de vulnerabilidade (Proteção Social Especial de Média Complexidade).
+            Atende famílias com direitos violados, executa o PAEFI e medidas socioeducativas em meio aberto.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================
+     PAINEL 4 — SAÚDE
+     =========================================== -->
+<section class="tab-panel" data-tab="saude">
+  <div class="container">
+    <div class="panel-head">
+      <span class="section-tag"><i class="fas fa-heart-pulse"></i> Saúde e Longevidade</span>
+      <h2 class="section-title">A saúde de Craíbas em <span>foco</span></h2>
+      <p class="section-lead">
+        Rede consolidada de atenção básica, expectativa de vida em forte ascensão (55→75 anos)
+        — mas mortalidade infantil em 26,51 por mil em 2023, acima das médias estadual e nacional.
+      </p>
+    </div>
+
+    <!-- Highlight: alerta -->
+    <div class="highlight-banner warn">
+      <div class="highlight-banner-icon"><i class="fas fa-triangle-exclamation"></i></div>
+      <div class="highlight-banner-content">
+        <h3>Surto de dengue em 2024 — recorde histórico</h3>
+        <p>Mais de <strong>600 casos registrados em 2024</strong>, o maior pico da série histórica disponível.
+          Evidencia a importância da vigilância epidemiológica e do reforço da imunização e do saneamento.</p>
+      </div>
+      <div class="highlight-banner-num">600+<small>casos de dengue em 2024</small></div>
+    </div>
+
+    <!-- KPIs saúde -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="fas fa-baby"></i></div>
+        <div class="kpi-value"><span data-count="26.51" data-decimals="2">0</span></div>
+        <div class="kpi-label">Mortalidade infantil (por mil)</div>
+        <span class="kpi-trend down"><i class="fas fa-arrow-up"></i> Acima de AL e BR</span>
+      </div>
+      <div class="kpi-card accent">
+        <div class="kpi-icon"><i class="fas fa-cake-candles"></i></div>
+        <div class="kpi-value"><span data-count="75">0</span><small> anos</small></div>
+        <div class="kpi-label">Expectativa de vida (2010)</div>
+        <span class="kpi-trend up"><i class="fas fa-arrow-up"></i> +20 anos desde 1990</span>
+      </div>
+      <div class="kpi-card blue">
+        <div class="kpi-icon"><i class="fas fa-hospital"></i></div>
+        <div class="kpi-value"><span data-count="12">0</span></div>
+        <div class="kpi-label">Unidades Básicas de Saúde</div>
+        <span class="kpi-trend neutral">Atenção básica consolidada</span>
+      </div>
+      <div class="kpi-card dark">
+        <div class="kpi-icon"><i class="fas fa-stethoscope"></i></div>
+        <div class="kpi-value"><span data-count="20">0</span></div>
+        <div class="kpi-label">Equipamentos de saúde no total</div>
+        <span class="kpi-trend up">Rede CNES</span>
+      </div>
+    </div>
+
+    <!-- Charts saúde -->
+    <div class="chart-grid cols-2">
+      <div class="chart-card">
+        <div class="chart-card-head">
+          <div>
+            <div class="chart-card-title">Mortalidade infantil — comparativo</div>
+            <div class="chart-card-sub">Óbitos por mil nascidos vivos · 2022–2025*</div>
+          </div>
+          <span class="chart-card-badge">Acima da média</span>
+        </div>
+        <div class="chart-canvas-wrap"><canvas id="chart-mortalidade"></canvas></div>
+        <div class="chart-card-footer">Fonte: Observatório SEBRAE · DATASUS · acesso 20 abr 2026</div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card-head">
+          <div>
+            <div class="chart-card-title">Expectativa de vida ao nascer</div>
+            <div class="chart-card-sub">1990–2010 · estimativa</div>
+          </div>
+          <span class="chart-card-badge">+20 anos</span>
+        </div>
+        <div class="chart-canvas-wrap"><canvas id="chart-expectativa"></canvas></div>
+        <div class="chart-card-footer">Fonte: PNUD · Atlas do Desenvolvimento Humano</div>
+      </div>
+    </div>
+
+    <!-- Imunização banner com imagem real -->
+    <div class="info-cols">
+      <div class="info-text-card">
+        <h3>Imunização e vigilância em saúde</h3>
+        <p>Os dados disponíveis cobrem doses aplicadas no município entre 2023 e fevereiro de 2026.
+          A análise por tipo de vacina revela imunizantes com maior adesão e frentes que demandam
+          reforço das estratégias de busca ativa.</p>
+        <p>A queda na cobertura vacinal entre 2017 e 2021 constitui alerta para o sistema municipal —
+          o pico de dengue em 2024 (mais de 600 casos) é um sinal claro da necessidade de fortalecer a vigilância.</p>
+        <ul class="info-bullets">
+          <li><i class="fas fa-syringe"></i> Doses aplicadas: 2023 → fev/2026</li>
+          <li><i class="fas fa-magnifying-glass-chart"></i> Análise por tipo de vacina disponível</li>
+          <li><i class="fas fa-shield-virus"></i> Núcleo de Vigilância Sanitária ativo</li>
+        </ul>
+      </div>
+      <div class="chart-card" style="padding: 0; overflow: hidden;">
+        <img src="images/imuniza-doses.png" alt="Doses aplicadas por vacina (2023–2025)"
+             style="width:100%; height:100%; object-fit: cover; min-height: 300px;"/>
+      </div>
+    </div>
+
+    <!-- Health infographic grid -->
+    <h3 class="section-title" style="font-size: 1.6rem; margin-top: 40px; text-align:center;">
+      Equipamentos <span>de saúde</span>
+    </h3>
+    <p class="section-lead" style="text-align:center; max-width: 680px; margin: 0 auto 28px;">
+      Rede pública municipal — atenção básica, urgência, especialidades e vigilância.
+    </p>
+    <div class="health-grid">
+      <div class="health-tile">
+        <div class="health-tile-icon"><i class="fas fa-hospital"></i></div>
+        <div class="health-tile-num">12</div>
+        <div class="health-tile-label">UBS<br>(Atenção Básica)</div>
+      </div>
+      <div class="health-tile">
+        <div class="health-tile-icon"><i class="fas fa-baby"></i></div>
+        <div class="health-tile-num">1</div>
+        <div class="health-tile-label">Casa Maternal<br>Frei Damião (24h)</div>
+      </div>
+      <div class="health-tile">
+        <div class="health-tile-icon"><i class="fas fa-brain"></i></div>
+        <div class="health-tile-num">1</div>
+        <div class="health-tile-label">CAPS<br>Sebastião Malaquias</div>
+      </div>
+      <div class="health-tile">
+        <div class="health-tile-icon"><i class="fas fa-tooth"></i></div>
+        <div class="health-tile-num">1</div>
+        <div class="health-tile-label">CEO<br>Espec. Odontológicas</div>
+      </div>
+      <div class="health-tile">
+        <div class="health-tile-icon"><i class="fas fa-wheelchair"></i></div>
+        <div class="health-tile-num">1</div>
+        <div class="health-tile-label">Centro de Reabilitação<br>Adilson Abel</div>
+      </div>
+      <div class="health-tile">
+        <div class="health-tile-icon"><i class="fas fa-stethoscope"></i></div>
+        <div class="health-tile-num">2</div>
+        <div class="health-tile-label">Centros de<br>Especialidades Médicas</div>
+      </div>
+      <div class="health-tile">
+        <div class="health-tile-icon"><i class="fas fa-vial"></i></div>
+        <div class="health-tile-num">1</div>
+        <div class="health-tile-label">Laboratório<br>Municipal</div>
+      </div>
+      <div class="health-tile">
+        <div class="health-tile-icon"><i class="fas fa-shield-virus"></i></div>
+        <div class="health-tile-num">1</div>
+        <div class="health-tile-label">Núcleo de<br>Vigilância Sanitária</div>
+      </div>
+      <div class="health-tile">
+        <div class="health-tile-icon"><i class="fas fa-dumbbell"></i></div>
+        <div class="health-tile-num">1</div>
+        <div class="health-tile-label">Polo Academia<br>da Saúde</div>
+      </div>
+      <div class="health-tile">
+        <div class="health-tile-icon"><i class="fas fa-building"></i></div>
+        <div class="health-tile-num">1</div>
+        <div class="health-tile-label">Secretaria Municipal<br>de Saúde</div>
+      </div>
+    </div>
+
+    <!-- Accordion: dependência regional -->
+    <div class="accordion-section">
+      <button class="accordion-trigger">
+        <span class="left"><i class="fas fa-route"></i> Dependência regional para média e alta complexidade</span>
+        <i class="fas fa-chevron-down accordion-chevron"></i>
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <p>A estrutura de saúde de Craíbas está concentrada na atenção básica, o que implica
+            <strong>dependência dos centros regionais</strong> — especialmente Arapiraca e Palmeira dos Índios —
+            para atendimento de média e alta complexidade.</p>
+          <p>Para o planejamento territorial, essa condição reforça a importância da distribuição adequada
+            dos equipamentos locais e da articulação entre sede, povoados e eixos de deslocamento, sobretudo
+            considerando a forte presença de população rural (49,4% em 2022).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MINI-GRID DOS 8 EIXOS ===== -->
+<section class="eixos-mini">
+  <div class="container">
+    <div class="eixos-mini-head">
+      <span class="section-tag light"><i class="fas fa-th"></i> Eixos Temáticos</span>
+      <h2>Continue explorando os <span>8 eixos</span> do diagnóstico</h2>
+      <p>Você está em <strong>Pessoas e economia</strong>. Clique em qualquer outro eixo para navegar.</p>
+    </div>
+    <div class="eixos-mini-grid">
+      <a href="visao-geral.html" class="eixo-mini-card">
+        <span class="eixo-mini-num">01</span>
+        <i class="fas fa-globe-americas eixo-mini-icon"></i>
+        <span class="eixo-mini-title">Craíbas: visão geral</span>
+      </a>
+      <a href="perfil-socioeconomico.html" class="eixo-mini-card active">
+        <span class="eixo-mini-num">02</span>
+        <i class="fas fa-chart-pie eixo-mini-icon"></i>
+        <span class="eixo-mini-title">Pessoas e economia</span>
+      </a>
+      <a href="natureza-meio-ambiente.html" class="eixo-mini-card">
+        <span class="eixo-mini-num">03</span>
+        <i class="fas fa-leaf eixo-mini-icon"></i>
+        <span class="eixo-mini-title">Natureza e meio ambiente</span>
+      </a>
+      <a href="cultura-historia.html" class="eixo-mini-card">
+        <span class="eixo-mini-num">04</span>
+        <i class="fas fa-monument eixo-mini-icon"></i>
+        <span class="eixo-mini-title">Cultura e história</span>
+      </a>
+      <a href="uso-territorio.html" class="eixo-mini-card">
+        <span class="eixo-mini-num">05</span>
+        <i class="fas fa-map-marked-alt eixo-mini-icon"></i>
+        <span class="eixo-mini-title">Como o território é usado</span>
+      </a>
+      <a href="infraestrutura.html" class="eixo-mini-card">
+        <span class="eixo-mini-num">06</span>
+        <i class="fas fa-network-wired eixo-mini-icon"></i>
+        <span class="eixo-mini-title">Serviços e infraestrutura</span>
+      </a>
+      <a href="equipamentos-publicos.html" class="eixo-mini-card">
+        <span class="eixo-mini-num">07</span>
+        <i class="fas fa-school eixo-mini-icon"></i>
+        <span class="eixo-mini-title">Onde ficam os serviços públicos</span>
+      </a>
+      <a href="mobilidade.html" class="eixo-mini-card">
+        <span class="eixo-mini-num">08</span>
+        <i class="fas fa-route eixo-mini-icon"></i>
+        <span class="eixo-mini-title">Como a cidade se move</span>
+      </a>
+    </div>
+    <div class="eixos-mini-cta">
+      <a href="../index.html#capitulos" class="btn btn-accent">
+        <i class="fas fa-th"></i> Ver todos os eixos no início
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER (reuso do index) ===== -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="../index.html" class="logo logo-light">
+        <div class="logo-mark">
+          <img src="../images/logo-planurbi-horizontal.png" alt="PlanUrbi" class="logo-img logo-img-footer"/>
+        </div>
+        <div class="logo-text">
+          <strong>Craíbas em Dados</strong>
+          <span>Painel público · PlanUrbi</span>
+        </div>
+      </a>
+      <p class="footer-desc">
+        Diagnóstico Inteligente do município de Craíbas, elaborado com base em
+        dados oficiais, escuta participativa e análise multidisciplinar pela
+        equipe técnica do <strong>Planejamento Urbano Inteligente (PlanUrbi)</strong>.
+      </p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/planurbi_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram PlanUrbi"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/5582993261747" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp PlanUrbi"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contato PlanUrbi</h4>
+      <ul class="footer-list">
+        <li><i class="fas fa-envelope"></i> <a href="mailto:contato@planurbi.com.br">contato@planurbi.com.br</a></li>
+        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5582993261747" target="_blank" rel="noopener noreferrer">(82) 99326-1747</a></li>
+        <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/planurbi_/" target="_blank" rel="noopener noreferrer">@planurbi_</a></li>
+        <li><i class="fas fa-globe"></i> <a href="https://planurbi.com.br" target="_blank" rel="noopener noreferrer">planurbi.com.br</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Parceria FEPESA</h4>
+      <ul class="footer-list">
+        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/558232235847" target="_blank" rel="noopener noreferrer">(82) 3223-5847</a></li>
+        <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/fepesa.al/" target="_blank" rel="noopener noreferrer">@fepesa.al</a></li>
+        <li><i class="fas fa-globe"></i> <a href="https://fepesa.org.br" target="_blank" rel="noopener noreferrer">fepesa.org.br</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>PLANURBI</h4>
+      <p class="footer-credit">
+        <strong>Planejamento Urbano Inteligente</strong> — consultoria de
+        planejamento urbano e inteligência territorial.
+      </p>
+      <div class="footer-credit-box">
+        <span class="footer-credit-label">Realização</span>
+        <strong>PlanUrbi</strong>
+        <span class="footer-credit-label">Equipe</span>
+        <strong>Equipe técnica PlanUrbi</strong>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <span>© 2026 PlanUrbi. Todos os direitos reservados. · <a href="politica-de-privacidade.html" style="color:inherit;">Política de Privacidade</a></span>
+      <span>Diagnóstico Inteligente · <strong>PlanUrbi 2026</strong></span>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
+  <i class="fas fa-arrow-up"></i>
+</a>
+
+<!-- ===== MODAL OVERLAY ===== -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" id="modal-content"></div>
+</div>
+
+<script src="../perfil-socioeconomico.js"></script>
+</body>
+</html>

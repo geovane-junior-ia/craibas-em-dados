@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Craíbas: visão geral — Painel Craíbas em Dados · PlanUrbi</title>
+<meta name="description" content="Onde fica, como é o território, a economia e o meio ambiente de Craíbas — Alagoas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.5.0/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles-eixo.css">
+</head>
+<body>
+
+<!-- ===== HEADER PADRÃO ===== -->
+<header class="header" id="header">
+  <div class="header-top">
+    <div class="container header-top-inner">
+      <span><i class="fas fa-map-marker-alt"></i> Craíbas, Alagoas — Brasil</span>
+      <span class="header-top-right">
+        <i class="far fa-calendar-alt"></i> Diagnóstico Inteligente · PLANURBI 2026
+      </span>
+    </div>
+  </div>
+  <div class="header-main">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-mark">
+          <img src="../images/logo-planurbi-horizontal.png" alt="PlanUrbi — Planejamento Urbano Inteligente" class="logo-img"/>
+        </div>
+        <div class="logo-text">
+          <strong>Craíbas em Dados</strong>
+          <span>Painel público · PlanUrbi</span>
+        </div>
+      </a>
+      <nav class="nav-main" id="nav-main">
+        <a href="../index.html#inicio">Início</a>
+        <a href="../index.html#sobre">Sobre</a>
+        <a href="../index.html#dados">Dados</a>
+        <a href="../index.html#capitulos" class="active">Eixos Temáticos</a>
+        <a href="../index.html#contato">Contato</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== PÁGINA DO EIXO ===== -->
+<main class="eixo-page">
+  <div class="container">
+
+    <div class="w">
+      <h2 class="sr-only">Craíbas: visão geral do município — localização, território, economia e meio ambiente</h2>
+
+      <!-- Título + breadcrumb -->
+      <div class="ph">
+        <div class="bc">
+          <a href="../index.html"><i class="ti ti-home" aria-hidden="true"></i> Início</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <a href="../index.html#capitulos">Eixos temáticos</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <span>Craíbas: visão geral</span>
+        </div>
+        <div class="pt">Craíbas: visão geral</div>
+        <div class="ps">Conheça o município — onde fica, como é o território, a economia e o meio ambiente. Uma introdução a Craíbas para entender o contexto do diagnóstico.</div>
+      </div>
+
+      <!-- Insight -->
+      <div class="insight">
+        <i class="ti ti-bulb ii" aria-hidden="true"></i>
+        <div class="it"><strong>O que o diagnóstico revelou:</strong> Craíbas tem uma economia em rápida transformação, impulsionada pela mineração. O PIB cresceu mais de 300% em uma década — mas o IDHM ainda é 0,525, um dos mais baixos da região. A riqueza do subsolo ainda não se converteu em melhoria concreta na qualidade de vida da população.</div>
+      </div>
+
+      <!-- KPIs -->
+      <div class="kpi-grid">
+        <div class="kpi">
+          <div class="kpi-label">População (Censo 2022)</div>
+          <div class="kpi-val">25.397</div>
+          <div class="kpi-sub">5º mais populoso da microrregião</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Área territorial</div>
+          <div class="kpi-val">277,6 km²</div>
+          <div class="kpi-sub">IBGE, 2025</div>
+        </div>
+        <div class="kpi destaque">
+          <div class="kpi-label">PIB municipal (2023)</div>
+          <div class="kpi-val">R$ 450 mi</div>
+          <div class="kpi-sub">+300% desde 2010</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">PIB per capita (2023)</div>
+          <div class="kpi-val">R$ 18.236</div>
+          <div class="kpi-sub">IBGE</div>
+        </div>
+        <div class="kpi alerta">
+          <div class="kpi-label">IDHM (2010)</div>
+          <div class="kpi-val">0,525</div>
+          <div class="kpi-sub">Ponto de atenção — abaixo da média regional</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Densidade demográfica</div>
+          <div class="kpi-val">91,07 hab/km²</div>
+          <div class="kpi-sub">Censo IBGE 2022</div>
+        </div>
+      </div>
+
+      <!-- Abas -->
+      <div class="tab-row" role="tablist">
+        <div class="tab active" role="tab" onclick="showTab('localizacao',this)"><i class="ti ti-map-pin" aria-hidden="true"></i> Localização</div>
+        <div class="tab" role="tab" onclick="showTab('territorio',this)"><i class="ti ti-trees" aria-hidden="true"></i> Território e clima</div>
+        <div class="tab" role="tab" onclick="showTab('minerais',this)"><i class="ti ti-diamond" aria-hidden="true"></i> Riqueza mineral</div>
+        <div class="tab" role="tab" onclick="showTab('economia',this)"><i class="ti ti-chart-bar" aria-hidden="true"></i> Economia</div>
+      </div>
+
+      <!-- Aba: Localização -->
+      <div id="tab-localizacao" class="tab-content active">
+        <div class="two-col">
+          <div class="card">
+            <div class="card-h"><i class="ti ti-map" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="card-title">Localização no estado</div></div>
+            <div class="card-body">
+              <div class="map-area">
+                <svg class="map-grid-lines" width="100%" height="100%"><line x1="0" y1="33%" x2="100%" y2="33%" stroke="currentColor" stroke-width="0.5"/><line x1="0" y1="66%" x2="100%" y2="66%" stroke="currentColor" stroke-width="0.5"/><line x1="33%" y1="0" x2="33%" y2="100%" stroke="currentColor" stroke-width="0.5"/><line x1="66%" y1="0" x2="66%" y2="100%" stroke="currentColor" stroke-width="0.5"/></svg>
+                <div style="position:absolute;top:8px;left:8px;font-size:10px;color:#5F5E5A;font-weight:500">Alagoas</div>
+                <div class="loc-ring" style="left:48%;top:48%"></div>
+                <div class="loc-dot" style="left:48%;top:48%"></div>
+                <div style="position:absolute;left:52%;top:36%;font-size:11px;color:var(--verde-texto);font-weight:600;white-space:nowrap">Craíbas</div>
+                <div class="neighbor" style="left:55%;top:52%">Arapiraca</div>
+                <div class="neighbor" style="left:28%;top:44%">Igaci</div>
+                <div class="neighbor" style="left:42%;top:62%">Jaramataia</div>
+                <div class="neighbor" style="left:58%;top:38%">Girau do Ponciano</div>
+                <div class="neighbor" style="left:60%;top:60%">Lagoa da Canoa</div>
+                <div style="position:absolute;bottom:8px;right:8px;font-size:9px;color:#888780">Posição aproximada</div>
+              </div>
+              <div class="map-legend-row">
+                <div class="map-leg"><div style="width:10px;height:10px;background:var(--verde-forte);border-radius:50%;border:2px solid white"></div> Craíbas</div>
+                <div class="map-leg"><i class="ti ti-road" aria-hidden="true"></i> BR-316 · BR-101 · AL-220</div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-h"><i class="ti ti-info-circle" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="card-title">Dados de localização</div></div>
+            <div class="card-body">
+              <div class="data-row"><span class="data-label"><i class="ti ti-map-pin" aria-hidden="true"></i> Mesorregião</span><span class="data-val">Agreste Alagoano</span></div>
+              <div class="data-row"><span class="data-label"><i class="ti ti-map-pin" aria-hidden="true"></i> Microrregião</span><span class="data-val">Arapiraca</span></div>
+              <div class="data-row"><span class="data-label"><i class="ti ti-route" aria-hidden="true"></i> Distância de Maceió</span><span class="data-val">~160 km</span></div>
+              <div class="data-row"><span class="data-label"><i class="ti ti-gps" aria-hidden="true"></i> Coordenadas</span><span class="data-val">09°37'S · 36°46'O</span></div>
+              <div class="data-row"><span class="data-label"><i class="ti ti-building-community" aria-hidden="true"></i> Vizinhos</span><span class="data-val" style="font-size:11px;line-height:1.4">Igaci · Girau do Ponciano<br>Arapiraca · Jaramataia<br>Lagoa da Canoa · Major Isidoro</span></div>
+              <div class="data-row"><span class="data-label"><i class="ti ti-road" aria-hidden="true"></i> Acesso viário</span><span class="data-val">BR-316 · BR-101 · AL-220</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Aba: Território e clima -->
+      <div id="tab-territorio" class="tab-content">
+        <div class="two-col">
+          <div class="card">
+            <div class="card-h"><i class="ti ti-trees" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="card-title">Território e meio ambiente</div></div>
+            <div class="card-body">
+              <div class="data-row"><span class="data-label"><i class="ti ti-leaf" aria-hidden="true"></i> Bioma</span><span class="data-val">Caatinga</span></div>
+              <div class="data-row"><span class="data-label"><i class="ti ti-sun" aria-hidden="true"></i> Clima</span><span class="data-val">Tropical semiárido (BSh)</span></div>
+              <div class="data-row"><span class="data-label"><i class="ti ti-cloud-rain" aria-hidden="true"></i> Precipitação média</span><span class="data-val">431,8 mm/ano</span></div>
+              <div class="data-row"><span class="data-label"><i class="ti ti-calendar" aria-hidden="true"></i> Período chuvoso</span><span class="data-val">Novembro a Abril</span></div>
+              <div class="data-row"><span class="data-label"><i class="ti ti-wave-sine" aria-hidden="true"></i> Bacia hidrográfica</span><span class="data-val">Rio São Francisco</span></div>
+              <div class="data-row"><span class="data-label"><i class="ti ti-wave-sine" aria-hidden="true"></i> Sub-bacia</span><span class="data-val">Rio Traipu · Riacho Salgado</span></div>
+              <div class="data-row"><span class="data-label"><i class="ti ti-mountain" aria-hidden="true"></i> Altitude média</span><span class="data-val">~281 m</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-h"><i class="ti ti-droplet" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="card-title">Recursos hídricos</div></div>
+            <div class="card-body">
+              <div class="data-row"><span class="data-label"><i class="ti ti-ripple" aria-hidden="true"></i> Regime dos rios</span><span class="data-val">Predominantemente intermitente</span></div>
+              <div class="data-row"><span class="data-label"><i class="ti ti-droplet-half" aria-hidden="true"></i> Poços profundos</span><span class="data-val">3 artesianos</span></div>
+              <div class="data-row"><span class="data-label"><i class="ti ti-droplet-half" aria-hidden="true"></i> Poços rasos</span><span class="data-val">37 freáticos / cacimbas</span></div>
+              <div class="nota-metodo">
+                <i class="ti ti-info-circle" aria-hidden="true"></i>
+                <div>A baixa disponibilidade hídrica é uma condição estrutural do município, característica do semiárido. Ponto de atenção destacado no diagnóstico.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Aba: Riqueza mineral -->
+      <div id="tab-minerais" class="tab-content">
+        <div class="card">
+          <div class="card-h"><i class="ti ti-diamond" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="card-title">Minerais do subsolo</div></div>
+          <div class="card-body">
+            <div class="mineral-grid">
+              <div class="mineral"><div class="mineral-name">Cobre</div><div class="mineral-type">Metálico</div></div>
+              <div class="mineral"><div class="mineral-name">Ouro</div><div class="mineral-type">Metálico</div></div>
+              <div class="mineral"><div class="mineral-name">Níquel</div><div class="mineral-type">Metálico</div></div>
+              <div class="mineral"><div class="mineral-name">Ferro</div><div class="mineral-type">Metálico</div></div>
+              <div class="mineral"><div class="mineral-name">Platina</div><div class="mineral-type">Metálico</div></div>
+              <div class="mineral"><div class="mineral-name">Paládio</div><div class="mineral-type">Metálico</div></div>
+              <div class="mineral"><div class="mineral-name">Quartzo</div><div class="mineral-type">Não metálico</div></div>
+              <div class="mineral"><div class="mineral-name">Ametista</div><div class="mineral-type">Não metálico</div></div>
+              <div class="mineral"><div class="mineral-name">Feldspato</div><div class="mineral-type">Não metálico</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-h"><i class="ti ti-building-factory" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="card-title">Projeto Serrote — Mineração Vale Verde</div></div>
+          <div class="card-body">
+            <div class="data-row"><span class="data-label">Investimentos realizados</span><span class="data-val">+ R$ 60 milhões</span></div>
+            <div class="data-row"><span class="data-label">Estimativa de produção</span><span class="data-val">200 milhões de toneladas</span></div>
+            <div class="data-row"><span class="data-label">Processamento diário</span><span class="data-val">42 mil toneladas</span></div>
+            <div class="data-row"><span class="data-label">CFEM* arrecadado/ano</span><span class="data-val">R$ 20,8 milhões</span></div>
+            <div class="data-row"><span class="data-label">Participação no CFEM estadual</span><span class="data-val" style="color:var(--verde-texto)">97% de Alagoas</span></div>
+            <div class="nota-metodo">
+              <i class="ti ti-info-circle" aria-hidden="true"></i>
+              <div><strong>*CFEM</strong> — Compensação Financeira pela Exploração Mineral: imposto que a mineradora paga ao município pelo uso do subsolo.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Aba: Economia -->
+      <div id="tab-economia" class="tab-content">
+        <div class="two-col">
+          <div class="card">
+            <div class="card-h"><i class="ti ti-chart-bar" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="card-title">De onde vem a riqueza do município</div></div>
+            <div class="card-body">
+              <div style="font-size:11px;color:var(--color-text-tertiary);margin-bottom:12px">VAB* por setor · IBGE, 2021</div>
+              <div class="eco-bar-row"><div class="eco-label">Indústria</div><div class="eco-track"><div class="eco-fill" style="width:82%;background:var(--verde-forte)"></div></div><div class="eco-pct">32,7%</div></div>
+              <div class="eco-bar-row"><div class="eco-label">Administração Pública</div><div class="eco-track"><div class="eco-fill" style="width:66%;background:#378ADD"></div></div><div class="eco-pct">26,3%</div></div>
+              <div class="eco-bar-row"><div class="eco-label">Serviços</div><div class="eco-track"><div class="eco-fill" style="width:58%;background:#5DCAA5"></div></div><div class="eco-pct">23,0%</div></div>
+              <div class="eco-bar-row"><div class="eco-label">Agropecuária</div><div class="eco-track"><div class="eco-fill" style="width:45%;background:#EF9F27"></div></div><div class="eco-pct">18,0%</div></div>
+              <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:12px"><strong>*VAB</strong> — Valor Adicionado Bruto: soma da riqueza gerada por cada setor da economia no município.</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-h"><i class="ti ti-trending-up" style="color:var(--verde-forte)" aria-hidden="true"></i><div class="card-title">Principais setores empregadores</div></div>
+            <div class="card-body">
+              <div class="data-row"><span class="data-label">1º</span><span class="data-val">Administração pública</span></div>
+              <div class="data-row"><span class="data-label">2º</span><span class="data-val">Extração mineral</span></div>
+              <div class="data-row"><span class="data-label">3º</span><span class="data-val">Preparação do terreno</span></div>
+              <div style="height:1px;background:var(--color-border-tertiary);margin:12px 0"></div>
+              <div class="data-row"><span class="data-label">Empregos formais (2022)</span><span class="data-val">~2.100</span></div>
+              <div class="data-row"><span class="data-label">Atividade agrícola</span><span class="data-val">Fumo · Mandioca</span></div>
+              <div class="data-row"><span class="data-label">Polo regional</span><span class="data-val">Arapiraca</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alert -->
+      <div class="alert-box">
+        <i class="ti ti-alert-triangle alert-icon" aria-hidden="true"></i>
+        <div class="alert-text"><strong>Tensão central do diagnóstico:</strong> os recursos minerais são finitos. O IDHM de Craíbas (0,525) ainda é um dos mais baixos da região, evidenciando o desafio de converter a riqueza do subsolo em melhoria concreta para a população.</div>
+      </div>
+
+      <!-- Fontes -->
+      <div class="fontes">
+        <div class="fontes-text"><strong>Fontes:</strong> IBGE · Censo Demográfico 2022 · Contas Nacionais Regionais 2023 · PNUD · Atlas IDHM 2010 · ANM/SIGMINE 2025 · Diagnóstico Inteligente PlanUrbi, 2026.</div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ===== FOOTER PADRÃO ===== -->
+<footer class="footer" id="contato">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="../index.html" class="logo logo-light">
+        <div class="logo-mark">
+          <img src="../images/logo-planurbi-horizontal.png" alt="PlanUrbi" class="logo-img logo-img-footer"/>
+        </div>
+        <div class="logo-text">
+          <strong>Craíbas em Dados</strong>
+          <span>Painel público · PlanUrbi</span>
+        </div>
+      </a>
+      <p class="footer-desc">
+        Diagnóstico Inteligente do município de Craíbas, elaborado com base em
+        dados oficiais, escuta participativa e análise multidisciplinar pela
+        equipe técnica do <strong>Planejamento Urbano Inteligente (PlanUrbi)</strong>.
+      </p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/planurbi_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram PlanUrbi"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/5582993261747" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp PlanUrbi"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Contato PlanUrbi</h4>
+      <ul class="footer-list">
+        <li><i class="fas fa-envelope"></i> <a href="mailto:contato@planurbi.com.br">contato@planurbi.com.br</a></li>
+        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5582993261747" target="_blank" rel="noopener noreferrer">(82) 99326-1747</a></li>
+        <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/planurbi_/" target="_blank" rel="noopener noreferrer">@planurbi_</a></li>
+        <li><i class="fas fa-globe"></i> <a href="https://planurbi.com.br" target="_blank" rel="noopener noreferrer">planurbi.com.br</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Parceria FEPESA</h4>
+      <ul class="footer-list">
+        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/558232235847" target="_blank" rel="noopener noreferrer">(82) 3223-5847</a></li>
+        <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/fepesa.al/" target="_blank" rel="noopener noreferrer">@fepesa.al</a></li>
+        <li><i class="fas fa-globe"></i> <a href="https://fepesa.org.br" target="_blank" rel="noopener noreferrer">fepesa.org.br</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>PLANURBI</h4>
+      <p class="footer-credit"><strong>Planejamento Urbano Inteligente</strong> — consultoria de planejamento urbano e inteligência territorial.</p>
+      <div class="footer-credit-box">
+        <span class="footer-credit-label">Realização</span>
+        <strong>PlanUrbi</strong>
+        <span class="footer-credit-label">Equipe</span>
+        <strong>Equipe técnica PlanUrbi</strong>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <span>© 2026 PlanUrbi. Todos os direitos reservados. · <a href="politica-de-privacidade.html" style="color:inherit;">Política de Privacidade</a></span>
+      <span>Diagnóstico Inteligente · <strong>PlanUrbi 2026</strong></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../script-eixo.js"></script>
+</body>
+</html>

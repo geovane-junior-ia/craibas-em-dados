@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "municipio": "Craíbas",
+    "uf": "AL",
+    "pais": "Brasil",
+    "ibgeCode": "2702306",
+    "mesorregiao": "Agreste Alagoano",
+    "microrregiao": "Arapiraca",
+    "bioma": "Caatinga",
+    "altitude": 281,
+    "area_km2": 275,
+    "atualizado": "2026-05-09",
+    "fontes": [
+      "OpenStreetMap (via Nominatim API)",
+      "Cliente (Casa Maternal)",
+      "IBGE (centroides dos vizinhos)",
+      "Aproximação por quadrante (povoados)"
+    ]
+  },
+  "centroMunicipal": { "lat": -9.6168, "lng": -36.7685, "source": "OSM", "verified": true },
+  "ruas": {
+    "Rua Pedro Gama":              { "lat": -9.6184, "lng": -36.7678, "source": "OSM",          "verified": true,  "ref": "Prefeitura Municipal" },
+    "Rua São Pedro":               { "lat": -9.6192, "lng": -36.7691, "source": "OSM",          "verified": true,  "ref": "CMEI Arlene Simplício" },
+    "Rua Sete de Setembro":        { "lat": -9.6159, "lng": -36.7649, "source": "OSM",          "verified": true,  "ref": "Esc. Alegria do Saber" },
+    "Rua Francisco Gama":          { "lat": -9.6199, "lng": -36.7709, "source": "OSM",          "verified": true,  "ref": "Esc. Ten. Cel. José Barros Paes" },
+    "Rua Santo Antônio":           { "lat": -9.6160, "lng": -36.7626, "source": "OSM",          "verified": true,  "ref": "UBS Edvaldo Correia (COHAB)" },
+    "Rua Manoel Antônio de Jesus": { "lat": -9.6165, "lng": -36.7645, "source": "OSM",          "verified": true,  "ref": "Esc. 21 de Abril" },
+    "Rua do Matadouro":            { "lat": -9.6229, "lng": -36.7739, "source": "OSM",          "verified": true,  "ref": "CISP" },
+    "Rua Pau Ferro":               { "lat": -9.6235, "lng": -36.7713, "source": "OSM",          "verified": true },
+    "Rua 15 de Novembro":          { "lat": -9.6125, "lng": -36.7698, "source": "OSM",          "verified": true },
+    "Rua 23 de Abril":             { "lat": -9.6176, "lng": -36.7735, "source": "OSM",          "verified": true },
+    "Rua Santa Rosa":              { "lat": -9.6249, "lng": -36.7602, "source": "OSM",          "verified": true },
+    "Rua Nossa Senhora da Salete":    { "lat": -9.6175, "lng": -36.7682, "source": "Aproximação", "verified": false, "ref": "Maioria das UBS" },
+    "Rua Nossa Senhora da Conceição": { "lat": -9.6172, "lng": -36.7680, "source": "Aproximação", "verified": false, "ref": "CREAS" },
+    "Rua Pedro Ramos":                { "lat": -9.6180, "lng": -36.7672, "source": "Aproximação", "verified": false, "ref": "CRAS" },
+    "Rua Ulisses Paulino":            { "lat": -9.6190, "lng": -36.7700, "source": "Aproximação", "verified": false }
+  },
+  "pracas": {
+    "Praça Manoel Nunes":              { "lat": -9.6169, "lng": -36.7685, "source": "OSM",          "verified": true },
+    "Praça Domingos Antônio Teixeira": { "lat": -9.6172, "lng": -36.7689, "source": "Aproximação", "verified": false },
+    "Praça da Bíblia":                 { "lat": -9.6166, "lng": -36.7679, "source": "Aproximação", "verified": false },
+    "Praça Manoel Ferreira Santos":    { "lat": -9.6178, "lng": -36.7692, "source": "Aproximação", "verified": false },
+    "Praça de Alimentação":            { "lat": -9.6171, "lng": -36.7681, "source": "Aproximação", "verified": false }
+  },
+  "zonas": {
+    "Centro":                { "lat": -9.6168, "lng": -36.7685, "source": "OSM",          "verified": true },
+    "COHAB":                 { "lat": -9.6155, "lng": -36.7660, "source": "Aproximação", "verified": false },
+    "Conjunto Habitacional": { "lat": -9.6178, "lng": -36.7680, "source": "Aproximação", "verified": false }
+  },
+  "povoados": {
+    "Folha Miúda":              { "lat": -9.7033, "lng": -36.7952, "source": "OSM",          "verified": true,  "quadrante": "S"  },
+    "Sítio Ipojuco":            { "lat": -9.5870, "lng": -36.7940, "source": "Aproximação", "verified": false, "quadrante": "NW" },
+    "Sítio Serrote":            { "lat": -9.5990, "lng": -36.7460, "source": "Aproximação", "verified": false, "quadrante": "NE" },
+    "Sítio Serrote Grande":     { "lat": -9.6020, "lng": -36.7510, "source": "Aproximação", "verified": false, "quadrante": "NE" },
+    "Sítio Lagoa Nova":         { "lat": -9.6080, "lng": -36.7900, "source": "Aproximação", "verified": false, "quadrante": "NW" },
+    "Sítio Lagoa do Mel":       { "lat": -9.6280, "lng": -36.7960, "source": "Aproximação", "verified": false, "quadrante": "W"  },
+    "Sítio Lagoa da Cruz":      { "lat": -9.6520, "lng": -36.7350, "source": "Aproximação", "verified": false, "quadrante": "SE" },
+    "Sítio Alto Grande":        { "lat": -9.5980, "lng": -36.7570, "source": "Aproximação", "verified": false, "quadrante": "N"  },
+    "Sítio Esporão":            { "lat": -9.6080, "lng": -36.8100, "source": "Aproximação", "verified": false, "quadrante": "W"  },
+    "Sítio Areia Branca":       { "lat": -9.5980, "lng": -36.7300, "source": "Aproximação", "verified": false, "quadrante": "NE" },
+    "Sítio Pau Ferro":          { "lat": -9.6450, "lng": -36.7950, "source": "Aproximação", "verified": false, "quadrante": "SW" },
+    "Sítio Bonito":             { "lat": -9.6650, "lng": -36.7780, "source": "Aproximação", "verified": false, "quadrante": "S"  },
+    "Povoado Lagoa da Angélica":{ "lat": -9.6500, "lng": -36.7950, "source": "Aproximação", "verified": false, "quadrante": "S"  },
+    "Povoado Lagoa do Algodão": { "lat": -9.6500, "lng": -36.7400, "source": "Aproximação", "verified": false, "quadrante": "SE" },
+    "Povoado Santo Antônio":    { "lat": -9.6580, "lng": -36.7280, "source": "Aproximação", "verified": false, "quadrante": "SE" },
+    "Povoado Santa Rosa":       { "lat": -9.6280, "lng": -36.8000, "source": "Aproximação", "verified": false, "quadrante": "SW" },
+    "Povoado Bom Jesus":        { "lat": -9.5800, "lng": -36.7150, "source": "Aproximação", "verified": false, "quadrante": "NE" },
+    "Povoado São João":         { "lat": -9.6420, "lng": -36.7280, "source": "Aproximação", "verified": false, "quadrante": "SE" }
+  },
+  "equipamentos": {
+    "Prefeitura Municipal de Craíbas": {
+      "lat": -9.61819076963784,
+      "lng": -36.76786567143879,
+      "source": "Cliente",
+      "verified": true,
+      "categoria": "governo",
+      "tipo": "Prefeitura",
+      "endereco": "Rua Pedro Gama, 122, Centro"
+    },
+    "Casa Maternal Frei Damião": {
+      "lat": -9.61868048462909,
+      "lng": -36.768965645507905,
+      "source": "Cliente",
+      "verified": true,
+      "categoria": "saude",
+      "tipo": "Maternidade 24h"
+    }
+  },
+  "fotos": {
+    "Praça Manoel Nunes": "images/equipamentos/praca-manoel-nunes.jpg",
+    "CISP — Centro Integrado de Segurança Pública": "images/equipamentos/cisp.jpeg"
+  },
+  "vizinhos": {
+    "Maj. Isidoro":    { "lat": -9.5267, "lng": -36.9886, "source": "IBGE", "verified": true, "distancia_km": 23, "direcao": "O"  },
+    "Igaci":           { "lat": -9.5358, "lng": -36.6386, "source": "IBGE", "verified": true, "distancia_km": 18, "direcao": "L"  },
+    "Arapiraca":       { "lat": -9.7522, "lng": -36.6614, "source": "IBGE", "verified": true, "distancia_km": 21, "direcao": "SE" },
+    "Lagoa da Canoa":  { "lat": -9.8367, "lng": -36.7350, "source": "IBGE", "verified": true, "distancia_km": 25, "direcao": "S"  }
+  }
+}
