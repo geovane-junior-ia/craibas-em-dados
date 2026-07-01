@@ -28,46 +28,22 @@
     );
   }
 
-  /* ===== Counters (animação igual ao index) ===== */
+  /* ===== Counters (valores estáticos — animação removida) =====
+     A animação repetitiva em cada troca de aba causava ruído visual.
+     Agora os valores são exibidos direto, formatados. */
   function formatNumber(n) { return n.toLocaleString('pt-BR'); }
-  function animateCount(el) {
+  function setStaticValue(el) {
     const target = parseFloat(el.dataset.count);
+    if (isNaN(target)) return;
     const decimals = parseInt(el.dataset.decimals || '0', 10);
     const prefix = el.dataset.prefix || '';
     const suffix = el.dataset.suffix || '';
-    const duration = 1800;
-    const start = performance.now();
-
-    function tick(now) {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const value = eased * target;
-      const display = decimals > 0
-        ? value.toFixed(decimals).replace('.', ',')
-        : formatNumber(Math.floor(value));
-      el.textContent = prefix + display + suffix;
-      if (progress < 1) requestAnimationFrame(tick);
-      else {
-        const final = decimals > 0
-          ? target.toFixed(decimals).replace('.', ',')
-          : formatNumber(target);
-        el.textContent = prefix + final + suffix;
-      }
-    }
-    requestAnimationFrame(tick);
+    const display = decimals > 0
+      ? target.toFixed(decimals).replace('.', ',')
+      : formatNumber(target);
+    el.textContent = prefix + display + suffix;
   }
-
-  const countersStarted = new WeakSet();
-  const counterObserver = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting && !countersStarted.has(e.target)) {
-        countersStarted.add(e.target);
-        animateCount(e.target);
-      }
-    });
-  }, { threshold: 0.4 });
-  document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+  document.querySelectorAll('[data-count]').forEach(setStaticValue);
 
   /* ===== Fade-up reveals ===== */
   const revealEls = document.querySelectorAll(

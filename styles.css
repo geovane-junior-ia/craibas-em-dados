@@ -751,9 +751,9 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   margin-bottom: 4px;
 }
 .indicator-sub {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
+  /* Equipe pediu: subtítulos em caixa baixa (sentence case), não CAPS */
+  font-size: 13px;
+  letter-spacing: 0.3px;
   color: var(--accent);
   margin-bottom: 16px;
   font-weight: 600;
