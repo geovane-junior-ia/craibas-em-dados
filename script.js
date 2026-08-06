@@ -54,7 +54,7 @@
     const target = parseInt(el.dataset.count, 10);
     if (isNaN(target)) return;
     const suffix = el.dataset.suffix || '';
-    const duration = 1800;
+    const duration = 1000;
     const start = performance.now();
 
     function tick(now) {
@@ -118,13 +118,13 @@
 
   /* ===== Charts ===== */
   if (typeof Chart !== 'undefined') {
-    Chart.defaults.font.family = "'Inter', sans-serif";
+    Chart.defaults.font.family = "'Hauora', sans-serif";
     Chart.defaults.color = 'rgba(255,255,255,0.85)';
     Chart.defaults.plugins.legend.labels.color = 'rgba(255,255,255,0.9)';
 
-    const colorPrimary = '#1a6b2a';
-    const colorAccent = '#f5a800';
-    const colorSecondary = '#7ec8e3';
+    const colorPrimary = '#1C8B7D';
+    const colorAccent = '#E8D4B9';
+    const colorSecondary = '#9EBAF2';
     const colorWhite = 'rgba(255,255,255,0.9)';
 
     /* === Population Urban × Rural ===
@@ -151,7 +151,7 @@
           plugins: {
             legend: { position: 'bottom', labels: { padding: 18, boxWidth: 12, boxHeight: 12, font: { size: 13, weight: '600' } } },
             tooltip: {
-              backgroundColor: '#0d3a17',
+              backgroundColor: '#00362D',
               padding: 12,
               callbacks: { label: ctx => ` ${ctx.label}: ${ctx.parsed}%` }
             }
@@ -164,8 +164,8 @@
     const evolCtx = document.getElementById('chartEvolucao');
     if (evolCtx) {
       const grad = evolCtx.getContext('2d').createLinearGradient(0, 0, 0, 240);
-      grad.addColorStop(0, 'rgba(245, 168, 0, 0.55)');
-      grad.addColorStop(1, 'rgba(245, 168, 0, 0)');
+      grad.addColorStop(0, 'rgba(232, 212, 185, 0.45)');
+      grad.addColorStop(1, 'rgba(232, 212, 185, 0)');
 
       /* Fonte: t003 (IBGE · Censos Demográficos + estimativas FGV/IBGE) */
       new Chart(evolCtx, {
@@ -193,7 +193,7 @@
           plugins: {
             legend: { display: false },
             tooltip: {
-              backgroundColor: '#0d3a17',
+              backgroundColor: '#00362D',
               padding: 12,
               callbacks: { label: ctx => ` ${ctx.parsed.y.toLocaleString('pt-BR')} habitantes` }
             }
@@ -225,7 +225,7 @@
           labels: ['Indústria', 'Adm. Pública', 'Serviços', 'Agropecuária'],
           datasets: [{
             data: [32.7, 26.3, 23.0, 18.0],
-            backgroundColor: [colorAccent, colorSecondary, '#46b358', 'rgba(255,255,255,0.7)'],
+            backgroundColor: [colorAccent, colorSecondary, '#5FB3A5', 'rgba(255,255,255,0.65)'],
             borderRadius: 8,
             borderSkipped: false,
             barThickness: 28
@@ -238,7 +238,7 @@
           plugins: {
             legend: { display: false },
             tooltip: {
-              backgroundColor: '#0d3a17',
+              backgroundColor: '#00362D',
               padding: 12,
               callbacks: { label: ctx => ` ${ctx.parsed.x}% do PIB municipal` }
             }

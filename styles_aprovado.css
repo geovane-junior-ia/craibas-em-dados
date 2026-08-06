@@ -1,15 +1,15 @@
 /* ============================================
    DIAGNÓSTICO PDM CRAÍBAS — Styles
-   Brand: #1a6b2a (primary green) · #f5a800 (accent) · #7ec8e3 (light blue)
+   Brand: #0B5A4B (primary green) · #E8D4B9 (accent) · #9EBAF2 (light blue)
    ============================================ */
 
 :root {
-  --primary: #1a6b2a;
-  --primary-dark: #0d3a17;
-  --primary-light: #2a8a3d;
-  --accent: #f5a800;
+  --primary: #0B5A4B;
+  --primary-dark: #00362D;
+  --primary-light: #0B5A4B;
+  --accent: #E8D4B9;
   --accent-dark: #c98700;
-  --secondary: #7ec8e3;
+  --secondary: #9EBAF2;
   --secondary-dark: #4ca6c8;
   --bg: #ffffff;
   --bg-soft: #f6faf7;
@@ -224,8 +224,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   align-items: center;
   gap: 8px;
   padding: 6px 16px;
-  background: rgba(245, 168, 0, 0.15);
-  border: 1px solid rgba(245, 168, 0, 0.4);
+  background: rgba(232, 212, 185, 0.15);
+  border: 1px solid rgba(232, 212, 185, 0.4);
   color: var(--accent);
   border-radius: 100px;
   font-size: 13px;
@@ -289,9 +289,9 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 .btn-primary {
   background: var(--accent);
   color: var(--primary-dark);
-  box-shadow: 0 8px 24px rgba(245, 168, 0, 0.4);
+  box-shadow: 0 8px 24px rgba(232, 212, 185, 0.4);
 }
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(245, 168, 0, 0.55); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(232, 212, 185, 0.55); }
 
 .btn-secondary {
   background: transparent;
@@ -384,9 +384,9 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   box-shadow: 0 4px 12px rgba(26, 107, 42, 0.25);
 }
 
-.stat-card:nth-child(2) .stat-icon { background: linear-gradient(135deg, var(--accent) 0%, #ffc548 100%); box-shadow: 0 4px 12px rgba(245, 168, 0, 0.3); }
+.stat-card:nth-child(2) .stat-icon { background: linear-gradient(135deg, var(--accent) 0%, #F0E2CD 100%); box-shadow: 0 4px 12px rgba(232, 212, 185, 0.3); }
 .stat-card:nth-child(3) .stat-icon { background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--secondary) 100%); box-shadow: 0 4px 12px rgba(126, 200, 227, 0.35); }
-.stat-card:nth-child(4) .stat-icon { background: linear-gradient(135deg, #2a8a3d 0%, #46b358 100%); }
+.stat-card:nth-child(4) .stat-icon { background: linear-gradient(135deg, #0B5A4B 0%, #1C8B7D 100%); }
 
 .stat-number {
   font-family: 'Playfair Display', serif;
@@ -529,7 +529,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 }
 @keyframes pulseShape {
   0%, 100% { filter: drop-shadow(0 6px 16px rgba(26, 107, 42, 0.4)); }
-  50% { filter: drop-shadow(0 8px 22px rgba(245, 168, 0, 0.5)); }
+  50% { filter: drop-shadow(0 8px 22px rgba(232, 212, 185, 0.5)); }
 }
 
 .pulse {
@@ -674,7 +674,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   box-shadow: var(--shadow-lg);
 }
 .chapter-card:hover::after { opacity: 1; }
-.chapter-card:hover::before { color: rgba(245, 168, 0, 0.3); }
+.chapter-card:hover::before { color: rgba(232, 212, 185, 0.3); }
 .chapter-card:hover h3,
 .chapter-card:hover p,
 .chapter-card:hover .chapter-link { color: white; }
@@ -743,7 +743,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   position: absolute;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(245, 168, 0, 0.15), transparent 60%);
+  background: radial-gradient(circle, rgba(232, 212, 185, 0.15), transparent 60%);
   top: -200px;
   right: -200px;
   pointer-events: none;

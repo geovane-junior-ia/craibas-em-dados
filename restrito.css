@@ -10,8 +10,8 @@
   align-items: center;
   gap: 8px;
   padding: 6px 14px;
-  background: rgba(245, 168, 0, 0.15);
-  border: 1px solid rgba(245, 168, 0, 0.35);
+  background: rgba(232, 212, 185, 0.15);
+  border: 1px solid rgba(232, 212, 185, 0.35);
   border-radius: 100px;
   font-size: 12px;
   font-weight: 700;
@@ -40,7 +40,7 @@ body.modo-restrito .restrito-toggle i.fa-lock {
 /* Placeholder visível quando conteúdo está bloqueado */
 .restrito-locked {
   background: linear-gradient(135deg, #f6faf7 0%, #eef5f0 100%);
-  border: 2px dashed rgba(26, 74, 46, 0.28);
+  border: 2px dashed rgba(0, 54, 45, 0.28);
   border-radius: var(--radius);
   padding: 32px 28px;
   text-align: center;
@@ -71,11 +71,11 @@ body.modo-restrito .restrito-toggle i.fa-lock {
   align-items: center;
   justify-content: center;
   font-size: 22px;
-  box-shadow: 0 6px 16px rgba(26, 74, 46, 0.25);
+  box-shadow: 0 6px 16px rgba(0, 54, 45, 0.25);
 }
 
 .restrito-locked-title {
-  font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+  font-family: var(--font-display);
   font-size: 20px;
   font-weight: 700;
   color: var(--primary-dark);
@@ -129,8 +129,8 @@ body.modo-restrito .conteudo-restrito::before {
   letter-spacing: 1.2px;
   text-transform: uppercase;
   color: var(--accent);
-  background: rgba(245, 168, 0, 0.12);
-  border: 1px solid rgba(245, 168, 0, 0.3);
+  background: rgba(232, 212, 185, 0.12);
+  border: 1px solid rgba(232, 212, 185, 0.3);
   padding: 4px 10px;
   border-radius: 100px;
   display: inline-block;
@@ -185,11 +185,11 @@ body.modo-restrito .conteudo-restrito::before {
   justify-content: center;
   font-size: 28px;
   margin: 0 auto 20px;
-  box-shadow: 0 8px 20px rgba(26, 74, 46, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 54, 45, 0.3);
 }
 
 .senha-modal h2 {
-  font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+  font-family: var(--font-display);
   font-size: 28px;
   font-weight: 700;
   color: var(--primary-dark);
@@ -212,7 +212,7 @@ body.modo-restrito .conteudo-restrito::before {
   border-radius: var(--radius-sm);
   background: var(--bg-soft);
   color: var(--text);
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-display);
   transition: var(--transition);
   margin-bottom: 8px;
 }
@@ -220,7 +220,7 @@ body.modo-restrito .conteudo-restrito::before {
   outline: none;
   border-color: var(--primary);
   background: white;
-  box-shadow: 0 0 0 3px rgba(26, 74, 46, 0.10);
+  box-shadow: 0 0 0 3px rgba(0, 54, 45, 0.10);
 }
 
 .senha-input.erro {

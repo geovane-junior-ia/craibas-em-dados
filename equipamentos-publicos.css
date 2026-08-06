@@ -16,7 +16,7 @@
   content: '';
   position: absolute;
   width: 460px; height: 460px;
-  background: radial-gradient(circle, rgba(245,168,0,0.10), transparent 70%);
+  background: radial-gradient(circle, rgba(232,212,185,0.10), transparent 70%);
   top: -160px; right: -120px;
   pointer-events: none;
 }
@@ -33,7 +33,7 @@
 .dash-breadcrumb i { font-size: 10px; color: var(--text-light); }
 
 .dash-hero-title {
-  font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+  font-family: var(--font-display);
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   font-weight: 700;
   /* Line-height ajustado para acentos ascendentes não serem cortados */
@@ -43,7 +43,7 @@
   color: var(--primary-dark);
   margin-bottom: 14px;
 }
-.dash-hero-title span { color: var(--accent); }
+.dash-hero-title span { color: var(--primary-light); }
 .dash-hero-lead {
   font-size: 1rem;
   color: var(--text-muted);
@@ -59,7 +59,7 @@
   z-index: 50;
   background: white;
   border-bottom: 1px solid var(--border);
-  box-shadow: 0 2px 12px rgba(26,107,42,0.08);
+  box-shadow: 0 2px 12px rgba(0,54,45,0.08);
 }
 .filter-bar {
   display: grid;
@@ -227,14 +227,14 @@
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--border);
-  box-shadow: inset 0 0 0 1px rgba(26,107,42,0.04);
+  box-shadow: inset 0 0 0 1px rgba(0,54,45,0.04);
   contain: strict;          /* impede que o conteúdo "vaze" pra fora do wrap */
 }
 #leaflet-map {
   width: 100% !important;
   height: 540px !important;
   max-height: 540px !important;
-  background: #eaf5ed;
+  background: #EFEBE0;
 }
 .leaflet-container {
   max-height: 540px !important;
@@ -282,7 +282,7 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: var(--c, #1a6b2a);
+  background: var(--c, #0B5A4B);
   border: 2.5px solid white;
   box-shadow: 0 2px 6px rgba(0,0,0,0.35), 0 0 0 1px rgba(0,0,0,0.05);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -294,7 +294,7 @@
 }
 .leaflet-marker-eq.selected .le-pin {
   transform: scale(1.6);
-  box-shadow: 0 0 0 4px rgba(245,168,0,0.6), 0 4px 12px rgba(0,0,0,0.4);
+  box-shadow: 0 0 0 4px rgba(232,212,185,0.6), 0 4px 12px rgba(0,0,0,0.4);
 }
 .leaflet-marker-eq.selected .le-pin::after {
   content: '';
@@ -409,7 +409,7 @@
 }
 .popup-eq-cat i { font-size: 10px; }
 .popup-eq-title {
-  font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif !important;
+  font-family: var(--font-display) !important;
   font-size: 22px !important;
   font-weight: 700 !important;
   line-height: 1.15 !important;
@@ -470,7 +470,7 @@
   background: var(--accent);
   color: var(--primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(245,168,0,0.4);
+  box-shadow: 0 4px 12px rgba(232,212,185,0.4);
 }
 .popup-btn i { font-size: 11px; }
 
@@ -723,8 +723,8 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-.equip-zona-tag.urbana { background: rgba(245,168,0,0.15); color: var(--accent-dark); }
-.equip-zona-tag.rural { background: rgba(126,200,227,0.2); color: var(--secondary-dark); }
+.equip-zona-tag.urbana { background: rgba(232,212,185,0.15); color: var(--accent-dark); }
+.equip-zona-tag.rural { background: rgba(158,186,242,0.2); color: var(--secondary-dark); }
 
 .empty-state {
   grid-column: 1 / -1;
@@ -913,7 +913,7 @@
 .modal-eq-cat i { font-size: 11px; }
 
 .modal-eq-title {
-  font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif !important;
+  font-family: var(--font-display) !important;
   font-size: 32px;
   font-weight: 700;
   color: var(--primary-dark);
@@ -992,7 +992,7 @@
   background: var(--accent);
   color: var(--primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(245,168,0,0.4);
+  box-shadow: 0 6px 16px rgba(232,212,185,0.4);
 }
 .modal-btn.ghost {
   background: var(--bg-soft);
