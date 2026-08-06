@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Como o território é usado — Painel Craíbas em Dados · PlanUrbi</title>
 <meta name="description" content="Usos do solo rural e urbano, expansão da cidade, condições habitacionais e as principais lacunas do planejamento territorial de Craíbas.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   .hero-title, .page-hero-title, .dash-hero-title,
   .section-title, .cta-title, .chapter-card h3, .indicator-card h4,
@@ -15,7 +12,7 @@
   .chart-card-title, .activity-title, .accordion-trigger,
   .info-text-card h3, .modal-body h2, .highlight-banner-content h3,
   .modal-equip h2, .senha-modal h2 {
-    font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif !important;
+    font-family: var(--font-display) !important;
     font-display: swap;
   }
 </style>
@@ -39,7 +36,7 @@
     box-shadow: var(--shadow-sm);
   }
   .uso-comparativo h4 {
-    font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+    font-family: var(--font-display);
     font-size: 20px;
     font-weight: 700;
     color: var(--primary-dark);
@@ -430,7 +427,7 @@
           </tbody>
         </table>
       </div>
-      <div class="info-text-card" style="background:linear-gradient(135deg, rgba(245,168,0,0.06) 0%, white 100%);border-color:rgba(245,168,0,0.3)">
+      <div class="info-text-card" style="background:linear-gradient(135deg, rgba(232,212,185,0.06) 0%, white 100%);border-color:rgba(232,212,185,0.3)">
         <h3>O que fazer para escalar?</h3>
         <p>O Novo Lar é um avanço identificado no diagnóstico. Para ampliar impacto, seria importante:</p>
         <ul class="info-bullets">
@@ -648,7 +645,7 @@ if (typeof Chart !== 'undefined') {
         labels: ['Pecuária', 'Agricultura', 'Área urbanizada', 'Extração mineral'],
         datasets: [{
           data: [100, 75, 20, 10],
-          backgroundColor: ['#f5a800', '#639922', '#3498db', '#b94e3a'],
+          backgroundColor: ['#E8D4B9', '#639922', '#3498db', '#b94e3a'],
           borderRadius: 8,
           barThickness: 36
         }]
@@ -660,7 +657,7 @@ if (typeof Chart !== 'undefined') {
         plugins: {
           legend: { display: false },
           tooltip: {
-            backgroundColor: '#1a4a2e',
+            backgroundColor: '#0B5A4B',
             callbacks: { label: (ctx) => ` ${ctx.parsed.x}% (proporção relativa)` }
           }
         },
@@ -686,10 +683,10 @@ if (typeof Chart !== 'undefined') {
           data: [83.1, 71.4, 66.1, 7.1],
           backgroundColor: (ctx) => {
             const val = ctx.parsed?.y;
-            if (val === undefined) return '#1a4a2e';
+            if (val === undefined) return '#0B5A4B';
             if (val < 20) return '#b94e3a';
-            if (val < 70) return '#f5a800';
-            return '#1a4a2e';
+            if (val < 70) return '#E8D4B9';
+            return '#0B5A4B';
           },
           borderRadius: 8,
           barThickness: 60
@@ -701,7 +698,7 @@ if (typeof Chart !== 'undefined') {
         plugins: {
           legend: { display: false },
           tooltip: {
-            backgroundColor: '#1a4a2e',
+            backgroundColor: '#0B5A4B',
             callbacks: { label: (ctx) => ` ${ctx.parsed.y}% dos domicílios` }
           }
         },
