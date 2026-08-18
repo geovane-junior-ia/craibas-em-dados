@@ -106,7 +106,7 @@
       busca: ''
     },
     selectedId: null,
-    sort: 'nome'
+    sort: 'categoria'
   };
 
   function getFiltered() {
@@ -356,7 +356,7 @@
     'conjunto habitacional':         { lat: -9.6178, lng: -36.7680 }, // ~
 
     // ===== POVOADOS RURAIS =====
-    // Folha Miúda confirmada via OSM (-9.7033, -36.7952 — ao sul do município)
+    // Folha Miúda confirmada via OSM (-9.7033, -36.7952 — ao sul do Município)
     'sítio folha miúda':             { lat: -9.7033, lng: -36.7952 }, // ✓
     'sitio folha miuda':             { lat: -9.7033, lng: -36.7952 },
     'folha miúda':                   { lat: -9.7033, lng: -36.7952 }, // ✓
@@ -596,7 +596,7 @@
     leafletMap = L.map('leaflet-map', {
       center: CRAIBAS_CENTER,
       zoom: 18,                   // zoom 18 = nível de telhados / endereço específico
-      minZoom: 10,                // permite afastar até ver o município todo (caso queira)
+      minZoom: 10,                // permite afastar até ver o Município todo (caso queira)
       maxZoom: 19,                // máximo de aproximação (ainda mais perto se precisar)
       // Scroll-zoom é ativado quando o usuário CLICA no mapa (hover/foco)
       // e desativado ao clicar fora — assim a rolagem da página continua

@@ -689,11 +689,11 @@
   const modalData = {
     mineracao: {
       img: 'images/mineracao-mapa.jpeg',
-      title: 'Mineração — Projeto Serrote',
+      title: 'Mineração em Craíbas',
       body: `<p>A mineração constitui potencial econômico relevante em Craíbas, especialmente em razão da presença
         de substâncias minerais de interesse econômico (cobre, calcário e areia) e da existência de processos minerários e
-        empreendimentos associados. O <strong>Projeto Serrote</strong>, voltado à extração de cobre, é o principal
-        empreendimento ativo no município.</p>
+        empreendimentos associados. O principal
+        empreendimento ativo no Município.</p>
         <p>O setor industrial — fortemente influenciado pela mineração — responde por <strong>32,7% do VAB municipal</strong>
         (R$ 150,3 milhões em 2021), sendo o setor de maior peso na economia local. O aproveitamento sustentável
         depende de regulação adequada e de articulação com objetivos mais amplos de desenvolvimento.</p>`,
@@ -706,7 +706,7 @@
     fumicultura: {
       img: 'images/fumicultura.png',
       title: 'Fumicultura',
-      body: `<p>A fumicultura é uma das atividades agropecuárias mais tradicionais do município, ocupando
+      body: `<p>A fumicultura é uma das atividades agropecuárias mais tradicionais do Município, ocupando
         áreas significativas no território rural. O cultivo do fumo está associado à organização familiar
         da produção, com forte presença de pequenos produtores.</p>
         <p>Junto com a mandioca e a bovinocultura/caprinocultura, integra a base agropecuária de Craíbas,
