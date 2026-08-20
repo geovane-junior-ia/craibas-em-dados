@@ -367,6 +367,11 @@ body {
 </style>
 </head>
 <body>
+<button type="button" title="Tela cheia (Esc para sair)" aria-label="Alternar tela cheia"
+  style="position:fixed;top:14px;right:14px;z-index:999;width:38px;height:38px;border-radius:50%;border:1px solid rgba(0,54,45,0.3);background:rgba(255,255,255,0.9);color:#00362D;font-size:14px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.15)"
+  onclick="if(document.fullscreenElement){document.exitFullscreen();this.firstElementChild.className='ti ti-maximize';}else{document.documentElement.requestFullscreen();this.firstElementChild.className='ti ti-minimize';}">
+  <i class="ti ti-maximize"></i>
+</button>
 
 <!-- BANNER PRINCIPAL -->
 <div class="pd-banner">

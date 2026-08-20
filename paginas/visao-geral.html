@@ -52,6 +52,10 @@
         <a href="../index.html#capitulos" class="active">Eixos Temáticos</a>
         <a href="../index.html#contato">Contato</a>
       </nav>
+      <button class="fullscreen-toggle" type="button" title="Tela cheia (Esc para sair)" aria-label="Alternar tela cheia"
+        onclick="if(document.fullscreenElement){document.exitFullscreen();this.firstElementChild.className='fas fa-expand';}else{document.documentElement.requestFullscreen();this.firstElementChild.className='fas fa-compress';}">
+        <i class="fas fa-expand"></i>
+      </button>
       <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">
         <span></span><span></span><span></span>
       </button>
@@ -164,6 +168,10 @@
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             allowfullscreen></iframe>
+          <button class="map-fullscreen-btn" type="button" aria-label="Ver mapa em tela cheia"
+            onclick="var w=this.closest('.map-embed-wrap');if(document.fullscreenElement){document.exitFullscreen();this.innerHTML='<i class=\'fas fa-expand\'></i> Tela cheia';}else{w.requestFullscreen();this.innerHTML='<i class=\'fas fa-compress\'></i> Sair';}">
+            <i class="fas fa-expand"></i> Tela cheia
+          </button>
           <a class="map-embed-link"
              href="https://www.google.com/maps/place/Cra%C3%ADbas,+AL/@-9.6235,-36.7681,10z"
              target="_blank" rel="noopener noreferrer">

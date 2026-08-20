@@ -1581,3 +1581,58 @@ img, svg, video, iframe { max-width: 100%; }
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 .fade-up.in-view { opacity: 1; transform: translateY(0); }
+
+/* ====== BOTÃO TELA CHEIA (mapas) ====== */
+.map-fullscreen-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  background: white;
+  color: var(--primary-dark);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border-radius: 100px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 5;
+}
+.map-fullscreen-btn:hover {
+  background: var(--accent);
+  color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+.map-embed-wrap:fullscreen { aspect-ratio: auto; border-radius: 0; }
+.map-embed-wrap:fullscreen .map-embed { width: 100%; height: 100%; }
+
+/* ====== BOTÃO TELA CHEIA GLOBAL (header) ====== */
+.fullscreen-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+.fullscreen-toggle:hover {
+  color: var(--primary-dark);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+@media (max-width: 600px) {
+  .fullscreen-toggle { display: none; } /* em celular o navegador já é imersivo */
+}
